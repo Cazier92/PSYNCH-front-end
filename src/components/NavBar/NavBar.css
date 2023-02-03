@@ -1,0 +1,13 @@
+nav {
+  height: 50px;
+}
+
+ul {
+  display: flex;
+  list-style-type: none;
+  justify-content: flex-end;
+}
+
+li {
+  padding-right: 10px;
+}
