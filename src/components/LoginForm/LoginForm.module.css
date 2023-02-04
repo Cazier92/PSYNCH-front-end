@@ -1,10 +1,16 @@
 .container {
   display: flex;
   flex-flow: column nowrap;
-  justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   margin-bottom: 50px;
-  /* border: 1px solid; */
+}
+
+input {
+  height: 30px;
+  width: 400px;
+  border-radius: 4px;
+  border: 1px solid;
+  margin-top: 10px;
 }
 
 .label,
@@ -14,4 +20,10 @@
 
 .inputContainer {
   margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.btnMargin {
+  margin-right: 8px;
 }
