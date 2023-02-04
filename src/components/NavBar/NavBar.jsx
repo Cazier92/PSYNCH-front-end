@@ -32,7 +32,9 @@ const [open, setOpen] = useState(false)
       :
         <>
           <div className='left-nav'>
-          <p>PSYNCH</p>
+          <Link to="/" style={ linkStyle } >
+          PSYNCH 
+          </Link>
           </div>
           <div className='right-nav'>
             <button className={`menu-btn ${open ? "active" : "inactive"}`} onClick={() => (setOpen(!open))}>

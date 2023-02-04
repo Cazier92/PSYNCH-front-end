@@ -1,0 +1,30 @@
+.hero {
+  display: flex;
+  flex-direction: row;
+  max-width: 100%;
+  height: 70vh;
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 0px 16px;
+}
+
+.hero-statement,
+.hero-image {
+  display: flex;
+  flex-direction: column;
+  min-height: fit-content;
+  min-width: 50%;
+  background-color: rgb(255, 255, 255);
+}
+
+.hero-statement {
+  font-size: 100%;
+  justify-content: center;
+  /* padding:4rem */
+}
+
+.sign-up-btn {
+  max-width: 8rem;
+}
+
+.hero-image{
+  background-color: rgb(236, 236, 236);
+}
