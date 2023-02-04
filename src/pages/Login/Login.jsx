@@ -11,9 +11,7 @@ const LoginPage = (props) => {
 
   return (
     <main className={styles.container}>
-      <div className={styles.leftContainer}>
-        {/* <img src="./hands.jpeg" alt="" /> */}
-      </div>
+      <div className={styles.leftContainer}></div>
       <div className={styles.rightContainer}>
         <h1>Log In</h1>
         <p>{message}</p>

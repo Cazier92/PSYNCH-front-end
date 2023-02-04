@@ -10,8 +10,6 @@
   width: 50%;
   background-size: cover;
   background-repeat: no-repeat;
-  /* background-size: 90%; */
-  /* background-repeat: no-repeat; */
 }
 
 .rightContainer {
@@ -19,7 +17,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-left: 100px;
+  margin-left: 150px;
   width: 400px;
   height: 100vh;
 }

@@ -61,6 +61,9 @@ const LoginForm = (props) => {
         </div>
         <div>
           <button className={styles.button}>Log In</button>
+          <Link className={styles.btnMargin} to="/signup">
+            <button>Sign Up</button>
+          </Link>
           <Link to="/">
             <button>Cancel</button>
           </Link>
