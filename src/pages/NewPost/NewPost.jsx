@@ -3,7 +3,7 @@ import styles from "./NewPost.module.css";
 
 const NewPost = (props) => {
   const [form, setForm] = useState({
-    emotion: "",
+    emotion: "Bored",
     content: "",
     public: Boolean,
   });
@@ -19,8 +19,105 @@ const NewPost = (props) => {
 
   return (
     <div className={styles.container}>
-      <h1>CREATE POST</h1>
+      <h1>What's on your mind today?</h1>
       <form onSubmit={handleSubmit}>
+        <div className={styles.emotions}>
+          {form.emotion === "Bored" && (
+            <span role="img" aria-label="Bored">
+              😒
+            </span>
+          )}
+          {form.emotion === "Stressed" && (
+            <span role="img" aria-label="Stressed">
+              😫
+            </span>
+          )}
+          {form.emotion === "Tired" && (
+            <span role="img" aria-label="Tired">
+              😴
+            </span>
+          )}
+          {form.emotion === "Anxious" && (
+            <span role="img" aria-label="Anxious">
+              😰
+            </span>
+          )}
+          {form.emotion === "Rejected" && (
+            <span role="img" aria-label="Rejected">
+              😔
+            </span>
+          )}
+          {form.emotion === "Scared" && (
+            <span role="img" aria-label="Scared">
+              😱
+            </span>
+          )}
+          {form.emotion === "Mad" && (
+            <span role="img" aria-label="Mad">
+              😠
+            </span>
+          )}
+          {form.emotion === "Jealous" && (
+            <span role="img" aria-label="Jealous">
+              😒
+            </span>
+          )}
+          {form.emotion === "Betrayed" && (
+            <span role="img" aria-label="Betrayed">
+              😔
+            </span>
+          )}
+          {form.emotion === "Embarrassed" && (
+            <span role="img" aria-label="Embarrassed">
+              😳
+            </span>
+          )}
+          {form.emotion === "Disgusted" && (
+            <span role="img" aria-label="Disgusted">
+              🤢
+            </span>
+          )}
+          {form.emotion === "Lonely" && (
+            <span role="img" aria-label="Lonely">
+              😔
+            </span>
+          )}
+          {form.emotion === "Guilty" && (
+            <span role="img" aria-label="Guilty">
+              😔
+            </span>
+          )}
+          {form.emotion === "Hurt" && (
+            <span role="img" aria-label="Hurt">
+              😢
+            </span>
+          )}
+          {form.emotion === "Optimistic" && (
+            <span role="img" aria-label="Optimistic">
+              😃
+            </span>
+          )}
+          {form.emotion === "Peaceful" && (
+            <span role="img" aria-label="Peaceful">
+              😌
+            </span>
+          )}
+          {form.emotion === "Powerful" && (
+            <span role="img" aria-label="Powerful">
+              😎
+            </span>
+          )}
+          {form.emotion === "Accepted" && (
+            <span role="img" aria-label="Accepted">
+              😊
+            </span>
+          )}
+          {form.emotion === "Joyful" && (
+            <span role="img" aria-label="Joyful">
+              😊
+            </span>
+          )}
+        </div>
         <label htmlFor="emotion-input">How are you feeling today?</label>
         <select
           required
@@ -62,7 +159,7 @@ const NewPost = (props) => {
           value={form.content}
           onChange={handleChange}
           placeholder="Write your post here"
-          cols="60"
+          cols="40"
           rows="10"
         ></textarea>
         <button type="submit">SUBMIT</button>

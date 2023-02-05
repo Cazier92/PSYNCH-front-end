@@ -7,9 +7,35 @@
   height: 100vh;
 }
 
+.container h1 {
+  text-align: center;
+}
+
 form {
   display: flex;
   flex-direction: column;
+}
+
+label {
+  margin: 10px 0;
+}
+
+select {
+  height: 50px;
+  font-size: 20px;
+  padding-left: 15px;
+}
+
+textarea {
+  padding-left: 15px;
+  padding-top: 15px;
+  font-size: 20px;
+}
+
+span {
+  font-size: 60px;
+  display: flex;
+  justify-content: center;
 }
 
 @media screen and (max-width: 900px) {
