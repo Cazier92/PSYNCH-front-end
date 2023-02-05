@@ -20,8 +20,17 @@ const show = async (id) => {
   }
 }
 
+const feed = async (userId) => {
+  try {
+    const res = await fetch(`${BASE_URL}/${userId}`)
+    return res.json
+  } catch (error) {
+    console.log(error)
+  }
+}
+
 export { 
   index,
   show,
-  
+  feed,
 }
