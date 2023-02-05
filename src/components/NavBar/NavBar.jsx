@@ -20,6 +20,16 @@ const NavBar = ({ user, handleLogout }) => {
           </div>
           <div className="right-nav">
             <button>
+              <Link to="/global-feed" style={linkStyle}>
+                Global Feed
+              </Link>
+            </button>
+            <button>
+              <Link to="/posts/new" style={linkStyle}>
+                Create Post
+              </Link>
+            </button>
+            <button>
               <Link to="" style={linkStyle} onClick={handleLogout}>
                 LOG OUT
               </Link>
