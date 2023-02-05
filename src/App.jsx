@@ -16,6 +16,7 @@ import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute'
 
 // services
 import * as authService from './services/authService'
+import * as emotionPostService from './services/emotionPostService'
 
 // styles
 import './App.css'
@@ -24,7 +25,8 @@ const App = () => {
   const [user, setUser] = useState(authService.getUser())
   const navigate = useNavigate()
 
-  const handleLogout = () => {
+
+  function handleLogout() {
     authService.logout()
     setUser(null)
     navigate('/')
