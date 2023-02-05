@@ -21,9 +21,9 @@ const show = async (id) => {
   }
 }
 
-const feed = async (userId) => {
+const feed = async () => {
   try {
-    const res = await fetch(`${BASE_URL}/${userId}`, {
+    const res = await fetch(`${BASE_URL}/feed`, {
       headers: {'Authorization': `Bearer ${tokenService.getToken()}`}
     })
     return res.json
