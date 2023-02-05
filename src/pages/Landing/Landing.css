@@ -24,8 +24,7 @@ main {
   background-color: rgb(255, 255, 255);
 }
 
-
-.hero-image{
+.hero-image {
   background-color: rgb(236, 236, 236);
 }
 
@@ -55,7 +54,7 @@ p:first-child {
 @media screen and (max-width: 900px) {
   .hero {
     display: flex;
-    flex-direction:column-reverse;
+    flex-direction: column-reverse;
     flex-flow: row;
     flex-wrap: wrap;
     max-width: 100%;
@@ -69,7 +68,7 @@ p:first-child {
     font-size: 1.2em;
   }
 
-  .hero-statement{
+  .hero-statement {
     order: 2;
     display: flex;
     flex-direction: column;
@@ -86,9 +85,8 @@ p:first-child {
     background-color: rgb(255, 255, 255);
   }
 
-
   .hero-image {
-    order:1;
+    order: 1;
     display: flex;
     flex-direction: column;
     position: relative;
@@ -101,9 +99,7 @@ p:first-child {
   }
 
   .sign-up-btn {
-
   }
-  
 }
 
 /* MAIN */
@@ -116,7 +112,7 @@ p:first-child {
   padding-right: 5rem;
 }
 
-.main-moods{
+.main-moods {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -134,17 +130,14 @@ p:first-child {
   width: 10em;
   height: 10em;
   background-color: white;
-  border-radius: .5rem;
+  border-radius: 0.5rem;
   box-shadow: rgba(17, 17, 26, 0.1) 0px 0px 16px;
   cursor: pointer;
-
 }
 
 .main-moods > div:hover {
-  background-color: rgb(249,250,251);
-
+  background-color: rgb(249, 250, 251);
 }
-
 
 @media screen and (max-width: 900px) {
   .main-content {
@@ -153,10 +146,9 @@ p:first-child {
 
   .main-content > p {
     text-align: center;
-    
   }
 
-  .main-moods{
+  .main-moods {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -175,10 +167,8 @@ p:first-child {
     width: 5em;
     height: 5em;
     background-color: white;
-    border-radius: .5rem;
+    border-radius: 0.5rem;
     box-shadow: rgba(17, 17, 26, 0.1) 0px 0px 16px;
     cursor: pointer;
-  
   }
-
 }

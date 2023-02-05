@@ -27,3 +27,17 @@ input {
 .btnMargin {
   margin-right: 8px;
 }
+
+@media screen and (max-width: 900px) {
+  .container {
+    display: flex;
+    align-items: center;
+    max-width: 100%;
+    min-height: 10em;
+  }
+
+  input {
+    height: 30px;
+    width: 250px;
+  }
+}
