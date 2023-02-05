@@ -20,4 +20,18 @@ async function addPhoto(photoData, profileId) {
   return await res.json()
 }
 
-export { getAllProfiles, addPhoto }
+const friendsIdx = async () => {
+  try {
+    const res = await fetch(`${BASE_URL}/friends`)
+    return res.json
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+export { 
+  getAllProfiles, 
+  addPhoto,
+  friendsIdx,
+  
+}
