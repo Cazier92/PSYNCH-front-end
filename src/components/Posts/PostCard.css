@@ -1,3 +1,11 @@
 .card-container {
+  min-width: 30em;
+  max-width: 30em;
+  min-height: 12em;
+  margin-bottom: 3em;
   background-color: rgb(197, 197, 197);
+}
+
+.post-avatar {
+  background-color: ;
 }

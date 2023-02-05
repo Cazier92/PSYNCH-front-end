@@ -20,4 +20,70 @@ async function addPhoto(photoData, profileId) {
   return await res.json()
 }
 
-export { getAllProfiles, addPhoto }
+const friendsIdx = async () => {
+  try {
+    const res = await fetch(`${BASE_URL}/friends`, {
+      headers: { 'Authorization': `Bearer ${tokenService.getToken()}` },
+    })
+    return res.json
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+const friendRequests = async () => {
+  try {
+    const res = await fetch(`${BASE_URL}/friendRequests`, {
+      headers: { 'Authorization': `Bearer ${tokenService.getToken()}` },
+    })
+    return res.json
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+const sendFriendRequest = async (id) => {
+  try {
+    const res = await fetch(`${BASE_URL}/${id}/sendFriendRequest`, {
+      method: 'PATCH',
+      headers: { 'Authorization': `Bearer ${tokenService.getToken()}` },
+    })
+    return res.json
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+const acceptRequest = async (id) => {
+  try {
+    const res = await fetch(`${BASE_URL}/${id}/acceptRequest`, {
+      method: 'PATCH',
+      headers: { 'Authorization': `Bearer ${tokenService.getToken()}` },
+    })
+    return res.json
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+const denyRequest = async (id) => {
+  try {
+    const res = await fetch(`${BASE_URL}/${id}/denyRequest`, {
+      method: 'PATCH',
+      headers: { 'Authorization': `Bearer ${tokenService.getToken()}` },
+    })
+    return res.json
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+export { 
+  getAllProfiles, 
+  addPhoto,
+  friendsIdx,
+  friendRequests,
+  sendFriendRequest,
+  acceptRequest,
+  denyRequest,
+}
