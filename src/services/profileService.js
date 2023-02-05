@@ -22,7 +22,32 @@ async function addPhoto(photoData, profileId) {
 
 const friendsIdx = async () => {
   try {
-    const res = await fetch(`${BASE_URL}/friends`)
+    const res = await fetch(`${BASE_URL}/friends`, {
+      headers: { 'Authorization': `Bearer ${tokenService.getToken()}` },
+    })
+    return res.json
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+const friendRequests = async () => {
+  try {
+    const res = await fetch(`${BASE_URL}/friendRequests`, {
+      headers: { 'Authorization': `Bearer ${tokenService.getToken()}` },
+    })
+    return res.json
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+const sendFriendRequest = async (id) => {
+  try {
+    const res = await fetch(`${BASE_URL}/${id}/sendFriendRequest`, {
+      method: 'PATCH',
+      headers: { 'Authorization': `Bearer ${tokenService.getToken()}` },
+    })
     return res.json
   } catch (error) {
     console.log(error)
@@ -33,5 +58,6 @@ export {
   getAllProfiles, 
   addPhoto,
   friendsIdx,
-  
+  friendRequests,
+  sendFriendRequest,
 }
