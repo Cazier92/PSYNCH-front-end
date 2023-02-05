@@ -98,7 +98,7 @@ const update = async (emotionPostData) => {
   }
 }
 
-const updateComment= async (id, commentData) => {
+const updateComment = async (id, commentData) => {
   try {
     const res = 
     await fetch(`${BASE_URL}/${id}/comments/${commentData._id}`, {
@@ -115,7 +115,7 @@ const updateComment= async (id, commentData) => {
   }
 }
 
-const updateReaction= async (id, reactionData) => {
+const updateReaction = async (id, reactionData) => {
   try {
     const res = 
     await fetch(`${BASE_URL}/${id}/reactions/${reactionData._id}`, {
@@ -132,7 +132,7 @@ const updateReaction= async (id, reactionData) => {
   }
 }
 
-const deleteEmotionPost= async (id) => {
+const deleteEmotionPost = async (id) => {
   try {
     const res = await fetch(`${BASE_URL}/${id}`, {
       method: 'DELETE',
@@ -144,7 +144,7 @@ const deleteEmotionPost= async (id) => {
   }
 }
 
-const deleteComment= async (emotionPostId, commentId) => {
+const deleteComment = async (emotionPostId, commentId) => {
   try {
     const res = await fetch(`${BASE_URL}/${emotionPostId}/comments/${commentId}`, {
       method: 'DELETE',
@@ -156,7 +156,7 @@ const deleteComment= async (emotionPostId, commentId) => {
   }
 }
 
-const deleteReaction= async (emotionPostId, reactionId) => {
+const deleteReaction = async (emotionPostId, reactionId) => {
   try {
     const res = await fetch(`${BASE_URL}/${emotionPostId}/reactions/${reactionId}`, {
       method: 'DELETE',
