@@ -1,4 +1,4 @@
-import react from 'react'
+
 import * as tokenService from './tokenService'
 
 const BASE_URL = `${process.env.REACT_APP_BACK_END_SERVER_URL}/api/emotionPosts`
@@ -6,7 +6,7 @@ const BASE_URL = `${process.env.REACT_APP_BACK_END_SERVER_URL}/api/emotionPosts`
 const index = async () => {
   try {
     const res = await fetch(BASE_URL)
-    return res.json
+    return res.json()
   } catch (error) {
     console.log(error)
   }
@@ -132,25 +132,37 @@ const updateReaction= async (id, reactionData) => {
   }
 }
 
-const deleteEmotionPost= async () => {
+const deleteEmotionPost= async (id) => {
   try {
-
+    const res = await fetch(`${BASE_URL}/${id}`, {
+      method: 'DELETE',
+      headers: {'Authorization': `Bearer ${tokenService.getToken()}`}
+    })
+    return res.json()
   } catch (error) {
     console.log(error)
   }
 }
 
-const deleteComment= async () => {
+const deleteComment= async (emotionPostId, commentId) => {
   try {
-
+    const res = await fetch(`${BASE_URL}/${emotionPostId}/comments/${commentId}`, {
+      method: 'DELETE',
+      headers: {'Authorization': `Bearer ${tokenService.getToken()}`}
+    })
+    return res.json()
   } catch (error) {
     console.log(error)
   }
 }
 
-const deleteReaction= async () => {
+const deleteReaction= async (emotionPostId, reactionId) => {
   try {
-
+    const res = await fetch(`${BASE_URL}/${emotionPostId}/reactions/${reactionId}`, {
+      method: 'DELETE',
+      headers: {'Authorization': `Bearer ${tokenService.getToken()}`}
+    })
+    return res.json()
   } catch (error) {
     console.log(error)
   }
