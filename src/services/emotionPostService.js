@@ -1,3 +1,4 @@
+import react from 'react'
 import * as tokenService from './tokenService'
 
 const BASE_URL = `${process.env.REACT_APP_BACK_END_SERVER_URL}/api/emotionPosts`
@@ -63,9 +64,17 @@ const createComment = async (id, commentData) => {
   }
 }
 
-const addReaction = async () => {
+const addReaction = async (id, reactionData) => {
   try {
-
+    const res = await fetch(`${BASE_URL}/${id}/reactions`, {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${tokenService.getToken()}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(reactionData)
+    })
+    return res.json()
   } catch (error) {
     console.log(error)
   }
