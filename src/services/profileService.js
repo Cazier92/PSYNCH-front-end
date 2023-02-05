@@ -66,6 +66,18 @@ const acceptRequest = async (id) => {
   }
 }
 
+const denyRequest = async (id) => {
+  try {
+    const res = await fetch(`${BASE_URL}/${id}/denyRequest`, {
+      method: 'PATCH',
+      headers: { 'Authorization': `Bearer ${tokenService.getToken()}` },
+    })
+    return res.json
+  } catch (error) {
+    console.log(error)
+  }
+}
+
 export { 
   getAllProfiles, 
   addPhoto,
@@ -73,4 +85,5 @@ export {
   friendRequests,
   sendFriendRequest,
   acceptRequest,
+  denyRequest,
 }
