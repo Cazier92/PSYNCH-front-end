@@ -47,9 +47,27 @@ const create = async (emotionPostData) => {
   }
 }
 
+const update = async (emotionPostData) => {
+  try {
+    const res = await fetch(`${BASE_URL}/${emotionPostData._id}`, {
+      method: 'PUT',
+      headers: {
+        'Authorization': `Bearer ${tokenService.getToken()}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(emotionPostData)
+    })
+    return res.json()
+  } catch (error) {
+    console.log(error)
+  }
+}
+
 export { 
   index,
   show,
   feed,
   create,
+  update,
+  
 }
