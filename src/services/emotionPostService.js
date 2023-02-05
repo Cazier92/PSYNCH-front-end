@@ -47,6 +47,24 @@ const create = async (emotionPostData) => {
   }
 }
 
+const createComment = async () => {
+  try {
+
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+const addReaction = async () => {
+  try {
+
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+
+
 const update = async (emotionPostData) => {
   try {
     const res = await fetch(`${BASE_URL}/${emotionPostData._id}`, {
@@ -63,11 +81,59 @@ const update = async (emotionPostData) => {
   }
 }
 
+const updateComment= async () => {
+  try {
+
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+const updateReactiont= async () => {
+  try {
+
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+const deleteEmotionPost= async () => {
+  try {
+
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+const deleteComment= async () => {
+  try {
+
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+const deleteReaction= async () => {
+  try {
+
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+
+
 export { 
   index,
   show,
   feed,
   create,
+  createComment,
+  addReaction,
   update,
-  
+  updateComment,
+  updateReaction,
+  deleteEmotionPost,
+  deleteComment,
+  deleteReaction,
 }
