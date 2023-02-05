@@ -98,10 +98,10 @@ const update = async (emotionPostData) => {
   }
 }
 
-const updateComment= async (emotionPostData, commentData) => {
+const updateComment= async (id, commentData) => {
   try {
     const res = 
-    await fetch(`${BASE_URL}/${emotionPostData._id}/comments/${commentData._id}`, {
+    await fetch(`${BASE_URL}/${id}/comments/${commentData._id}`, {
       method: 'PUT',
       headers: {
         'Authorization': `Bearer ${tokenService.getToken()}`,
@@ -115,9 +115,18 @@ const updateComment= async (emotionPostData, commentData) => {
   }
 }
 
-const updateReaction= async () => {
+const updateReaction= async (id, reactionData) => {
   try {
-
+    const res = 
+    await fetch(`${BASE_URL}/${id}/reactions/${reactionData._id}`, {
+      method: 'PUT',
+      headers: {
+        'Authorization': `Bearer ${tokenService.getToken()}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(reactionData)
+    })
+    return res.json()
   } catch (error) {
     console.log(error)
   }
