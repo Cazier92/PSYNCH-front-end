@@ -54,10 +54,23 @@ const sendFriendRequest = async (id) => {
   }
 }
 
+const acceptRequest = async (id) => {
+  try {
+    const res = await fetch(`${BASE_URL}/${id}/acceptRequest`, {
+      method: 'PATCH',
+      headers: { 'Authorization': `Bearer ${tokenService.getToken()}` },
+    })
+    return res.json
+  } catch (error) {
+    console.log(error)
+  }
+}
+
 export { 
   getAllProfiles, 
   addPhoto,
   friendsIdx,
   friendRequests,
   sendFriendRequest,
+  acceptRequest,
 }
