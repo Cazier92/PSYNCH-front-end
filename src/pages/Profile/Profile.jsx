@@ -3,6 +3,7 @@ import { useState,useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
 import SendFriendRequest from '../../components/FriendRequests/SendFriendRequest/SendFriendRequest';
+import PostList from '../PostList/PostList';
 
 const Profile = ({user}) => {
   const {id} = useParams()
@@ -22,9 +23,10 @@ const Profile = ({user}) => {
   if (!profile) return <h1>Loading</h1>
   return ( 
     <>
-      <h1>Hello</h1>
       <h1>{profile.name}</h1>
+      <img src={profile.avatar} alt="" />
       <SendFriendRequest profile={profile} user={user}/>
+      <PostList posts={profile.emotionPosts} />
     </>
   );
 }
