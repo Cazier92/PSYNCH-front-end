@@ -1,6 +1,7 @@
 // npm modules
 import { useState } from 'react'
 import { Routes, Route, useNavigate, Navigate } from 'react-router-dom'
+import { useEffect } from 'react'
 
 // page components
 import Signup from './pages/Signup/Signup'
@@ -8,11 +9,13 @@ import Login from './pages/Login/Login'
 import Landing from './pages/Landing/Landing'
 import Profiles from './pages/Profiles/Profiles'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
-import GlobalFeed from './pages/GlobalFeed/GlobalFeed'
+import PostList from './pages/PostList/PostList'
 
 // components
 import NavBar from './components/NavBar/NavBar'
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute'
+
+
 
 // services
 import * as authService from './services/authService'
@@ -35,6 +38,18 @@ const App = () => {
   const handleSignupOrLogin = () => {
     setUser(authService.getUser())
   }
+
+
+  const [posts, setPosts] = useState([])
+  useEffect(() => {
+    const fetchPosts = async () => {
+      const postData = await emotionPostService.index()
+      setPosts(postData)
+      console.log("Data:", postData)
+      console.log("Posts:", posts)
+    }
+    fetchPosts()
+  }, [])
 
   return (
     <>
@@ -68,7 +83,7 @@ const App = () => {
         <Route
           path="/global-feed"
           element={
-            <GlobalFeed />
+            <PostList posts={posts} />
           }
         />
       </Routes>
