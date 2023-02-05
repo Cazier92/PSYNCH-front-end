@@ -2,8 +2,27 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: auto;
+  margin: 0 200px;
+  height: 100vh;
 }
+
 form {
   display: flex;
   flex-direction: column;
+}
+
+@media screen and (max-width: 900px) {
+  .container {
+    display: flex;
+    max-width: 100%;
+    min-height: 10em;
+    margin: 0;
+    height: 600px;
+    margin-top: 30px;
+  }
+
+  textarea {
+    width: 70vw;
+  }
 }

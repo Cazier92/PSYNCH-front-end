@@ -20,6 +20,7 @@ const NewPost = (props) => {
     <div className={styles.container}>
       <h1>CREATE POST</h1>
       <form onSubmit={handleSubmit}>
+        <label htmlFor="emotion-input">How are you feeling today?</label>
         <select
           required
           name="emotion"
@@ -60,7 +61,7 @@ const NewPost = (props) => {
           value={form.content}
           onChange={handleChange}
           placeholder="Write your post here"
-          cols="30"
+          cols="60"
           rows="10"
         ></textarea>
         <button type="submit">SUBMIT</button>
