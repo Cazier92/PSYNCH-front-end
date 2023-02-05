@@ -29,3 +29,21 @@
   width: 400px;
   height: 100vh;
 }
+
+@media screen and (max-width: 900px) {
+  .container {
+    display: flex;
+    justify-content: center;
+    max-width: 100%;
+    min-height: 10em;
+    margin-right: 150px;
+  }
+
+  .leftContainer {
+    display: none;
+  }
+
+  .rightContainer h1 {
+    text-align: center;
+  }
+}
