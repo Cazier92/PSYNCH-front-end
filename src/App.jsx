@@ -11,6 +11,7 @@ import Profiles from "./pages/Profiles/Profiles";
 import ChangePassword from "./pages/ChangePassword/ChangePassword";
 import PostList from "./pages/PostList/PostList";
 import NewPost from "./pages/NewPost/NewPost";
+import Profile from "./pages/Profile/Profile";
 
 // components
 import NavBar from "./components/NavBar/NavBar";
@@ -49,8 +50,8 @@ const App = () => {
     const fetchPosts = async () => {
       const postData = await emotionPostService.index();
       setPosts(postData);
-      console.log("Data:", postData);
-      console.log("Posts:", posts);
+      // console.log("Data:", postData);
+      // console.log("Posts:", posts);
     };
     fetchPosts();
   }, []);
@@ -93,6 +94,13 @@ const App = () => {
           }
         />
         <Route path="/global-feed" element={<PostList posts={posts} />} />
+        <Route 
+          path="/profile/:id" 
+          element={
+          <ProtectedRoute user={user}>
+            <Profile user={user}/>
+          </ProtectedRoute>
+      } />
       </Routes>
     </>
   );

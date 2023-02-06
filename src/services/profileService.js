@@ -25,7 +25,7 @@ const friendsIdx = async () => {
     const res = await fetch(`${BASE_URL}/friends`, {
       headers: { 'Authorization': `Bearer ${tokenService.getToken()}` },
     })
-    return res.json
+    return res.json()
   } catch (error) {
     console.log(error)
   }
@@ -36,7 +36,7 @@ const friendRequests = async () => {
     const res = await fetch(`${BASE_URL}/friendRequests`, {
       headers: { 'Authorization': `Bearer ${tokenService.getToken()}` },
     })
-    return res.json
+    return res.json()
   } catch (error) {
     console.log(error)
   }
@@ -48,7 +48,7 @@ const sendFriendRequest = async (id) => {
       method: 'PATCH',
       headers: { 'Authorization': `Bearer ${tokenService.getToken()}` },
     })
-    return res.json
+    return res.json()
   } catch (error) {
     console.log(error)
   }
@@ -60,7 +60,7 @@ const acceptRequest = async (id) => {
       method: 'PATCH',
       headers: { 'Authorization': `Bearer ${tokenService.getToken()}` },
     })
-    return res.json
+    return res.json()
   } catch (error) {
     console.log(error)
   }
@@ -72,7 +72,18 @@ const denyRequest = async (id) => {
       method: 'PATCH',
       headers: { 'Authorization': `Bearer ${tokenService.getToken()}` },
     })
-    return res.json
+    return res.json()
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+const show = async (id) => {
+  try {
+    const res = await fetch(`${BASE_URL}/${id}`, {
+      headers: { 'Authorization': `Bearer ${tokenService.getToken()}` },
+    })
+    return res.json()
   } catch (error) {
     console.log(error)
   }
@@ -86,4 +97,5 @@ export {
   sendFriendRequest,
   acceptRequest,
   denyRequest,
+  show,
 }
