@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./PostCard.css";
 
 const PostCard = ({ post }) => {
@@ -19,7 +20,9 @@ const PostCard = ({ post }) => {
       </div>
       <div className="post-footer">
         <div className="post-reaction">
-          <i id="reply-btn" class="fa-solid fa-reply"></i>
+          <Link to={`/emotionPosts/${post._id}`}>
+            <i id="reply-btn" class="fa-solid fa-reply"></i>
+          </Link>
           <i id="reaction-btn" class="fa-solid fa-heart"></i>
         </div>
       </div>
