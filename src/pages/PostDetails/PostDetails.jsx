@@ -4,7 +4,7 @@ import styles from "./PostDetails.module.css";
 
 import * as postService from "../../services/emotionPostService";
 
-const PostDetails = (props) => {
+const PostDetails = ({ posts }) => {
   const { id } = useParams();
   const [post, setPost] = useState(null);
 
@@ -21,6 +21,10 @@ const PostDetails = (props) => {
   return (
     <div>
       <h1>Post Details</h1>
+      <div className="post-avatar">{post.author.avatar}</div>
+      <h2>{post.author.name}</h2>
+      <h2>{post.content}</h2>
+      <p>{post.emotion}</p>
     </div>
   );
 };

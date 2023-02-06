@@ -96,14 +96,7 @@ const App = () => {
         />
         <Route path="/global-feed" element={<PostList posts={posts} />} />
 
-        <Route
-          path="/posts/:id"
-          element={
-            <ProtectedRoute>
-              <PostDetails user={user} />
-            </ProtectedRoute>
-          }
-        />
+        <Route path="/posts/:id" element={<PostDetails posts={posts} />} />
 
         <Route
           path="/profile/:id"
