@@ -20,30 +20,9 @@ const PostCard = ({ post }) => {
       </div>
       <div className='post-footer'>
         <div className='post-reaction'>
-          💬
+          <i class="fa-solid fa-reply"></i>
+          <i class="fa-regular fa-thumbs-up"></i> 
         </div>
-        <div className='post-reaction'>
-          👍
-        </div>
-        {/* <div>
-          👏 
-        </div>
-        <div>
-          🤲
-        </div>
-        <div>
-          😂
-        </div>
-        <div>
-          💛
-        </div>
-        <div>
-          💡
-        </div>
-        <div>
-          🤔
-        </div> */}
-        
       </div>
     </div>
    );
