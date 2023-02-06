@@ -1,9 +1,25 @@
 import React from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./PostCard.css";
 
-const PostCard = ({ post }) => {
+const PostCard = ({ post, user }) => {
   // console.log(post)
+  //* define reaction state
+  //* start with create and delete reaction, then move on to update
+  //* see if there is a reaction with an author._id matching the user.profile
+  //* if there isn't, state remains false
+  //* if there is, setState true
+  
+  if (post.reactions[0] !== undefined) {
+    console.log(post.reactions.some(reaction => reaction.author === user.profile))
+  }
+
+  const [userReaction, setUserReaction] = useState(false)
+
+  
+  
+
   return (
     <div className="post-container">
       <div className="post-header">
