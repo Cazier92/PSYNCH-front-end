@@ -32,7 +32,7 @@ const SendFriendRequest = (props) => {
     }
   }, [props.profile._id, props.profile.friendRequests, props.profile.friends, userProfile, userProfile.friendRequests])
   
-  console.log(friendState)
+  // console.log(friendState)
 
 
 

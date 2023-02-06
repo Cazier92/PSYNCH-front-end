@@ -66,15 +66,10 @@ const App = () => {
     fetchPosts();
   }, []);
 
-  const [userProfile, setUserProfile] = useState([])
 
-  useEffect(() => {
-    const fetchProfile = async () => {
-      const profileData = await profileService.show(user.profile)
-      setUserProfile(profileData)
-    }
-    fetchProfile()
-  }, [user.profile])
+
+  
+
 
   return (
     <>
@@ -133,7 +128,7 @@ const App = () => {
           path="/profile/friends"
           element={
             <ProtectedRoute user={user}>
-              <FriendList userProfile={userProfile} />
+              <FriendList user={user}/>
             </ProtectedRoute>
           }
         />
