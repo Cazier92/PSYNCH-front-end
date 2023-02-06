@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import './PostList.css'
-import PostCard from '../../components/Posts/PostCard'
+import PostCard from '../Posts/PostCard'
 
 // import { useState } from 'react'
 

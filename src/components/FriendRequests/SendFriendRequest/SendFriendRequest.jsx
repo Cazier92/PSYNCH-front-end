@@ -1,5 +1,5 @@
 import { useParams } from 'react-router-dom';
-import { useEffect, useInsertionEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 
 import * as profileService from '../../../services/profileService'
@@ -64,7 +64,9 @@ const SendFriendRequest = (props) => {
       <>
       
       <button onClick={() => {
-          return profileService.sendFriendRequest(props.profile._id);
+          return (
+            setFriendState('pending'),
+            profileService.sendFriendRequest(props.profile._id))
         }}>Add Friend</button>
       </>
     );
