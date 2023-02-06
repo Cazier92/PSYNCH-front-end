@@ -23,10 +23,11 @@ import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 // services
 import * as authService from "./services/authService";
 import * as emotionPostService from "./services/emotionPostService";
-import * as profileService from './services/profileService'
+import * as profileService from "./services/profileService";
 
 // styles
 import "./App.css";
+import EditPost from "./pages/EditPost/EditPost";
 
 const App = () => {
   const [user, setUser] = useState(authService.getUser());
@@ -71,11 +72,6 @@ const App = () => {
     };
     fetchPosts();
   }, []);
-
-
-
-  
-
 
   return (
     <>
@@ -134,7 +130,7 @@ const App = () => {
           path="/profile/friends"
           element={
             <ProtectedRoute user={user}>
-              <FriendList user={user}/>
+              <FriendList user={user} />
             </ProtectedRoute>
           }
         />
@@ -143,6 +139,14 @@ const App = () => {
           path="/emotionPosts/:id"
           element={
             <PostDetails user={user} handleDeletePost={handleDeletePost} />
+          }
+        />
+        <Route
+          path="/emotionPosts/:id/edit"
+          element={
+            <ProtectedRoute user={user}>
+              <EditPost handleUpdatePost={handleUpdatePost} />
+            </ProtectedRoute>
           }
         />
       </Routes>

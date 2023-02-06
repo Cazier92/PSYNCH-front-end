@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import styles from "./PostDetails.module.css";
 
 import * as postService from "../../services/emotionPostService";
@@ -27,6 +27,9 @@ const PostDetails = ({ user, handleDeletePost }) => {
         <p>{post.emotion}</p>
         {post.author._id === user.profile && (
           <>
+            <Link to={`/emotionPosts/${id}/edit`} state={post}>
+              Edit
+            </Link>
             <button onClick={() => handleDeletePost(id)}>
               <i class="fa-solid fa-trash fa-2x"></i>
             </button>
