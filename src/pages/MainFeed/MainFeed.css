@@ -1,0 +1,11 @@
+.btns-container{
+  display: flex;
+  justify-content: center;
+  padding: 3em;
+  gap: 4em;
+}
+
+.global-btn,
+.friends-btn {
+  transform: scale(1.3);
+}

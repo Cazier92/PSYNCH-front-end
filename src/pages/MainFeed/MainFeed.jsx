@@ -8,7 +8,15 @@ import PostList from '../PostList/PostList'
 const MainFeed = ({posts}) => {
   return (
     <>
-       <PostList posts={posts} />
+      <div className='btns-container'>
+        <button className='global-btn'>
+          For You
+        </button>
+        <button className='friends-btn'>
+          Friends
+        </button>
+      </div>
+      <PostList posts={posts} />
       
     </>
   )
