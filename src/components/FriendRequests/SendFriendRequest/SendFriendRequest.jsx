@@ -64,7 +64,9 @@ const SendFriendRequest = (props) => {
       <>
       
       <button onClick={() => {
-          return profileService.sendFriendRequest(props.profile._id);
+          return (
+            setFriendState('pending'),
+            profileService.sendFriendRequest(props.profile._id))
         }}>Add Friend</button>
       </>
     );
