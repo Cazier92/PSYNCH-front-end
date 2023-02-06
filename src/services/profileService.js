@@ -33,7 +33,7 @@ const friendsIdx = async () => {
 
 const friendRequests = async () => {
   try {
-    const res = await fetch(`${BASE_URL}/friendRequests`, {
+    const res = await fetch(`${BASE_URL}/requests`, {
       headers: { 'Authorization': `Bearer ${tokenService.getToken()}` },
     })
     return res.json()
