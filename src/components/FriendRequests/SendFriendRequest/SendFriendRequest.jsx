@@ -23,8 +23,8 @@ const SendFriendRequest = (props) => {
       setFriendState('pending')
     } else if (props.profile.friends.some(element => element._id === userProfile._id)) {
       setFriendState('friends')
-    } else if (userProfile.friendRequests.some(element => element._id === props.profile._id)) {
-      setFriendState('receivedRequest')
+    } else if (userProfile.friendRequests?.some(element => element._id === props.profile._id)) {
+      setFriendState('recievedRequest')
     } else if (props.profile._id === userProfile._id) {
       setFriendState('user')
     } else {
