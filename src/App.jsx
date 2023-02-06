@@ -119,9 +119,9 @@ const App = () => {
         />
         <Route path="/main-feed" element={<MainFeed posts={posts} />} />
         <Route
-          path="/posts/:id"
+          path="/emotionPosts/:id"
           element={
-            <PostDetails posts={posts} handleDeletePost={handleDeletePost} />
+            <PostDetails user={user} handleDeletePost={handleDeletePost} />
           }
         />
       </Routes>
