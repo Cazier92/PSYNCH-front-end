@@ -39,12 +39,15 @@ nav {
   position: fixed;
   background-color: white;
   list-style: none;
-  box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px,
-    rgba(17, 17, 26, 0.1) 0px 0px 8px;
-  top: 65px;
+  box-shadow: 
+  rgba(17, 17, 26, 0.05) 0px 1px 0px,
+  rgba(17, 17, 26, 0.1) 0px 0px 8px;
+  clip-path: inset(0px -5px -5px -5px);
+  top: 64.1px;
   right: 0;
   border-radius: 0.5rem;
   border-top-left-radius: 0;
+  border-top-right-radius: 0;
   padding: 1rem 1.5rem 1rem 1.5rem;
   width: 8rem;
 }
