@@ -4,9 +4,16 @@ import styles from "./PostDetails.module.css";
 
 import * as postService from "../../services/emotionPostService";
 
+import NewComment from "../../components/NewComment/NewComment";
+
 const PostDetails = ({ user, handleDeletePost }) => {
   const { id } = useParams();
   const [post, setPost] = useState(null);
+
+  const handleAddComment = async (commentData) => {
+    const newComment = await postService.createComment(id, commentData);
+    setPost({ ...post, comments: [...post.comments, newComment] });
+  };
 
   useEffect(() => {
     const fetchPost = async () => {
@@ -36,6 +43,10 @@ const PostDetails = ({ user, handleDeletePost }) => {
           </>
         )}
       </div>
+      <section>
+        <h1>Comments</h1>
+        <NewComment handleAddComment={handleAddComment} />
+      </section>
     </main>
   ) : (
     <main>
