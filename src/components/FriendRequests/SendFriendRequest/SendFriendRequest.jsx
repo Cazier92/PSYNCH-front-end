@@ -16,9 +16,10 @@ const SendFriendRequest = (props) => {
     fetchProfile()
   }, [props.user.profile])
 
-  console.log(userProfile.friendRequests?.some(element => element._id === userProfile._id))
+  // console.log(userProfile.friendRequests.filter(element => element._id === userProfile._id))
+  // console.log(userProfile.friendRequests)
 
-  if (props.profile.friendRequests.some(element => element._id === userProfile._id)) {
+  if (props.profile.friendRequests.includes(element => element._id === userProfile._id)) {
     return (
       <>
         <p>Friend Request Pending</p>
