@@ -72,7 +72,7 @@
   flex-direction: row;
   align-items: center;
   box-sizing: border-box;
-  padding: 1.5em 1em;
+  padding: 1.5em 1em 1.5em 2em;
   width: 100%;
   height: 2.5em;
   box-shadow: 
@@ -84,17 +84,18 @@
 .post-reaction {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content:space-around;
   box-sizing: border-box;
   width: 2.3em;
   height: 75%;
   border-radius: 1em;
-  margin-right: 0.2em;
-  /* background-color: white; */
+  /* background-color: rgb(128, 30, 30); */
+  gap: 20px;
 }
+
 
 .post-reaction:hover {
   transition: all ease 300ms;
-  transform: scale(1.6);
+  transform: scale(1.2);
   cursor: pointer;
 }

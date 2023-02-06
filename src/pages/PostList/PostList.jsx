@@ -9,7 +9,6 @@ const PostList = (props) => {
     <>
       <main className='layout'>
         <div className='main-feed'>
-          Main Feed
           {props.posts.length !== 0 ?
             props.posts.map((post) => {
               return <PostCard 
