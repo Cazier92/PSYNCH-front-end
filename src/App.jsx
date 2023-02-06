@@ -96,20 +96,6 @@ const App = () => {
             </ProtectedRoute>
           }
         />
-<<<<<<< HEAD
-        <Route path="/global-feed" element={<PostList posts={posts} />} />
-
-        <Route path="/posts/:id" element={<PostDetails posts={posts} />} />
-
-        <Route
-          path="/profile/:id"
-          element={
-            <ProtectedRoute user={user}>
-              <Profile user={user} />
-            </ProtectedRoute>
-          }
-        />
-=======
         <Route 
           path="/profile/:id" 
           element={
@@ -129,7 +115,6 @@ const App = () => {
           element={
           <MainFeed posts={posts} />
         } />
->>>>>>> main
       </Routes>
     </>
   );
