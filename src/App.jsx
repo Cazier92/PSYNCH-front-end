@@ -95,24 +95,25 @@ const App = () => {
             </ProtectedRoute>
           }
         />
-        <Route
-          path="/profile/:id"
+        <Route 
+          path="/profile/:id" 
           element={
-            <ProtectedRoute user={user}>
-              <Profile user={user} />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/profile/requests"
+          <ProtectedRoute user={user}>
+            <Profile user={user}/>
+          </ProtectedRoute>
+      } />
+        <Route 
+          path="/profile/requests" 
           element={
-            <ProtectedRoute user={user}>
-              <PendingRequests user={user} />
-            </ProtectedRoute>
-          }
-        />
-        <Route path="/main-feed" element={<MainFeed posts={posts} />} />
-        <Route path="/posts/:id" element={<PostDetails />} />
+          <ProtectedRoute user={user}>
+            <PendingRequests user={user}/>
+          </ProtectedRoute>
+      } />
+      <Route 
+          path="/main-feed" 
+          element={
+          <MainFeed posts={posts} />
+        } />
       </Routes>
     </>
   );

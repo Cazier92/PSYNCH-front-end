@@ -3,7 +3,7 @@ import { useState,useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
 import SendFriendRequest from '../../components/FriendRequests/SendFriendRequest/SendFriendRequest';
-import PostList from '../PostList/PostList';
+import PostList from '../../components/PostList/PostList';
 
 const Profile = ({user}) => {
   const {id} = useParams()
