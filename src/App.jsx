@@ -14,6 +14,7 @@ import Profile from "./pages/Profile/Profile";
 import MainFeed from "./pages/MainFeed/MainFeed";
 import PendingRequests from "./components/FriendRequests/PendingRequests/PendingRequests";
 import PostDetails from "./pages/PostDetails/PostDetails";
+import FriendList from "./components/FriendList/FriendList";
 
 // components
 import NavBar from "./components/NavBar/NavBar";
@@ -22,6 +23,7 @@ import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 // services
 import * as authService from "./services/authService";
 import * as emotionPostService from "./services/emotionPostService";
+import * as profileService from './services/profileService'
 
 // styles
 import "./App.css";
@@ -57,6 +59,16 @@ const App = () => {
     };
     fetchPosts();
   }, []);
+
+  const [userProfile, setUserProfile] = useState([])
+
+  useEffect(() => {
+    const fetchProfile = async () => {
+      const profileData = await profileService.show(user.profile)
+      setUserProfile(profileData)
+    }
+    fetchProfile()
+  }, [user.profile])
 
   return (
     <>
@@ -108,6 +120,14 @@ const App = () => {
           element={
             <ProtectedRoute user={user}>
               <PendingRequests user={user} />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/profile/friends"
+          element={
+            <ProtectedRoute user={user}>
+              <FriendList userProfile={userProfile} />
             </ProtectedRoute>
           }
         />
