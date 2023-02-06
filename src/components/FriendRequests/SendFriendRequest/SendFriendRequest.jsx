@@ -16,22 +16,22 @@ const SendFriendRequest = (props) => {
     fetchProfile()
   }, [props.user.profile])
 
+  console.log(userProfile.friendRequests?.some(element => element._id === userProfile._id))
 
-
-  if (props.profile.friendRequests.filter(element => element._id === userProfile._id)) {
+  if (props.profile.friendRequests.some(element => element._id === userProfile._id)) {
     return (
       <>
         <p>Friend Request Pending</p>
       </>
     )
-  } else if (props.profile.friends.filter(element => element._id === userProfile._id)) {
+  } else if (props.profile.friends.some(element => element._id === userProfile._id)) {
     return (
     <>
       <p>You and {props.profile.name} are friends!</p>
     </>
 
     )
-  } else if (userProfile.friendRequests.filter(element => element._id === props.profile._id)){
+  } else if (userProfile.friendRequests?.some(element => element._id === userProfile._id)) {
     return (
       <>
       <p>{props.profile.name} sent you a friend request!</p>
