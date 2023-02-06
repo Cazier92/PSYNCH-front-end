@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import styles from "./PostDetails.module.css";
+// import styles from "./PostDetails.module.css";
 
 import * as postService from "../../services/emotionPostService";
 
@@ -18,14 +18,18 @@ const PostDetails = ({ posts }) => {
 
   console.log("Post State", post);
 
-  return (
-    <div>
+  return post ? (
+    <main>
       <h1>Post Details</h1>
       <div className="post-avatar">{post.author.avatar}</div>
       <h2>{post.author.name}</h2>
       <h2>{post.content}</h2>
       <p>{post.emotion}</p>
-    </div>
+    </main>
+  ) : (
+    <main>
+      <p>Loading...</p>
+    </main>
   );
 };
 
