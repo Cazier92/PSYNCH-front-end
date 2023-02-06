@@ -13,6 +13,7 @@ import PostList from "./pages/PostList/PostList";
 import NewPost from "./pages/NewPost/NewPost";
 import Profile from "./pages/Profile/Profile";
 import MainFeed from "./pages/MainFeed/MainFeed";
+import PendingRequests from "./components/FriendRequests/PendingRequests/PendingRequests";
 
 // components
 import NavBar from "./components/NavBar/NavBar";
@@ -24,6 +25,7 @@ import * as emotionPostService from "./services/emotionPostService";
 
 // styles
 import "./App.css";
+
 
 const App = () => {
   const [user, setUser] = useState(authService.getUser());
@@ -104,6 +106,13 @@ const App = () => {
           element={
           <ProtectedRoute user={user}>
             <Profile user={user}/>
+          </ProtectedRoute>
+      } />
+        <Route 
+          path="/profile/requests" 
+          element={
+          <ProtectedRoute user={user}>
+            <PendingRequests user={user}/>
           </ProtectedRoute>
       } />
       <Route 
