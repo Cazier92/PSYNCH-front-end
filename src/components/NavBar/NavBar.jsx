@@ -31,7 +31,7 @@ const NavBar = ({ user, handleLogout }) => {
             </button>
             <button>
               <Link to="" style={linkStyle} onClick={handleLogout}>
-                LOG OUT
+                Log Out
               </Link>
             </button>
           </div>
