@@ -52,6 +52,9 @@ const NavBar = ({ user, handleLogout }) => {
             </button>
           </div>
           <div className={`dropdown-menu ${open ? "active" : "inactive"}`}>
+            <Link to="/" style={linkStyle} onClick={() => setOpen(!open)}>
+              <DropdownItem text={"Home"} />
+            </Link>
             <Link to="/login" style={linkStyle} onClick={() => setOpen(!open)}>
               <DropdownItem text={"Log In"} />
             </Link>
