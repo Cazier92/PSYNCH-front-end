@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import './MainFeed.css'
-import PostList from '../PostList/PostList'
+import PostList from '../../components/PostList/PostList'
 
 import { useState } from 'react'
 
