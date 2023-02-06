@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom';
+
 import { useEffect, useState } from 'react';
 
 
@@ -32,8 +32,8 @@ const SendFriendRequest = (props) => {
     }
   }, [props.profile._id, props.profile.friendRequests, props.profile.friends, userProfile, userProfile.friendRequests])
   
-  console.log(friendState)
-  // console.log(props.user)
+  // console.log(friendState)
+
 
 
   if (friendState === 'pending') {

@@ -19,6 +19,9 @@ const Profile = ({user}) => {
     fetchProfile()
   }, [id])
   
+  // const sortedPosts = profile.emotionPosts.sort({createdAt: 'desc'})
+  // console.log(profile.emotionPosts.sort((a, b) => a - b))
+
 
   if (!profile) return <h1>Loading</h1>
   return ( 
