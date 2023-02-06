@@ -26,7 +26,6 @@ import * as emotionPostService from "./services/emotionPostService";
 // styles
 import "./App.css";
 
-
 const App = () => {
   const [user, setUser] = useState(authService.getUser());
   const navigate = useNavigate();
@@ -96,11 +95,6 @@ const App = () => {
             </ProtectedRoute>
           }
         />
-<<<<<<< HEAD
-        <Route path="/global-feed" element={<PostList posts={posts} />} />
-
-        <Route path="/posts/:id" element={<PostDetails posts={posts} />} />
-
         <Route
           path="/profile/:id"
           element={
@@ -109,27 +103,16 @@ const App = () => {
             </ProtectedRoute>
           }
         />
-=======
-        <Route 
-          path="/profile/:id" 
+        <Route
+          path="/profile/requests"
           element={
-          <ProtectedRoute user={user}>
-            <Profile user={user}/>
-          </ProtectedRoute>
-      } />
-        <Route 
-          path="/profile/requests" 
-          element={
-          <ProtectedRoute user={user}>
-            <PendingRequests user={user}/>
-          </ProtectedRoute>
-      } />
-      <Route 
-          path="/main-feed" 
-          element={
-          <MainFeed posts={posts} />
-        } />
->>>>>>> main
+            <ProtectedRoute user={user}>
+              <PendingRequests user={user} />
+            </ProtectedRoute>
+          }
+        />
+        <Route path="/main-feed" element={<MainFeed posts={posts} />} />
+        <Route path="/posts/:id" element={<PostDetails />} />
       </Routes>
     </>
   );

@@ -21,10 +21,10 @@ const PostDetails = ({ posts }) => {
   return (
     <div>
       <h1>Post Details</h1>
-      <div className="post-avatar">{post.author.avatar}</div>
-      <h2>{post.author.name}</h2>
+      {/* <div className="post-avatar">{post.author.avatar}</div> */}
+      {/* <h2>{post.author.name}</h2> */}
       <h2>{post.content}</h2>
-      <p>{post.emotion}</p>
+      {/* <p>{post.emotion}</p> */}
     </div>
   );
 };
