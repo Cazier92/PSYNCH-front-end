@@ -30,12 +30,12 @@ const MainFeed = ({posts}) => {
       <div className='btns-container'>
         <button 
           className={`global-btn ${selectedGlobal ? "active" : "inactive"}`}
-          onClick={() => setSelectedGlobal(!selectedGlobal)}
+          onClick={() => (setSelectedGlobal(!selectedGlobal), setSelectedFriends(!selectedFriends))}
         >
           For You
         </button>
         <button className={`friends-btn ${selectedFriends ? "active" : "inactive"}`}
-          onClick={() => setSelectedFriends(!selectedFriends)}
+          onClick={() => (setSelectedFriends(!selectedFriends), setSelectedGlobal(!selectedGlobal))}
         >
           Friends
         </button>
