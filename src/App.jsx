@@ -54,6 +54,12 @@ const App = () => {
     navigate("/main-feed");
   };
 
+  const handleUpdatePost = async (postData) => {
+    const updatedPost = await emotionPostService.update(postData);
+    setPosts(posts.map((b) => (postData._id === b._id ? updatedPost : b)));
+    navigate("/main-feed");
+  };
+
   useEffect(() => {
     const fetchPosts = async () => {
       const postData = await emotionPostService.index();
