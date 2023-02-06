@@ -9,9 +9,10 @@ import Login from "./pages/Login/Login";
 import Landing from "./pages/Landing/Landing";
 import Profiles from "./pages/Profiles/Profiles";
 import ChangePassword from "./pages/ChangePassword/ChangePassword";
-import PostList from "./pages/PostList/PostList";
 import NewPost from "./pages/NewPost/NewPost";
 import Profile from "./pages/Profile/Profile";
+import MainFeed from "./pages/MainFeed/MainFeed";
+import PendingRequests from "./components/FriendRequests/PendingRequests/PendingRequests";
 import PostDetails from "./pages/PostDetails/PostDetails";
 
 // components
@@ -24,6 +25,7 @@ import * as emotionPostService from "./services/emotionPostService";
 
 // styles
 import "./App.css";
+
 
 const App = () => {
   const [user, setUser] = useState(authService.getUser());
@@ -94,6 +96,7 @@ const App = () => {
             </ProtectedRoute>
           }
         />
+<<<<<<< HEAD
         <Route path="/global-feed" element={<PostList posts={posts} />} />
 
         <Route path="/posts/:id" element={<PostDetails posts={posts} />} />
@@ -106,6 +109,27 @@ const App = () => {
             </ProtectedRoute>
           }
         />
+=======
+        <Route 
+          path="/profile/:id" 
+          element={
+          <ProtectedRoute user={user}>
+            <Profile user={user}/>
+          </ProtectedRoute>
+      } />
+        <Route 
+          path="/profile/requests" 
+          element={
+          <ProtectedRoute user={user}>
+            <PendingRequests user={user}/>
+          </ProtectedRoute>
+      } />
+      <Route 
+          path="/main-feed" 
+          element={
+          <MainFeed posts={posts} />
+        } />
+>>>>>>> main
       </Routes>
     </>
   );
