@@ -47,7 +47,13 @@ const App = () => {
   const handleAddPost = async (postData) => {
     const newPost = await emotionPostService.create(postData);
     setPosts([newPost, ...posts]);
-    navigate("/global-feed");
+    navigate("/main-feed");
+  };
+
+  const handleDeletePost = async (id) => {
+    const deletedPost = await emotionPostService.deleteEmotionPost(id);
+    setPosts(posts.filter((b) => b._id !== deletedPost._id));
+    navigate("/main-feed");
   };
 
   useEffect(() => {
@@ -132,7 +138,12 @@ const App = () => {
           }
         />
         <Route path="/main-feed" element={<MainFeed posts={posts} />} />
-        <Route path="/posts/:id" element={<PostDetails posts={posts} />} />
+        <Route
+          path="/posts/:id"
+          element={
+            <PostDetails posts={posts} handleDeletePost={handleDeletePost} />
+          }
+        />
       </Routes>
     </>
   );
