@@ -94,7 +94,8 @@
 }
 
 
-.post-reaction:hover {
+#reply-btn:hover,
+#reaction-btn:hover {
   transition: all ease 300ms;
   transform: scale(1.2);
   cursor: pointer;
