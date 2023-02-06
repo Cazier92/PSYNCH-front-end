@@ -14,6 +14,7 @@ const PostList = (props) => {
               return <PostCard 
                 post={post}
                 key={post._id}
+                user={props.user}
               />
             })
             :   

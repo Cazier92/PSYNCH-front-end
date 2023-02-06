@@ -134,7 +134,7 @@ const App = () => {
             </ProtectedRoute>
           }
         />
-        <Route path="/main-feed" element={<MainFeed posts={posts} />} />
+        <Route path="/main-feed" element={<MainFeed posts={posts} user={user}/>} />
         <Route
           path="/emotionPosts/:id"
           element={
