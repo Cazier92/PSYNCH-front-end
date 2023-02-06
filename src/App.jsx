@@ -56,6 +56,12 @@ const App = () => {
     navigate("/main-feed");
   };
 
+  const handleUpdatePost = async (postData) => {
+    const updatedPost = await emotionPostService.update(postData);
+    setPosts(posts.map((b) => (postData._id === b._id ? updatedPost : b)));
+    navigate("/main-feed");
+  };
+
   useEffect(() => {
     const fetchPosts = async () => {
       const postData = await emotionPostService.index();
@@ -134,9 +140,9 @@ const App = () => {
         />
         <Route path="/main-feed" element={<MainFeed posts={posts} />} />
         <Route
-          path="/posts/:id"
+          path="/emotionPosts/:id"
           element={
-            <PostDetails posts={posts} handleDeletePost={handleDeletePost} />
+            <PostDetails user={user} handleDeletePost={handleDeletePost} />
           }
         />
       </Routes>
