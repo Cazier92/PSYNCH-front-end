@@ -12,6 +12,7 @@ import ChangePassword from "./pages/ChangePassword/ChangePassword";
 import PostList from "./pages/PostList/PostList";
 import NewPost from "./pages/NewPost/NewPost";
 import Profile from "./pages/Profile/Profile";
+import PostDetails from "./pages/PostDetails/PostDetails";
 
 // components
 import NavBar from "./components/NavBar/NavBar";
@@ -94,13 +95,24 @@ const App = () => {
           }
         />
         <Route path="/global-feed" element={<PostList posts={posts} />} />
-        <Route 
-          path="/profile/:id" 
+
+        <Route
+          path="/posts/:id"
           element={
-          <ProtectedRoute user={user}>
-            <Profile user={user}/>
-          </ProtectedRoute>
-      } />
+            <ProtectedRoute>
+              <PostDetails user={user} />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/profile/:id"
+          element={
+            <ProtectedRoute user={user}>
+              <Profile user={user} />
+            </ProtectedRoute>
+          }
+        />
       </Routes>
     </>
   );
