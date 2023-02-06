@@ -4,7 +4,7 @@ import styles from "./PostDetails.module.css";
 
 import * as postService from "../../services/emotionPostService";
 
-const PostDetails = ({ posts }) => {
+const PostDetails = ({ posts, handleDeletePost }) => {
   const { id } = useParams();
   const [post, setPost] = useState(null);
 
@@ -25,6 +25,7 @@ const PostDetails = ({ posts }) => {
         <h2>{post.author.name}</h2>
         <h2>{post.content}</h2>
         <p>{post.emotion}</p>
+        <i class="fa-solid fa-trash fa-2x"></i>
       </div>
     </main>
   ) : (
