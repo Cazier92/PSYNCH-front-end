@@ -29,25 +29,13 @@ const Landing = ({ user }) => {
         </div>
         <div className="hero-image">
           <div className="slides">
+            
             <div className="scroller">
               <input type="radio" name='radio-btn' id='radio-1' />
               <input type="radio" name='radio-btn' id='radio-2'/>
               <input type="radio" name='radio-btn' id='radio-3'/>
               <input type="radio" name='radio-btn' id='radio-4'/>
             </div>
-
-            <div className="slide-1">
-              <img id="l-img" src="./landingImages/img1.jpg" alt="1" /> 
-            </div>
-            {/* <div className="slide">
-              <img id="l-img" src='./landingImages/img2.jpg' alt='2'></img> 
-            </div>
-            <div className="slide">
-              <img id="l-img" src='./landingImages/img3.jpg' alt='3'></img> 
-            </div>
-            <div className="slide">
-              <img id="l-img" src='./landingImages/img4.jpg' alt='4'></img> 
-            </div> */}
             
             
             <div class='timed-scroll'>
@@ -57,7 +45,7 @@ const Landing = ({ user }) => {
               <div class='auto-btn4'></div>
             </div>
 
-            <div class='manual-scroll'>
+            <div class='manual-btn-container'>
               <label htmlFor='radio-1' className='manual-btn'></label>
               <label htmlFor='radio-2' className='manual-btn'></label>
               <label htmlFor='radio-3' className='manual-btn'></label>
