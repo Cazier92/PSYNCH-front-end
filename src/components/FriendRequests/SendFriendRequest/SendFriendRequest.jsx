@@ -1,5 +1,5 @@
 import { useParams } from 'react-router-dom';
-import { useEffect, useInsertionEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 
 import * as profileService from '../../../services/profileService'
