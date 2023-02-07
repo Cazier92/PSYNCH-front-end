@@ -8,8 +8,6 @@ const NewPost = (props) => {
     public: false,
   });
 
-
-
   const handleChange = ({ target }) => {
     if (target.type === "checkbox") {
       setForm({ ...form, [target.name]: target.checked });
@@ -24,7 +22,7 @@ const NewPost = (props) => {
     props.handleAddPost(form);
   };
 
-  console.log(form)
+  console.log(form);
 
   return (
     <div className={styles.container}>
@@ -204,7 +202,6 @@ const NewPost = (props) => {
           />
         </label>
         <button type="submit">SUBMIT</button>
-
       </form>
     </div>
   );
