@@ -24,9 +24,12 @@ const PostCard = ({ post, user, handleDecideAction }) => {
   
   const postId = post._id
   const reactionId = post.reactions.find(reaction => reaction.author === user.profile)?._id
+  const reactionCount = post.reactions.length 
+  const commentsCount = post.comments.length 
+  // console.log('REACTION COUNT', reactionCount)
 
 
-  console.log('ICON STATE', iconState)
+  // console.log('ICON STATE', iconState)
 
 
   return (
@@ -46,13 +49,20 @@ const PostCard = ({ post, user, handleDecideAction }) => {
 
       <div className="post-footer">
         <div className="post-reaction">
-          <Link style={linkStyle} to={`/emotionPosts/${post._id}`}>
-          <i id='reply-btn' class="fa-regular fa-comment"></i>
-          </Link>
+          <div className="total-comments">
+            <Link style={linkStyle} to={`/emotionPosts/${post._id}`}>
+            <i id='reply-btn' class="fa-regular fa-comment"></i>
+            </Link>
+            {commentsCount}
+          </div>
+         
           
 
-
-          <ReactionButton reactionType={iconState?.reaction} setShowReactions={setShowReactions} showReactions={showReactions}/>
+          <div className="total-reactions">
+            <ReactionButton reactionType={iconState?.reaction} setShowReactions={setShowReactions} showReactions={showReactions}/>
+            {reactionCount}
+          </div>
+          
 
           <div className={ `reaction-expand ${showReactions ? "active" : "inactive"}` }>
               <i class="fa-solid fa-heart ex-reaction" onClick={() => {handleDecideAction(post, postId, 'Love', reactionId ); setShowReactions(!showReactions)} }></i>
