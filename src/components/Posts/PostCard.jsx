@@ -8,6 +8,11 @@ import ReactionButton from "./ReactionButton";
 import { Link } from "react-router-dom";
 import "./PostCard.css";
 
+const linkStyle = {
+  textDecoration: "none",
+  color: "black",
+};
+
 const PostCard = ({ post, user }) => {
   // console.log(post)
   
@@ -84,7 +89,7 @@ const PostCard = ({ post, user }) => {
 
       <div className="post-footer">
         <div className="post-reaction">
-          <Link to={`/emotionPosts/${post._id}`}>
+          <Link style={linkStyle} to={`/emotionPosts/${post._id}`}>
             <i id="reply-btn" class="fa-solid fa-reply"></i>
           </Link>
           
