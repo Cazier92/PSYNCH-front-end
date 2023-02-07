@@ -20,6 +20,7 @@ import FriendList from "./components/FriendList/FriendList";
 import NavBar from "./components/NavBar/NavBar";
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 
+
 // services
 import * as authService from "./services/authService";
 import * as emotionPostService from "./services/emotionPostService";
@@ -134,11 +135,17 @@ const App = () => {
             </ProtectedRoute>
           }
         />
-        <Route path="/main-feed" element={<MainFeed posts={posts} user={user}/>} />
+        <Route 
+          path="/main-feed" 
+          element={
+            <MainFeed posts={posts} user={user}/>
+          } 
+        />
         <Route
           path="/emotionPosts/:id"
           element={
             <PostDetails user={user} handleDeletePost={handleDeletePost} />
+
           }
         />
         <Route
