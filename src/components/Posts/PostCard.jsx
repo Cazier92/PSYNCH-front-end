@@ -41,7 +41,6 @@ const PostCard = ({ post, user }) => {
   const handleLike = () => {
 
   }
-
   
   const handleCelebrate = () => {
 
@@ -61,6 +60,28 @@ const PostCard = ({ post, user }) => {
 
   const handleCurious = () => {
 
+  }
+
+  const handleAddReaction = () => {
+
+  }
+  
+  const handleRemoveReaction = () => {
+
+  }
+
+  const handleUpdateReaction = () => {
+
+  }
+
+  const handleDecideAction = (reactionChoice) => {
+    if (userReaction && reactionChoice === reactionType) {
+      // deleteReaction
+    } else if (userReaction) {
+      // updateReaction
+    } else {
+      // addReaction
+    }
   }
 
 
