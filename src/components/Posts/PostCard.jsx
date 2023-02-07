@@ -22,17 +22,10 @@ const PostCard = ({ post, user }) => {
 
   const [reactionType, setReactionType] = useState(null)
 
-  //* define reaction state
-  //* start with create and delete reaction, then move on to update
-  //* see if there is a reaction with an author._id matching the user.profile
-  //* if there isn't, state remains false
-  //* if there is, setState true
-  
-  // if (post.reactions[0] !== undefined) {
-  //   console.log(post.reactions.some(reaction => reaction.author === user.profile))
-  // }
   const [reactionId, setReactionId] = useState(null)
 
+
+    //!This Stays:
   useEffect(() => {
     if (post.reactions[0] !== undefined) {
       if(post.reactions.some(reaction => reaction.author === user.profile)) {
@@ -45,9 +38,7 @@ const PostCard = ({ post, user }) => {
     }
   }, [post.reactions, reactionType, user]);
   
-
-
-  
+  //!This Stays:
   const postId = post._id
 
   const handleDecideAction = async (postId, reactionChoice, reactionId) => {

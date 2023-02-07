@@ -74,6 +74,16 @@ const App = () => {
     fetchPosts();
   }, []);
 
+  const [feed, setFeed] = useState([])
+
+  useEffect(() => {
+    const fetchFeed = async () => {
+      const feedData = await emotionPostService.feed()
+      setFeed(feedData)
+    }
+    fetchFeed()
+  }, [])
+
   return (
     <>
       <NavBar user={user} handleLogout={handleLogout} />
@@ -138,7 +148,7 @@ const App = () => {
         <Route 
           path="/main-feed" 
           element={
-            <MainFeed posts={posts} user={user}/>
+            <MainFeed posts={posts} user={user} feed={feed}/>
           } 
         />
         <Route
