@@ -117,6 +117,26 @@ const NewPost = (props) => {
               😊
             </span>
           )}
+          {form.emotion === "Startled" && (
+            <span role="img" aria-label="Joyful">
+              😬
+            </span>
+          )}
+          {form.emotion === "Confused" && (
+            <span role="img" aria-label="Joyful">
+              🤔
+            </span>
+          )}
+          {form.emotion === "Excited" && (
+            <span role="img" aria-label="Joyful">
+              🤩
+            </span>
+          )}
+          {form.emotion === "Amazed" && (
+            <span role="img" aria-label="Joyful">
+              😆
+            </span>
+          )}
         </div>
         <label htmlFor="emotion-input">How are you feeling today?</label>
         <select
