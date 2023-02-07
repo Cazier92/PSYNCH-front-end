@@ -1,5 +1,5 @@
 
-import styles from './Friend.module.css'
+import './Friend.css'
 
 const Friend = ({friend}) => {
   return ( 

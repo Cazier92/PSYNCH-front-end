@@ -5,6 +5,7 @@ import * as emotionPostService from '../../services/emotionPostService'
 import * as profileService from '../../services/profileService'
 
 import Friend from './Friend';
+import PendingRequests from '../FriendRequests/PendingRequests/PendingRequests';
 
 
 
@@ -67,16 +68,22 @@ const FriendList = ({user}) => {
 
   return ( 
     <>
+      
       {friends.length !== 0 ?
       friends.map((friend) => {
         return (
           <>
+          <p>Friends</p>
+          <div>
+            Requests
+          </div>
+          <PendingRequests/>
           <Friend friend={friend} key={friend._id}/>
           </>
         )
       })
       :
-      <p>Loading...</p>
+      <p>No Requests</p>
       }
     </>
   );
