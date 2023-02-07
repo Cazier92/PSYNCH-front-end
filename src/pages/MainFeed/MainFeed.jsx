@@ -5,15 +5,22 @@ import * as emotionPostService from '../../services/emotionPostService'
 
 import { useState, useEffect } from 'react'
 
+//COMPONENETS
+import FriendList from '../../components/FriendList/FriendList'
+
+
+//SERVICES
+
 
 
 
 
 const MainFeed = ({posts, user}) => {
   let [selectedGlobal, setSelectedGlobal] = useState(true)
-  let [selectedFriends, setSelectedFriends] = useState(false)
-  console.log("Global:", selectedGlobal)
-  console.log("Friends:", selectedFriends)
+  let [selectedFriendsFeed, setSelectedFriendsFeed] = useState(false)
+
+  // console.log("Global:", selectedGlobal)
+  // console.log("Friends:", selectedFriends)
 
   const [feed, setFeed] = useState([])
 
@@ -28,11 +35,11 @@ const MainFeed = ({posts, user}) => {
 
 
     function toggle (){
-    if (selectedFriends === true){
+    if (selectedFriendsFeed === true){
      selectedGlobal = false
     }
     if (selectedGlobal === false){
-      selectedFriends = true
+      selectedFriendsFeed = true
     }
   }
   toggle()
@@ -43,12 +50,12 @@ const MainFeed = ({posts, user}) => {
       <div className='btns-container'>
         <button 
           className={`global-btn ${selectedGlobal ? "active" : "inactive"}`}
-          onClick={() => (setSelectedGlobal(!selectedGlobal), setSelectedFriends(!selectedFriends))}
+          onClick={() => (setSelectedGlobal(!selectedGlobal), setSelectedFriendsFeed(!selectedFriendsFeed))}
         >
           For You
         </button>
-        <button className={`friends-btn ${selectedFriends ? "active" : "inactive"}`}
-          onClick={() => (setSelectedFriends(!selectedFriends), setSelectedGlobal(!selectedGlobal))}
+        <button className={`friends-btn ${selectedFriendsFeed ? "active" : "inactive"}`}
+          onClick={() => (setSelectedFriendsFeed(!selectedFriendsFeed), setSelectedGlobal(!selectedGlobal))}
         >
           Friends
         </button>
@@ -56,7 +63,7 @@ const MainFeed = ({posts, user}) => {
 
       <div className='left-sidebar'>
         <div className='component-container'>
-          yooo
+          <FriendList user={user} />
         </div>
         <div className='ls-icon-wrapper'>
           <div id='ls-icon-container'>
@@ -101,7 +108,7 @@ const MainFeed = ({posts, user}) => {
           </div>
       </div>
 
-      {selectedFriends ? (
+      {selectedFriendsFeed ? (
         <>
           {/* <p className='empty-text'>Your friends haven't posted!</p> */}
           <PostList posts={feed} user={user}/>
