@@ -22,6 +22,7 @@ const PostCard = ({ post, user }) => {
       if(post.reactions.some(reaction => reaction.author === user.profile)) {
         setUserReaction(true)
         console.log('this is true')
+        console.log(post.reactions.find(reaction => reaction.author === user.profile).reaction)
       }
     }
   }, [post.reactions, user]);
