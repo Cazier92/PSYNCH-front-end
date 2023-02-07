@@ -5,17 +5,26 @@ const NewPost = (props) => {
   const [form, setForm] = useState({
     emotion: "Bored",
     content: "",
-    public: Boolean,
+    public: false,
   });
 
+
+
   const handleChange = ({ target }) => {
-    setForm({ ...form, [target.name]: target.value });
+    if (target.type === "checkbox") {
+      setForm({ ...form, [target.name]: target.checked });
+    } else {
+      setForm({ ...form, [target.name]: target.value });
+    }
+    // setForm({ ...form, [target.name]: target.value });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     props.handleAddPost(form);
   };
+
+  console.log(form)
 
   return (
     <div className={styles.container}>
@@ -182,7 +191,20 @@ const NewPost = (props) => {
           cols="40"
           rows="10"
         ></textarea>
+
+        <label htmlFor="">
+          {form.public ? "Public" : "Private"}
+          <input
+            checked={form.public}
+            type="checkbox"
+            name="public"
+            onChange={({ target }) =>
+              setForm({ ...form, public: target.checked })
+            }
+          />
+        </label>
         <button type="submit">SUBMIT</button>
+
       </form>
     </div>
   );

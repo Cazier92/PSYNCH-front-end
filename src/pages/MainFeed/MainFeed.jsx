@@ -13,7 +13,7 @@ import * as emotionPostService from '../../services/emotionPostService'
 
 
 
-const MainFeed = ({posts, user}) => {
+const MainFeed = ({posts, user, feed, handleDecideAction}) => {
 
   //STATES
   let [selectedGlobal, setSelectedGlobal] = useState(true)
@@ -24,15 +24,6 @@ const MainFeed = ({posts, user}) => {
   // console.log("Global:", selectedGlobal)
   // console.log("Friends:", selectedFriends)
 
-  const [feed, setFeed] = useState([])
-
-  useEffect(() => {
-    const fetchFeed = async () => {
-      const feedData = await emotionPostService.feed()
-      setFeed(feedData)
-    }
-    fetchFeed()
-  }, [])
 
 
 
@@ -117,11 +108,11 @@ const MainFeed = ({posts, user}) => {
       {selectedFriendsFeed ? (
         <>
           {/* <p className='empty-text'>Your friends haven't posted!</p> */}
-          <PostList posts={feed} user={user}/>
+          <PostList posts={feed} user={user}  handleDecideAction={handleDecideAction}/>
         </>
       ):(
         <>
-          <PostList posts={posts} user={user}/>
+          <PostList posts={posts} user={user} handleDecideAction={handleDecideAction}/>
           
         </>
       )}  
