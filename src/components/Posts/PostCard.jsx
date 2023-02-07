@@ -2,6 +2,8 @@
 import React from "react";
 import { useState, useEffect } from "react";
 
+import * as emotionPostService from '../../services/emotionPostService'
+
 import { Link } from "react-router-dom";
 import "./PostCard.css";
 
@@ -36,6 +38,31 @@ const PostCard = ({ post, user }) => {
     }
   }, [post.reactions, reactionType, user]);
   
+  const handleLike = () => {
+
+  }
+
+  
+  const handleCelebrate = () => {
+
+  }
+
+  const handleSupport = () => {
+
+  }
+
+  const handleFunny = () => {
+
+  }
+
+  const handleLove = () => {
+
+  }
+
+  const handleCurious = () => {
+
+  }
+
 
 
   return (
