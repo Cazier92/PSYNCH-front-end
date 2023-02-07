@@ -182,6 +182,10 @@ const NewPost = (props) => {
           cols="40"
           rows="10"
         ></textarea>
+        <label htmlFor="">
+          {props.posts.public ? "Public" : "Private"}
+          <input type="checkbox" name="public" />
+        </label>
         <button type="submit">SUBMIT</button>
       </form>
     </div>
