@@ -7,6 +7,8 @@ import * as profileService from '../../services/profileService'
 import Friend from './Friend';
 import PendingRequests from '../FriendRequests/PendingRequests/PendingRequests';
 
+import './FriendList.css'
+
 
 
 
@@ -73,12 +75,12 @@ const FriendList = ({user}) => {
       friends.map((friend) => {
         return (
           <>
-          <p>Friends</p>
-          <div>
-            Requests
-          </div>
-          <PendingRequests/>
-          <Friend friend={friend} key={friend._id}/>
+            <p className='page-title'>Friends</p>
+            <div className='requests-btn'>
+              Requests
+            </div>
+            <PendingRequests/>
+            <Friend friend={friend} key={friend._id}/>
           </>
         )
       })
