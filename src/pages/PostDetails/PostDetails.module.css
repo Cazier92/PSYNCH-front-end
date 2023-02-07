@@ -33,3 +33,16 @@
 .buttonContainer button {
   margin: 20px 10px 10px;
 }
+
+@media screen and (max-width: 900px) {
+  .container {
+    display: flex;
+    justify-content: center;
+    width: 100px;
+    margin: 0;
+  }
+
+  .postDetailCard {
+    display: flex;
+  }
+}
