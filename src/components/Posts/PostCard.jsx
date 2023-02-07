@@ -3,6 +3,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 
 import * as emotionPostService from '../../services/emotionPostService'
+import ReactionButton from "./ReactionButton";
 
 import { Link } from "react-router-dom";
 import "./PostCard.css";
@@ -39,41 +40,7 @@ const PostCard = ({ post, user }) => {
     }
   }, [post.reactions, reactionType, user]);
   
-  const handleLike = () => {
 
-  }
-  
-  const handleCelebrate = () => {
-
-  }
-
-  const handleSupport = () => {
-
-  }
-
-  const handleFunny = () => {
-
-  }
-
-  const handleLove = () => {
-
-  }
-
-  const handleCurious = () => {
-
-  }
-
-  const handleAddReaction = () => {
-
-  }
-  
-  const handleRemoveReaction = () => {
-
-  }
-
-  const handleUpdateReaction = () => {
-
-  }
   
   const postId = post._id
 
@@ -95,10 +62,9 @@ const PostCard = ({ post, user }) => {
       const addReaction = await emotionPostService.addReaction(postId, reactionData)
       setUserReaction(true)
       setReactionType(reactionChoice)
-      setReactionId(post.reactions.find(reaction => reaction.author === user.profile)._id)
+      // setReactionId(post.reactions.find(reaction => reaction.author === user.profile)._id)
     }
   }
-
 
 
   return (
@@ -121,8 +87,11 @@ const PostCard = ({ post, user }) => {
           <Link to={`/emotionPosts/${post._id}`}>
             <i id="reply-btn" class="fa-solid fa-reply"></i>
           </Link>
-          <i id="reaction-btn" className='fa-solid fa-heart'
-          onClick={() => (setShowReactions(!showReactions))}></i>
+          
+          {/* <i id="reaction-btn" className='fa-solid fa-heart'
+          onClick={() => (setShowReactions(!showReactions))}></i> */}
+
+          <ReactionButton reactionType={reactionType} setShowReactions={setShowReactions} showReactions={showReactions}/>
 
           <div className={ `reaction-expand ${showReactions ? "active" : "inactive"}` }>
               <i class="fa-solid fa-heart ex-reaction" onClick={() => {handleDecideAction(postId, 'Love', reactionId )}}></i>
