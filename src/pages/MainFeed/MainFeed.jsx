@@ -55,31 +55,37 @@ const MainFeed = ({posts, user}) => {
       </div>
 
       <div className='left-sidebar'>
-        <div id='lsb-icon-1'>
-          <i class="fa-solid fa-house fa-2x"></i>
+        <div className='component-container'>
+          yooo
         </div>
-        <div id='lsb-icon-2'>
-          <i class="fa-solid fa-user fa-2x"></i>
+        <div className='ls-icon-wrapper'>
+          <div id='ls-icon-container'>
+            <i id='ls-icon' class="fa-solid fa-house"></i>
+          </div>
+          <div id='ls-icon-container'>
+            <i id='ls-icon' class="fa-solid fa-user"></i>
+          </div>
+          <div id='ls-icon-container'>
+            <i id='ls-icon' class="fa-solid fa-user-group"></i>
+          </div>
+          <div id='ls-icon-container'>
+            <i id='ls-icon' class="fa-solid fa-pen-to-square"></i>
+          </div>
         </div>
-        <div id='lsb-icon-3'>
-          <i class="fa-solid fa-user-group fa-2x"></i>
-        </div>
-        <div id='lsb-icon-4'>
-          <i class="fa-solid fa-pen-to-square fa-2x"></i>
-        </div>
+        
       </div>
 
 
       <div className='right-sidebar'>
-        <div id='rsb-icon-1'>
-          <i class="fa-solid fa-chart-simple fa-2x"></i>
+        <div id='ls-icon-container'>
+          <i id='ls-icon' class="fa-solid fa-chart-simple"></i>
         </div>
       </div>
 
       
       <div className='bottom-sidebar'>
         <div>
-            <i class="fa-solid fa-house fa-2x"></i>
+            <i class="fa-solid fa-house-2x"></i>
           </div>
           <div>
             <i class="fa-solid fa-user fa-2x"></i>
