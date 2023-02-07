@@ -17,7 +17,14 @@ const PostCard = ({ post, user }) => {
 
   const [userReaction, setUserReaction] = useState(false)
 
-  
+  useEffect(() => {
+    if (post.reactions[0] !== undefined) {
+      if(post.reactions.some(reaction => reaction.author === user.profile)) {
+        setUserReaction(true)
+        console.log('this is true')
+      }
+    }
+  }, [post.reactions, user]);
   
 
   return (
