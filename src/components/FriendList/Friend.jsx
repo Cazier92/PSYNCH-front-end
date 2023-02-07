@@ -5,8 +5,9 @@ const Friend = ({friend}) => {
   return ( 
     <>
     <div className='friend-card'>
-      <h3>{friend.name}</h3>
-      <p>is feeling {friend.currentStatus} today</p>
+      <div className='friend-avatar'>{friend.avatar}</div>
+      <p>{friend.name}</p>
+      <p className='friend-status'>{friend.currentStatus}</p>
     </div>
     </>
   );

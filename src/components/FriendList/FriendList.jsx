@@ -75,12 +75,13 @@ const FriendList = ({user}) => {
       friends.map((friend) => {
         return (
           <>
-            <p className='page-title'>Friends</p>
-            <div className='requests-btn'>
-              Requests
-            </div>
-            <PendingRequests/>
-            <Friend friend={friend} key={friend._id}/>
+            <main className='friends-list-main'>
+              <p className='page-title'>Friends</p>
+              <div className='requests-section'>
+                <PendingRequests/>
+              </div>
+              <Friend friend={friend} key={friend._id}/>
+            </main>
           </>
         )
       })
