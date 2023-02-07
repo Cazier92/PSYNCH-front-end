@@ -90,7 +90,7 @@ const PostCard = ({ post, user }) => {
       <div className="post-footer">
         <div className="post-reaction">
           <Link style={linkStyle} to={`/emotionPosts/${post._id}`}>
-            <i id="reply-btn" class="fa-solid fa-reply"></i>
+          <i id='reply-btn' class="fa-regular fa-comment"></i>
           </Link>
           
           {/* <i id="reaction-btn" className='fa-solid fa-heart'
