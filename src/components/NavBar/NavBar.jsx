@@ -16,7 +16,7 @@ const NavBar = ({ user, handleLogout }) => {
       {user ? (
         <>
           <div className="left-nav">
-            <p>PSYNCH</p>
+            <p className="psynch-logo">PSYNCH</p>
           </div>
           <div className="right-nav">
             <button>
