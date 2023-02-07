@@ -11,6 +11,14 @@
   text-align: center;
 }
 
+.checkboxContainer {
+  display: flex;
+}
+
+.checkboxContainer label {
+  margin-left: 20px;
+}
+
 form {
   display: flex;
   flex-direction: column;

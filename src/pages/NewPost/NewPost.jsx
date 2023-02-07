@@ -8,8 +8,6 @@ const NewPost = (props) => {
     public: false,
   });
 
-
-
   const handleChange = ({ target }) => {
     if (target.type === "checkbox") {
       setForm({ ...form, [target.name]: target.checked });
@@ -24,7 +22,7 @@ const NewPost = (props) => {
     props.handleAddPost(form);
   };
 
-  console.log(form)
+  console.log(form);
 
   return (
     <div className={styles.container}>
@@ -191,9 +189,10 @@ const NewPost = (props) => {
           cols="40"
           rows="10"
         ></textarea>
-
-        <label htmlFor="">
-          {form.public ? "Public" : "Private"}
+        <div className={styles.checkboxContainer}>
+          <label>
+            {form.public ? "It's set to public [🌐]" : "It's set to private [🥷🏻]"}
+          </label>
           <input
             checked={form.public}
             type="checkbox"
@@ -202,9 +201,8 @@ const NewPost = (props) => {
               setForm({ ...form, public: target.checked })
             }
           />
-        </label>
+        </div>
         <button type="submit">SUBMIT</button>
-
       </form>
     </div>
   );
