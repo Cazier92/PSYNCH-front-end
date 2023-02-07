@@ -4,17 +4,18 @@ import PostCard from '../Posts/PostCard'
 
 // import { useState } from 'react'
 
-const PostList = (props) => {
+const PostList = ({posts, user, userReaction, setUserReaction, reactionType, setReactionType, reactionId, setReactionId, handleDecideAction}) => {
   return (
     <>
       <main className='layout'>
         <div className='main-feed'>
-          {props.posts.length !== 0 ?
-            props.posts.map((post) => {
+          {posts.length !== 0 ?
+            posts.map((post) => {
               return <PostCard 
                 post={post}
                 key={post._id}
-                user={props.user}
+                user={user}
+                userReaction={userReaction} setUserReaction={setUserReaction} reactionType={reactionType} setReactionType={setReactionType} reactionId={reactionId} setReactionId={setReactionId} handleDecideAction={handleDecideAction}
               />
             })
             :   

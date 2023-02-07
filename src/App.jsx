@@ -84,6 +84,38 @@ const App = () => {
     fetchFeed()
   }, [])
 
+  const [userReaction, setUserReaction] = useState(false)
+
+  const [reactionType, setReactionType] = useState(null)
+
+  const [reactionId, setReactionId] = useState(null)
+
+  const handleDecideAction = async (post, postId, reactionChoice, reactionId) => {
+    if (userReaction && reactionChoice === reactionType) {
+      // deleteReaction
+      const deleteReaction = await emotionPostService.deleteReaction(postId, reactionId)
+      setUserReaction(false)
+      setReactionType(null)
+      setReactionId(null)
+    } else if (userReaction) {
+      // updateReaction
+      const reactionData = {reaction: reactionChoice}
+      const updateReaction = await emotionPostService.updateReaction(postId, reactionData, reactionId)
+      setUserReaction(true)
+      setReactionType(reactionChoice)
+      setReactionId(post.reactions.find(reaction => reaction.author === user.profile)._id)
+    } else {
+      // addReaction
+      const reactionData = {reaction: reactionChoice}
+      const addReaction = await emotionPostService.addReaction(postId, reactionData)
+      setUserReaction(true)
+      setReactionType(reactionChoice)
+      setReactionId(post.reactions.find(reaction => reaction.author === user.profile)._id)
+    }
+  }
+
+
+
   return (
     <>
       <NavBar user={user} handleLogout={handleLogout} />
@@ -148,7 +180,7 @@ const App = () => {
         <Route 
           path="/main-feed" 
           element={
-            <MainFeed posts={posts} user={user} feed={feed}/>
+            <MainFeed posts={posts} user={user} feed={feed} userReaction={userReaction} setUserReaction={setUserReaction} reactionType={reactionType} setReactionType={setReactionType} reactionId={reactionId} setReactionId={setReactionId} handleDecideAction={handleDecideAction}/>
           } 
         />
         <Route

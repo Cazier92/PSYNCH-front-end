@@ -13,7 +13,7 @@ import * as emotionPostService from '../../services/emotionPostService'
 
 
 
-const MainFeed = ({posts, user, feed}) => {
+const MainFeed = ({posts, user, feed, userReaction, setUserReaction, reactionType, setReactionType, reactionId, setReactionId, handleDecideAction}) => {
 
   //STATES
   let [selectedGlobal, setSelectedGlobal] = useState(true)
@@ -108,11 +108,11 @@ const MainFeed = ({posts, user, feed}) => {
       {selectedFriendsFeed ? (
         <>
           {/* <p className='empty-text'>Your friends haven't posted!</p> */}
-          <PostList posts={feed} user={user}/>
+          <PostList posts={feed} user={user} userReaction={userReaction} setUserReaction={setUserReaction} reactionType={reactionType} setReactionType={setReactionType} reactionId={reactionId} setReactionId={setReactionId} handleDecideAction={handleDecideAction}/>
         </>
       ):(
         <>
-          <PostList posts={posts} user={user}/>
+          <PostList posts={posts} user={user} userReaction={userReaction} setUserReaction={setUserReaction} reactionType={reactionType} setReactionType={setReactionType} reactionId={reactionId} setReactionId={setReactionId} handleDecideAction={handleDecideAction}/>
           
         </>
       )}  

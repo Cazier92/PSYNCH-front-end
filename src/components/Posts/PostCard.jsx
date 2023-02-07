@@ -13,16 +13,12 @@ const linkStyle = {
   color: "black",
 };
 
-const PostCard = ({ post, user }) => {
+const PostCard = ({ post, user, userReaction, setUserReaction, reactionType, setReactionType, reactionId, setReactionId, handleDecideAction }) => {
   // console.log(post)
   
   const [showReactions, setShowReactions] = useState(false)
 
-  const [userReaction, setUserReaction] = useState(false)
 
-  const [reactionType, setReactionType] = useState(null)
-
-  const [reactionId, setReactionId] = useState(null)
 
 
     //!This Stays:
@@ -36,34 +32,12 @@ const PostCard = ({ post, user }) => {
         setReactionId(post.reactions.find(reaction => reaction.author === user.profile)._id)
       }
     }
-  }, [post.reactions, reactionType, user]);
+  }, [post.reactions, reactionType, setReactionId, setReactionType, setUserReaction, user]);
   
   //!This Stays:
   const postId = post._id
 
-  const handleDecideAction = async (postId, reactionChoice, reactionId) => {
-    if (userReaction && reactionChoice === reactionType) {
-      // deleteReaction
-      const deleteReaction = await emotionPostService.deleteReaction(postId, reactionId)
-      setUserReaction(false)
-      setReactionType(null)
-      setReactionId(null)
-    } else if (userReaction) {
-      // updateReaction
-      const reactionData = {reaction: reactionChoice}
-      const updateReaction = await emotionPostService.updateReaction(postId, reactionData, reactionId)
-      setUserReaction(true)
-      setReactionType(reactionChoice)
-      setReactionId(post.reactions.find(reaction => reaction.author === user.profile)._id)
-    } else {
-      // addReaction
-      const reactionData = {reaction: reactionChoice}
-      const addReaction = await emotionPostService.addReaction(postId, reactionData)
-      setUserReaction(true)
-      setReactionType(reactionChoice)
-      setReactionId(post.reactions.find(reaction => reaction.author === user.profile)._id)
-    }
-  }
+
 
 
 
@@ -95,12 +69,12 @@ const PostCard = ({ post, user }) => {
           <ReactionButton reactionType={reactionType} setShowReactions={setShowReactions} showReactions={showReactions}/>
 
           <div className={ `reaction-expand ${showReactions ? "active" : "inactive"}` }>
-              <i class="fa-solid fa-heart ex-reaction" onClick={() => {handleDecideAction(postId, 'Love', reactionId ); setShowReactions(!showReactions)} }></i>
-              <i class="fa-solid fa-champagne-glasses ex-reaction" onClick={() => {handleDecideAction(postId, 'Celebrate', reactionId );setShowReactions(!showReactions)}}></i>
-              <i class="fa-solid fa-hand-holding-medical ex-reaction" onClick={() => {handleDecideAction(postId, 'Support', reactionId ); setShowReactions(!showReactions)}}></i>
-              <i class="fa-solid fa-face-grin-tears ex-reaction" onClick={() => {handleDecideAction(postId, 'Funny', reactionId ); setShowReactions(!showReactions)}}></i>
-              <i class="fa-solid fa-thumbs-up ex-reaction" onClick={() => {handleDecideAction(postId, 'Like', reactionId ); setShowReactions(!showReactions)}}></i>
-              <i class="fa-solid fa-lightbulb ex-reaction" onClick={() => {handleDecideAction(postId, 'Curious', reactionId ); setShowReactions(!showReactions)}}></i>
+              <i class="fa-solid fa-heart ex-reaction" onClick={() => {handleDecideAction(post, postId, 'Love', reactionId ); setShowReactions(!showReactions)} }></i>
+              <i class="fa-solid fa-champagne-glasses ex-reaction" onClick={() => {handleDecideAction(post, postId, 'Celebrate', reactionId );setShowReactions(!showReactions)}}></i>
+              <i class="fa-solid fa-hand-holding-medical ex-reaction" onClick={() => {handleDecideAction(post, postId, 'Support', reactionId ); setShowReactions(!showReactions)}}></i>
+              <i class="fa-solid fa-face-grin-tears ex-reaction" onClick={() => {handleDecideAction(post, postId, 'Funny', reactionId ); setShowReactions(!showReactions)}}></i>
+              <i class="fa-solid fa-thumbs-up ex-reaction" onClick={() => {handleDecideAction(post, postId, 'Like', reactionId ); setShowReactions(!showReactions)}}></i>
+              <i class="fa-solid fa-lightbulb ex-reaction" onClick={() => {handleDecideAction(post, postId, 'Curious', reactionId ); setShowReactions(!showReactions)}}></i>
           </div>
 
         </div>
