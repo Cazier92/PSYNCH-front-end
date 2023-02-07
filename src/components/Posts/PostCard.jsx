@@ -22,7 +22,6 @@ const PostCard = ({ post, user }) => {
 
   const [userReaction, setUserReaction] = useState(false)
 
-  
 
 
   return (
