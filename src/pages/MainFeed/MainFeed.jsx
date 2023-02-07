@@ -1,24 +1,25 @@
 import { Link } from 'react-router-dom'
 import './MainFeed.css'
-import PostList from '../../components/PostList/PostList'
-import * as emotionPostService from '../../services/emotionPostService'
 
 import { useState, useEffect } from 'react'
 
 //COMPONENETS
+import PostList from '../../components/PostList/PostList'
 import FriendList from '../../components/FriendList/FriendList'
 
-
 //SERVICES
-
+import * as emotionPostService from '../../services/emotionPostService'
 
 
 
 
 const MainFeed = ({posts, user}) => {
+
+  //STATES
   let [selectedGlobal, setSelectedGlobal] = useState(true)
   let [selectedFriendsFeed, setSelectedFriendsFeed] = useState(false)
   let [selectedFriendsList, setSelectedFriendsList] = useState(false)
+  let [selectedHome, setSelectedHome] = useState(true)
 
   // console.log("Global:", selectedGlobal)
   // console.log("Friends:", selectedFriends)
@@ -67,7 +68,7 @@ const MainFeed = ({posts, user}) => {
           <FriendList user={user} />
         </div>
         <div className='ls-icon-wrapper'>
-          <div id='ls-icon-container'>
+          <div id='ls-icon-container' className={`home-icon ${selectedHome ? "active" : "inactive"}`} onClick={() => (setSelectedHome(!selectedHome))}>
             <i id='ls-icon' class="fa-solid fa-house"></i>
           </div>
           <div id='ls-icon-container'>
