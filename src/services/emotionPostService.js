@@ -115,10 +115,10 @@ const updateComment = async (id, commentData) => {
   }
 }
 
-const updateReaction = async (id, reactionData) => {
+const updateReaction = async (id, reactionData, reactionId) => {
   try {
     const res = 
-    await fetch(`${BASE_URL}/${id}/reactions/${reactionData._id}`, {
+    await fetch(`${BASE_URL}/${id}/reactions/${reactionId}`, {
       method: 'PUT',
       headers: {
         'Authorization': `Bearer ${tokenService.getToken()}`,
