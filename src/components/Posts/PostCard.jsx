@@ -8,6 +8,11 @@ import ReactionButton from "./ReactionButton";
 import { Link } from "react-router-dom";
 import "./PostCard.css";
 
+const linkStyle = {
+  textDecoration: "none",
+  color: "black",
+};
+
 const PostCard = ({ post, user }) => {
   // console.log(post)
   
@@ -84,8 +89,8 @@ const PostCard = ({ post, user }) => {
 
       <div className="post-footer">
         <div className="post-reaction">
-          <Link to={`/emotionPosts/${post._id}`}>
-            <i id="reply-btn" class="fa-solid fa-reply"></i>
+          <Link style={linkStyle} to={`/emotionPosts/${post._id}`}>
+          <i id='reply-btn' class="fa-regular fa-comment"></i>
           </Link>
           
           {/* <i id="reaction-btn" className='fa-solid fa-heart'
@@ -94,12 +99,12 @@ const PostCard = ({ post, user }) => {
           <ReactionButton reactionType={reactionType} setShowReactions={setShowReactions} showReactions={showReactions}/>
 
           <div className={ `reaction-expand ${showReactions ? "active" : "inactive"}` }>
-              <i class="fa-solid fa-heart ex-reaction" onClick={() => {handleDecideAction(postId, 'Love', reactionId )}}></i>
-              <i class="fa-solid fa-champagne-glasses ex-reaction" onClick={() => {handleDecideAction(postId, 'Celebrate', reactionId )}}></i>
-              <i class="fa-solid fa-hand-holding-medical ex-reaction" onClick={() => {handleDecideAction(postId, 'Support', reactionId )}}></i>
-              <i class="fa-solid fa-face-grin-tears ex-reaction" onClick={() => {handleDecideAction(postId, 'Funny', reactionId )}}></i>
-              <i class="fa-solid fa-thumbs-up ex-reaction" onClick={() => {handleDecideAction(postId, 'Like', reactionId )}}></i>
-              <i class="fa-solid fa-lightbulb ex-reaction" onClick={() => {handleDecideAction(postId, 'Curious', reactionId )}}></i>
+              <i class="fa-solid fa-heart ex-reaction" onClick={() => {handleDecideAction(postId, 'Love', reactionId ); setShowReactions(!showReactions)} }></i>
+              <i class="fa-solid fa-champagne-glasses ex-reaction" onClick={() => {handleDecideAction(postId, 'Celebrate', reactionId );setShowReactions(!showReactions)}}></i>
+              <i class="fa-solid fa-hand-holding-medical ex-reaction" onClick={() => {handleDecideAction(postId, 'Support', reactionId ); setShowReactions(!showReactions)}}></i>
+              <i class="fa-solid fa-face-grin-tears ex-reaction" onClick={() => {handleDecideAction(postId, 'Funny', reactionId ); setShowReactions(!showReactions)}}></i>
+              <i class="fa-solid fa-thumbs-up ex-reaction" onClick={() => {handleDecideAction(postId, 'Like', reactionId ); setShowReactions(!showReactions)}}></i>
+              <i class="fa-solid fa-lightbulb ex-reaction" onClick={() => {handleDecideAction(postId, 'Curious', reactionId ); setShowReactions(!showReactions)}}></i>
           </div>
 
         </div>
