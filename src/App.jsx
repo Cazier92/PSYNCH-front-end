@@ -148,7 +148,7 @@ const App = () => {
           path="/posts/new"
           element={
             <ProtectedRoute user={user}>
-              <NewPost handleAddPost={handleAddPost} />
+              <NewPost posts={posts} handleAddPost={handleAddPost} />
             </ProtectedRoute>
           }
         />

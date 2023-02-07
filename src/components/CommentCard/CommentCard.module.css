@@ -1,10 +1,31 @@
 .container {
   display: flex;
-  /* justify-content: center; */
+  justify-content: center;
   /* align-items: center; */
   margin: 0 350px;
 }
 
 .cardContainer {
   display: flex;
+}
+
+.speechBubble {
+  /* border: 1px solid; */
+  border-radius: 5px;
+  width: 400px;
+  overflow-wrap: break-word;
+  padding: 0 10px 10px 10px;
+  background-color: rgb(244, 244, 244);
+  border-radius: 0.5em;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  transition: 0.1s all ease-in;
+}
+
+.speechBubble:hover {
+  background-color: white;
+  box-shadow: none;
+}
+
+.avatarImg {
+  height: 50px;
 }
