@@ -86,7 +86,8 @@ const PostCard = ({ post, user }) => {
       setReactionId(null)
     } else if (userReaction) {
       // updateReaction
-      const updateReaction = await emotionPostService.updateReaction(postId, reactionChoice, reactionId)
+      const reactionData = {reaction: reactionChoice}
+      const updateReaction = await emotionPostService.updateReaction(postId, reactionData, reactionId)
       setReactionType(reactionChoice)
     } else {
       // addReaction
@@ -94,7 +95,6 @@ const PostCard = ({ post, user }) => {
       const addReaction = await emotionPostService.addReaction(postId, reactionData)
       setUserReaction(true)
       setReactionType(reactionChoice)
-
       setReactionId(post.reactions.find(reaction => reaction.author === user.profile)._id)
     }
   }
@@ -126,11 +126,11 @@ const PostCard = ({ post, user }) => {
 
           <div className={ `reaction-expand ${showReactions ? "active" : "inactive"}` }>
               <i class="fa-solid fa-heart ex-reaction" onClick={() => {handleDecideAction(postId, 'Love', reactionId )}}></i>
-              <i class="fa-solid fa-champagne-glasses ex-reaction"></i>
-              <i class="fa-solid fa-hand-holding-medical ex-reaction"></i>
-              <i class="fa-solid fa-face-grin-tears ex-reaction"></i>
-              <i class="fa-solid fa-thumbs-up ex-reaction"></i>
-              <i class="fa-solid fa-lightbulb ex-reaction"></i>
+              <i class="fa-solid fa-champagne-glasses ex-reaction" onClick={() => {handleDecideAction(postId, 'Celebrate', reactionId )}}></i>
+              <i class="fa-solid fa-hand-holding-medical ex-reaction" onClick={() => {handleDecideAction(postId, 'Support', reactionId )}}></i>
+              <i class="fa-solid fa-face-grin-tears ex-reaction" onClick={() => {handleDecideAction(postId, 'Funny', reactionId )}}></i>
+              <i class="fa-solid fa-thumbs-up ex-reaction" onClick={() => {handleDecideAction(postId, 'Like', reactionId )}}></i>
+              <i class="fa-solid fa-lightbulb ex-reaction" onClick={() => {handleDecideAction(postId, 'Curious', reactionId )}}></i>
           </div>
 
         </div>
