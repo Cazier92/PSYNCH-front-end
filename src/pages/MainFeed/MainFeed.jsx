@@ -1,19 +1,28 @@
 import { Link } from 'react-router-dom'
 import './MainFeed.css'
-import PostList from '../../components/PostList/PostList'
-import * as emotionPostService from '../../services/emotionPostService'
 
 import { useState, useEffect } from 'react'
 
+//COMPONENETS
+import PostList from '../../components/PostList/PostList'
+import FriendList from '../../components/FriendList/FriendList'
+
+//SERVICES
+import * as emotionPostService from '../../services/emotionPostService'
 
 
 
 
 const MainFeed = ({posts, user}) => {
+
+  //STATES
   let [selectedGlobal, setSelectedGlobal] = useState(true)
-  let [selectedFriends, setSelectedFriends] = useState(false)
-  console.log("Global:", selectedGlobal)
-  console.log("Friends:", selectedFriends)
+  let [selectedFriendsFeed, setSelectedFriendsFeed] = useState(false)
+  let [selectedFriendsList, setSelectedFriendsList] = useState(false)
+  let [selectedHome, setSelectedHome] = useState(true)
+
+  // console.log("Global:", selectedGlobal)
+  // console.log("Friends:", selectedFriends)
 
   const [feed, setFeed] = useState([])
 
@@ -28,11 +37,11 @@ const MainFeed = ({posts, user}) => {
 
 
     function toggle (){
-    if (selectedFriends === true){
+    if (selectedFriendsFeed === true){
      selectedGlobal = false
     }
     if (selectedGlobal === false){
-      selectedFriends = true
+      selectedFriendsFeed = true
     }
   }
   toggle()
@@ -43,43 +52,53 @@ const MainFeed = ({posts, user}) => {
       <div className='btns-container'>
         <button 
           className={`global-btn ${selectedGlobal ? "active" : "inactive"}`}
-          onClick={() => (setSelectedGlobal(!selectedGlobal), setSelectedFriends(!selectedFriends))}
+          onClick={() => (setSelectedGlobal(!selectedGlobal), setSelectedFriendsFeed(!selectedFriendsFeed))}
         >
           For You
         </button>
-        <button className={`friends-btn ${selectedFriends ? "active" : "inactive"}`}
-          onClick={() => (setSelectedFriends(!selectedFriends), setSelectedGlobal(!selectedGlobal))}
+        <button className={`friends-btn ${selectedFriendsFeed ? "active" : "inactive"}`}
+          onClick={() => (setSelectedFriendsFeed(!selectedFriendsFeed), setSelectedGlobal(!selectedGlobal))}
         >
           Friends
         </button>
       </div>
 
-      <div className='left-sidebar'>
-        <div id='lsb-icon-1'>
-          <i class="fa-solid fa-house fa-2x"></i>
+      <div className={`left-sidebar ${selectedFriendsList ? "friendsActive" : "friendsInactive"}`}>
+        <div className='component-container'>
+          <FriendList user={user} />
         </div>
-        <div id='lsb-icon-2'>
-          <i class="fa-solid fa-user fa-2x"></i>
+        <div className='ls-icon-wrapper'>
+          <div id='ls-icon-container' className={`home-icon ${selectedHome ? "active" : "inactive"}`} onClick={() => (setSelectedHome(!selectedHome))}>
+            <i id='ls-icon' class="fa-solid fa-house"></i>
+          </div>
+          <div id='ls-icon-container'>
+            <i id='ls-icon' class="fa-solid fa-user"></i>
+          </div>
+
+          <div id='ls-icon-container' 
+            className={`friends-list-icon ${selectedFriendsList ? "active" : "inactive"}`}
+            onClick={() => (setSelectedFriendsList(!selectedFriendsList))}>
+            <i id='ls-icon' class="fa-solid fa-user-group" ></i>
+          </div>
+
+          <div id='ls-icon-container'>
+            <i id='ls-icon' class="fa-solid fa-pen-to-square"></i>
+          </div>
         </div>
-        <div id='lsb-icon-3'>
-          <i class="fa-solid fa-user-group fa-2x"></i>
-        </div>
-        <div id='lsb-icon-4'>
-          <i class="fa-solid fa-pen-to-square fa-2x"></i>
-        </div>
+        
       </div>
 
 
       <div className='right-sidebar'>
-        <div id='rsb-icon-1'>
-          <i class="fa-solid fa-chart-simple fa-2x"></i>
+        <div id='ls-icon-container'>
+          <i id='ls-icon' class="fa-solid fa-chart-simple"></i>
         </div>
       </div>
 
       
       <div className='bottom-sidebar'>
         <div>
-            <i class="fa-solid fa-house fa-2x"></i>
+            <i class="fa-solid fa-house-2x"></i>
           </div>
           <div>
             <i class="fa-solid fa-user fa-2x"></i>
@@ -95,7 +114,7 @@ const MainFeed = ({posts, user}) => {
           </div>
       </div>
 
-      {selectedFriends ? (
+      {selectedFriendsFeed ? (
         <>
           {/* <p className='empty-text'>Your friends haven't posted!</p> */}
           <PostList posts={feed} user={user}/>
