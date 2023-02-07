@@ -18,6 +18,7 @@ import FriendList from '../../components/FriendList/FriendList'
 const MainFeed = ({posts, user}) => {
   let [selectedGlobal, setSelectedGlobal] = useState(true)
   let [selectedFriendsFeed, setSelectedFriendsFeed] = useState(false)
+  let [selectedFriendsList, setSelectedFriendsList] = useState(false)
 
   // console.log("Global:", selectedGlobal)
   // console.log("Friends:", selectedFriends)
@@ -61,7 +62,7 @@ const MainFeed = ({posts, user}) => {
         </button>
       </div>
 
-      <div className='left-sidebar'>
+      <div className={`left-sidebar ${selectedFriendsList ? "friendsActive" : "friendsInactive"}`}>
         <div className='component-container'>
           <FriendList user={user} />
         </div>
@@ -72,9 +73,13 @@ const MainFeed = ({posts, user}) => {
           <div id='ls-icon-container'>
             <i id='ls-icon' class="fa-solid fa-user"></i>
           </div>
-          <div id='ls-icon-container'>
-            <i id='ls-icon' class="fa-solid fa-user-group"></i>
+
+          <div id='ls-icon-container' 
+            className={`friends-list-icon ${selectedFriendsList ? "active" : "inactive"}`}
+            onClick={() => (setSelectedFriendsList(!selectedFriendsList))}>
+            <i id='ls-icon' class="fa-solid fa-user-group" ></i>
           </div>
+
           <div id='ls-icon-container'>
             <i id='ls-icon' class="fa-solid fa-pen-to-square"></i>
           </div>
