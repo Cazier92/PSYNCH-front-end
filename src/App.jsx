@@ -20,7 +20,6 @@ import FriendList from "./components/FriendList/FriendList";
 import NavBar from "./components/NavBar/NavBar";
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 
-
 // services
 import * as authService from "./services/authService";
 import * as emotionPostService from "./services/emotionPostService";
@@ -45,10 +44,15 @@ const App = () => {
   };
 
   const [posts, setPosts] = useState([]);
+  const [privatePosts, setPrivatePosts] = useState([]);
 
   const handleAddPost = async (postData) => {
     const newPost = await emotionPostService.create(postData);
-    setPosts([newPost, ...posts]);
+    if (newPost.publc) {
+      setPosts([newPost, ...posts]);
+    } else {
+      setPrivatePosts([newPost, ...privatePosts]);
+    }
     navigate("/main-feed");
   };
 
@@ -135,17 +139,14 @@ const App = () => {
             </ProtectedRoute>
           }
         />
-        <Route 
-          path="/main-feed" 
-          element={
-            <MainFeed posts={posts} user={user}/>
-          } 
+        <Route
+          path="/main-feed"
+          element={<MainFeed posts={posts} user={user} />}
         />
         <Route
           path="/emotionPosts/:id"
           element={
             <PostDetails user={user} handleDeletePost={handleDeletePost} />
-
           }
         />
         <Route

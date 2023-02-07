@@ -188,7 +188,7 @@ const NewPost = (props) => {
           rows="10"
         ></textarea>
         <label htmlFor="">
-          {form.public ? "Public" : "Private"}
+          {form.public ? "It's set to public" : "It's set to private"}
           <input
             checked={form.public}
             type="checkbox"
