@@ -95,11 +95,11 @@ const PostCard = ({ post, user }) => {
 
           <div className={ `reaction-expand ${showReactions ? "active" : "inactive"}` }>
               <i class="fa-solid fa-heart ex-reaction" onClick={() => {handleDecideAction(postId, 'Love', reactionId ); setShowReactions(!showReactions)} }></i>
-              <i class="fa-solid fa-champagne-glasses ex-reaction" onClick={() => {handleDecideAction(postId, 'Celebrate', reactionId )}}></i>
-              <i class="fa-solid fa-hand-holding-medical ex-reaction" onClick={() => {handleDecideAction(postId, 'Support', reactionId )}}></i>
-              <i class="fa-solid fa-face-grin-tears ex-reaction" onClick={() => {handleDecideAction(postId, 'Funny', reactionId )}}></i>
-              <i class="fa-solid fa-thumbs-up ex-reaction" onClick={() => {handleDecideAction(postId, 'Like', reactionId )}}></i>
-              <i class="fa-solid fa-lightbulb ex-reaction" onClick={() => {handleDecideAction(postId, 'Curious', reactionId )}}></i>
+              <i class="fa-solid fa-champagne-glasses ex-reaction" onClick={() => {handleDecideAction(postId, 'Celebrate', reactionId );setShowReactions(!showReactions)}}></i>
+              <i class="fa-solid fa-hand-holding-medical ex-reaction" onClick={() => {handleDecideAction(postId, 'Support', reactionId ); setShowReactions(!showReactions)}}></i>
+              <i class="fa-solid fa-face-grin-tears ex-reaction" onClick={() => {handleDecideAction(postId, 'Funny', reactionId ); setShowReactions(!showReactions)}}></i>
+              <i class="fa-solid fa-thumbs-up ex-reaction" onClick={() => {handleDecideAction(postId, 'Like', reactionId ); setShowReactions(!showReactions)}}></i>
+              <i class="fa-solid fa-lightbulb ex-reaction" onClick={() => {handleDecideAction(postId, 'Curious', reactionId ); setShowReactions(!showReactions)}}></i>
           </div>
 
         </div>
