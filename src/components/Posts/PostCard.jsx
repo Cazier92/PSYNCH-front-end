@@ -24,9 +24,11 @@ const PostCard = ({ post, user, handleDecideAction }) => {
   
   const postId = post._id
   const reactionId = post.reactions.find(reaction => reaction.author === user.profile)?._id
+  const reactionCount = post.reactions.length 
+  console.log('REACTION COUNT', reactionCount)
 
 
-  console.log('ICON STATE', iconState)
+  // console.log('ICON STATE', iconState)
 
 
   return (
@@ -61,6 +63,9 @@ const PostCard = ({ post, user, handleDecideAction }) => {
               <i class="fa-solid fa-face-grin-tears ex-reaction" onClick={() => {handleDecideAction(post, postId, 'Funny', reactionId ); setShowReactions(!showReactions)}}></i>
               <i class="fa-solid fa-thumbs-up ex-reaction" onClick={() => {handleDecideAction(post, postId, 'Like', reactionId ); setShowReactions(!showReactions)}}></i>
               <i class="fa-solid fa-lightbulb ex-reaction" onClick={() => {handleDecideAction(post, postId, 'Curious', reactionId ); setShowReactions(!showReactions)}}></i>
+          </div>
+          <div>
+            <p>{reactionCount}</p>
           </div>
 
         </div>
