@@ -62,7 +62,7 @@ const PostCard = ({ post, user }) => {
       const addReaction = await emotionPostService.addReaction(postId, reactionData)
       setUserReaction(true)
       setReactionType(reactionChoice)
-      // setReactionId(post.reactions.find(reaction => reaction.author === user.profile)._id)
+      setReactionId(post.reactions.find(reaction => reaction.author === user.profile)._id)
     }
   }
 
