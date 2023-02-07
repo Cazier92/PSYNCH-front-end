@@ -8,7 +8,7 @@ import { useState } from 'react'
 
 
 
-const MainFeed = ({posts}) => {
+const MainFeed = ({posts, user}) => {
   let [selectedGlobal, setSelectedGlobal] = useState(true)
   let [selectedFriends, setSelectedFriends] = useState(false)
   console.log("Global:", selectedGlobal)
@@ -88,7 +88,7 @@ const MainFeed = ({posts}) => {
         </>
       ):(
         <>
-          <PostList posts={posts} />
+          <PostList posts={posts} user={user}/>
         </>
       )}  
     </>
