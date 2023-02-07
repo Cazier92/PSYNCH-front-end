@@ -129,7 +129,7 @@
   display: flex;
   top:0;
   right: 0;
-  /* right: -270px; */
+  right: -270px;
   justify-content: flex-start;
   align-items: flex-start;
   gap: 5em;

@@ -173,7 +173,7 @@ const PostDetails = ({ user, handleDeletePost }) => {
       </main>
       <section>
         <NewComment handleAddComment={handleAddComment} />
-        <Comments comments={post.comments} user={user} />
+        <Comments post={post} comments={post.comments} user={user} />
       </section>
     </>
   ) : (
