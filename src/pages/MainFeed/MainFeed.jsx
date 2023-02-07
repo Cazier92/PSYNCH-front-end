@@ -1,18 +1,31 @@
 import { Link } from 'react-router-dom'
 import './MainFeed.css'
 import PostList from '../../components/PostList/PostList'
+import * as emotionPostService from '../../services/emotionPostService'
 
-import { useState } from 'react'
-
-
-
+import { useState, useEffect } from 'react'
 
 
-const MainFeed = ({posts}) => {
+
+
+
+const MainFeed = ({posts, user}) => {
   let [selectedGlobal, setSelectedGlobal] = useState(true)
   let [selectedFriends, setSelectedFriends] = useState(false)
   console.log("Global:", selectedGlobal)
   console.log("Friends:", selectedFriends)
+
+  const [feed, setFeed] = useState([])
+
+  useEffect(() => {
+    const fetchFeed = async () => {
+      const feedData = await emotionPostService.feed()
+      setFeed(feedData)
+    }
+    fetchFeed()
+  }, [])
+
+
 
     function toggle (){
     if (selectedFriends === true){
@@ -30,12 +43,12 @@ const MainFeed = ({posts}) => {
       <div className='btns-container'>
         <button 
           className={`global-btn ${selectedGlobal ? "active" : "inactive"}`}
-          onClick={() => setSelectedGlobal(!selectedGlobal)}
+          onClick={() => (setSelectedGlobal(!selectedGlobal), setSelectedFriends(!selectedFriends))}
         >
           For You
         </button>
         <button className={`friends-btn ${selectedFriends ? "active" : "inactive"}`}
-          onClick={() => setSelectedFriends(!selectedFriends)}
+          onClick={() => (setSelectedFriends(!selectedFriends), setSelectedGlobal(!selectedGlobal))}
         >
           Friends
         </button>
@@ -84,11 +97,13 @@ const MainFeed = ({posts}) => {
 
       {selectedFriends ? (
         <>
-          <p className='empty-text'>Your friends haven't posted!</p>
+          {/* <p className='empty-text'>Your friends haven't posted!</p> */}
+          <PostList posts={feed} user={user}/>
         </>
       ):(
         <>
-          <PostList posts={posts} />
+          <PostList posts={posts} user={user}/>
+          
         </>
       )}  
     </>

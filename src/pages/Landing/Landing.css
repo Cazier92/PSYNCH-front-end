@@ -12,24 +12,85 @@ main {
   box-shadow: rgba(17, 17, 26, 0.1) 0px 0px 16px;
 }
 
-.hero-statement,
-.hero-image {
+.hero-statement{
   display: flex;
   flex-direction: column;
   min-height: fit-content;
   position: relative;
   box-sizing: border-box;
-  min-width: 50%;
-  max-width: 50%;
+  min-width: 40%;
+  max-width: 40%;
   background-color: rgb(255, 255, 255);
 }
 
 .hero-image {
   background-color: rgb(236, 236, 236);
+  display: flex;
+  flex-direction: row;
+  max-height: 70vh;
+  position: relative;
+  box-sizing: border-box;
+  min-width: 60%;
+  max-width: 60%;
+  overflow: hidden;
+  background: url(/public/landingImages/img1.jpg);
+  background-size: cover;
+  /* transition: 200ms; */
+  
 }
 
-.testing {
-  background-color: blue;
+
+.slides {
+  display: flex;
+  flex-direction: row;
+
+}
+
+.scroller{
+ display: flex;
+ height: fit-content;
+ 
+}
+
+.slides input {
+  display: none;
+}
+
+/* .hero-image img{
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover;
+} */
+
+
+.manual-btn-container {
+  position: flex;
+  margin-top: 40em;
+  margin-left: 34em;
+  gap: 1em;
+  display: flex;
+  width: 1em;
+  height: 2em;
+  justify-content: center;
+
+}
+
+.manual-btn {
+  border: 3px solid rgb(190, 84, 84);
+  padding: 0.5em;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: 200ms ease;
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 0px 16px;
+  
+}
+
+.manual-btn:hover{
+  background-color: rgb(194, 95, 95);
+}
+
+#radio1:checked {
+  background-color: red;
 }
 
 .hero-statement {
@@ -83,7 +144,7 @@ main p {
     /* text-align: center;
     align-content: center; */
     min-height: 25em;
-    max-height: 20em;
+    max-height: 100%;
     min-width: 100%;
     max-width: 100%;
     background-color: rgb(255, 255, 255);
@@ -101,7 +162,10 @@ main p {
     max-width: 100%;
     background-color: rgb(236, 236, 236);
   }
-
+  .main-content{
+    max-height: 100%; 
+    min-height: 100%;
+  }
   .sign-up-btn {
   }
 }
@@ -112,6 +176,8 @@ main p {
   display: flex;
   flex-direction: column;
   margin: 3rem 0 0 0;
+  max-width: 100%;
+  height: 40vh;
   padding-left: 5rem;
   padding-right: 5rem;
 }

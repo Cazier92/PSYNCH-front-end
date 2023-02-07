@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom';
+
 import { useEffect, useState } from 'react';
 
 
@@ -16,23 +16,24 @@ const SendFriendRequest = (props) => {
     fetchProfile()
   }, [props.user.profile])
 
-  const [friendState, setFriendState] = useState('notFriends')
+  const [friendState, setFriendState] = useState('user')
 
   useEffect(() => {
-    if (props.profile.friendRequests.includes(element => element._id === userProfile._id)) {
+    if (props.profile.friendRequests.some(element => element._id === userProfile._id)) {
       setFriendState('pending')
     } else if (props.profile.friends.some(element => element._id === userProfile._id)) {
       setFriendState('friends')
-    // } else if (userProfile.friendRequests.some(element => element._id === props.profile._id)) {
-    //   setFriendState('receivedRequest')
+    } else if (userProfile.friendRequests?.some(element => element._id === props.profile._id)) {
+      setFriendState('recievedRequest')
     } else if (props.profile._id === userProfile._id) {
       setFriendState('user')
     } else {
-
+      setFriendState('notFriends')
     }
-  }, [])
+  }, [props.profile._id, props.profile.friendRequests, props.profile.friends, userProfile, userProfile.friendRequests])
   
-  console.log(friendState)
+  // console.log(friendState)
+
 
 
   if (friendState === 'pending') {

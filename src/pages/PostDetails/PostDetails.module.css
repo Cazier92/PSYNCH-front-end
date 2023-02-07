@@ -1,0 +1,35 @@
+.container {
+  display: flex;
+  justify-content: center;
+  background-color: rgb(244, 244, 244);
+  border-radius: 0.5em;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  margin: 0 350px;
+  margin-top: 100px;
+}
+
+.postDetailCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 10px;
+}
+
+.postHeaders {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5em 0;
+  width: 100%;
+  max-height: 3.5em;
+  background-color: rgb(255, 255, 255);
+  border-top-left-radius: 0.5em;
+  border-top-right-radius: 0.5em;
+  box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px,
+    rgba(17, 17, 26, 0.1) 0px 0px 8px;
+}
+
+.buttonContainer button {
+  margin: 20px 10px 10px;
+}

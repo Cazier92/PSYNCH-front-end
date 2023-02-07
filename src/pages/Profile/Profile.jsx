@@ -19,6 +19,9 @@ const Profile = ({user}) => {
     fetchProfile()
   }, [id])
   
+  // const sortedPosts = profile.emotionPosts.sort({createdAt: 'desc'})
+  // console.log(profile.emotionPosts.sort((a, b) => a - b))
+
 
   if (!profile) return <h1>Loading</h1>
   return ( 
@@ -26,7 +29,7 @@ const Profile = ({user}) => {
       <h1>{profile.name}</h1>
       <img src={profile.avatar} alt="" />
       <SendFriendRequest profile={profile} user={user}/>
-      <PostList posts={profile.emotionPosts} />
+      <PostList posts={profile.emotionPosts} user={user}/>
     </>
   );
 }
