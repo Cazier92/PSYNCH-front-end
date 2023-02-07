@@ -29,7 +29,7 @@ const Profile = ({user}) => {
       <h1>{profile.name}</h1>
       <img src={profile.avatar} alt="" />
       <SendFriendRequest profile={profile} user={user}/>
-      <PostList posts={profile.emotionPosts} />
+      <PostList posts={profile.emotionPosts} user={user}/>
     </>
   );
 }
