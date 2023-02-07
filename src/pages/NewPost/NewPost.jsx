@@ -22,6 +22,8 @@ const NewPost = (props) => {
     props.handleAddPost(form);
   };
 
+  console.log(form);
+
   return (
     <div className={styles.container}>
       <h1>What's on your mind today?</h1>
