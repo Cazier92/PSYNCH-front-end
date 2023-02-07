@@ -4,7 +4,7 @@ import PostCard from '../Posts/PostCard'
 
 // import { useState } from 'react'
 
-const PostList = ({posts, user, userReaction, setUserReaction, reactionType, setReactionType, reactionId, setReactionId, handleDecideAction}) => {
+const PostList = ({posts, user, handleDecideAction}) => {
   return (
     <>
       <main className='layout'>
@@ -15,7 +15,7 @@ const PostList = ({posts, user, userReaction, setUserReaction, reactionType, set
                 post={post}
                 key={post._id}
                 user={user}
-                userReaction={userReaction} setUserReaction={setUserReaction} reactionType={reactionType} setReactionType={setReactionType} reactionId={reactionId} setReactionId={setReactionId} handleDecideAction={handleDecideAction}
+                handleDecideAction={handleDecideAction}
               />
             })
             :   

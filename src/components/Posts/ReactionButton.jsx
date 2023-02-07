@@ -2,7 +2,7 @@
 
 
 const ReactionButton = ({setShowReactions, showReactions, reactionType}) => {
-  if (reactionType === null) {
+  if (reactionType === undefined) {
     return ( 
       <>
         <i id="reaction-btn" className='fa-regular fa-heart'

@@ -68,8 +68,7 @@ const App = () => {
     const fetchPosts = async () => {
       const postData = await emotionPostService.index();
       setPosts(postData);
-      // console.log("Data:", postData);
-      // console.log("Posts:", posts);
+
     };
     fetchPosts();
   }, []);
@@ -84,35 +83,35 @@ const App = () => {
     fetchFeed()
   }, [])
 
-  const [userReaction, setUserReaction] = useState(false)
 
-  const [reactionType, setReactionType] = useState(null)
-
-  const [reactionId, setReactionId] = useState(null)
 
   const handleDecideAction = async (post, postId, reactionChoice, reactionId) => {
-    if (userReaction && reactionChoice === reactionType) {
+    console.log('reactionChoice', reactionChoice)
+    if (post.reactions.some(reaction => reaction.author === user.profile)) {
       // deleteReaction
-      const deleteReaction = await emotionPostService.deleteReaction(postId, reactionId)
-      setUserReaction(false)
-      setReactionType(null)
-      setReactionId(null)
-    } else if (userReaction) {
-      // updateReaction
-      const reactionData = {reaction: reactionChoice}
-      const updateReaction = await emotionPostService.updateReaction(postId, reactionData, reactionId)
-      setUserReaction(true)
-      setReactionType(reactionChoice)
-      setReactionId(post.reactions.find(reaction => reaction.author === user.profile)._id)
+      let currentReaction = post.reactions.find(reaction => reaction.author === user.profile)
+      if (reactionChoice === currentReaction.reaction) {
+        console.log('delete')
+        const updatedPost = await emotionPostService.deleteReaction(postId, reactionId)
+        setPosts(posts.map((b) => (updatedPost._id === b._id ? updatedPost : b)))
+        console.log('deletedPost', updatedPost)
+      } else {
+        console.log('update')
+        const reactionData = {reaction: reactionChoice}
+        const updatedPost = await emotionPostService.updateReaction(postId, reactionData, reactionId)
+        setPosts(posts.map((b) => (updatedPost._id === b._id ? updatedPost : b)))
+      }
     } else {
       // addReaction
+      console.log('add')
       const reactionData = {reaction: reactionChoice}
-      const addReaction = await emotionPostService.addReaction(postId, reactionData)
-      setUserReaction(true)
-      setReactionType(reactionChoice)
-      setReactionId(post.reactions.find(reaction => reaction.author === user.profile)._id)
+      const updatedPost = await emotionPostService.addReaction(postId, reactionData)
+      setPosts(posts.map((b) => (updatedPost._id === b._id ? updatedPost : b)))
+      console.log('addedPost', updatedPost)
     }
   }
+  
+
 
 
 
@@ -180,7 +179,7 @@ const App = () => {
         <Route 
           path="/main-feed" 
           element={
-            <MainFeed posts={posts} user={user} feed={feed} userReaction={userReaction} setUserReaction={setUserReaction} reactionType={reactionType} setReactionType={setReactionType} reactionId={reactionId} setReactionId={setReactionId} handleDecideAction={handleDecideAction}/>
+            <MainFeed posts={posts} user={user} feed={feed} handleDecideAction={handleDecideAction}/>
           } 
         />
         <Route
