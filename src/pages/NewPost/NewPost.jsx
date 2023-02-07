@@ -8,6 +8,8 @@ const NewPost = (props) => {
     public: Boolean,
   });
 
+
+
   const handleChange = ({ target }) => {
     setForm({ ...form, [target.name]: target.value });
   };
@@ -16,6 +18,8 @@ const NewPost = (props) => {
     e.preventDefault();
     props.handleAddPost(form);
   };
+
+  console.log(form)
 
   return (
     <div className={styles.container}>
@@ -182,7 +186,6 @@ const NewPost = (props) => {
           cols="40"
           rows="10"
         ></textarea>
-        <button type="submit">SUBMIT</button>
       </form>
     </div>
   );
