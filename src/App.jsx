@@ -94,12 +94,14 @@ const App = () => {
         console.log('delete')
         const updatedPost = await emotionPostService.deleteReaction(postId, reactionId)
         setPosts(posts.map((b) => (updatedPost._id === b._id ? updatedPost : b)))
+        setFeed(feed.map((b) => (updatedPost._id === b._id ? updatedPost : b)))
         console.log('deletedPost', updatedPost)
       } else {
         console.log('update')
         const reactionData = {reaction: reactionChoice}
         const updatedPost = await emotionPostService.updateReaction(postId, reactionData, reactionId)
         setPosts(posts.map((b) => (updatedPost._id === b._id ? updatedPost : b)))
+        setFeed(feed.map((b) => (updatedPost._id === b._id ? updatedPost : b)))
       }
     } else {
       // addReaction
@@ -107,9 +109,36 @@ const App = () => {
       const reactionData = {reaction: reactionChoice}
       const updatedPost = await emotionPostService.addReaction(postId, reactionData)
       setPosts(posts.map((b) => (updatedPost._id === b._id ? updatedPost : b)))
+      setFeed(feed.map((b) => (updatedPost._id === b._id ? updatedPost : b)))
       console.log('addedPost', updatedPost)
     }
   }
+  
+  // const handleDecideActionFeed = async (post, postId, reactionChoice, reactionId) => {
+  //   console.log('reactionChoice', reactionChoice)
+  //   if (post.reactions.some(reaction => reaction.author === user.profile)) {
+  //     // deleteReaction
+  //     let currentReaction = post.reactions.find(reaction => reaction.author === user.profile)
+  //     if (reactionChoice === currentReaction.reaction) {
+  //       console.log('delete')
+  //       const updatedPost = await emotionPostService.deleteReaction(postId, reactionId)
+  //       setPosts(posts.map((b) => (updatedPost._id === b._id ? updatedPost : b)))
+  //       console.log('deletedPost', updatedPost)
+  //     } else {
+  //       console.log('update')
+  //       const reactionData = {reaction: reactionChoice}
+  //       const updatedPost = await emotionPostService.updateReaction(postId, reactionData, reactionId)
+  //       setPosts(posts.map((b) => (updatedPost._id === b._id ? updatedPost : b)))
+  //     }
+  //   } else {
+  //     // addReaction
+  //     console.log('add')
+  //     const reactionData = {reaction: reactionChoice}
+  //     const updatedPost = await emotionPostService.addReaction(postId, reactionData)
+  //     setPosts(posts.map((b) => (updatedPost._id === b._id ? updatedPost : b)))
+  //     console.log('addedPost', updatedPost)
+  //   }
+  // }
   
 
 
