@@ -133,6 +133,26 @@ const PostDetails = ({ user, handleDeletePost }) => {
                   😊
                 </span>
               )}
+              {post.emotion === "Startled" && (
+                <span role="img" aria-label="Joyful">
+                  😬
+                </span>
+              )}
+              {post.emotion === "Confused" && (
+                <span role="img" aria-label="Joyful">
+                  🤔
+                </span>
+              )}
+              {post.emotion === "Excited" && (
+                <span role="img" aria-label="Joyful">
+                  🤩
+                </span>
+              )}
+              {post.emotion === "Amazed" && (
+                <span role="img" aria-label="Joyful">
+                  😆
+                </span>
+              )}
             </div>
           </div>
           {post.author._id === user.profile && (
