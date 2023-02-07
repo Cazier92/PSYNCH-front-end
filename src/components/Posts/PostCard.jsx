@@ -7,8 +7,12 @@ import "./PostCard.css";
 
 const PostCard = ({ post, user }) => {
   // console.log(post)
-
+  
   const [showReactions, setShowReactions] = useState(false)
+
+  const [userReaction, setUserReaction] = useState(false)
+
+  const [reactionType, setReactionType] = useState(null)
 
   //* define reaction state
   //* start with create and delete reaction, then move on to update
@@ -16,21 +20,21 @@ const PostCard = ({ post, user }) => {
   //* if there isn't, state remains false
   //* if there is, setState true
   
-  if (post.reactions[0] !== undefined) {
-    console.log(post.reactions.some(reaction => reaction.author === user.profile))
-  }
+  // if (post.reactions[0] !== undefined) {
+  //   console.log(post.reactions.some(reaction => reaction.author === user.profile))
+  // }
 
-  const [userReaction, setUserReaction] = useState(false)
 
   useEffect(() => {
     if (post.reactions[0] !== undefined) {
       if(post.reactions.some(reaction => reaction.author === user.profile)) {
         setUserReaction(true)
-        console.log('this is true')
-        console.log(post.reactions.find(reaction => reaction.author === user.profile).reaction)
+        // console.log(post.reactions.find(reaction => reaction.author === user.profile).reaction)
+        setReactionType(post.reactions.find(reaction => reaction.author === user.profile).reaction)
+        // console.log(reactionType)
       }
     }
-  }, [post.reactions, user]);
+  }, [post.reactions, reactionType, user]);
   
 
 
