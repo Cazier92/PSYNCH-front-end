@@ -41,25 +41,25 @@ const PostCard = ({ post, user, handleDecideAction }) => {
 
   const decideColor = () => {
     if (down.includes(post.emotion)) {
-      return '#585191CF'
+      return '#5851919F'
     }
     if (fearful.includes(post.emotion)) {
-      return '#DA4167CF'
+      return '#DA41679F'
     }
     if (angry.includes(post.emotion)) {
-      return '#E66536DF'
+      return '#E66536AF'
     }
     if (disgusted.includes(post.emotion)) {
-      return '#3E8914CF'
+      return '#3E89149F'
     }
     if (sad.includes(post.emotion)) {
-      return '#53B3CBCF'
+      return '#53B3CB9F'
     }
     if (happy.includes(post.emotion)) {
-      return '#FDE74CCF'
+      return '#FDE74C7F'
     }
     if (surprised.includes(post.emotion)) {
-      return '#F18805AF'
+      return '#F188058F'
     }
   }
 
@@ -91,7 +91,7 @@ const PostCard = ({ post, user, handleDecideAction }) => {
             </Link>
             {commentsCount}
           </div>
-         
+        
           
 
           <div className="total-reactions">
