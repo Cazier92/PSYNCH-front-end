@@ -68,7 +68,7 @@ const MainFeed = ({posts, user, feed, handleDecideAction}) => {
           <div id='ls-icon-container' className={`home-icon ${selectedHome ? "active" : "inactive"}`} onClick={() => (setSelectedHome(!selectedHome))}>
             <i id='ls-icon' class="fa-solid fa-house"></i>
           </div>
-          <Link style={linkStyle} to={`/profile/${user._id}`}>
+          <Link style={linkStyle} to={`/profile/${user.profile}`}>
             <div id='ls-icon-container'>
               <i id='ls-icon' class="fa-solid fa-user"></i>
             </div>
