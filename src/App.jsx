@@ -15,7 +15,6 @@ import MainFeed from "./pages/MainFeed/MainFeed";
 import PendingRequests from "./components/FriendRequests/PendingRequests/PendingRequests";
 import PostDetails from "./pages/PostDetails/PostDetails";
 import FriendList from "./components/FriendList/FriendList";
-import EditProfile from "./pages/EditProfile/EditProfile";
 import EditComment from "./pages/EditComment/EditComment";
 
 
@@ -229,12 +228,6 @@ const App = () => {
               handleDecideAction={handleDecideAction}
             />
           }
-        />
-        <Route 
-          path="/profile/edit" 
-          element={
-            <EditProfile user={user}/>
-          } 
         />
         <Route
           path="/emotionPosts/:id"

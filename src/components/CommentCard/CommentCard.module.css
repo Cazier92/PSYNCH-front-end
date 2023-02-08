@@ -17,6 +17,11 @@
   transition: 0.1s all ease-in;
 }
 
+.timeStamp {
+  padding-top: 20px;
+  font-size: 13px;
+}
+
 .speechBubble:hover {
   background-color: white;
   box-shadow: none;
