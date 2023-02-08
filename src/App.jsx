@@ -94,9 +94,7 @@ const App = () => {
     fetchAll();
   }, []);
 
-  // const handleDecideAction = async (post, postId, reactionChoice, reactionId) => {
-  //   console.log('reactionChoice', reactionChoice)
-  //   if (post.reactions.some(reaction => reaction.author === user.profile)) {
+
 
   const handleDecideAction = async (
     post,
@@ -104,14 +102,14 @@ const App = () => {
     reactionChoice,
     reactionId
   ) => {
-    console.log("reactionChoice", reactionChoice);
+
     if (post.reactions.some((reaction) => reaction.author === user.profile)) {
       // deleteReaction
       let currentReaction = post.reactions.find(
         (reaction) => reaction.author === user.profile
       );
       if (reactionChoice === currentReaction.reaction) {
-        console.log("delete");
+
         const updatedPost = await emotionPostService.deleteReaction(
           postId,
           reactionId
@@ -120,9 +118,9 @@ const App = () => {
           posts.map((b) => (updatedPost._id === b._id ? updatedPost : b))
         );
         setFeed(feed.map((b) => (updatedPost._id === b._id ? updatedPost : b)));
-        console.log("deletedPost", updatedPost);
+
       } else {
-        console.log("update");
+        // updateReaction
         const reactionData = { reaction: reactionChoice };
         const updatedPost = await emotionPostService.updateReaction(
           postId,
@@ -144,7 +142,6 @@ const App = () => {
       );
       setPosts(posts.map((b) => (updatedPost._id === b._id ? updatedPost : b)));
       setFeed(feed.map((b) => (updatedPost._id === b._id ? updatedPost : b)));
-      console.log("addedPost", updatedPost);
     }
   };
 
