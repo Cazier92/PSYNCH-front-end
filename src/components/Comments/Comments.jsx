@@ -1,6 +1,6 @@
 import CommentCard from "../CommentCard/CommentCard";
 
-const Comments = ({ comments, user, post, postId }) => {
+const Comments = ({ comments, user, post, postId, handleDeleteComment }) => {
   if (!comments) return <h4>No Comments</h4>;
 
   return (
@@ -12,6 +12,7 @@ const Comments = ({ comments, user, post, postId }) => {
           comment={comment}
           user={user}
           postId={postId}
+          handleDeleteComment={handleDeleteComment}
         />
       ))}
     </>
