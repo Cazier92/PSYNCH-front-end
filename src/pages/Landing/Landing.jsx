@@ -28,7 +28,7 @@ const Landing = ({ user }) => {
           </div>
         </div>
         <div className="hero-image">
-          <div className="slides">
+          {/* <div className="slides">
             
             <div className="scroller">
               <input type="radio" name='radio-btn' id='radio-1' />
@@ -53,7 +53,7 @@ const Landing = ({ user }) => {
             </div>
 
 
-          </div>
+          </div> */}
           
 
         </div>
