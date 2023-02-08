@@ -18,6 +18,7 @@ const NewComment = ({ handleAddComment }) => {
     <form onSubmit={handleSubmit}>
       <textarea
         required
+        style={{fontFamily: "Verdana", fontSize:"15px"}}
         type="text"
         name="content"
         id="text-input"
@@ -25,7 +26,7 @@ const NewComment = ({ handleAddComment }) => {
         placeholder="Add a comment"
         onChange={handleChange}
       ></textarea>
-      <button type="submit">Comment</button>
+      <button id="comment-submit" type="submit">Comment</button>
     </form>
   );
 };
