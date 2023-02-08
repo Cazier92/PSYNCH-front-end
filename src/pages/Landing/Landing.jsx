@@ -62,10 +62,10 @@ const Landing = ({ user }) => {
         <p className="firstChild-main">How are you feeling?</p>
         <p className="subtitle-main">Choose an emotion below to find your stats.</p>
         <div className="main-moods">
-          <div>Emotion</div>
-          <div>Emotion</div>
-          <div>Emotion</div>
-          <div>Emotion</div>
+          <div>Happy</div>
+          <div>Sad</div>
+          <div>Angry</div>
+          <div>Fearful</div>
         </div>
       </section>
     </main>
