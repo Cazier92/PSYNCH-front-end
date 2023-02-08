@@ -17,6 +17,7 @@
   flex-direction: column;
   justify-content: center;
   text-align: center;
+  
 }
 
 .img-msg1 {
@@ -24,12 +25,12 @@
   position: absolute;
   max-height: 2em;
   max-height: 2em;
-  margin-top: 30em;
+  margin-top: 1em;
   margin-left: 12em;
   max-width: 25em;
   min-width: 25em;
   font-weight: 700;
-  font-size: 1.5em;
+  font-size: 2.5em;
   color: rgb(255, 255, 255);
   z-index: 10;
   
