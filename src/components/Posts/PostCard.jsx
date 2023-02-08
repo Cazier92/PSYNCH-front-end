@@ -31,10 +31,44 @@ const PostCard = ({ post, user, handleDecideAction }) => {
 
   // console.log('ICON STATE', iconState)
 
+  const down = ['Bored', 'Stressed', 'Tired']
+  const fearful = ['Anxious', 'Rejected', 'Scared']
+  const angry = ['Mad', 'Jealous', 'Betrayed']
+  const disgusted = ['Embarrassed', 'Disgusted']
+  const sad = ['Lonely', 'Guilty', 'Hurt']
+  const happy = ['Optimistic', 'Peaceful', 'Powerful', 'Accepted', 'Joyful']
+  const surprised = ['Startled', 'Confused', 'Excited', 'Amazed']
+
+  const decideColor = () => {
+    if (down.includes(post.emotion)) {
+      return '#585191CF'
+    }
+    if (fearful.includes(post.emotion)) {
+      return '#DA4167CF'
+    }
+    if (angry.includes(post.emotion)) {
+      return '#E66536DF'
+    }
+    if (disgusted.includes(post.emotion)) {
+      return '#3E8914CF'
+    }
+    if (sad.includes(post.emotion)) {
+      return '#53B3CBCF'
+    }
+    if (happy.includes(post.emotion)) {
+      return '#FDE74CCF'
+    }
+    if (surprised.includes(post.emotion)) {
+      return '#F18805AF'
+    }
+  }
+
+
+
 
   return (
     <div className="post-container">
-      <div className="post-header">
+      <div className="post-header" style={{backgroundColor: decideColor()}}>
         <div className="post-avatar">{post.author.avatar}</div>
         <p>{post.author.name}</p>
       </div>

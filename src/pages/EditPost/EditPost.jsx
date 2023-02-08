@@ -163,6 +163,19 @@ const EditPost = ({ handleUpdatePost }) => {
             cols="40"
             rows="10"
           ></textarea>
+          <div className={styles.checkboxContainer}>
+          <label>
+            {form.public ? "It's set to public [🌐]" : "It's set to private [🥷🏻]"}
+          </label>
+          <input
+            checked={form.public}
+            type="checkbox"
+            name="public"
+            onChange={({ target }) =>
+              setForm({ ...form, public: target.checked })
+            }
+          />
+        </div>
           <button type="submit">SUBMIT</button>
         </form>
       </div>
