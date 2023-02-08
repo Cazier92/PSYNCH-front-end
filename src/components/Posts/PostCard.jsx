@@ -33,7 +33,7 @@ const PostCard = ({ post, user, handleDecideAction }) => {
     .startOf("seconds")
     .fromNow();
 
-  console.log("formatted", formatted);
+  // console.log("formatted", formatted);
 
   const down = ["Bored", "Stressed", "Tired"];
   const fearful = ["Anxious", "Rejected", "Scared"];
