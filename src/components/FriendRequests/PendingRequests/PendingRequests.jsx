@@ -27,8 +27,12 @@ console.log(requests)
           <>
           <div className='request-card'>
             <p>{request.name}</p>
-            <AcceptRequest id={request._id} setRequests={setRequests} requests={requests}/>
-            <DenyRequest id={request._id} setRequests={setRequests} requests={requests}/>
+            <div>
+              <AcceptRequest id={request._id} setRequests={setRequests} requests={requests}/>
+            </div>
+            <div>
+              <DenyRequest id={request._id} setRequests={setRequests} requests={requests}/>
+            </div>
           </div>
           
           </>
