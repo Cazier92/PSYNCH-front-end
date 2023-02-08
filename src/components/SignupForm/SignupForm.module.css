@@ -9,8 +9,9 @@
 .label,
 .button {
   margin-right: .5rem;
+  white-space: nowrap;
 }
 
 .inputContainer {
   margin-bottom: 1rem;
-}
+} 
