@@ -27,7 +27,7 @@ const PostDetails = ({ user, handleDeletePost }) => {
   console.log("Post State", post);
 
   return post ? (
-    <>
+    <div className={styles.mainContainer}>
       <main className={styles.container}>
         <div className={styles.postDetailCard}>
           <div className={styles.postHeaders}>
@@ -175,7 +175,7 @@ const PostDetails = ({ user, handleDeletePost }) => {
         <NewComment handleAddComment={handleAddComment} />
         <Comments post={post} comments={post.comments} user={user} />
       </section>
-    </>
+    </div>
   ) : (
     <main>
       <p>Loading...</p>

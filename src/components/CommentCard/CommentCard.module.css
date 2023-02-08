@@ -29,3 +29,11 @@
 .avatarImg {
   height: 50px;
 }
+
+@media screen and (max-width: 900px) {
+  .container {
+    display: flex;
+    width: 300px;
+    margin-top: 20px;
+  }
+}
