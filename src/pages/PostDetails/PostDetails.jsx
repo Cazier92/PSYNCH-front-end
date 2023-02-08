@@ -7,7 +7,7 @@ import * as postService from "../../services/emotionPostService";
 import NewComment from "../../components/NewComment/NewComment";
 import Comments from "../../components/Comments/Comments";
 
-const PostDetails = ({ user, handleDeletePost }) => {
+const PostDetails = ({ user, handleDeletePost, posts }) => {
   const { id } = useParams();
   const [post, setPost] = useState(null);
 
