@@ -17,8 +17,7 @@ const EditPost = ({ handleUpdatePost }) => {
   };
 
   return (
-    <div>
-      <h1>Edit Post Page</h1>
+    <div className={styles.mainContainer}>
       <div className={styles.container}>
         <h1>What's on your mind today?</h1>
         <form onSubmit={handleSubmit}>
@@ -164,18 +163,21 @@ const EditPost = ({ handleUpdatePost }) => {
             rows="10"
           ></textarea>
           <div className={styles.checkboxContainer}>
-          <label>
-            {form.public ? "It's set to public [🌐]" : "It's set to private [🥷🏻]"}
-          </label>
-          <input
-            checked={form.public}
-            type="checkbox"
-            name="public"
-            onChange={({ target }) =>
-              setForm({ ...form, public: target.checked })
-            }
-          />
-        </div>
+            <label>
+              {form.public
+                ? "It's set to public [🌐]"
+                : "It's set to private [🥷🏻]"}
+            </label>
+            <input
+              className={styles.checkbox}
+              checked={form.public}
+              type="checkbox"
+              name="public"
+              onChange={({ target }) =>
+                setForm({ ...form, public: target.checked })
+              }
+            />
+          </div>
           <button type="submit">SUBMIT</button>
         </form>
       </div>

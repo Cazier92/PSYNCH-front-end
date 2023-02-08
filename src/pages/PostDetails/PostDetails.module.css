@@ -35,14 +35,31 @@
 }
 
 @media screen and (max-width: 900px) {
+  .mainContainer {
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+  }
+
   .container {
     display: flex;
-    justify-content: center;
-    width: 100px;
-    margin: 0;
+    margin: 0 20px;
+    margin-top: 20px;
   }
 
   .postDetailCard {
     display: flex;
+    text-align: center;
+  }
+
+  .postDetailCard h2 {
+    padding-top: 20px;
+  }
+
+  section {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
   }
 }
