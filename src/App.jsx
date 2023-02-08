@@ -15,6 +15,7 @@ import MainFeed from "./pages/MainFeed/MainFeed";
 import PendingRequests from "./components/FriendRequests/PendingRequests/PendingRequests";
 import PostDetails from "./pages/PostDetails/PostDetails";
 import FriendList from "./components/FriendList/FriendList";
+import EditProfile from "./pages/EditProfile/EditProfile";
 
 // components
 import NavBar from "./components/NavBar/NavBar";
@@ -32,6 +33,11 @@ import EditPost from "./pages/EditPost/EditPost";
 const App = () => {
   const [user, setUser] = useState(authService.getUser());
   const navigate = useNavigate();
+  const [posts, setPosts] = useState([]);
+  const [privatePosts, setPrivatePosts] = useState([]);
+  const [feed, setFeed] = useState([])
+  const [allPosts, setAllPosts] = useState([])
+  
 
   function handleLogout() {
     authService.logout();
@@ -43,8 +49,6 @@ const App = () => {
     setUser(authService.getUser());
   };
 
-  const [posts, setPosts] = useState([]);
-  const [privatePosts, setPrivatePosts] = useState([]);
 
   const handleAddPost = async (postData) => {
     const newPost = await emotionPostService.create(postData);
@@ -77,7 +81,6 @@ const App = () => {
     fetchPosts();
   }, []);
 
-  const [feed, setFeed] = useState([])
 
   useEffect(() => {
     const fetchFeed = async () => {
@@ -85,6 +88,14 @@ const App = () => {
       setFeed(feedData)
     }
     fetchFeed()
+  }, [])
+
+  useEffect(() => {
+    const fetchAll = async () => {
+      const allPostsData = await emotionPostService.all()
+      setAllPosts(allPostsData)
+    }
+    fetchAll()
   }, [])
 
 
@@ -163,7 +174,7 @@ const App = () => {
           path="/profile/:id"
           element={
             <ProtectedRoute user={user}>
-              <Profile user={user} />
+              <Profile user={user} allPosts={allPosts} feed={feed}/>
             </ProtectedRoute>
           }
         />
@@ -187,6 +198,12 @@ const App = () => {
           path="/main-feed" 
           element={
             <MainFeed posts={posts} user={user} feed={feed} handleDecideAction={handleDecideAction}/>
+          } 
+        />
+        <Route 
+          path="/profile/edit" 
+          element={
+            <EditProfile user={user}/>
           } 
         />
         <Route

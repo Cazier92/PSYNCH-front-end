@@ -3,6 +3,8 @@ import { Link, useNavigate } from 'react-router-dom'
 import styles from './SignupForm.module.css'
 import * as authService from '../../services/authService'
 
+
+
 const SignupForm = props => {
   const navigate = useNavigate()
   const [formData, setFormData] = useState({
@@ -11,7 +13,7 @@ const SignupForm = props => {
     password: '',
     passwordConf: '',
   })
-  const [photoData, setPhotoData] = useState({photo: '/public/Logo/2.svg'})
+  const [photoData, setPhotoData] = useState({})
 
   const handleChange = e => {
     props.updateMessage('')
