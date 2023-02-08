@@ -32,13 +32,16 @@ const Landing = ({ user }) => {
         </div>
       </section>
       <section className="main-content">
-        <p className="firstChild-main">How are you feeling?</p>
-        <p className="subtitle-main">Choose an emotion below to find your stats.</p>
+        <div className="main-content-header">
+          <p className="firstChild-main">How are you feeling?</p>
+          <p className="subtitle-main">Choose an emotion below to find your stats.</p>
+        </div>
+        
         <div className="main-moods">
-          <div>Happy</div>
-          <div>Sad</div>
-          <div>Angry</div>
-          <div>Fearful</div>
+          <div><i class="fa-solid fa-face-smile-beam fa-4x"></i></div>
+          <div><i class="fa-solid fa-face-sad-tear fa-4x"></i></div>
+          <div><i class="fa-solid fa-face-angry fa-4x"></i></div>
+          <div><i class="fa-solid fa-face-frown-open fa-4x"></i></div>
         </div>
       </section>
     </main>

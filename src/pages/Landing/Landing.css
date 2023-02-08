@@ -180,7 +180,6 @@ main {
 
 .main-content {
   display: flex;
-  text-align: center;
   flex-direction: column;
   margin: 3rem 0 0 0;
   max-width: 100%;
@@ -189,8 +188,14 @@ main {
   padding-right: 5rem;
 }
 
+.main-content-header{
+  display: flex;
+  flex-direction: column;
+
+}
+
 .firstChild-main{
-  font-size: 1.5em;
+  font-size: 1.7em;
   padding-bottom: 1em;
   font-weight: 700;
 }
@@ -216,19 +221,29 @@ main {
   align-items: center;
   width: 10em;
   height: 10em;
-  background-color: white;
+  background-color: rgb(255, 255, 255);
   border-radius: 0.5rem;
-  box-shadow: rgba(17, 17, 26, 0.1) 0px 0px 16px;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
   cursor: pointer;
+  transition: 
+  box-shadow ease 400ms, 
+  transform ease 400ms,
+  background-color ease 400ms;
 }
 
 .main-moods > div:hover {
   background-color: rgb(249, 250, 251);
+  box-shadow: 
+  rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, 
+  rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+  transform: scale(1.1);
+
 }
 
 @media screen and (max-width: 900px) {
   .main-content {
     align-items: center;
+    text-align: center;
     height: 40em;
     padding: 0;
     margin: 0 5em;

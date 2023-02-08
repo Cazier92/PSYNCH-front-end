@@ -27,7 +27,7 @@ const NewPost = (props) => {
   return (
     <div className={styles.container}>
       <h1>What's on your mind today?</h1>
-      <form onSubmit={handleSubmit}>
+      <form className={styles.formContainer} onSubmit={handleSubmit}>
         <div className={styles.emotions}>
           {form.emotion === "Bored" && (
             <span role="img" aria-label="Bored">
@@ -191,7 +191,9 @@ const NewPost = (props) => {
         ></textarea>
         <div className={styles.checkboxContainer}>
           <label>
-            {form.public ? "It's set to public [🌐]" : "It's set to private [🥷🏻]"}
+            {form.public
+              ? "It's set to public [🌐]"
+              : "It's set to private [🥷🏻]"}
           </label>
           <input
             checked={form.public}
