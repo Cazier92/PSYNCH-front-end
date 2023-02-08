@@ -16,6 +16,7 @@ import PendingRequests from "./components/FriendRequests/PendingRequests/Pending
 import PostDetails from "./pages/PostDetails/PostDetails";
 import FriendList from "./components/FriendList/FriendList";
 import EditComment from "./pages/EditComment/EditComment";
+import Stats from "./components/Stats/Stats";
 
 
 // components
@@ -199,6 +200,14 @@ const App = () => {
           element={
             <ProtectedRoute user={user}>
               <Profile user={user} allPosts={allPosts} />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/stats"
+          element={
+            <ProtectedRoute user={user}>
+              <Stats user={user} allPosts={allPosts} />
             </ProtectedRoute>
           }
         />
