@@ -31,6 +31,17 @@ const feed = async () => {
   }
 };
 
+const allPosts = async () => {
+  try {
+    const res = await fetch(`${BASE_URL}/all`, {
+      headers: {'Authorization': `Bearer ${tokenService.getToken()}`}
+    })
+    return res.json()
+  } catch (error) {
+    console.log(error)
+  }
+}
+
 const create = async (emotionPostData) => {
   try {
     const res = await fetch(BASE_URL, {
@@ -173,6 +184,7 @@ export {
   index,
   show,
   feed,
+  allPosts,
   create,
   createComment,
   addReaction,

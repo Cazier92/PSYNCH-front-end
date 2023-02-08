@@ -7,6 +7,8 @@ import { useState, useEffect } from 'react'
 import PostList from '../../components/PostList/PostList'
 import FriendList from '../../components/FriendList/FriendList'
 
+
+
 //SERVICES
 import * as emotionPostService from '../../services/emotionPostService'
 
@@ -33,14 +35,14 @@ const MainFeed = ({posts, user, feed, handleDecideAction}) => {
 
     function toggle (){
     if (selectedFriendsFeed === true){
-     selectedGlobal = false
+      selectedGlobal = false
     }
     if (selectedGlobal === false){
       selectedFriendsFeed = true
     }
   }
   toggle()
- 
+
 
   return (
     <>
