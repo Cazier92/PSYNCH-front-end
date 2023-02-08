@@ -22,6 +22,8 @@ const Stats = ({ user, allPosts }) => {
   let happyPercentage
   let surprisedPercentage
 
+
+
   userPosts.map((post) => {
     postCount ++
     emotions.push(post.emotion)
@@ -102,8 +104,6 @@ const Stats = ({ user, allPosts }) => {
   if (emotionCount.Joyful) {
     happyCount += emotionCount.Joyful
   }
-
-
   if (emotionCount.Startled) {
     surprisedCount += emotionCount.Startled
   }
@@ -130,7 +130,77 @@ const Stats = ({ user, allPosts }) => {
   happyPercentage = findPercent(happyCount)
   surprisedPercentage = findPercent(surprisedCount)
 
-  console.log('SURPRISEDPERCENT', surprisedPercentage)
+  const emotionPercentagesArr = [downPercentage, fearfulPercentage, angryPercentage, disgustedPercentage, sadPercentage, happyPercentage, surprisedPercentage]
+
+  // const topThree = []
+
+  // emotionPercentagesArr.sort((a, b) => {
+  //   if (a >= b) {
+  //     return -1
+  //   }
+  // })
+
+  const emotionPercentagesObj = {
+    Down: downPercentage,
+    Fearful: fearfulPercentage,
+    Angry: angryPercentage,
+    Disgusted: disgustedPercentage,
+    Sad: sadPercentage,
+    Happy: happyPercentage,
+    Surprised: surprisedPercentage,
+  }
+
+  // console.log('SORTPERCENTAGES:', emotionPercentagesArr.sort((a, b) => {
+  //   if (a >= b) {
+  //     return -1
+  //   }
+  // }).pop([3, 4, 5, 6, 7]))
+
+  // console.log(Object.keys(emotionPercentagesObj).sort((a, b) => {
+  //   if (a >= b) {
+  //     return -1
+  //   }
+  // }))
+  // console.log(Object.values(emotionPercentagesObj).sort((a, b) => {
+  //   if (a >= b) {
+  //     return -1
+  //   }
+  // }))
+
+  // console.log()
+  
+  
+  const topThreeKey = Object.keys(emotionPercentagesObj).sort((a, b) => {
+    if (a >= b) {
+      return -1
+    }
+  }).slice(0, 3)
+  
+  const topThreeValue = Object.values(emotionPercentagesObj).sort((a, b) => {
+    if (a >= b) {
+      return -1
+    }
+  }).slice(0, 3)
+  
+  
+  // console.log(typeof topThreeValue[0])
+
+  const topThree = () => {
+    return (
+      <>
+        <p>{topThreeValue[0]}% {topThreeKey[0]}</p>
+        <p>{topThreeValue[1]}% {topThreeKey[1]}</p>
+        <p>{topThreeValue[2]}% {topThreeKey[2]}</p>
+      
+      </>
+    )
+  }
+
+
+
+
+
+
 
 
 
@@ -149,14 +219,16 @@ const Stats = ({ user, allPosts }) => {
     </div>
     <div>
       <h2>Breakdown:</h2>
-      <h3>Out of {postCount} posts:</h3>
+      {/* <h3>Out of {postCount} posts:</h3>
       <p>{downPercentage}% you have been feeling down</p>
       <p>{fearfulPercentage}% you have been feeling fearful</p>
       <p>{angryPercentage}% you have been feeling angry</p>
       <p>{disgustedPercentage}% you have been feeling disgusted</p>
       <p>{sadPercentage}% you have been feeling sad</p>
       <p>{happyPercentage}% you have been feeling happy</p>
-      <p>{surprisedPercentage}% you have been feeling surprised</p>
+      <p>{surprisedPercentage}% you have been feeling surprised</p> */}
+      <h5>Top Three:</h5>
+      {topThree()}
     </div>
     </>
   );
