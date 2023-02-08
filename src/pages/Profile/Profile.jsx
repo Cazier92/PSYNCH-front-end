@@ -8,35 +8,19 @@ import PostList from '../../components/PostList/PostList';
 const Profile = ({user, allPosts}) => {
   const {id} = useParams()
   const [profile, setProfile] = useState(null)
-  const [profilePosts, setProfilePosts] = useState([])
-  // const [viewPrivate, setViewPrivate] = useState(null)
+
+
 
   useEffect(() => {
     const fetchProfile = async () => {
       const profileData = await profileService.show(id)
       setProfile(profileData)
-      // const postsData = await profileService.profilePosts(id)
-      // setProfilePosts(postsData)
     }
     fetchProfile()
   }, [id])
 
   
-  // useEffect(() => {
-  //   const fetchProfilePosts = async () => {
-  //     const postsData = await profileService.profilePosts(id)
-  //     setProfilePosts(postsData)
-  //     console.log(profilePosts)
-  //   }
-  //   fetchProfilePosts()
-  // }, [id, profile])
 
-  // console.log(profilePosts)
-
-  // const profilePosts = allPosts?.filter(post => post._id === profile._id)
-
-  // console.log(profilePosts)
-  
 
   const privatePosts = () => {
     if (user.profile === profile._id) {
