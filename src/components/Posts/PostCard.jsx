@@ -74,7 +74,9 @@ const PostCard = ({ post, user, handleDecideAction }) => {
   return (
     <div className="post-container">
       <div className="post-header" style={{backgroundColor: decideColor()}}>
+        <Link className="profile-link" to={`/profile/${post.author._id}`} >
         <img className="post-avatar" src={post.author.photo} alt="profile img" />
+        </Link>
         <Link className="profile-link" to={`/profile/${post.author._id}`} >
           <p>{post.author.name}</p>
         </Link>
