@@ -1,3 +1,16 @@
 form {
   margin: 30px 350px;
 }
+
+button {
+  margin-top: 20px;
+}
+
+@media screen and (max-width: 900px) {
+  form {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+}
