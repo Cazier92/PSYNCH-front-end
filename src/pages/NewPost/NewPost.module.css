@@ -56,6 +56,20 @@ span {
     margin-top: 30px;
   }
 
+  .formContainer {
+    display: flex;
+    align-items: center;
+  }
+
+  .formContainer select {
+    width: 70%;
+  }
+
+  .checkboxContainer {
+    display: flex;
+    width: 70%;
+  }
+
   textarea {
     width: 70vw;
   }
