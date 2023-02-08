@@ -15,9 +15,9 @@ const NavBar = ({ user, handleLogout }) => {
     <nav>
       {user ? (
         <>
-          <div className="left-nav">
-            <p className="psynch-logo">PSYNCH</p>
-          </div>
+          <Link to="/main-feed" className="psynch-logo" style={linkStyle}>
+              PSYNCH
+          </Link>
           <div className="right-nav">
             <button>
               <Link to="/main-feed" style={linkStyle}>
@@ -39,7 +39,7 @@ const NavBar = ({ user, handleLogout }) => {
       ) : (
         <>
           <div className="left-nav">
-            <Link to="/" style={linkStyle}>
+            <Link to="/" className="psynch-logo" style={linkStyle}>
               PSYNCH
             </Link>
           </div>
