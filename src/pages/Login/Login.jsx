@@ -21,7 +21,7 @@ const LoginPage = (props) => {
           <p className="err-message">{message}</p>
         </div>
         <LoginForm
-          handleSignupOrLogin="handleSignupOrLogin"
+          handleSignupOrLogin={props.handleSignupOrLogin}
           updateMessage={updateMessage}
         />
       </div>
