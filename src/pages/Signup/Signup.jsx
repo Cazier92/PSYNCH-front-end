@@ -11,20 +11,22 @@ const Signup = (props) => {
 
   return (
     <main className="container">
-      <div className="leftContainer">
-        <div className="leftInfo">
-          <h1>Create your login</h1>
-          <p>
-            We'll need your name, email address, and a unique password. You'll
-            use this login to access Psynch next time.
-          </p>
-        </div>
-      </div>
       <div className="rightContainer">
-        <h1>Sign Up</h1>
+        <div className="header">
+          <h1>Welcome</h1>
+          <p>Please enter your details.</p>
+        </div>
         <p>{message}</p>
         <SignupForm {...props} updateMessage={updateMessage} />
       </div>
+      
+      <div className="leftContainer">
+        <div className="overlay"></div>
+        <img className="sign-up-img" src="./landingImages/img4.jpg" alt="" />
+        <p className="img-msg1">Breathe.</p>
+        {/* <p className="img-msg3">PSYNCH</p> */}
+      </div>
+      
     </main>
   );
 };

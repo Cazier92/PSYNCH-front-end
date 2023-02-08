@@ -89,6 +89,7 @@ const show = async (id) => {
   }
 }
 
+
 const updateProfile = async (profileData) => {
   try {
     const res = await fetch(`${BASE_URL}/edit`, {
