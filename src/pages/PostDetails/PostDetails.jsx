@@ -11,19 +11,6 @@ const PostDetails = ({ user, handleDeletePost, posts }) => {
   const { id } = useParams();
   const [post, setPost] = useState(null);
 
-  // TEMP
-  // const iconState = post.reactions.find(
-  //   (reaction) => reaction.author === user.profile
-  // );
-
-  // const postId = post._id;
-  // const reactionId = post.reactions.find(
-  //   (reaction) => reaction.author === user.profile
-  // )?._id;
-  // const reactionCount = post.reactions.length;
-  // const commentsCount = post.comments.length;
-  // console.log("Reaction ID ", iconState);
-
   const handleAddComment = async (commentData) => {
     const newComment = await postService.createComment(id, commentData);
     setPost({ ...post, comments: [newComment, ...post.comments] });
@@ -178,36 +165,71 @@ const PostDetails = ({ user, handleDeletePost, posts }) => {
           </div>
           <div className={styles.reactionContainer}>
             {post.reactions.length
-              ? post.reactions.map((reaction, index) => {
-                  switch (reaction.reaction) {
-                    case "Love":
-                      return <i className="fa-solid fa-heart ex-reaction"></i>;
-                    case "Like":
-                      return (
-                        <i className="fa-solid fa-thumbs-up ex-reaction"></i>
-                      );
-                    case "Celebrate":
-                      return (
-                        <i className="fa-solid fa-champagne-glasses ex-reaction"></i>
-                      );
-                    case "Support":
-                      return (
-                        <i className="fa-solid fa-hand-holding-medical ex-reaction"></i>
-                      );
-                    case "Funny":
-                      return (
-                        <i className="fa-solid fa-face-grin-tears ex-reaction"></i>
-                      );
-                    case "Curious":
-                      return (
-                        <i className="fa-solid fa-lightbulb ex-reaction"></i>
-                      );
-                    default:
-                      return null;
-                  }
-                })
+              ? (() => {
+                  const reactionCount = post.reactions.reduce(
+                    (count, reaction) => {
+                      count[reaction.reaction] = count[reaction.reaction]
+                        ? count[reaction.reaction] + 1
+                        : 1;
+                      return count;
+                    },
+                    {}
+                  );
+
+                  return Object.entries(reactionCount).map(
+                    ([reaction, count]) => {
+                      switch (reaction) {
+                        case "Love":
+                          return (
+                            <div className={styles.reactCount}>
+                              <i className="fa-solid fa-heart ex-reaction"></i>
+                              {count}
+                            </div>
+                          );
+                        case "Like":
+                          return (
+                            <div className={styles.reactCount}>
+                              <i className="fa-solid fa-thumbs-up ex-reaction"></i>
+                              {count}
+                            </div>
+                          );
+                        case "Celebrate":
+                          return (
+                            <div className={styles.reactCount}>
+                              <i className="fa-solid fa-champagne-glasses ex-reaction"></i>
+                              {count}
+                            </div>
+                          );
+                        case "Support":
+                          return (
+                            <div className={styles.reactCount}>
+                              <i className="fa-solid fa-hand-holding-medical ex-reaction"></i>
+                              {count}
+                            </div>
+                          );
+                        case "Funny":
+                          return (
+                            <div className={styles.reactCount}>
+                              <i className="fa-solid fa-face-grin-tears ex-reaction"></i>
+                              {count}
+                            </div>
+                          );
+                        case "Curious":
+                          return (
+                            <div className={styles.reactCount}>
+                              <i className="fa-solid fa-lightbulb ex-reaction"></i>
+                              {count}
+                            </div>
+                          );
+                        default:
+                          return null;
+                      }
+                    }
+                  );
+                })()
               : "No reaction yet!"}
           </div>
+
           <div className={styles.publicPrivate}>
             <p>
               {post.public ? (
