@@ -110,6 +110,7 @@ const SignupForm = props => {
           Create Account
         </button>
       </div>
+        <p>Already have an account? <a href="/signup">Log In</a></p> 
     </form>
   )
 }
