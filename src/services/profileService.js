@@ -90,18 +90,18 @@ const show = async (id) => {
 }
 
 
-const updateProfile = async (profileData) => {
-  try {
-    const res = await fetch(`${BASE_URL}/edit`, {
-      headers: { 'Authorization': `Bearer ${tokenService.getToken()}`,
-      'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(profileData)
-    })
-  } catch (error) {
-    console.log(error)
-  }
-}
+// const updateProfile = async (profileData) => {
+//   try {
+//     const res = await fetch(`${BASE_URL}/edit`, {
+//       headers: { 'Authorization': `Bearer ${tokenService.getToken()}`,
+//       'Content-Type': 'application/json'
+//       },
+//       body: JSON.stringify(profileData)
+//     })
+//   } catch (error) {
+//     console.log(error)
+//   }
+// }
 
 export { 
   getAllProfiles, 
@@ -112,5 +112,5 @@ export {
   acceptRequest,
   denyRequest,
   show,
-  updateProfile,
+  // updateProfile,
 }
