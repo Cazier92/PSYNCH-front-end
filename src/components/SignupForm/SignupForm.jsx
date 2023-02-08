@@ -119,7 +119,7 @@ const SignupForm = props => {
           Create Account
         </button>
       </div>
-      <p className={styles.redirect}>Already have an account? <a href="/signup">Log In</a></p> 
+      <p className={styles.redirect}>Already have an account? <a href="/login">Log In</a></p> 
     </form>
   )
 }

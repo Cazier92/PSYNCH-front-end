@@ -1,6 +1,6 @@
 import { useState } from "react";
 import LoginForm from "../../components/LoginForm/LoginForm";
-import styles from "./Login.module.css";
+import "./Login.css";
 
 const LoginPage = (props) => {
   const [message, setMessage] = useState([""]);
@@ -10,13 +10,18 @@ const LoginPage = (props) => {
   };
 
   return (
-    <main className={styles.container}>
-      <div className={styles.leftContainer}></div>
-      <div className={styles.rightContainer}>
-        <h1>Log In</h1>
-        <p>{message}</p>
+    <main className="container">
+      <div className="leftContainer">
+        <img className="sign-up-img" src="./landingImages/img3.jpg" alt="" />
+      </div>
+      <div className="rightContainer">
+        <div className="header">
+          <h1>Welcome back!</h1>
+          <p>Please enter your login details.</p>
+          <p className="err-message">{message}</p>
+        </div>
         <LoginForm
-          handleSignupOrLogin={props.handleSignupOrLogin}
+          handleSignupOrLogin="handleSignupOrLogin"
           updateMessage={updateMessage}
         />
       </div>

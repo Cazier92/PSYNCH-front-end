@@ -1,32 +1,47 @@
+.formContainer{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 20em;
+}
+
 .container {
   display: flex;
   flex-flow: column nowrap;
-  align-items: flex-start;
+  justify-content: center;
+  align-items: center;
   margin-bottom: 50px;
 }
 
-input {
-  height: 30px;
-  width: 400px;
-  border-radius: 4px;
-  border: 1px solid;
-  margin-top: 10px;
-}
-
-.label,
-.button {
-  margin-right: 0.5rem;
+.label{
+  
+  font-weight: 700;
+  font-size: 14px;
 }
 
 .inputContainer {
   margin-bottom: 1rem;
-  display: flex;
-  flex-direction: column;
+} 
+
+.button{
+  margin-top: 3em;
+  white-space: nowrap;
 }
 
-.btnMargin {
-  margin-right: 8px;
+.inputField{
+  font-family: inherit;
+  width: 20em;
+  height: 1em;
+  border: 0;
+  border-bottom: 2px solid rgb(170, 170, 170);
+  border-radius: 0;
+  outline: 0;
+  font-size: 1.3rem;
+  padding: 7px 0;
+  background: transparent;
+  font-size: 15px;
 }
+
 
 @media screen and (max-width: 900px) {
   .container {
