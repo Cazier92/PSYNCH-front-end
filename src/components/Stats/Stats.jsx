@@ -84,8 +84,8 @@ const Stats = ({ user, allPosts }) => {
   if (emotionCount.Guilty) {
     sadCount += emotionCount.Guilty
   }
-  if (emotionCount.Hurth) {
-    sadCount += emotionCount.Hurth
+  if (emotionCount.Hurt) {
+    sadCount += emotionCount.Hurt
   }
 
 
@@ -171,7 +171,7 @@ const Stats = ({ user, allPosts }) => {
   
   
   const topThreeKey = Object.keys(emotionPercentagesObj).sort((a, b) => {
-    if (a >= b) {
+    if (a > b) {
       return -1
     }
   }).slice(0, 3)
@@ -183,14 +183,14 @@ const Stats = ({ user, allPosts }) => {
   }).slice(0, 3)
   
   
-  // console.log(typeof topThreeValue[0])
+  console.log(sadPercentage)
 
   const topThree = () => {
     return (
       <>
-        <p>{topThreeValue[0]}% {topThreeKey[0]}</p>
+        <p>{topThreeValue[0]}% {topThreeKey[2]}</p>
         <p>{topThreeValue[1]}% {topThreeKey[1]}</p>
-        <p>{topThreeValue[2]}% {topThreeKey[2]}</p>
+        <p>{topThreeValue[2]}% {topThreeKey[0]}</p>
       
       </>
     )
