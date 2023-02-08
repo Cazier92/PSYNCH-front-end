@@ -1,6 +1,6 @@
 import { useState } from "react";
 import SignupForm from "../../components/SignupForm/SignupForm";
-import styles from "./Signup.module.css";
+import styles from "./Signup.css";
 
 const Signup = (props) => {
   const [message, setMessage] = useState([""]);
@@ -10,9 +10,9 @@ const Signup = (props) => {
   };
 
   return (
-    <main className={styles.container}>
-      <div className={styles.leftContainer}>
-        <div className={styles.leftInfo}>
+    <main className="container">
+      <div className="leftContainer">
+        <div className="leftInfo">
           <h1>Create your login</h1>
           <p>
             We'll need your name, email address, and a unique password. You'll
@@ -20,7 +20,7 @@ const Signup = (props) => {
           </p>
         </div>
       </div>
-      <div className={styles.rightContainer}>
+      <div className="rightContainer">
         <h1>Sign Up</h1>
         <p>{message}</p>
         <SignupForm {...props} updateMessage={updateMessage} />

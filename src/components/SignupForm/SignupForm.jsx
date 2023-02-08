@@ -11,7 +11,7 @@ const SignupForm = props => {
     password: '',
     passwordConf: '',
   })
-  const [photoData, setPhotoData] = useState({photo: '/public/Logo/2.svg'})
+  const [photoData, setPhotoData] = useState({})
 
   const handleChange = e => {
     props.updateMessage('')
