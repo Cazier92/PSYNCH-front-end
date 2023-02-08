@@ -24,6 +24,9 @@ With PSYNCH, you will finally experience meaningful connections and emotionally 
 
 ## Screenshots
 
+<img src="/public/readme/readme1.png" alt="Picture">
+<img src="/public/readme/readme2.png" alt="Picture">
+
 #
 
 ## Technologies Used
@@ -38,6 +41,9 @@ With PSYNCH, you will finally experience meaningful connections and emotionally 
 #
 
 ## Next Steps [Ice Box] 🧊
+
+- [ ] Direct Messaging
+- [ ] Dynamic Login/Signup functionality
 
 #
 
