@@ -16,8 +16,32 @@ With PSYNCH, you will finally experience meaningful connections and emotionally 
 
 ## Contributors
 
+[Bryce Cazier](https://github.com/Cazier92)
+[Kiana Vernon](https://github.com/k-vernon)
+[Yong Park](https://github.com/pyongho1)
 
-<!-- Will need to clean up the readme! -Yong -->
+#
+
+## Screenshots
+
+#
+
+## Technologies Used
+
+![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
+![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
+![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
+![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white)
+![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
+
+#
+
+## Next Steps [Ice Box] 🧊
+
+#
+
+## Credit
 
 Photo by <a href="https://unsplash.com/@tengyart?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Tengyart</a> on <a href="https://unsplash.com/photos/gG-Or-Atw6w?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
 
