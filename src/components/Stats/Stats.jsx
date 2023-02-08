@@ -14,14 +14,19 @@ const Stats = ({ user, allPosts }) => {
   let sadCount = 0
   let happyCount = 0
   let surprisedCount = 0
+  let downPercentage
+  let fearfulPercentage 
+  let angryPercentage
+  let disgustedPercentage
+  let sadPercentage
+  let happyPercentage
+  let surprisedPercentage
 
   userPosts.map((post) => {
-    // console.log(post.emotion)
     postCount ++
     emotions.push(post.emotion)
   })
-  // console.log(postCount)
-  // console.log('EMOTIONS', emotions)
+
   let emotionCount = emotions.reduce(function(prev, emotion) {
     if(prev[emotion]) {
       prev[emotion] = prev[emotion] +1
@@ -31,7 +36,7 @@ const Stats = ({ user, allPosts }) => {
     return prev
   }, {})
 
-  console.log('EMOTIONCOUNT:', emotionCount)
+  // console.log('EMOTIONCOUNT:', emotionCount)
   if (emotionCount.Stressed) {
     downCount += emotionCount.Stressed
   }
@@ -41,7 +46,6 @@ const Stats = ({ user, allPosts }) => {
   if (emotionCount.Tired) {
     downCount += emotionCount.Tired
   }
-  console.log('DOWNCOUNT:', downCount)
 
   if (emotionCount.Anxious) {
     fearfulCount += emotionCount.Anxious
@@ -52,8 +56,6 @@ const Stats = ({ user, allPosts }) => {
   if (emotionCount.Scared) {
     fearfulCount += emotionCount.Scared
   }
-  console.log('FEARFULCOUNT:', fearfulCount)
-
   
   if (emotionCount.Mad) {
     angryCount += emotionCount.Mad
@@ -64,7 +66,6 @@ const Stats = ({ user, allPosts }) => {
   if (emotionCount.Betrayed) {
     angryCount += emotionCount.Betrayed
   }
-  console.log('ANGRYCOUNT:', angryCount)
 
   if (emotionCount.Embarrassed) {
     disgustedCount += emotionCount.Embarrassed
@@ -73,7 +74,7 @@ const Stats = ({ user, allPosts }) => {
     disgustedCount += emotionCount.Disgusted
   }
 
-  console.log('DISGUSTEDCOUNT:', disgustedCount)
+
 
   if (emotionCount.Lonely) {
     sadCount += emotionCount.Lonely
@@ -84,7 +85,7 @@ const Stats = ({ user, allPosts }) => {
   if (emotionCount.Hurth) {
     sadCount += emotionCount.Hurth
   }
-  console.log('SADCOUNT:', sadCount)
+
 
   if (emotionCount.Optimistic) {
     happyCount += emotionCount.Optimistic
@@ -101,7 +102,7 @@ const Stats = ({ user, allPosts }) => {
   if (emotionCount.Joyful) {
     happyCount += emotionCount.Joyful
   }
-  console.log('HAPPYCOUNT:', happyCount)
+
 
   if (emotionCount.Startled) {
     surprisedCount += emotionCount.Startled
@@ -115,20 +116,48 @@ const Stats = ({ user, allPosts }) => {
   if (emotionCount.Amazed) {
     surprisedCount += emotionCount.Amazed
   }
-  console.log('SURPRISEDCOUNT:', surprisedCount)
+
+
+  function findPercent(emotionNum) {
+    return ((emotionNum/postCount) * 100).toFixed(2)
+  }
+
+  downPercentage = findPercent(downCount)
+  fearfulPercentage = findPercent(fearfulCount)
+  angryPercentage = findPercent(angryCount)
+  disgustedPercentage = findPercent(disgustedCount)
+  sadPercentage = findPercent(sadCount)
+  happyPercentage = findPercent(happyCount)
+  surprisedPercentage = findPercent(surprisedCount)
+
+  console.log('SURPRISEDPERCENT', surprisedPercentage)
+
 
 
   
   return ( 
     <>
     <h1>Stats:</h1>
-    <h5>Down Posts: {downCount}</h5>
-    <h5>Fearful Posts: {fearfulCount}</h5>
-    <h5>Angry Posts: {angryCount}</h5>
-    <h5>Disgusted Posts: {disgustedCount}</h5>
-    <h5>Sad Posts: {sadCount}</h5>
-    <h5>Happy Posts:{happyCount}</h5>
-    <h5>Surprised Posts: {surprisedCount}</h5>
+    <div>
+      <h5>Down Posts: {downCount}</h5>
+      <h5>Fearful Posts: {fearfulCount}</h5>
+      <h5>Angry Posts: {angryCount}</h5>
+      <h5>Disgusted Posts: {disgustedCount}</h5>
+      <h5>Sad Posts: {sadCount}</h5>
+      <h5>Happy Posts:{happyCount}</h5>
+      <h5>Surprised Posts: {surprisedCount}</h5>
+    </div>
+    <div>
+      <h2>Breakdown:</h2>
+      <h3>Out of {postCount} posts:</h3>
+      <p>{downPercentage}% you have been feeling down</p>
+      <p>{fearfulPercentage}% you have been feeling fearful</p>
+      <p>{angryPercentage}% you have been feeling angry</p>
+      <p>{disgustedPercentage}% you have been feeling disgusted</p>
+      <p>{sadPercentage}% you have been feeling sad</p>
+      <p>{happyPercentage}% you have been feeling happy</p>
+      <p>{surprisedPercentage}% you have been feeling surprised</p>
+    </div>
     </>
   );
 }
