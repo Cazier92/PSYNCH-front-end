@@ -4,7 +4,7 @@
 const Stats = ({ user, allPosts }) => {
 
   const userPosts = allPosts.filter(post => post.author._id === user.profile)
-  // console.log(userPosts)
+
   let postCount = 0
   let emotions = []
   let downCount = 0
@@ -38,7 +38,7 @@ const Stats = ({ user, allPosts }) => {
     return prev
   }, {})
 
-  // console.log('EMOTIONCOUNT:', emotionCount)
+
   if (emotionCount.Stressed) {
     downCount += emotionCount.Stressed
   }
@@ -132,13 +132,6 @@ const Stats = ({ user, allPosts }) => {
 
   const emotionPercentagesArr = [downPercentage, fearfulPercentage, angryPercentage, disgustedPercentage, sadPercentage, happyPercentage, surprisedPercentage]
 
-  // const topThree = []
-
-  // emotionPercentagesArr.sort((a, b) => {
-  //   if (a >= b) {
-  //     return -1
-  //   }
-  // })
 
   const emotionPercentagesObj = {
     Down: downPercentage,
@@ -150,55 +143,54 @@ const Stats = ({ user, allPosts }) => {
     Surprised: surprisedPercentage,
   }
 
-  // console.log('SORTPERCENTAGES:', emotionPercentagesArr.sort((a, b) => {
-  //   if (a >= b) {
-  //     return -1
-  //   }
-  // }).pop([3, 4, 5, 6, 7]))
+  const emotionsWithPercentages = [
+    {emotion: 'Down',
+    percent: downPercentage
+    },
+    {emotion: 'Fearful',
+    percent: fearfulPercentage
+    },
+    {emotion: 'Angry',
+    percent: angryPercentage
+    },
+    {emotion: 'Disgusted',
+    percent: disgustedPercentage
+    },
+    {emotion: 'Sad',
+    percent: sadPercentage
+    },
+    {emotion: 'Happy',
+    percent: happyPercentage
+    },
+    {emotion: 'Surprised',
+    percent: surprisedPercentage
+    },
+  ]
 
-  // console.log(Object.keys(emotionPercentagesObj).sort((a, b) => {
-  //   if (a >= b) {
-  //     return -1
-  //   }
-  // }))
-  // console.log(Object.values(emotionPercentagesObj).sort((a, b) => {
-  //   if (a >= b) {
-  //     return -1
-  //   }
-  // }))
-
-  // console.log()
-  
-  
-  const topThreeKey = Object.keys(emotionPercentagesObj).sort((a, b) => {
-    if (a > b) {
+  console.log(emotionsWithPercentages.sort((a, b) => {
+    if (a.percent >= b.percent) {
       return -1
     }
-  }).slice(0, 3)
-  
-  const topThreeValue = Object.values(emotionPercentagesObj).sort((a, b) => {
-    if (a >= b) {
+  }))
+
+  let sortedEmotions = emotionsWithPercentages.sort((a, b) => {
+    if (a.percent >= b.percent) {
       return -1
     }
-  }).slice(0, 3)
+  })
   
-  
-  console.log(sadPercentage)
+  console.log('SORTED EMOTIONS:', sortedEmotions)
 
-  const topThree = () => {
+
+  const findTopThree = () => {
     return (
       <>
-        <p>{topThreeValue[0]}% {topThreeKey[2]}</p>
-        <p>{topThreeValue[1]}% {topThreeKey[1]}</p>
-        <p>{topThreeValue[2]}% {topThreeKey[0]}</p>
-      
+        <p>{sortedEmotions[0].percent}% {sortedEmotions[0].emotion}</p>
+        <p>{sortedEmotions[1].percent}% {sortedEmotions[1].emotion}</p>
+        <p>{sortedEmotions[2].percent}% {sortedEmotions[2].emotion}</p>
       </>
     )
   }
-
-
-
-
 
 
 
@@ -219,16 +211,8 @@ const Stats = ({ user, allPosts }) => {
     </div>
     <div>
       <h2>Breakdown:</h2>
-      {/* <h3>Out of {postCount} posts:</h3>
-      <p>{downPercentage}% you have been feeling down</p>
-      <p>{fearfulPercentage}% you have been feeling fearful</p>
-      <p>{angryPercentage}% you have been feeling angry</p>
-      <p>{disgustedPercentage}% you have been feeling disgusted</p>
-      <p>{sadPercentage}% you have been feeling sad</p>
-      <p>{happyPercentage}% you have been feeling happy</p>
-      <p>{surprisedPercentage}% you have been feeling surprised</p> */}
       <h5>Top Three:</h5>
-      {topThree()}
+      {findTopThree()}
     </div>
     </>
   );
