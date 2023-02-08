@@ -38,6 +38,11 @@
 
 }
 
+.profile-link {
+  text-decoration: none;
+  color: black;
+}
+
 .post-main {
   display: flex;
   min-height: fit-content;
