@@ -7,7 +7,7 @@ const LoginPage = (props) => {
 
   const updateMessage = (msg) => {
     setMessage(msg);
-  };
+  }
 
   return (
     <main className="container">
