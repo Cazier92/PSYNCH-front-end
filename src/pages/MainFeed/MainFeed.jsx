@@ -13,6 +13,10 @@ import FriendList from '../../components/FriendList/FriendList'
 import * as emotionPostService from '../../services/emotionPostService'
 
 
+const linkStyle = {
+  textDecoration: "none",
+  color: "black",
+};
 
 
 const MainFeed = ({posts, user, feed, handleDecideAction}) => {
@@ -64,19 +68,22 @@ const MainFeed = ({posts, user, feed, handleDecideAction}) => {
           <div id='ls-icon-container' className={`home-icon ${selectedHome ? "active" : "inactive"}`} onClick={() => (setSelectedHome(!selectedHome))}>
             <i id='ls-icon' class="fa-solid fa-house"></i>
           </div>
-          <div id='ls-icon-container'>
-            <i id='ls-icon' class="fa-solid fa-user"></i>
-          </div>
+          <Link style={linkStyle} to={`/profile/${user._id}`}>
+            <div id='ls-icon-container'>
+              <i id='ls-icon' class="fa-solid fa-user"></i>
+            </div>
+          </Link>
 
           <div id='ls-icon-container' 
             className={`friends-list-icon ${selectedFriendsList ? "active" : "inactive"}`}
             onClick={() => (setSelectedFriendsList(!selectedFriendsList))}>
             <i id='ls-icon' class="fa-solid fa-user-group" ></i>
           </div>
-
-          <div id='ls-icon-container'>
-            <i id='ls-icon' class="fa-solid fa-pen-to-square"></i>
-          </div>
+          <Link style={linkStyle} to='/posts/new'>
+            <div id='ls-icon-container'>
+              <i id='ls-icon' class="fa-solid fa-pen-to-square"></i>
+            </div>
+          </Link>
         </div>
         
       </div>

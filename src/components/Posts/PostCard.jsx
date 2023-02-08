@@ -74,7 +74,9 @@ const PostCard = ({ post, user, handleDecideAction }) => {
   return (
     <div className="post-container">
       <div className="post-header" style={{backgroundColor: decideColor()}}>
+        <Link className="profile-link" to={`/profile/${post.author._id}`} >
         <img className="post-avatar" src={post.author.photo} alt="profile img" />
+        </Link>
         <Link className="profile-link" to={`/profile/${post.author._id}`} >
           <p>{post.author.name}</p>
         </Link>
@@ -90,19 +92,20 @@ const PostCard = ({ post, user, handleDecideAction }) => {
 
       <div className="post-footer">
         <div className="post-reaction">
-          <div className="total-comments">
-            <Link style={linkStyle} to={`/emotionPosts/${post._id}`}>
-            <i id='reply-btn' class="fa-regular fa-comment"></i>
-            </Link>
-            {commentsCount}
-          </div>
-        
           
-
-          <div className="total-reactions">
-            <ReactionButton reactionType={iconState?.reaction} setShowReactions={setShowReactions} showReactions={showReactions}/>
-            {reactionCount}
+          <div className="interactions">
+            <div className="total-comments">
+              <Link style={linkStyle} to={`/emotionPosts/${post._id}`}>
+              <i id='reply-btn' class="fa-regular fa-comment"></i>
+              </Link>
+              {commentsCount}
+            </div>
+            <div className="total-reactions">
+              <ReactionButton reactionType={iconState?.reaction} setShowReactions={setShowReactions} showReactions={showReactions}/>
+              {reactionCount}
+            </div>
           </div>
+          
           
 
           <div className={ `reaction-expand ${showReactions ? "active" : "inactive"}` }>
@@ -113,7 +116,7 @@ const PostCard = ({ post, user, handleDecideAction }) => {
               <i class="fa-solid fa-thumbs-up ex-reaction" onClick={() => {handleDecideAction(post, postId, 'Like', reactionId ); setShowReactions(!showReactions)}}></i>
               <i class="fa-solid fa-lightbulb ex-reaction" onClick={() => {handleDecideAction(post, postId, 'Curious', reactionId ); setShowReactions(!showReactions)}}></i>
           </div>
-          <div>
+          <div className="private-post">
             {privatePost()}
           </div>
         </div>
