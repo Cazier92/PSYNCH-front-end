@@ -12,13 +12,14 @@ const AcceptRequest = ({id, requests, setRequests}) => {
 
   return ( 
     <>
-    <button onClick={() => {
+    <i class="fa-solid fa-check" onClick={() => {
       return (
         handleAcceptRequest()
       )
-    }}>Accept Request</button>
+    }}></i>
     </>
   );
 }
 
 export default AcceptRequest;
+

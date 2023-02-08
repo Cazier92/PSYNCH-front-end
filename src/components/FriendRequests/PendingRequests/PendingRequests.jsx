@@ -2,6 +2,7 @@ import * as profileService from '../../../services/profileService'
 import { useState, useEffect } from 'react';
 import AcceptRequest from '../AcceptRequest/AcceptRequest';
 import DenyRequest from '../DenyRequest/DenyRequest';
+import './PendingRequests.css'
 
 const PendingRequests = (props) => {
   const [requests, setRequests] = useState([])
@@ -24,14 +25,17 @@ console.log(requests)
       requests.map(request => {
         return(
           <>
-          <p>{request.name}</p>
-          <AcceptRequest id={request._id} setRequests={setRequests} requests={requests}/>
-          <DenyRequest id={request._id} setRequests={setRequests} requests={requests}/>
+          <div className='request-card'>
+            <p>{request.name}</p>
+            <AcceptRequest id={request._id} setRequests={setRequests} requests={requests}/>
+            <DenyRequest id={request._id} setRequests={setRequests} requests={requests}/>
+          </div>
+          
           </>
         )
       })
     :
-    <p>Loading...</p>
+    <p>No requests.</p>
     }
     </>
   );

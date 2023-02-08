@@ -12,11 +12,11 @@ const DenyRequest = ({id, requests, setRequests}) => {
 
   return ( 
     <>
-    <button onClick={() => {
+    <i class="fa-solid fa-xmark" onClick={() => {
       return (
         handleDenyRequest()
       )
-    }}>Deny Request</button>
+    }}></i>
     </>
   );
 }
