@@ -15,6 +15,10 @@ nav {
   z-index: 9999;
 }
 
+.psynch-logo {
+  font-weight: 800;
+}
+
 .left-nav,
 .right-nav {
   display: flex;

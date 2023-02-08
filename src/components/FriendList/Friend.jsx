@@ -1,12 +1,13 @@
 
-import styles from './Friend.module.css'
+import './Friend.css'
 
 const Friend = ({friend}) => {
   return ( 
     <>
     <div className='friend-card'>
-      <h1>{friend.name}</h1>
-      <p>is feeling {friend.currentStatus} today</p>
+      <div className='friend-avatar'>{friend.avatar}</div>
+      <p>{friend.name}</p>
+      <p className='friend-status'>{friend.currentStatus}</p>
     </div>
     </>
   );

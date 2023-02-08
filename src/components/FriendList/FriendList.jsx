@@ -5,6 +5,9 @@ import * as emotionPostService from '../../services/emotionPostService'
 import * as profileService from '../../services/profileService'
 
 import Friend from './Friend';
+import PendingRequests from '../FriendRequests/PendingRequests/PendingRequests';
+
+import './FriendList.css'
 
 
 
@@ -67,16 +70,23 @@ const FriendList = ({user}) => {
 
   return ( 
     <>
+      
       {friends.length !== 0 ?
       friends.map((friend) => {
         return (
           <>
-          <Friend friend={friend} key={friend._id}/>
+            <main className='friends-list-main'>
+              <p className='page-title'>Friends</p>
+              <div className='requests-section'>
+                <PendingRequests/>
+              </div>
+              <Friend friend={friend} key={friend._id}/>
+            </main>
           </>
         )
       })
       :
-      <p>Loading...</p>
+      <p>No Requests</p>
       }
     </>
   );
