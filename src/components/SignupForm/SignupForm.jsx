@@ -11,7 +11,7 @@ const SignupForm = props => {
     password: '',
     passwordConf: '',
   })
-  const [photoData, setPhotoData] = useState({photo: '/public/Logo/2.svg'})
+  const [photoData, setPhotoData] = useState({})
 
   const handleChange = e => {
     props.updateMessage('')
@@ -109,9 +109,6 @@ const SignupForm = props => {
         <button disabled={isFormInvalid()} className={styles.button}>
           Sign Up
         </button>
-        <Link to="/">
-          <button>Cancel</button>
-        </Link>
       </div>
     </form>
   )
