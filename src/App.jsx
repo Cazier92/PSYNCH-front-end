@@ -15,6 +15,7 @@ import MainFeed from "./pages/MainFeed/MainFeed";
 import PendingRequests from "./components/FriendRequests/PendingRequests/PendingRequests";
 import PostDetails from "./pages/PostDetails/PostDetails";
 import FriendList from "./components/FriendList/FriendList";
+import EditComment from "./pages/EditComment/EditComment";
 
 // components
 import NavBar from "./components/NavBar/NavBar";
@@ -72,55 +73,69 @@ const App = () => {
     const fetchPosts = async () => {
       const postData = await emotionPostService.index();
       setPosts(postData);
-
     };
     fetchPosts();
   }, []);
 
-  const [feed, setFeed] = useState([])
+  const [feed, setFeed] = useState([]);
 
   useEffect(() => {
     const fetchFeed = async () => {
-      const feedData = await emotionPostService.feed()
-      setFeed(feedData)
-    }
-    fetchFeed()
-  }, [])
+      const feedData = await emotionPostService.feed();
+      setFeed(feedData);
+    };
+    fetchFeed();
+  }, []);
 
-
-
-  const handleDecideAction = async (post, postId, reactionChoice, reactionId) => {
-    console.log('reactionChoice', reactionChoice)
-    if (post.reactions.some(reaction => reaction.author === user.profile)) {
+  const handleDecideAction = async (
+    post,
+    postId,
+    reactionChoice,
+    reactionId
+  ) => {
+    console.log("reactionChoice", reactionChoice);
+    if (post.reactions.some((reaction) => reaction.author === user.profile)) {
       // deleteReaction
-      let currentReaction = post.reactions.find(reaction => reaction.author === user.profile)
+      let currentReaction = post.reactions.find(
+        (reaction) => reaction.author === user.profile
+      );
       if (reactionChoice === currentReaction.reaction) {
-        console.log('delete')
-        const updatedPost = await emotionPostService.deleteReaction(postId, reactionId)
-        setPosts(posts.map((b) => (updatedPost._id === b._id ? updatedPost : b)))
-        setFeed(feed.map((b) => (updatedPost._id === b._id ? updatedPost : b)))
-        console.log('deletedPost', updatedPost)
+        console.log("delete");
+        const updatedPost = await emotionPostService.deleteReaction(
+          postId,
+          reactionId
+        );
+        setPosts(
+          posts.map((b) => (updatedPost._id === b._id ? updatedPost : b))
+        );
+        setFeed(feed.map((b) => (updatedPost._id === b._id ? updatedPost : b)));
+        console.log("deletedPost", updatedPost);
       } else {
-        console.log('update')
-        const reactionData = {reaction: reactionChoice}
-        const updatedPost = await emotionPostService.updateReaction(postId, reactionData, reactionId)
-        setPosts(posts.map((b) => (updatedPost._id === b._id ? updatedPost : b)))
-        setFeed(feed.map((b) => (updatedPost._id === b._id ? updatedPost : b)))
+        console.log("update");
+        const reactionData = { reaction: reactionChoice };
+        const updatedPost = await emotionPostService.updateReaction(
+          postId,
+          reactionData,
+          reactionId
+        );
+        setPosts(
+          posts.map((b) => (updatedPost._id === b._id ? updatedPost : b))
+        );
+        setFeed(feed.map((b) => (updatedPost._id === b._id ? updatedPost : b)));
       }
     } else {
       // addReaction
-      console.log('add')
-      const reactionData = {reaction: reactionChoice}
-      const updatedPost = await emotionPostService.addReaction(postId, reactionData)
-      setPosts(posts.map((b) => (updatedPost._id === b._id ? updatedPost : b)))
-      setFeed(feed.map((b) => (updatedPost._id === b._id ? updatedPost : b)))
-      console.log('addedPost', updatedPost)
+      console.log("add");
+      const reactionData = { reaction: reactionChoice };
+      const updatedPost = await emotionPostService.addReaction(
+        postId,
+        reactionData
+      );
+      setPosts(posts.map((b) => (updatedPost._id === b._id ? updatedPost : b)));
+      setFeed(feed.map((b) => (updatedPost._id === b._id ? updatedPost : b)));
+      console.log("addedPost", updatedPost);
     }
-  }
-  
-
-
-
+  };
 
   return (
     <>
@@ -183,11 +198,16 @@ const App = () => {
             </ProtectedRoute>
           }
         />
-        <Route 
-          path="/main-feed" 
+        <Route
+          path="/main-feed"
           element={
-            <MainFeed posts={posts} user={user} feed={feed} handleDecideAction={handleDecideAction}/>
-          } 
+            <MainFeed
+              posts={posts}
+              user={user}
+              feed={feed}
+              handleDecideAction={handleDecideAction}
+            />
+          }
         />
         <Route
           path="/emotionPosts/:id"
@@ -201,6 +221,14 @@ const App = () => {
             <ProtectedRoute user={user}>
               <EditPost handleUpdatePost={handleUpdatePost} />
             </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/emotionPosts/:postId/comments/:commentId"
+          element={
+            // <ProtectedRoute>
+            <EditComment />
+            // </ProtectedRoute>
           }
         />
       </Routes>

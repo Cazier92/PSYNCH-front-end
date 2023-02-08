@@ -1,6 +1,7 @@
 import styles from "./CommentCard.module.css";
+import { Link } from "react-router-dom";
 
-const CommentCard = ({ comment, post }) => {
+const CommentCard = ({ comment, post, user, postId }) => {
   return (
     <article className={styles.container}>
       {/* <div className={styles.cardContainer}>
@@ -11,6 +12,16 @@ const CommentCard = ({ comment, post }) => {
         <div className={styles.avatarImg}>{post.author.avatar}</div>
         <p>{comment.content}</p>
         <cite>{comment.author.name}</cite>
+        {comment.author._id === user.profile && (
+          <>
+            <Link
+              to={`/emotionPosts/${postId}/comments/${comment._id}`}
+              state={comment}
+            >
+              EDIT
+            </Link>
+          </>
+        )}
       </blockquote>
     </article>
   );
