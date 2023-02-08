@@ -90,7 +90,6 @@ const PostCard = ({ post, user, handleDecideAction }) => {
         </div>
         <div className="right-header">
          <p>{formatted}</p>
-
         </div>
 
       </div>
