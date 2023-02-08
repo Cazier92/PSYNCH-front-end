@@ -1,134 +1,147 @@
-import { Link } from 'react-router-dom'
-import './MainFeed.css'
+import { Link } from "react-router-dom";
+import "./MainFeed.css";
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect } from "react";
 
 //COMPONENETS
-import PostList from '../../components/PostList/PostList'
-import FriendList from '../../components/FriendList/FriendList'
-
-
+import PostList from "../../components/PostList/PostList";
+import FriendList from "../../components/FriendList/FriendList";
 
 //SERVICES
-import * as emotionPostService from '../../services/emotionPostService'
-
+import * as emotionPostService from "../../services/emotionPostService";
 
 const linkStyle = {
   textDecoration: "none",
   color: "black",
 };
 
-
-const MainFeed = ({posts, user, feed, handleDecideAction}) => {
-
+const MainFeed = ({ posts, user, feed, handleDecideAction }) => {
   //STATES
-  let [selectedGlobal, setSelectedGlobal] = useState(true)
-  let [selectedFriendsFeed, setSelectedFriendsFeed] = useState(false)
-  let [selectedFriendsList, setSelectedFriendsList] = useState(false)
-  let [selectedHome, setSelectedHome] = useState(true)
+  let [selectedGlobal, setSelectedGlobal] = useState(true);
+  let [selectedFriendsFeed, setSelectedFriendsFeed] = useState(false);
+  let [selectedFriendsList, setSelectedFriendsList] = useState(false);
+  let [selectedHome, setSelectedHome] = useState(true);
 
   // console.log("Global:", selectedGlobal)
   // console.log("Friends:", selectedFriends)
 
-
-
-
-    function toggle (){
-    if (selectedFriendsFeed === true){
-      selectedGlobal = false
+  function toggle() {
+    if (selectedFriendsFeed === true) {
+      selectedGlobal = false;
     }
-    if (selectedGlobal === false){
-      selectedFriendsFeed = true
+    if (selectedGlobal === false) {
+      selectedFriendsFeed = true;
     }
   }
-  toggle()
-
+  toggle();
 
   return (
     <>
-      <div className='btns-container'>
-        <button 
+      <div className="btns-container">
+        <button
           className={`global-btn ${selectedGlobal ? "active" : "inactive"}`}
-          onClick={() => (setSelectedGlobal(!selectedGlobal), setSelectedFriendsFeed(!selectedFriendsFeed))}
+          onClick={() => (
+            setSelectedGlobal(!selectedGlobal),
+            setSelectedFriendsFeed(!selectedFriendsFeed)
+          )}
         >
           For You
         </button>
-        <button className={`friends-btn ${selectedFriendsFeed ? "active" : "inactive"}`}
-          onClick={() => (setSelectedFriendsFeed(!selectedFriendsFeed), setSelectedGlobal(!selectedGlobal))}
+        <button
+          className={`friends-btn ${
+            selectedFriendsFeed ? "active" : "inactive"
+          }`}
+          onClick={() => (
+            setSelectedFriendsFeed(!selectedFriendsFeed),
+            setSelectedGlobal(!selectedGlobal)
+          )}
         >
           Friends
         </button>
       </div>
-
-      <div className={`left-sidebar ${selectedFriendsList ? "friendsActive" : "friendsInactive"}`}>
-        <div className='component-container'>
+      <div
+        className={`left-sidebar ${
+          selectedFriendsList ? "friendsActive" : "friendsInactive"
+        }`}
+      >
+        <div className="component-container">
           <FriendList user={user} />
         </div>
-        <div className='ls-icon-wrapper'>
-          <div id='ls-icon-container' className={`home-icon ${selectedHome ? "active" : "inactive"}`} onClick={() => (setSelectedHome(!selectedHome))}>
-            <i id='ls-icon' class="fa-solid fa-house"></i>
+        <div className="ls-icon-wrapper">
+          <div
+            id="ls-icon-container"
+            className={`home-icon ${selectedHome ? "active" : "inactive"}`}
+            onClick={() => setSelectedHome(!selectedHome)}
+          >
+            <i id="ls-icon" class="fa-solid fa-house"></i>
           </div>
           <Link style={linkStyle} to={`/profile/${user.profile}`}>
-            <div id='ls-icon-container'>
-              <i id='ls-icon' class="fa-solid fa-user"></i>
+            <div id="ls-icon-container">
+              <i id="ls-icon" class="fa-solid fa-user"></i>
             </div>
           </Link>
 
-          <div id='ls-icon-container' 
-            className={`friends-list-icon ${selectedFriendsList ? "active" : "inactive"}`}
-            onClick={() => (setSelectedFriendsList(!selectedFriendsList))}>
-            <i id='ls-icon' class="fa-solid fa-user-group" ></i>
+          <div
+            id="ls-icon-container"
+            className={`friends-list-icon ${
+              selectedFriendsList ? "active" : "inactive"
+            }`}
+            onClick={() => setSelectedFriendsList(!selectedFriendsList)}
+          >
+            <i id="ls-icon" class="fa-solid fa-user-group"></i>
           </div>
-          <Link style={linkStyle} to='/posts/new'>
-            <div id='ls-icon-container'>
-              <i id='ls-icon' class="fa-solid fa-pen-to-square"></i>
+          <Link style={linkStyle} to="/posts/new">
+            <div id="ls-icon-container">
+              <i id="ls-icon" class="fa-solid fa-pen-to-square"></i>
             </div>
           </Link>
         </div>
-        
       </div>
 
-
-      <div className='right-sidebar'>
-        <div id='ls-icon-container'>
-          <i id='ls-icon' class="fa-solid fa-chart-simple"></i>
+      <div className="right-sidebar">
+        <div id="ls-icon-container">
+          <i id="ls-icon" class="fa-solid fa-chart-simple"></i>
         </div>
       </div>
 
-      
-      <div className='bottom-sidebar'>
+      <div className="bottom-sidebar">
         <div>
-            <i class="fa-solid fa-house-2x"></i>
-          </div>
-          <div>
-            <i class="fa-solid fa-user fa-2x"></i>
-          </div>
-          <div>
-            <i class="fa-solid fa-user-group fa-2x"></i>
-          </div>
-          <div>
-            <i class="fa-solid fa-pen-to-square fa-2x"></i>
-          </div>
-          <div>
+          <i class="fa-solid fa-house-2x"></i>
+        </div>
+        <div>
+          <i class="fa-solid fa-user fa-2x"></i>
+        </div>
+        <div>
+          <i class="fa-solid fa-user-group fa-2x"></i>
+        </div>
+        <div>
+          <i class="fa-solid fa-pen-to-square fa-2x"></i>
+        </div>
+        <div>
           <i class="fa-solid fa-chart-simple fa-2x"></i>
-          </div>
+        </div>
       </div>
 
       {selectedFriendsFeed ? (
         <>
           {/* <p className='empty-text'>Your friends haven't posted!</p> */}
-          <PostList posts={feed} user={user}  handleDecideAction={handleDecideAction}/>
+          <PostList
+            posts={feed}
+            user={user}
+            handleDecideAction={handleDecideAction}
+          />
         </>
-      ):(
+      ) : (
         <>
-          <PostList posts={posts} user={user} handleDecideAction={handleDecideAction}/>
-          
+          <PostList
+            posts={posts}
+            user={user}
+            handleDecideAction={handleDecideAction}
+          />
         </>
-      )}  
+      )}
     </>
-  )
-}
+  );
+};
 
-
-
-export default MainFeed
+export default MainFeed;

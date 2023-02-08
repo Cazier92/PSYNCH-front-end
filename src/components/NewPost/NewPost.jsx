@@ -1,5 +1,4 @@
 import { useState } from "react";
-import styles from "./NewPost.module.css";
 
 const NewPost = (props) => {
   const [form, setForm] = useState({
@@ -24,10 +23,10 @@ const NewPost = (props) => {
   console.log(form);
 
   return (
-    <div className={styles.container}>
+    <div>
       <h1>What's on your mind today?</h1>
-      <form className={styles.formContainer} onSubmit={handleSubmit}>
-        <div className={styles.emotions}>
+      <form onSubmit={handleSubmit}>
+        <div>
           {form.emotion === "Bored" && (
             <span role="img" aria-label="Bored">
               😒
@@ -188,7 +187,7 @@ const NewPost = (props) => {
           cols="40"
           rows="10"
         ></textarea>
-        <div className={styles.checkboxContainer}>
+        <div>
           <label>
             {form.public
               ? "It's set to public [🌐]"
