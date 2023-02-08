@@ -38,10 +38,10 @@ const Landing = ({ user }) => {
         </div>
         
         <div className="main-moods">
-          <div>Happy</div>
-          <div>Sad</div>
-          <div>Angry</div>
-          <div>Fearful</div>
+          <div><i class="fa-solid fa-face-smile-beam fa-4x"></i></div>
+          <div><i class="fa-solid fa-face-sad-tear fa-4x"></i></div>
+          <div><i class="fa-solid fa-face-angry fa-4x"></i></div>
+          <div><i class="fa-solid fa-face-frown-open fa-4x"></i></div>
         </div>
       </section>
     </main>
