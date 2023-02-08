@@ -107,7 +107,7 @@ const SignupForm = props => {
       </div>
       <div className={styles.inputContainer}>
         <button disabled={isFormInvalid()} className={styles.button}>
-          Sign Up
+          Create Account
         </button>
       </div>
     </form>
