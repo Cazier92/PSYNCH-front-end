@@ -180,13 +180,18 @@ main {
 
 .main-content {
   display: flex;
-  text-align: center;
   flex-direction: column;
   margin: 3rem 0 0 0;
   max-width: 100%;
   height: 40vh;
   padding-left: 5rem;
   padding-right: 5rem;
+}
+
+.main-content-header{
+  display: flex;
+  flex-direction: column;
+
 }
 
 .firstChild-main{
@@ -229,6 +234,7 @@ main {
 @media screen and (max-width: 900px) {
   .main-content {
     align-items: center;
+    text-align: center;
     height: 40em;
     padding: 0;
     margin: 0 5em;
