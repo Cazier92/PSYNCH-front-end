@@ -16,6 +16,14 @@
   padding-bottom: 10px;
 }
 
+.postDetailCard > h2 {
+  margin-top: 50px;
+}
+
+.postDetailCard > p {
+  margin-top: 30px;
+}
+
 .postHeaders {
   display: flex;
   justify-content: center;
@@ -32,6 +40,28 @@
 
 .buttonContainer button {
   margin: 20px 10px 10px;
+}
+
+.reactionContainer {
+  border: 1px solid bisque;
+  padding: 10px 0;
+  border-radius: 5px;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  width: 20%;
+  margin-top: 30px;
+}
+
+.reactionContainer > i {
+  margin: 0 5px;
+}
+
+.publicPrivate {
+  margin-right: 30px;
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
 }
 
 @media screen and (max-width: 900px) {
@@ -52,7 +82,7 @@
     text-align: center;
   }
 
-  .postDetailCard h2 {
+  .postDetailCard > h2 {
     padding-top: 20px;
   }
 
