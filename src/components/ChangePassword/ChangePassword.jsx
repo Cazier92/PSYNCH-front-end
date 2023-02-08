@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import ChangePasswordForm from '../../components/ChangePasswordForm/ChangePasswordForm'
+import ChangePasswordForm from '../ChangePasswordForm/ChangePasswordForm'
 import styles from './ChangePassword.module.css'
 
 const ChangePassword = props => {

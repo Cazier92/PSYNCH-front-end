@@ -8,7 +8,7 @@ import Signup from "./pages/Signup/Signup";
 import Login from "./pages/Login/Login";
 import Landing from "./pages/Landing/Landing";
 import Profiles from "./pages/Profiles/Profiles";
-import ChangePassword from "./pages/ChangePassword/ChangePassword";
+import ChangePassword from "./components/ChangePassword/ChangePassword";
 import NewPost from "./pages/NewPost/NewPost";
 import Profile from "./pages/Profile/Profile";
 import MainFeed from "./pages/MainFeed/MainFeed";
