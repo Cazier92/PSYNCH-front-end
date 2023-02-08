@@ -10,6 +10,8 @@
 }
 
 .page-title {
+  display: flex;
+  /* width: 5em; */
   text-align: center;
   font-size: 2em;
   font-weight: 700;
@@ -17,7 +19,13 @@
   margin-bottom: 0.5em;
 }
 
+.subtitle{
+  font-weight: 700;
+}
+
 .requests-section {
+  display: flex;
+  flex-direction: column;
   /* background-color: grey; */
   padding: 1em;
   border-bottom: 2px solid rgba(0, 0, 0, 0.065); 

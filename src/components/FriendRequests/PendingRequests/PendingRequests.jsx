@@ -26,12 +26,16 @@ console.log(requests)
         return(
           <>
           <div className='request-card'>
-            <p>{request.name}</p>
-            <div>
-              <AcceptRequest id={request._id} setRequests={setRequests} requests={requests}/>
+            <div className='request-name'>
+              <p>{request.name}</p>
             </div>
-            <div>
-              <DenyRequest id={request._id} setRequests={setRequests} requests={requests}/>
+            <div className='action-btns'>
+              <div>
+                <AcceptRequest id={request._id} setRequests={setRequests} requests={requests}/>
+              </div>
+              <div>
+                <DenyRequest id={request._id} setRequests={setRequests} requests={requests}/>
+              </div>
             </div>
           </div>
           

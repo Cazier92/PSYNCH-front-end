@@ -1,4 +1,22 @@
 .request-card{
  display: flex;
  flex-direction: row;
+  justify-content: space-between;
+  background-color: rgb(255, 255, 255);
+  padding: 0.5em 0.8em;
+  border-radius: 0.3em;
+  margin: 1em 0;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
+}
+
+.request-name{
+  display: flex;
+  flex-direction: row;
+  font-weight: 700;
+}
+
+.action-btns{
+  display: flex;
+  flex-direction: row;
+  gap: 1em;
 }

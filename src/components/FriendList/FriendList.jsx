@@ -72,7 +72,7 @@ const FriendList = ({user}) => {
     <>
       <p className='page-title'>Friends</p>
       <div className='requests-section'>
-        <p>Requests</p>
+        <p className='subtitle'>Requests</p>
         <PendingRequests/>
       </div>
       {friends.length !== 0 ?
