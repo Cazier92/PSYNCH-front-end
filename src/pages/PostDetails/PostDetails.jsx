@@ -16,6 +16,14 @@ const PostDetails = ({ user, handleDeletePost }) => {
     setPost({ ...post, comments: [newComment, ...post.comments] });
   };
 
+  const handleDeleteComment = async (postId, commentId) => {
+    await postService.deleteComment(postId, commentId);
+    setPost({
+      ...post,
+      comments: post.comments.filter((c) => c._id !== commentId),
+    });
+  };
+
   useEffect(() => {
     const fetchPost = async () => {
       const data = await postService.show(id);
@@ -178,6 +186,7 @@ const PostDetails = ({ user, handleDeletePost }) => {
           comments={post.comments}
           user={user}
           postId={id}
+          handleDeleteComment={handleDeleteComment}
         />
       </section>
     </div>
