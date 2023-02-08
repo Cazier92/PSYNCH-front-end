@@ -92,7 +92,7 @@ const App = () => {
 
   useEffect(() => {
     const fetchAll = async () => {
-      const allPostsData = await emotionPostService.all()
+      const allPostsData = await emotionPostService.allPosts()
       setAllPosts(allPostsData)
     }
     fetchAll()

@@ -32,7 +32,7 @@ const feed = async () => {
   }
 }
 
-const all = async () => {
+const allPosts = async () => {
   try {
     const res = await fetch(`${BASE_URL}/all`, {
       headers: {'Authorization': `Bearer ${tokenService.getToken()}`}
@@ -185,7 +185,7 @@ export {
   index,
   show,
   feed,
-  all,
+  allPosts,
   create,
   createComment,
   addReaction,
