@@ -1,6 +1,7 @@
 import * as profileService from '../../../services/profileService'
 import { useState, useEffect } from 'react';
 import AcceptRequest from '../AcceptRequest/AcceptRequest';
+import DenyRequest from '../DenyRequest/DenyRequest';
 
 const PendingRequests = (props) => {
   const [requests, setRequests] = useState([])
@@ -25,6 +26,7 @@ console.log(requests)
           <>
           <p>{request.name}</p>
           <AcceptRequest id={request._id} setRequests={setRequests} requests={requests}/>
+          <DenyRequest id={request._id} setRequests={setRequests} requests={requests}/>
           </>
         )
       })
