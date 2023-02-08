@@ -26,10 +26,6 @@ const PostCard = ({ post, user, handleDecideAction }) => {
   const reactionId = post.reactions.find(reaction => reaction.author === user.profile)?._id
   const reactionCount = post.reactions.length 
   const commentsCount = post.comments.length 
-  // console.log('REACTION COUNT', reactionCount)
-
-
-  // console.log('ICON STATE', iconState)
 
   const down = ['Bored', 'Stressed', 'Tired']
   const fearful = ['Anxious', 'Rejected', 'Scared']
@@ -63,13 +59,22 @@ const PostCard = ({ post, user, handleDecideAction }) => {
     }
   }
 
+  const privatePost = () => {
+    if (post.public === true) {
+      return <i class="fa-solid fa-earth-americas"></i>
+      
+    }
+    if (post.public === false) {
+      return <i class="fa-solid fa-lock"></i>
+    }
+  }
 
 
 
   return (
     <div className="post-container">
       <div className="post-header" style={{backgroundColor: decideColor()}}>
-        <div className="post-avatar">{post.author.avatar}</div>
+        <div className="post-avatar"><img src={post.author.photo} alt="" /></div>
         <Link to={`/profile/${post.author._id}`} className="profile-link">
           <p className="profile-link">{post.author.name}</p>
         </Link>
@@ -108,7 +113,9 @@ const PostCard = ({ post, user, handleDecideAction }) => {
               <i class="fa-solid fa-thumbs-up ex-reaction" onClick={() => {handleDecideAction(post, postId, 'Like', reactionId ); setShowReactions(!showReactions)}}></i>
               <i class="fa-solid fa-lightbulb ex-reaction" onClick={() => {handleDecideAction(post, postId, 'Curious', reactionId ); setShowReactions(!showReactions)}}></i>
           </div>
-
+          <div>
+            {privatePost()}
+          </div>
         </div>
       </div>
     </div>
