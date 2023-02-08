@@ -15,8 +15,8 @@ const Landing = ({ user }) => {
             <p className="firstChild">
               THE SOCIAL NETWORK <br /> FOR <strong>EMOTIONS.</strong>
             </p>
-            <p>Experience the power real of connection. </p>
-            <p>
+            <p className="p-1">Experience the power real of connection. </p>
+            <p className="p-1">
               Become part of the growing PSYNCH community and share your
               emotions with people from around the world!
             </p>
@@ -28,7 +28,7 @@ const Landing = ({ user }) => {
           </div>
         </div>
         <div className="hero-image">
-          <div className="slides">
+          {/* <div className="slides">
             
             <div className="scroller">
               <input type="radio" name='radio-btn' id='radio-1' />
@@ -53,18 +53,19 @@ const Landing = ({ user }) => {
             </div>
 
 
-          </div>
+          </div> */}
           
 
         </div>
       </section>
       <section className="main-content">
-        <p className="firstChild">HOW ARE YOU FEELING?</p>
+        <p className="firstChild-main">How are you feeling?</p>
+        <p className="subtitle-main">Choose an emotion below to find your stats.</p>
         <div className="main-moods">
-          <div>Emotion</div>
-          <div>Emotion</div>
-          <div>Emotion</div>
-          <div>Emotion</div>
+          <div>Happy</div>
+          <div>Sad</div>
+          <div>Angry</div>
+          <div>Fearful</div>
         </div>
       </section>
     </main>
