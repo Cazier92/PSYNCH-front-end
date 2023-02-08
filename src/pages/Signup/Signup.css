@@ -1,34 +1,125 @@
+*{
+  margin: 0;
+}
+
 .container {
   display: flex;
   align-items: center;
+  justify-content: center;
   flex-direction: row;
+  min-height: 100vh;
+  min-width: 100vw;
+
 }
 
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  
+}
+
+.img-msg1 {
+  display: flex;
+  position: absolute;
+  max-height: 2em;
+  max-height: 2em;
+  margin-top: 1em;
+  margin-left: 12em;
+  max-width: 25em;
+  min-width: 25em;
+  font-weight: 700;
+  font-size: 2.5em;
+  color: rgb(255, 255, 255);
+  z-index: 10;
+  
+}
+
+.img-msg2 {
+  display: flex;
+  position: absolute;
+  height: fit-content;
+  margin-top: 36em;
+  margin-left: 35em;
+  width: 25em;
+  font-weight: 700;
+  font-size: 1.5em;
+  color: rgb(255, 255, 255);
+  z-index: 10;
+  
+}
+
+.img-msg3 {
+  display: flex;
+  position: absolute;
+  height: fit-content;
+  margin-top: 2em;
+  margin-right: 2em;
+  width: 25em;
+  font-weight: 700;
+  font-size: 3em;
+  color: rgb(255, 255, 255);
+  z-index: 10;
+  
+}
+
+
 .leftContainer {
-  background-image: url("/public/signup.jpeg");
-  height: 100vh;
+  min-height: 100vh;
   width: 50%;
   background-size: cover;
   background-repeat: no-repeat;
   display: flex;
   justify-content: center;
-  padding-top: 200px;
+  object-fit: cover;
 }
 
-.leftInfo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 80%;
+
+.overlay {
+  position: absolute;
+  background: linear-gradient(-65deg, rgba(34, 195, 120, 0.512) 0%, rgba(253, 187, 45, 0.502)) transparent;
+  background-size: 400% 400%;
+  z-index: 2;
+  opacity: 0.5;
+  max-width: 50%;
+  min-width: 50%;
+  max-height: 50%;
+  min-height: 100%;
+  animation: Animation 7s ease infinite;
+  
 }
+
+@keyframes Animation {
+  0%{background-position:10% 0%}
+  50%{background-position:91% 100%}
+  100%{background-position:10% 0%}
+}
+
+
+.sign-up-img{
+  max-width: 100%;
+  min-width: 100%;
+  max-height: 100%;
+  min-height: 100%;
+  object-fit: cover;
+  object-fit: cover;
+
+
+}
+
 
 .rightContainer {
   display: flex;
   flex-direction: column;
-  margin-left: 150px;
-  width: 400px;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
   height: 100vh;
 }
+
+
+
 
 @media screen and (max-width: 900px) {
   .container {
@@ -38,6 +129,9 @@
     min-height: 10em;
     margin-right: 150px;
   }
+
+
+
 
   .leftContainer {
     display: none;

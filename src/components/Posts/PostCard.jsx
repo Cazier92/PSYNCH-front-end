@@ -81,6 +81,7 @@ const PostCard = ({ post, user, handleDecideAction }) => {
   return (
     <div className="post-container">
       <div className="post-header" style={{backgroundColor: decideColor()}}>
+
         <div className="left-header">
           <img className="post-avatar" src={post.author.photo} alt="profile img" />
           <Link className="profile-link" to={`/profile/${post.author._id}`} >
@@ -91,6 +92,7 @@ const PostCard = ({ post, user, handleDecideAction }) => {
          <p>{formatted}</p>
 
         </div>
+
       </div>
       <div className="post-main">
         <div className="post-text">

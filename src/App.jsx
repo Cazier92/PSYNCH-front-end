@@ -15,7 +15,9 @@ import MainFeed from "./pages/MainFeed/MainFeed";
 import PendingRequests from "./components/FriendRequests/PendingRequests/PendingRequests";
 import PostDetails from "./pages/PostDetails/PostDetails";
 import FriendList from "./components/FriendList/FriendList";
+import EditProfile from "./pages/EditProfile/EditProfile";
 import EditComment from "./pages/EditComment/EditComment";
+
 
 // components
 import NavBar from "./components/NavBar/NavBar";
@@ -24,7 +26,7 @@ import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 // services
 import * as authService from "./services/authService";
 import * as emotionPostService from "./services/emotionPostService";
-import * as profileService from "./services/profileService";
+
 
 // styles
 import "./App.css";
@@ -33,6 +35,11 @@ import EditPost from "./pages/EditPost/EditPost";
 const App = () => {
   const [user, setUser] = useState(authService.getUser());
   const navigate = useNavigate();
+  const [posts, setPosts] = useState([]);
+  const [privatePosts, setPrivatePosts] = useState([]);
+  const [feed, setFeed] = useState([])
+  const [allPosts, setAllPosts] = useState([])
+  
 
   function handleLogout() {
     authService.logout();
@@ -44,8 +51,6 @@ const App = () => {
     setUser(authService.getUser());
   };
 
-  const [posts, setPosts] = useState([]);
-  const [privatePosts, setPrivatePosts] = useState([]);
 
   const handleAddPost = async (postData) => {
     const newPost = await emotionPostService.create(postData);
@@ -77,7 +82,7 @@ const App = () => {
     fetchPosts();
   }, []);
 
-  const [feed, setFeed] = useState([]);
+
 
   useEffect(() => {
     const fetchFeed = async () => {
@@ -87,6 +92,21 @@ const App = () => {
     fetchFeed();
   }, []);
 
+
+  useEffect(() => {
+    const fetchAll = async () => {
+      const allPostsData = await emotionPostService.allPosts()
+      setAllPosts(allPostsData)
+    }
+    fetchAll()
+  }, [])
+
+
+
+  // const handleDecideAction = async (post, postId, reactionChoice, reactionId) => {
+  //   console.log('reactionChoice', reactionChoice)
+  //   if (post.reactions.some(reaction => reaction.author === user.profile)) {
+
   const handleDecideAction = async (
     post,
     postId,
@@ -95,6 +115,7 @@ const App = () => {
   ) => {
     console.log("reactionChoice", reactionChoice);
     if (post.reactions.some((reaction) => reaction.author === user.profile)) {
+
       // deleteReaction
       let currentReaction = post.reactions.find(
         (reaction) => reaction.author === user.profile
@@ -178,7 +199,7 @@ const App = () => {
           path="/profile/:id"
           element={
             <ProtectedRoute user={user}>
-              <Profile user={user} />
+              <Profile user={user} allPosts={allPosts} />
             </ProtectedRoute>
           }
         />
@@ -208,6 +229,12 @@ const App = () => {
               handleDecideAction={handleDecideAction}
             />
           }
+        />
+        <Route 
+          path="/profile/edit" 
+          element={
+            <EditProfile user={user}/>
+          } 
         />
         <Route
           path="/emotionPosts/:id"
