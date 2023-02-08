@@ -16,11 +16,12 @@ import PendingRequests from "./components/FriendRequests/PendingRequests/Pending
 import PostDetails from "./pages/PostDetails/PostDetails";
 import FriendList from "./components/FriendList/FriendList";
 import EditComment from "./pages/EditComment/EditComment";
-import Stats from "./components/Stats/Stats";
 
 // components
 import NavBar from "./components/NavBar/NavBar";
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
+import Stats from "./components/Stats/Stats";
+import ProfileBar from "./components/ProfileBar/ProfileBar";
 
 // services
 import * as authService from "./services/authService";
@@ -187,6 +188,14 @@ const App = () => {
           element={
             <ProtectedRoute user={user}>
               <Profile user={user} allPosts={allPosts} />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/profile/user"
+          element={
+            <ProtectedRoute user={user}>
+              <ProfileBar user={user} allPosts={allPosts} />
             </ProtectedRoute>
           }
         />

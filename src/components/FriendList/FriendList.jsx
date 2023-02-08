@@ -46,8 +46,8 @@ const FriendList = ({user}) => {
     fetchFeed()
   }, [friends])
 
-  console.log('Feed:', feed)
-  console.log('Friends:', friends)
+  // console.log('Feed:', feed)
+  // console.log('Friends:', friends)
   // console.log(feed.find((post) => post.author._id = '63dff7e2ae6630b0ec58ba71').emotion)
   // const recentEmotion = async (friend) => {
   //   try {
