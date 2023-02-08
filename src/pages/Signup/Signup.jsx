@@ -24,8 +24,8 @@ const Signup = (props) => {
         <div className="overlay"></div>
         <img className="sign-up-img" src="./landingImages/img4.jpg" alt="" />
         {/* <p className="img-msg1"><span>"</span><br/>The best and most beautiful things in the world cannot be seen or even touched — they must be felt with the heart. </p>
-        <p className="img-msg2">Hellen Keller</p> */}
-        <p className="img-msg3">PSYNCH</p>
+        <p className="img-msg2">Hellen Keller</p>
+        <p className="img-msg3">PSYNCH</p> */}
       </div>
       
     </main>

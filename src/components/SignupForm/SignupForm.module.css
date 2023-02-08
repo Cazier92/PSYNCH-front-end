@@ -13,6 +13,11 @@
   margin-bottom: 50px;
 }
 
+.label{
+  
+  font-weight: 700;
+  font-size: 14px;
+}
 
 .inputContainer {
   margin-bottom: 1rem;
@@ -26,6 +31,7 @@
 .inputField{
   font-family: inherit;
   width: 20em;
+  height: 1em;
   border: 0;
   border-bottom: 2px solid rgb(170, 170, 170);
   border-radius: 0;
@@ -48,10 +54,12 @@ input[type="file"] {
 }
 
 .photoLabel {
-  border: 1px solid #ccc;
+  border: 1px solid rgb(229, 229, 229);
   display: inline-block;
   padding: 6px 12px;
   cursor: pointer;
+  border-radius: 0.4em;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
 }
 
 .photoInputField{
@@ -62,6 +70,11 @@ input[type="file"] {
   cursor: pointer;
 
 }
+
+.photoIcon {
+  padding-left: 1px;
+}
+
 
 .redirect {
   font-size: 15px;
