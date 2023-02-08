@@ -5,7 +5,7 @@ import { useParams } from 'react-router-dom';
 import SendFriendRequest from '../../components/FriendRequests/SendFriendRequest/SendFriendRequest';
 import PostList from '../../components/PostList/PostList';
 
-const Profile = ({user, allPosts, feed}) => {
+const Profile = ({user, allPosts}) => {
   const {id} = useParams()
   const [profile, setProfile] = useState(null)
   const [profilePosts, setProfilePosts] = useState([])
@@ -40,13 +40,13 @@ const Profile = ({user, allPosts, feed}) => {
 
   const privatePosts = () => {
     if (user.profile === profile._id) {
-      return profile.emotionPosts
+      return allPosts.filter(post => post.author._id === profile._id)
     }
     else if (profile.friends.some(friend => friend._id === user.profile)) {
-      return profile.emotionPosts
+      return allPosts.filter(post => post.author._id === profile._id)
     }
     else {
-      return profile.emotionPosts
+      return allPosts.filter(post => post.author._id === profile._id && post.public === true)
     }
   }
 
@@ -56,9 +56,8 @@ const Profile = ({user, allPosts, feed}) => {
   return ( 
     <>
       <h1>{profile.name}</h1>
-      {/* <img src={profile.photo} alt="" /> */}
       <SendFriendRequest profile={profile} user={user}/>
-      <PostList posts={privatePosts} user={user}/>
+      <PostList posts={privatePosts()} user={user}/>
     </>
   );
 }

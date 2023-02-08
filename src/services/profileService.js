@@ -89,14 +89,6 @@ const show = async (id) => {
   }
 }
 
-const profilePosts = async (id) => {
-  try {
-    const res = await fetch(`${BASE_URL}/${id}/posts`)
-    return res.json()
-  } catch (error) {
-    console.log(error)
-  }
-}
 
 const updateProfile = async (profileData) => {
   try {
@@ -121,5 +113,4 @@ export {
   denyRequest,
   show,
   updateProfile,
-  profilePosts,
 }

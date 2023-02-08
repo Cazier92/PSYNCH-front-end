@@ -24,7 +24,7 @@ import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 // services
 import * as authService from "./services/authService";
 import * as emotionPostService from "./services/emotionPostService";
-import * as profileService from "./services/profileService";
+
 
 // styles
 import "./App.css";
@@ -174,7 +174,7 @@ const App = () => {
           path="/profile/:id"
           element={
             <ProtectedRoute user={user}>
-              <Profile user={user} allPosts={allPosts} feed={feed}/>
+              <Profile user={user} allPosts={allPosts} />
             </ProtectedRoute>
           }
         />
