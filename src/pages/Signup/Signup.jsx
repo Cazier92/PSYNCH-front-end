@@ -1,6 +1,6 @@
 import { useState } from "react";
 import SignupForm from "../../components/SignupForm/SignupForm";
-import styles from "./Signup.css";
+import "./Signup.css";
 
 const Signup = (props) => {
   const [message, setMessage] = useState([""]);
