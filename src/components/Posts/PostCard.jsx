@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 
 import * as emotionPostService from '../../services/emotionPostService'
 import ReactionButton from "./ReactionButton";
+import moment from 'moment'
 
 import { Link } from "react-router-dom";
 import "./PostCard.css";
@@ -12,6 +13,8 @@ const linkStyle = {
   textDecoration: "none",
   color: "black",
 };
+
+
 
 const PostCard = ({ post, user, handleDecideAction }) => {
 
@@ -26,6 +29,10 @@ const PostCard = ({ post, user, handleDecideAction }) => {
   const reactionId = post.reactions.find(reaction => reaction.author === user.profile)?._id
   const reactionCount = post.reactions.length 
   const commentsCount = post.comments.length 
+
+  const formatted = moment.utc(post.createdAt).local().startOf('seconds').fromNow()
+
+  console.log("formatted", formatted)
 
   const down = ['Bored', 'Stressed', 'Tired']
   const fearful = ['Anxious', 'Rejected', 'Scared']
@@ -74,12 +81,16 @@ const PostCard = ({ post, user, handleDecideAction }) => {
   return (
     <div className="post-container">
       <div className="post-header" style={{backgroundColor: decideColor()}}>
-        <Link className="profile-link" to={`/profile/${post.author._id}`} >
-        <img className="post-avatar" src={post.author.photo} alt="profile img" />
-        </Link>
-        <Link className="profile-link" to={`/profile/${post.author._id}`} >
-          <p>{post.author.name}</p>
-        </Link>
+        <div className="left-header">
+          <img className="post-avatar" src={post.author.photo} alt="profile img" />
+          <Link className="profile-link" to={`/profile/${post.author._id}`} >
+          <p className="author-name">{post.author.name}</p>
+          </Link>
+        </div>
+        <div className="right-header">
+         <p>{formatted}</p>
+        </div>
+
       </div>
       <div className="post-main">
         <div className="post-text">
