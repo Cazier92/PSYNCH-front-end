@@ -14,7 +14,7 @@ const Signup = (props) => {
       <div className="rightContainer">
         <div className="header">
           <h1>Welcome</h1>
-          <p></p>
+          <p>Please enter your details!</p>
         </div>
         <p>{message}</p>
         <SignupForm {...props} updateMessage={updateMessage} />

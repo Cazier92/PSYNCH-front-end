@@ -1,3 +1,10 @@
+.formContainer{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 20em;
+}
+
 .container {
   display: flex;
   flex-flow: column nowrap;
@@ -6,13 +13,56 @@
   margin-bottom: 50px;
 }
 
-.label,
-.button {
-  margin-right: .5rem;
-  white-space: nowrap;
-}
 
 .inputContainer {
   margin-bottom: 1rem;
 } 
 
+.button{
+  margin-top: 3em;
+  white-space: nowrap;
+}
+
+.inputField{
+  font-family: inherit;
+  width: 20em;
+  border: 0;
+  border-bottom: 2px solid rgb(170, 170, 170);
+  border-radius: 0;
+  outline: 0;
+  font-size: 1.3rem;
+  padding: 7px 0;
+  background: transparent;
+  font-size: 15px;
+}
+
+.photoInputContainer{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+.photoLabel {
+  border: 1px solid #ccc;
+  display: inline-block;
+  padding: 6px 12px;
+  cursor: pointer;
+}
+
+.photoInputField{
+  width: 15em;
+  border: 1px solid #ccc;
+  display: inline-block;
+  padding: 6px 12px;
+  cursor: pointer;
+
+}
+
+.redirect {
+  font-size: 15px;
+}

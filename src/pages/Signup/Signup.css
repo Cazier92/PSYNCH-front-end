@@ -12,6 +12,13 @@
 
 }
 
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
 .img-msg1 {
   display: flex;
   position: absolute;
@@ -79,6 +86,7 @@
   max-height: 50%;
   min-height: 100%;
   animation: Animation 9s ease infinite;
+  
 }
 
 @keyframes Animation {
@@ -95,6 +103,7 @@
   min-height: 100%;
   object-fit: cover;
   object-fit: cover;
+
 
 }
 
