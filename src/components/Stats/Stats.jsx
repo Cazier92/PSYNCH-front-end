@@ -1,7 +1,7 @@
 
 
 
-const Stats = ({ user, allPosts }) => {
+const Stats = ({ user, allPosts, userProfile }) => {
 
   const userPosts = allPosts.filter(post => post.author._id === user.profile)
 

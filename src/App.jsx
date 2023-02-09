@@ -232,7 +232,7 @@ const App = () => {
           path="/change-password"
           element={
             <ProtectedRoute user={user}>
-              <ChangePassword handleSignupOrLogin={handleSignupOrLogin} />
+              <ChangePassword handleSignupOrLogin={handleSignupOrLogin} userProfile={userProfile}/>
             </ProtectedRoute>
           }
         />
@@ -240,7 +240,7 @@ const App = () => {
           path="/posts/new"
           element={
             <ProtectedRoute user={user}>
-              <NewPost posts={posts} handleAddPost={handleAddPost} user={user}/>
+              <NewPost posts={posts} handleAddPost={handleAddPost} user={user} userProfile={userProfile}/>
             </ProtectedRoute>
           }
         />
@@ -249,7 +249,7 @@ const App = () => {
           element={
             <ProtectedRoute user={user}>
               <Profile user={user} allPosts={allPosts} handleCreateConversation={handleCreateConversation} allConversations={allConversations} setAllConversations={setAllConversations} newConversationId={newConversationId}
-              allNotifications={allNotifications} newNotificationId={newNotificationId} handleCreateNotification={handleCreateNotification} handleDeleteNotification={handleDeleteNotification} setAllNotifications={setAllNotifications}
+              allNotifications={allNotifications} newNotificationId={newNotificationId} handleCreateNotification={handleCreateNotification} handleDeleteNotification={handleDeleteNotification} setAllNotifications={setAllNotifications} userProfile={userProfile}
               />
             </ProtectedRoute>
           }
@@ -258,7 +258,7 @@ const App = () => {
           path="/chat/:conversationId"
           element={
             <ProtectedRoute user={user}>
-              <Chat handleCreateNotification={handleCreateNotification} newNotificationId={newNotificationId} user={user}/>
+              <Chat handleCreateNotification={handleCreateNotification} newNotificationId={newNotificationId} user={user} userProfile={userProfile}/>
             </ProtectedRoute>
           }
         />
@@ -266,7 +266,7 @@ const App = () => {
           path="/profile/user"
           element={
             <ProtectedRoute user={user}>
-              <ProfileBar user={user} allPosts={allPosts} />
+              <ProfileBar user={user} allPosts={allPosts} userProfile={userProfile}/>
             </ProtectedRoute>
           }
         />
@@ -274,7 +274,7 @@ const App = () => {
           path="/stats"
           element={
             <ProtectedRoute user={user}>
-              <Stats user={user} allPosts={allPosts} />
+              <Stats user={user} allPosts={allPosts} userProfile={userProfile}/>
             </ProtectedRoute>
           }
         />
@@ -282,7 +282,7 @@ const App = () => {
           path="/profile/requests"
           element={
             <ProtectedRoute user={user}>
-              <PendingRequests user={user} />
+              <PendingRequests user={user} userProfile={userProfile}/>
             </ProtectedRoute>
           }
         />
@@ -290,7 +290,7 @@ const App = () => {
           path="/profile/friends"
           element={
             <ProtectedRoute user={user}>
-              <FriendList user={user} />
+              <FriendList user={user} userProfile={userProfile}/>
             </ProtectedRoute>
           }
         />
@@ -302,6 +302,7 @@ const App = () => {
               user={user}
               feed={feed}
               handleDecideAction={handleDecideAction}
+              userProfile={userProfile}
             />
           }
         />
@@ -312,6 +313,7 @@ const App = () => {
               posts={posts}
               user={user}
               handleDeletePost={handleDeletePost}
+              userProfile={userProfile}
             />
           }
         />
@@ -319,7 +321,7 @@ const App = () => {
           path="/emotionPosts/:id/edit"
           element={
             <ProtectedRoute user={user}>
-              <EditPost handleUpdatePost={handleUpdatePost} />
+              <EditPost handleUpdatePost={handleUpdatePost} userProfile={userProfile}/>
             </ProtectedRoute>
           }
         />
@@ -327,7 +329,7 @@ const App = () => {
           path="/emotionPosts/:postId/comments/:commentId"
           element={
             // <ProtectedRoute>
-            <EditComment />
+            <EditComment userProfile={userProfile}/>
             // </ProtectedRoute>
           }
         />
