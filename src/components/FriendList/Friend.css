@@ -4,10 +4,17 @@
 
 .friend-card {
   display: flex;
+  flex-direction: row;
   background-color: rgb(209, 208, 208);
-  width: 100%;
+  width: 100;
   height: 5em;
 }
+
+.friend-avatar-container{
+ display: flex;
+ background-color: blue;
+}
+
 
 .friend-avatar{
   background-color: rgb(229, 229, 229);
@@ -20,6 +27,38 @@
   object-fit: cover;
 }
 
+
+.friend-title-container{
+  display: flex;
+  flex-direction: column;
+  background-color: red;
+  align-items: flex-start;
+  justify-content: center;
+  min-width: 50%;
+  max-width: 50%;
+  height: 100%;
+  white-space: nowrap;
+}
+
+
+.friend-info-container{
+  display: flex;
+  justify-content:space-between;
+  align-items: center;
+  min-width: 10em;
+  max-width: 10em;
+}
+
 .friend-name{
-  
+  font-size: 1em;
+}
+
+.friend-status-container{
+  display: flex;
+  flex-direction: row;
+  background-color: green;
+  min-width: 50%;
+  max-width: 50%;
+  height: 100%;
+  font-size: 10px;
 }
