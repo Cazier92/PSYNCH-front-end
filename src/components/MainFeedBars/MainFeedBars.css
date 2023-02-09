@@ -8,9 +8,8 @@
 .right-sidebar{
   position: fixed;
   display: flex;
-  flex-direction: column;
   margin-top: 4em;
-  padding: 30px;
+  padding: 30px 30px;
   background-color: rgb(255, 255, 255);
   height: 100vh;
   width: 320px;
@@ -21,7 +20,7 @@
   right ease 400ms;
 }
 
-.component-container{
+.component-container-left{
   /* background-color: red; */
   width: 100%;
   height: 100vh;
@@ -31,22 +30,37 @@
   clip-path: inset(0px -5px 0px 0px);
 }
 
-.component-container.active{
+.component-container-right{
+  /* background-color: red; */
+  width: 100%;
+  height: 100vh;
+  margin-left: -50px;
+  box-shadow: 
+  rgba(17, 17, 26, 0.05) 0px 1px 0px,
+  rgba(17, 17, 26, 0.1) 0px 0px 8px;
+  clip-path: inset(0px 0px 0px -5px);
+}
+
+.loaded-component{
+  transition: display ease 100ms;
+}
+
+.loaded-component.active{
   
 }
-.component-container.inactive{
-  /* display: none; */
+.loaded-component.inactive{
+  display: none;
 }
 
-
-
-
+#ls-icon {
+  transform: scale(1.5);
+}
 
 .ls-icon-wrapper {
   display: flex;
   flex-direction: column;
   /* background-color: aquamarine; */
-  padding-left: 0.5em;
+  padding-top: 40px;
   gap: 2em;
   
 }
@@ -56,26 +70,9 @@
   flex-direction: row;
   top:0;
   left: 0;
-  /* left: -270px; */
   justify-content: flex-start;
   gap: 1em;
   justify-content: center;
-}
-
-.left-sidebar.friendsActive{
-  left: 0;
-}
-
-.left-sidebar.friendsInactive{
- left: -270px;
-}
-
-.left-sidebar.friendsInactive:hover{
- left: -265px;
-}
-
-#ls-icon {
-  transform: scale(1.5);
 }
 
 #ls-icon-container{
@@ -91,8 +88,22 @@
   cursor: pointer;
 }
 
+.left-sidebar.friendsActive{
+  left: 0;
+}
+
+.left-sidebar.friendsInactive{
+ left: -270px;
+}
+
+.left-sidebar.friendsInactive:hover{
+ left: -265px;
+}
+
+
 .friends-list-icon.active,
-.home-icon.active {
+.home-icon.active,
+.stats-icon.active {
   background-color: rgb(233, 233, 233);
   box-shadow: 
   rgba(67, 71, 85, 0.27) 0px 0px 0.25em inset, 
@@ -100,33 +111,72 @@
 }
 
 .friends-list-icon.inactive,
-.home-icon.inactive{
+.home-icon.inactive,
+.stats-icon.inactive{
   background-color: 0;
   box-shadow: 0;
 }
 
 
-#ls-icon-container:hover {
+#ls-icon-container:hover,
+#rs-icon-container:hover {
   background-color: rgb(248, 248, 248);
   box-shadow: 
   rgba(67, 71, 85, 0.27) 0px 0px 0.25em inset, 
   rgba(90, 125, 188, 0.05) 0px 0.25em 1em inset;
 }
 
+#rs-icon {
+  transform: scale(1.5);
+}
+
+.rs-icon-wrapper {
+  display: flex;
+  flex-direction: column;
+  /* background-color: aquamarine; */
+  padding-top: 40px;
+  gap: 2em;
+}
+
+#rs-icon-container{
+  display: flex;
+  /* background-color: rgb(199, 199, 199); */
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  width: 3em;
+  height: 3em;
+  border-radius: 50px;
+  transition: background-color 500ms ease, box-shadow 500ms ease;
+  cursor: pointer;
+}
 
 .right-sidebar{
   display: flex;
   top:0;
-  right: 0;
   right: -270px;
-  justify-content: flex-start;
-  align-items: flex-start;
-  gap: 5em;
+  justify-content: flex-end;
+  gap: 1em;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  background-color: rgb(203, 106, 27);
 }
 
-/* .right-sidebar:hover{
-  right: -265px;
- } */
+
+
+ .right-sidebar.statsActive{
+  right: 0;
+  /* flex-direction: row; */
+}
+
+.right-sidebar.statsInactive{
+ right: -270px;
+}
+
+.right-sidebar.statsInactive:hover{
+ right: -265px;
+}
 
 .bottom-sidebar {  
   position: fixed;
