@@ -8,12 +8,16 @@ import PostList from '../../components/PostList/PostList';
 import StartConversation from '../../components/DirectMessages/StartConversation';
 import ChatButton from '../../components/DirectMessages/ChatButton';
 
-const Profile = ({user, allPosts, handleCreateConversation, allConversations, setAllConversations}) => {
+const Profile = ({user, allPosts, handleCreateConversation, allConversations, setAllConversations, newConversationId}) => {
   const {id} = useParams()
   const [profile, setProfile] = useState(null)
 
   // const [conversationId, setConversationId] = useState(null)
   // const [directMessage, setDirectMessage] = useState([])
+
+
+
+
 
 
   useEffect(() => {
@@ -56,7 +60,7 @@ const Profile = ({user, allPosts, handleCreateConversation, allConversations, se
         )
       } else {
         return (
-          <StartConversation profile={profile} user={user} handleCreateConversation={handleCreateConversation} allConversations={allConversations} setAllConversations={setAllConversations} neededConvo={neededConvo}/>
+          <StartConversation profile={profile} user={user} handleCreateConversation={handleCreateConversation} allConversations={allConversations} setAllConversations={setAllConversations} neededConvo={neededConvo} newConversationId={newConversationId}/>
         )
       }
     }
@@ -72,6 +76,7 @@ const Profile = ({user, allPosts, handleCreateConversation, allConversations, se
   return ( 
     <>
       <h1>{profile.name}</h1>
+      {/* <img src={profile.photo} alt="" /> */}
       <SendFriendRequest profile={profile} user={user}/>
       {conversationButton()}
       <PostList posts={privatePosts()} user={user}/>

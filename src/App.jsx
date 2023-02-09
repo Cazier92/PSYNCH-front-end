@@ -41,6 +41,7 @@ const App = () => {
   const [feed, setFeed] = useState([]);
   const [allPosts, setAllPosts] = useState([]);
   const [allConversations, setAllConversations] = useState([])
+  const [newConversationId, setNewConversationId] = useState(null)
 
 
 
@@ -79,6 +80,7 @@ const App = () => {
   const handleCreateConversation = async (conversationData) => {
     const newConversation = await directMessagesService.create(conversationData)
     setAllConversations([newConversation, ...allConversations])
+    setNewConversationId(newConversation._id)
   }
 
 
@@ -211,7 +213,7 @@ const App = () => {
           path="/profile/:id"
           element={
             <ProtectedRoute user={user}>
-              <Profile user={user} allPosts={allPosts} handleCreateConversation={handleCreateConversation} allConversations={allConversations} setAllConversations={setAllConversations}/>
+              <Profile user={user} allPosts={allPosts} handleCreateConversation={handleCreateConversation} allConversations={allConversations} setAllConversations={setAllConversations} newConversationId={newConversationId}/>
             </ProtectedRoute>
           }
         />

@@ -1,16 +1,24 @@
 import * as directMessagesService from '../../services/directMessagesService'
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
-const StartConversation = ({profile, user, handleCreateConversation, allConversations, setAllConversations}) => {
+const StartConversation = ({profile, user, handleCreateConversation, allConversations, setAllConversations, newConversationId}) => {
   const [conversationData, setConversationData] = useState({})
 
+
   useEffect(() => {
+
     setConversationData({profile: profile})
   }, [profile, user, allConversations])
 
+  handleCreateConversation(conversationData)
+
   return ( 
     <>
-      <button onClick={() => handleCreateConversation(conversationData)}>Start Chat</button>
+      <Link to={`/chat/${newConversationId}`}>
+        <button>Start Chat</button>
+
+      </Link>
     </>
   );
 }
