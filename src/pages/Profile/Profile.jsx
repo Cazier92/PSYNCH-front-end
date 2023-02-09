@@ -10,6 +10,8 @@ import ChatButton from '../../components/DirectMessages/ChatButton';
 import MainFeedBars from '../../components/MainFeedBars/MainFeedBars';
 import Notification from '../../components/NotificationComponents/Notification';
 
+import './Profile.css'
+
 const Profile = ({user, allPosts, handleCreateConversation, allConversations, setAllConversations, newConversationId, allNotifications, handleCreateNotification, handleDeleteNotification, newNotificationId, setAllNotifications}) => {
   const {id} = useParams()
   const [profile, setProfile] = useState(null)
@@ -67,7 +69,7 @@ const Profile = ({user, allPosts, handleCreateConversation, allConversations, se
         if (neededConvo) {
         
         return (
-          <ChatButton profile={profile} user={user} neededConvo={neededConvo}/>
+          <ChatButton profile={profile} user={user} neededConvo={neededConvo} />
         )
       } else {
         return (
@@ -87,10 +89,13 @@ const Profile = ({user, allPosts, handleCreateConversation, allConversations, se
   return ( 
     <>
       <MainFeedBars user={user}/>
-      <h1>{profile.name}</h1>
-      {/* <img src={profile.photo} alt="" /> */}
-      <SendFriendRequest profile={profile} user={user}/>
-      {conversationButton()}
+      <div className='profile-head'>
+        <h1 className='profile-name'>{profile.name}</h1>
+        {/* <img src={profile.photo} alt="" /> */}
+        <SendFriendRequest profile={profile} user={user}/>
+        {conversationButton()}
+
+      </div>
       
       <PostList posts={privatePosts()} user={user}/>
     </>
