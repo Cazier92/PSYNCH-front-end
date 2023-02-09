@@ -1,4 +1,4 @@
-*{
+* {
   margin: 0;
 }
 
@@ -9,7 +9,6 @@
   flex-direction: row;
   min-height: 100vh;
   min-width: 100vw;
-
 }
 
 .header {
@@ -17,7 +16,6 @@
   flex-direction: column;
   justify-content: left;
   text-align: center;
-  
 }
 
 .leftContainer {
@@ -29,7 +27,6 @@
   justify-content: center;
   object-fit: cover;
   z-index: 50;
- 
 }
 
 .rightContainer {
@@ -42,7 +39,7 @@
   box-shadow: rgba(0, 0, 0, 0.268) 0px 22px 70px 4px;
 }
 
-.err-message{
+.err-message {
   color: red;
   margin-top: 1em;
 }
@@ -59,5 +56,9 @@
 
   .leftContainer {
     display: none;
+  }
+
+  .rightContainer {
+    width: 100%;
   }
 }
