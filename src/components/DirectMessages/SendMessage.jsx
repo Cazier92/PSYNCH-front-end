@@ -21,11 +21,16 @@ const SendMessage = ({conversationId, handleSendMessage, handleCreateNotificatio
   //   setProfile(conversation.members.filter(member => member._id !== user.profile))
   // }, [conversation, conversationId, messages, user])
 
-  useEffect(() => {
-    setNotificationData({profile: profile[0]})
-  }, [profile])
+  // useEffect(() => {
+  //   setProfile(profileArr)
+  // }, [profileArr])
 
-  console.log('PROFILE:', profile[0]._id)
+  useEffect(() => {
+    setNotificationData({profile: profile, link: conversationId})
+  }, [conversationId, profile])
+
+  // console.log('PROFILE:', profile[0]._id)
+  console.log('ProfileArr:', profile)
 
 
 

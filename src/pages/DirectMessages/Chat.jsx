@@ -11,7 +11,8 @@ const Chat = ({handleCreateNotification, newNotificationId, user}) => {
   const [conversation, setConversation] = useState([])
   const [messages, setMessages] = useState([])
   // const [members, setMembers] = useState([])
-  const [profile, setProfile] = useState()
+  // const [profileArr, setProfileArr] = useState([])
+  const [profile, setProfile] = useState({})
 
     
   useEffect(() => {
