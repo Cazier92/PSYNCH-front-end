@@ -291,6 +291,7 @@ const App = () => {
               posts={posts}
               user={user}
               feed={feed}
+              allPosts={allPosts}
               handleDecideAction={handleDecideAction}
             />
           }

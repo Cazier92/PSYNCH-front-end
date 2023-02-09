@@ -5,16 +5,17 @@ import { useState, useEffect } from "react";
 
 //COMPONENETS
 import FriendList from "../../components/FriendList/FriendList";
+import Stats from "../../components/Stats/Stats"
 
 //SERVICES
-import * as emotionPostService from "../../services/emotionPostService";
+
 
 const linkStyle = {
   textDecoration: "none",
   color: "black",
 };
 
-const MainFeedBars = ({ user}) => {
+const MainFeedBars = ({ user, allPosts}) => {
   //STATES
   let [selectedFriendsList, setSelectedFriendsList] = useState(false);
   let [selectedHome, setSelectedHome] = useState(true);
@@ -87,9 +88,9 @@ const MainFeedBars = ({ user}) => {
 
         <div className='component-container' >
           <div className={`loaded-component ${
-              selectedFriendsList ? "active" : "inactive"
+              selectedStats ? "active" : "inactive"
             }`}>
-            <FriendList user={user} />
+            {/* <Stats user={user} allPosts={allPosts} /> */}
           </div>
         </div>
         

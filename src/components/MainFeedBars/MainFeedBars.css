@@ -8,7 +8,6 @@
 .right-sidebar{
   position: fixed;
   display: flex;
-  flex-direction: column;
   margin-top: 4em;
   padding: 30px 30px;
   background-color: rgb(255, 255, 255);
@@ -42,11 +41,14 @@
   display: none;
 }
 
+#ls-icon {
+  transform: scale(1.5);
+}
 
 .ls-icon-wrapper {
   display: flex;
   flex-direction: column;
-  background-color: aquamarine;
+  /* background-color: aquamarine; */
   padding-top: 40px;
   gap: 2em;
   
@@ -57,7 +59,6 @@
   flex-direction: row;
   top:0;
   left: 0;
-  /* left: -270px; */
   justify-content: flex-start;
   gap: 1em;
   justify-content: center;
@@ -74,27 +75,6 @@
 .left-sidebar.friendsInactive:hover{
  left: -265px;
 }
-
-#ls-icon {
-  transform: scale(1.5);
-}
-#rs-icon {
-  transform: scale(1.5);
-}
-
-#ls-icon-container{
-  display: flex;
-  /* background-color: rgb(199, 199, 199); */
-  text-align: center;
-  align-items: center;
-  justify-content: center;
-  width: 3em;
-  height: 3em;
-  border-radius: 50px;
-  transition: background-color 500ms ease, box-shadow 500ms ease;
-  cursor: pointer;
-}
-
 
 
 .friends-list-icon.active,
@@ -122,12 +102,40 @@
   rgba(90, 125, 188, 0.05) 0px 0.25em 1em inset;
 }
 
+#rs-icon {
+  transform: scale(1.5);
+}
+
 .rs-icon-wrapper {
   display: flex;
   flex-direction: column;
-  background-color: aquamarine;
+  /* background-color: aquamarine; */
   padding-top: 40px;
   gap: 2em;
+}
+
+#ls-icon-container{
+  display: flex;
+  /* background-color: rgb(199, 199, 199); */
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  width: 3em;
+  height: 3em;
+  border-radius: 50px;
+  transition: background-color 500ms ease, box-shadow 500ms ease;
+  cursor: pointer;
+}
+
+.right-sidebar{
+  display: flex;
+  top:0;
+  right: -270px;
+  justify-content: flex-end;
+  gap: 1em;
+  flex-direction: row;
+
+  /* background-color: aqua; */
 }
 
 #rs-icon-container{
@@ -142,18 +150,6 @@
   border-radius: 50px;
   transition: background-color 500ms ease, box-shadow 500ms ease;
   cursor: pointer;
-}
-
-
-.right-sidebar{
-  display: flex;
-  flex-direction: row;
-  top:0;
-  right: -270px;
-  justify-content: flex-end;
-  align-items: flex-start;
-  gap: 5em;
-  background-color: aqua;
 }
 
 

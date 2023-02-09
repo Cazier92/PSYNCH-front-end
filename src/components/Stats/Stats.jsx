@@ -3,7 +3,7 @@
 
 const Stats = ({ user, allPosts }) => {
 
-  const userPosts = allPosts.filter(post => post.author._id === user.profile)
+  const userPosts = allPosts?.filter(post => post.author._id === user.profile)
 
   let postCount = 0
   let emotions = []
@@ -24,7 +24,7 @@ const Stats = ({ user, allPosts }) => {
 
 
 
-  userPosts.map((post) => {
+  userPosts?.forEach((post) => {
     postCount ++
     emotions.push(post.emotion)
   })
@@ -167,11 +167,11 @@ const Stats = ({ user, allPosts }) => {
     },
   ]
 
-  console.log(emotionsWithPercentages.sort((a, b) => {
-    if (a.percent >= b.percent) {
-      return -1
-    }
-  }))
+  // console.log(emotionsWithPercentages.sort((a, b) => {
+  //   if (a.percent >= b.percent) {
+  //     return -1
+  //   }
+  // }))
 
   let sortedEmotions = emotionsWithPercentages.sort((a, b) => {
     if (a.percent >= b.percent) {
