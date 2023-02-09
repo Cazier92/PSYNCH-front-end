@@ -7,10 +7,13 @@ import * as directMessagesService from '../../services/directMessagesService'
 import SendMessage from "../../components/DirectMessages/SendMessage";
 
 
-const Chat = ({}) => {
+const Chat = ({handleCreateNotification, newNotificationId, user}) => {
   const {conversationId} = useParams()
   const [conversation, setConversation] = useState([])
   const [messages, setMessages] = useState([])
+  // const [members, setMembers] = useState([])
+  // const [profileArr, setProfileArr] = useState([])
+  const [profile, setProfile] = useState({})
 
     
   useEffect(() => {
@@ -26,7 +29,20 @@ const Chat = ({}) => {
     setMessages(conversation.messages)
   }, [conversation, conversationId])
 
+  // useEffect(() => {
+  //   setMembers(conversation.members)
+  // }, [conversation.members])
+
+  // console.log('MEMBERS:', members)
+
+  useEffect(() => {
+    setProfile(conversation.members?.filter(member => member._id !== user.profile))
+  }, [conversation, conversationId, messages, user])
+
+  // console.log('CONVERSATION MEMBERS:', conversation.members.filter(member => member._id !== user.profile))
+
   // console.log(messages)
+  // console.log('PROFILE:', profile)
 
   const handleSendMessage = async (id, messageData) => {
     const newMessage = await directMessagesService.sendMessage(conversationId, messageData)
@@ -52,7 +68,7 @@ const Chat = ({}) => {
       )
     })}
     <div>
-      <SendMessage conversationId={conversationId} handleSendMessage={handleSendMessage}/>
+      <SendMessage conversationId={conversationId} handleSendMessage={handleSendMessage} handleCreateNotification={handleCreateNotification} newNotificationId={newNotificationId} profile={profile} user={user} setProfile={setProfile} conversation={conversation} messages={messages}/>
 
     </div>
     </>
