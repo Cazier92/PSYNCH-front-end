@@ -13,17 +13,7 @@ const ChatButton = ({profile, user, neededConvo}) => {
     setConversationId(neededConvo._id)
   }, [neededConvo])
   
-  console.log('CONVERSATION ID:', conversationId)
 
-
-
-  // const handleChat = () => {
-  //   return (
-  //     <>
-  //     <Chat />
-  //     </>
-  //   )
-  // }
 
   return ( 
     <>
