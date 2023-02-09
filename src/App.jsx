@@ -29,6 +29,7 @@ import * as authService from "./services/authService";
 import * as emotionPostService from "./services/emotionPostService";
 import * as directMessagesService from './services/directMessagesService'
 import * as notificationService from './services/notificationService'
+import * as profileService from './services/profileService'
 
 // styles
 import "./App.css";
@@ -45,6 +46,7 @@ const App = () => {
   const [newConversationId, setNewConversationId] = useState(null)
   const [allNotifications, setAllNotifications] = useState([])
   const [newNotificationId, setNewNotificationId] = useState(null)
+  const [userProfile, setUserProfile] = useState({})
 
 
 
@@ -139,7 +141,15 @@ const App = () => {
     fetchAll()
   }, [])
 
-  // console.log(allNotifications)
+  useEffect(() => {
+    const fetchProfile = async () => {
+      const data = await profileService.getAllProfiles();
+      setUserProfile(data.filter((profile) => profile._id === user.profile)[0]);
+    };
+    fetchProfile();
+  }, [user]);
+
+
 
 
 

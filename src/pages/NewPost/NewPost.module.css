@@ -3,8 +3,10 @@
   flex-direction: column;
   align-items: center;
   width: auto;
-  margin: 0 200px;
+  /* margin: 0 200px; */
   height: 100vh;
+  background-color: #495867;
+  color: white;
 }
 
 .container h1 {
@@ -13,6 +15,7 @@
 
 .checkboxContainer {
   display: flex;
+  align-self: center;
 }
 
 .checkboxContainer label {

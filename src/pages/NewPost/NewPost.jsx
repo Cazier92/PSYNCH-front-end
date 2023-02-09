@@ -22,7 +22,7 @@ const NewPost = (props) => {
     props.handleAddPost(form);
   };
 
-  console.log(form);
+
 
   return (
     <>
@@ -194,11 +194,12 @@ const NewPost = (props) => {
           <div className={styles.checkboxContainer}>
             <label>
               {form.public
-                ? "It's set to public [🌐]"
-                : "It's set to private [🥷🏻]"}
+                ? "Public 🌐"
+                : "Private 🥷🏻"}
             </label>
             <input
               checked={form.public}
+              className='checkbox'
               type="checkbox"
               name="public"
               onChange={({ target }) =>
