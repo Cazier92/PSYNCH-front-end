@@ -64,7 +64,9 @@ const MainFeed = ({ posts, user, feed, handleDecideAction }) => {
           selectedFriendsList ? "friendsActive" : "friendsInactive"
         }`}
       >
-        <div className="component-container">
+        <div className={`component-container ${
+          selectedFriendsList ? "active" : "inactive"
+        }`}>
           <FriendList user={user} />
         </div>
         <div className="ls-icon-wrapper">

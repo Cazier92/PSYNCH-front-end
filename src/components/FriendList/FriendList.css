@@ -2,6 +2,27 @@
   margin: 0;
 }
 
+.friends-section{
+  display: flex;
+  flex-direction: column;
+  padding: 1em;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.065);
+  margin: 1em 0em 1em 0;
+  text-align: center;
+  max-height: 35em;
+  min-height: 35em;
+  overflow-y: scroll;
+}
+
+.friend-section-header{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
 .friends-list-main {
   display: flex;
   background-color: rgb(152, 93, 16);
@@ -25,13 +46,17 @@
   font-weight: 600;
 }
 
-.subtitle{
+.requests-subtitle{
+  font-size: 14px;
   font-weight: 700;
+  text-align: left;
+  margin-bottom: 10px;
 }
 
 .requests-section {
   display: flex;
   flex-direction: column;
+  text-align: left;
   padding: 1em;
   border-bottom: 2px solid rgba(0, 0, 0, 0.065);
   border-top: 2px solid rgba(0, 0, 0, 0.065);
@@ -42,9 +67,3 @@
   overflow-y: scroll;
 }
 
-.friends-container{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
