@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import "./NavBar.css";
 
-import { getAllProfiles } from "../../services/profileService";
+import * as profileService from "../../services/profileService";
 
 import { useEffect, useState } from "react";
 
@@ -12,26 +12,28 @@ const linkStyle = {
 
 const NavBar = ({ user, handleLogout }) => {
   const [open, setOpen] = useState(false);
-  const [userProfile, setUserProfile] = useState({})
- 
-  // useEffect (() => {
-  //   const fetchProfiles = 
-  // })
+  const [userProfile, setUserProfile] = useState({});
 
-  // console.log(user.profile.photo)
+  useEffect(() => {
+    const fetchProfile = async () => {
+      const data = await profileService.getAllProfiles();
+      setUserProfile(data.filter((profile) => profile._id === user.profile)[0]);
+    };
+    fetchProfile();
+  }, []);
 
   return (
     <nav>
       {user ? (
         <>
           <Link to="/main-feed" className="psynch-logo" style={linkStyle}>
-              PSYNCH
+            PSYNCH
           </Link>
           <div className="right-nav">
             <p>{user.name}</p>
             <img
               className="post-avatar"
-              src={user.profile.photo}
+              src={userProfile.photo}
               alt="profile img"
             />
             <button>
