@@ -4,7 +4,7 @@ const NewPost = (props) => {
   const [form, setForm] = useState({
     emotion: "Bored",
     content: "",
-    public: false,
+    public: true,
   });
 
   const handleChange = ({ target }) => {
