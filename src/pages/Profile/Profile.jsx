@@ -7,6 +7,7 @@ import SendFriendRequest from '../../components/FriendRequests/SendFriendRequest
 import PostList from '../../components/PostList/PostList';
 import StartConversation from '../../components/DirectMessages/StartConversation';
 import ChatButton from '../../components/DirectMessages/ChatButton';
+import MainFeedBars from '../../components/MainFeedBars/MainFeedBars';
 
 const Profile = ({user, allPosts, handleCreateConversation, allConversations, setAllConversations, newConversationId}) => {
   const {id} = useParams()
@@ -75,6 +76,7 @@ const Profile = ({user, allPosts, handleCreateConversation, allConversations, se
   if (!profile) return <h1>Loading</h1>
   return ( 
     <>
+      <MainFeedBars user={user}/>
       <h1>{profile.name}</h1>
       {/* <img src={profile.photo} alt="" /> */}
       <SendFriendRequest profile={profile} user={user}/>
