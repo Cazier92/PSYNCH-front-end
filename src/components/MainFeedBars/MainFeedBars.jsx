@@ -32,11 +32,13 @@ const MainFeedBars = ({ user}) => {
         className={`left-sidebar ${
           selectedFriendsList ? "friendsActive" : "friendsInactive"
         }`}
-      >
-        <div className={`component-container ${
+        >
+        <div className='component-container' >
+          <div className={`loaded-component ${
           selectedFriendsList ? "active" : "inactive"
         }`}>
-          <FriendList user={user} />
+            <FriendList user={user} />
+          </div>
         </div>
         <div className="ls-icon-wrapper">
           <div
@@ -72,6 +74,7 @@ const MainFeedBars = ({ user}) => {
       <div className={`right-sidebar ${
           selectedStats ? "statsActive" : "statsInactive"
         }`}>
+          
         <div id="ls-icon-container" className={`stats-icon ${ 
             selectedStats ? "active" : "inactive"
           }`}
@@ -79,6 +82,7 @@ const MainFeedBars = ({ user}) => {
           >
           <i id="ls-icon" class="fa-solid fa-chart-simple"></i>
         </div>
+        
       </div>
 
       <div className="bottom-sidebar">

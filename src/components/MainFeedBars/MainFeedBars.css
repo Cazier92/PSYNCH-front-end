@@ -31,15 +31,16 @@
   clip-path: inset(0px -5px 0px 0px);
 }
 
-.component-container.active{
+.loaded-component{
+  transition: display ease 100ms;
+}
+
+.loaded-component.active{
   
 }
-.component-container.inactive{
-  /* display: none; */
+.loaded-component.inactive{
+  display: none;
 }
-
-
-
 
 
 .ls-icon-wrapper {
