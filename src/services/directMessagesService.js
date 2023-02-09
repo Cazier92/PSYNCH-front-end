@@ -36,8 +36,41 @@ const create = async (conversationData) => {
   }
 };
 
+const sendMessage = async (id, messageData) => {
+  try {
+    const res = await fetch(`${BASE_URL}/${id}/sendMessage`, {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${tokenService.getToken()}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(messageData),
+    });
+    return res.json();
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+const deleteMessage = async (conversationId, messageId) => {
+  try {
+    const res = await fetch(
+      `${BASE_URL}/${conversationId}/deleteMessage/${messageId}`,
+      {
+        method: "DELETE",
+        headers: { Authorization: `Bearer ${tokenService.getToken()}` },
+      }
+    );
+    return res.json();
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 export {
   index,
   show,
   create,
+  sendMessage,
+  deleteMessage,
 }
