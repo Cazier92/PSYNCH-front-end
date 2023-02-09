@@ -43,7 +43,7 @@ console.log(requests)
         )
       })
     :
-    <p>No requests</p>
+    <p className='placeholder-text'>No Requests</p>
     }
     </>
   );

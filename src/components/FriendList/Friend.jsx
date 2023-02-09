@@ -1,6 +1,6 @@
 
 import './Friend.css'
-import PendingRequests from '../FriendRequests/PendingRequests/PendingRequests';
+
 
 
 const Friend = ({friend}) => {

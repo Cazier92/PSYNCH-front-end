@@ -77,20 +77,19 @@ const FriendList = ({user}) => {
         <p className='subtitle'>Requests</p>
         <PendingRequests/>
       </div>
-      {friends.length !== 0 ?
-      friends.map((friend) => {
-        return (
-          <>
-            <main className='friends-list-main'>
-             
-              <Friend friend={friend} key={friend._id}/>
-            </main>
-          </>
-        )
-      })
-      :
-      <p>No friends</p>
-      }
+      <div className='friends-container'>
+        {friends.length !== 0 ?
+        friends.map((friend) => {
+          return (
+            <>
+                <Friend friend={friend} key={friend._id}/>
+            </>
+          )
+        })
+        :
+        <p className='placeholder-text'>No friends</p>
+        }
+      </div>
     </>
   );
 }

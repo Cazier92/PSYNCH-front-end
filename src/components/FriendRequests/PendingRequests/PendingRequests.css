@@ -38,3 +38,8 @@
   flex-direction: row;
   gap: 1em;
 }
+
+.placeholder-text{
+  margin-top: 1em;
+  opacity: 0.4;
+}
