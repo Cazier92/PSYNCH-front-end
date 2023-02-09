@@ -8,8 +8,11 @@ import PostList from '../../components/PostList/PostList';
 import StartConversation from '../../components/DirectMessages/StartConversation';
 import ChatButton from '../../components/DirectMessages/ChatButton';
 import MainFeedBars from '../../components/MainFeedBars/MainFeedBars';
+import Notification from '../../components/NotificationComponents/Notification';
 
-const Profile = ({user, allPosts, handleCreateConversation, allConversations, setAllConversations, newConversationId, allNotifications, handleCreateNotification, handleDeleteNotification, newNotificationId}) => {
+import './Profile.css'
+
+const Profile = ({user, allPosts, handleCreateConversation, allConversations, setAllConversations, newConversationId, allNotifications, handleCreateNotification, handleDeleteNotification, newNotificationId, setAllNotifications}) => {
   const {id} = useParams()
   const [profile, setProfile] = useState(null)
 
@@ -30,10 +33,11 @@ const Profile = ({user, allPosts, handleCreateConversation, allConversations, se
   }, [id])
   
   const profileConversations = allConversations.filter(conversation => conversation.members.includes(profile?._id))
-  console.log(profileConversations)
+  // console.log(profileConversations)
   const neededConvo = profileConversations.find(conversation => conversation.members.includes(user.profile))
   useEffect(() => {
-    console.log(neededConvo)
+    // console.log(neededConvo)
+
   }, [profile, user, id, allConversations, neededConvo, profileConversations])
 
 
@@ -51,13 +55,21 @@ const Profile = ({user, allPosts, handleCreateConversation, allConversations, se
 
   const conversationButton = () => {
     if (user.profile === profile._id) {
-      return 
+      return (
+        <>
+          {profile.notifications.map(notification => {
+            return (
+              <Notification key={notification._id} notification={notification} allNotifications={allNotifications} setAllNotifications={setAllNotifications} setProfile={setProfile} profile={profile}/>
+            )
+          })}
+        </>
+      )
     }
     else if (profile.friends.some(friend => friend._id === user.profile)) {
         if (neededConvo) {
         
         return (
-          <ChatButton profile={profile} user={user} neededConvo={neededConvo}/>
+          <ChatButton profile={profile} user={user} neededConvo={neededConvo} />
         )
       } else {
         return (
@@ -77,10 +89,14 @@ const Profile = ({user, allPosts, handleCreateConversation, allConversations, se
   return ( 
     <>
       <MainFeedBars user={user}/>
-      <h1>{profile.name}</h1>
-      {/* <img src={profile.photo} alt="" /> */}
-      <SendFriendRequest profile={profile} user={user}/>
-      {conversationButton()}
+      <div className='profile-head'>
+        <h1 className='profile-name'>{profile.name}</h1>
+        {/* <img src={profile.photo} alt="" /> */}
+        <SendFriendRequest profile={profile} user={user}/>
+        {conversationButton()}
+
+      </div>
+      
       <PostList posts={privatePosts()} user={user}/>
     </>
   );

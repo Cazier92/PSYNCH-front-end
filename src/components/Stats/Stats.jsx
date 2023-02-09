@@ -24,7 +24,8 @@ const Stats = ({ user, allPosts }) => {
 
 
 
-  userPosts?.forEach((post) => {
+
+  userPosts.forEach((post) => {
     postCount ++
     emotions.push(post.emotion)
   })

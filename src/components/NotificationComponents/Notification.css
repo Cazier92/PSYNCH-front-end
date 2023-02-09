@@ -1,0 +1,5 @@
+.notification-div {
+  display: flex;
+  gap: 2vmin;
+  align-self: center;
+}
