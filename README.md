@@ -53,4 +53,4 @@ With PSYNCH, you will finally experience meaningful connections and emotionally 
 
 ## Credit
 
-Favicon from![Flaticon](https://www.flaticon.com/free-icons/emotion) - Emotion icons created by Freepik
+Favicon from ![Flaticon](https://www.flaticon.com/free-icons/emotion) - Emotion icons created by Freepik
