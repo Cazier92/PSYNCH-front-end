@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 import * as notificationService from '../../services/notificationService'
-
+import './Notification.css'
 
 
 const Notification = ({notification, allNotifications, setAllNotifications, profile, setProfile}) => {
@@ -15,14 +15,16 @@ const Notification = ({notification, allNotifications, setAllNotifications, prof
 
   return ( 
     <>
-      <Link to={`/chat/${notification.link}`} onClick={() => handleDeleteNotification(notification._id)}>
-        <h6>{notification.content}</h6>
-      </Link>
-      <i class="fa-solid fa-xmark" onClick={() => {
-      return (
-        handleDeleteNotification(notification._id)
-      )
-    }}></i>
+    <div className="notification-div">
+        <Link to={`/chat/${notification.link}`} onClick={() => handleDeleteNotification(notification._id)}>
+          <h6>{notification.content}</h6>
+        </Link>
+        <i class="fa-solid fa-xmark" onClick={() => {
+        return (
+          handleDeleteNotification(notification._id)
+        )
+      }}></i>
+    </div>
     </>
 
   );
