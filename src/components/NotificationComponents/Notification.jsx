@@ -1,12 +1,13 @@
+import { Link } from "react-router-dom";
 
 
+const Notification = ({notification}) => {
 
-const Notification = (props) => {
-
-  
+  console.log(notification)
   return ( 
     <>
-    
+
+    <h6>{notification.content}</h6>
     </>
 
   );

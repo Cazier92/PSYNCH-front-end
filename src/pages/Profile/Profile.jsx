@@ -8,6 +8,7 @@ import PostList from '../../components/PostList/PostList';
 import StartConversation from '../../components/DirectMessages/StartConversation';
 import ChatButton from '../../components/DirectMessages/ChatButton';
 import MainFeedBars from '../../components/MainFeedBars/MainFeedBars';
+import Notification from '../../components/NotificationComponents/Notification';
 
 const Profile = ({user, allPosts, handleCreateConversation, allConversations, setAllConversations, newConversationId, allNotifications, handleCreateNotification, handleDeleteNotification, newNotificationId}) => {
   const {id} = useParams()
@@ -30,10 +31,11 @@ const Profile = ({user, allPosts, handleCreateConversation, allConversations, se
   }, [id])
   
   const profileConversations = allConversations.filter(conversation => conversation.members.includes(profile?._id))
-  console.log(profileConversations)
+  // console.log(profileConversations)
   const neededConvo = profileConversations.find(conversation => conversation.members.includes(user.profile))
   useEffect(() => {
-    console.log(neededConvo)
+    // console.log(neededConvo)
+
   }, [profile, user, id, allConversations, neededConvo, profileConversations])
 
 
@@ -51,7 +53,15 @@ const Profile = ({user, allPosts, handleCreateConversation, allConversations, se
 
   const conversationButton = () => {
     if (user.profile === profile._id) {
-      return 
+      return (
+        <>
+          {profile.notifications.map(notification => {
+            return (
+              <Notification key={notification._id} notification={notification}/>
+            )
+          })}
+        </>
+      )
     }
     else if (profile.friends.some(friend => friend._id === user.profile)) {
         if (neededConvo) {
@@ -81,6 +91,7 @@ const Profile = ({user, allPosts, handleCreateConversation, allConversations, se
       {/* <img src={profile.photo} alt="" /> */}
       <SendFriendRequest profile={profile} user={user}/>
       {conversationButton()}
+      
       <PostList posts={privatePosts()} user={user}/>
     </>
   );

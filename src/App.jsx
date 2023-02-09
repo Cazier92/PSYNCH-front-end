@@ -139,7 +139,7 @@ const App = () => {
     fetchAll()
   }, [])
 
-  console.log(allNotifications)
+  // console.log(allNotifications)
 
 
 

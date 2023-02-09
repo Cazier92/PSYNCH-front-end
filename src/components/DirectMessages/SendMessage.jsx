@@ -30,7 +30,7 @@ const SendMessage = ({conversationId, handleSendMessage, handleCreateNotificatio
   }, [conversationId, profile])
 
   // console.log('PROFILE:', profile[0]._id)
-  console.log('ProfileArr:', profile)
+  // console.log('ProfileArr:', profile)
 
 
 
