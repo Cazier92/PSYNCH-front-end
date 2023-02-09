@@ -221,6 +221,14 @@ const App = () => {
           }
         />
         <Route
+          path="/profile/:id/chat"
+          element={
+            <ProtectedRoute user={user}>
+              <Profile user={user} allPosts={allPosts} handleCreateConversation={handleCreateConversation} allConversations={allConversations}/>
+            </ProtectedRoute>
+          }
+        />
+        <Route
           path="/profile/user"
           element={
             <ProtectedRoute user={user}>
