@@ -74,7 +74,7 @@ const FriendList = ({user}) => {
         <p className='page-title'>Friends</p>
       </div>
       <div className='requests-section'>
-        <p className='subtitle'>Requests</p>
+        <p className='requests-subtitle'>Requests</p>
         <PendingRequests friends={friends} setFriends={setFriends}/>
       </div>
       <div className='friends-section'>
