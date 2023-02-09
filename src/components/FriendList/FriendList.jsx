@@ -77,7 +77,7 @@ const FriendList = ({user}) => {
         <p className='subtitle'>Requests</p>
         <PendingRequests friends={friends} setFriends={setFriends}/>
       </div>
-      <div className='friends-container'>
+      <div className='friends-section'>
         {friends.length !== 0 ?
         friends.map((friend) => {
           return (

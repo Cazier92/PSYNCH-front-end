@@ -6,18 +6,20 @@
   display: flex;
   flex-direction: row;
   background-color: rgb(209, 208, 208);
-  width: 100%;
-  height: 5em;
   margin-bottom: 0.5em;
- 
+  margin: 0.5em 0;
+  padding: 0.5em 0.8em;
+  max-width: 12em;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
 }
+
 
 .friend-container1{
  display: flex;
  justify-content: center;
  align-items: center;
  background-color: blue;
- width: 2em;
+ /* margin-right: 10px; */
 }
 
 
@@ -37,11 +39,11 @@
   flex-direction: column;
   background-color: red;
   align-items: flex-start;
-  justify-content: center;
-  min-width: 50%;
-  max-width: 50%;
+  justify-content: flex-start;
+  padding-left: 1em;
+  /* min-width: 50%;
+  max-width: 50%; */
   height: 100%;
-  white-space: nowrap;
 }
 
 
@@ -49,20 +51,28 @@
   display: flex;
   justify-content:space-between;
   align-items: center;
-  min-width: 100%;
+  min-width: 10em;
   max-width: 10em;
 }
 
 .friend-name{
   font-size: 1em;
+  max-width: 5em;
+  text-align: left;
+}
+
+.friend-sub{
+  font-size: 15px;
 }
 
 .friend-container3{
   display: flex;
   flex-direction: row;
+  justify-content: center;
   background-color: green;
-  min-width: 50%;
-  max-width: 50%;
+  /* min-width: 50%;
+  max-width: 50%; */
+  min-width: 30%;
   height: 100%;
   font-size: 10px;
 }
