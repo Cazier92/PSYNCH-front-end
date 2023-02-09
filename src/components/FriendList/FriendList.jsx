@@ -14,6 +14,8 @@ import './FriendList.css'
 
 const FriendList = ({user}) => {
   const [userProfile, setUserProfile] = useState([])
+  const [friends, setFriends] = useState([])
+  const [feed, setFeed] = useState([])
 
 
   useEffect(() => {
@@ -24,7 +26,6 @@ const FriendList = ({user}) => {
     fetchProfile()
   }, [user.profile])
 
-  const [friends, setFriends] = useState([])
 
   useEffect(() => {
     const fetchFriends = async () => {
@@ -32,11 +33,10 @@ const FriendList = ({user}) => {
       setFriends(friendsData);
     };
     fetchFriends();
-  }, []);
+  }, [user]);
 
-  console.log(friends)
+  // console.log(friends)
 
-  const [feed, setFeed] = useState([])
 
   useEffect(() => {
     const fetchFeed = async () => {
@@ -46,8 +46,8 @@ const FriendList = ({user}) => {
     fetchFeed()
   }, [friends])
 
-  console.log('Feed:', feed)
-  console.log('Friends:', friends)
+  // console.log('Feed:', feed)
+  // console.log('Friends:', friends)
   // console.log(feed.find((post) => post.author._id = '63dff7e2ae6630b0ec58ba71').emotion)
   // const recentEmotion = async (friend) => {
   //   try {
@@ -70,24 +70,30 @@ const FriendList = ({user}) => {
 
   return ( 
     <>
-      
-      {friends.length !== 0 ?
-      friends.map((friend) => {
-        return (
-          <>
-            <main className='friends-list-main'>
-              <p className='page-title'>Friends</p>
-              <div className='requests-section'>
-                <PendingRequests/>
-              </div>
-              <Friend friend={friend} key={friend._id}/>
-            </main>
-          </>
-        )
-      })
-      :
-      <p>No Requests</p>
-      }
+      <div className='title-container'>
+        <p className='page-title'>Friends</p>
+      </div>
+      <div className='requests-section'>
+        <p className='requests-subtitle'>Requests</p>
+        <PendingRequests friends={friends} setFriends={setFriends}/>
+      </div>
+      <div className='friends-section'>
+      <div className='friend-section-header'>
+          <p>Friend</p>
+          <p>Current Status</p>
+      </div>
+        {friends.length !== 0 ?
+        friends.map((friend) => {
+          return (
+            <>
+                <Friend friend={friend} key={friend._id}/>
+            </>
+          )
+        })
+        :
+        <p className='placeholder-text'>No friends</p>
+        }
+      </div>
     </>
   );
 }

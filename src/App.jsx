@@ -15,18 +15,21 @@ import MainFeed from "./pages/MainFeed/MainFeed";
 import PendingRequests from "./components/FriendRequests/PendingRequests/PendingRequests";
 import PostDetails from "./pages/PostDetails/PostDetails";
 import FriendList from "./components/FriendList/FriendList";
-import EditProfile from "./pages/EditProfile/EditProfile";
 import EditComment from "./pages/EditComment/EditComment";
-
+import Chat from "./pages/DirectMessages/Chat";
 
 // components
 import NavBar from "./components/NavBar/NavBar";
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
+import Stats from "./components/Stats/Stats";
+import ProfileBar from "./components/ProfileBar/ProfileBar";
 
 // services
 import * as authService from "./services/authService";
 import * as emotionPostService from "./services/emotionPostService";
-
+import * as directMessagesService from './services/directMessagesService'
+import * as notificationService from './services/notificationService'
+import * as profileService from './services/profileService'
 
 // styles
 import "./App.css";
@@ -37,9 +40,15 @@ const App = () => {
   const navigate = useNavigate();
   const [posts, setPosts] = useState([]);
   const [privatePosts, setPrivatePosts] = useState([]);
-  const [feed, setFeed] = useState([])
-  const [allPosts, setAllPosts] = useState([])
-  
+  const [feed, setFeed] = useState([]);
+  const [allPosts, setAllPosts] = useState([]);
+  const [allConversations, setAllConversations] = useState([])
+  const [newConversationId, setNewConversationId] = useState(null)
+  const [allNotifications, setAllNotifications] = useState([])
+  const [newNotificationId, setNewNotificationId] = useState(null)
+  const [userProfile, setUserProfile] = useState({})
+
+
 
   function handleLogout() {
     authService.logout();
@@ -51,10 +60,9 @@ const App = () => {
     setUser(authService.getUser());
   };
 
-
   const handleAddPost = async (postData) => {
     const newPost = await emotionPostService.create(postData);
-    if (newPost.publc) {
+    if (newPost.public) {
       setPosts([newPost, ...posts]);
     } else {
       setPrivatePosts([newPost, ...privatePosts]);
@@ -74,6 +82,24 @@ const App = () => {
     navigate("/main-feed");
   };
 
+  const handleCreateConversation = async (conversationData) => {
+    const newConversation = await directMessagesService.create(conversationData)
+    setAllConversations([newConversation, ...allConversations])
+    setNewConversationId(newConversation._id)
+  }
+
+  const handleCreateNotification = async (notificationData) => {
+    const newNotification = await notificationService.create(notificationData)
+    setAllNotifications([newNotification, ...allNotifications])
+    setNewNotificationId(newNotification._id)
+  }
+
+  const handleDeleteNotification = async (id) => {
+    const deletedNotification = await notificationService.deleteNotification(id)
+    setAllNotifications(allNotifications.filter((b) => b._id !== deletedNotification._id))
+  }
+
+
   useEffect(() => {
     const fetchPosts = async () => {
       const postData = await emotionPostService.index();
@@ -81,8 +107,6 @@ const App = () => {
     };
     fetchPosts();
   }, []);
-
-
 
   useEffect(() => {
     const fetchFeed = async () => {
@@ -92,20 +116,47 @@ const App = () => {
     fetchFeed();
   }, []);
 
+  useEffect(() => {
+    const fetchAll = async () => {
+      const allPostsData = await emotionPostService.allPosts();
+      setAllPosts(allPostsData);
+    };
+    fetchAll();
+  }, []);
+
+  useEffect(() => {
+    const fetchAllConversations = async () => {
+      const allConversationsData = await directMessagesService.index()
+      setAllConversations(allConversationsData)
+      // console.log('ALLMESSAGES', allConversationsData)
+    }
+    fetchAllConversations()
+  }, [])
 
   useEffect(() => {
     const fetchAll = async () => {
-      const allPostsData = await emotionPostService.allPosts()
-      setAllPosts(allPostsData)
+      const allNotificationsData = await notificationService.index()
+      setAllNotifications(allNotificationsData)
     }
     fetchAll()
   }, [])
 
+  useEffect(() => {
+    const fetchProfile = async () => {
+      const data = await profileService.getAllProfiles();
+      setUserProfile(data.filter((profile) => profile._id === user.profile)[0]);
+    };
+    fetchProfile();
+  }, [user]);
 
 
-  // const handleDecideAction = async (post, postId, reactionChoice, reactionId) => {
-  //   console.log('reactionChoice', reactionChoice)
-  //   if (post.reactions.some(reaction => reaction.author === user.profile)) {
+
+
+
+
+  
+
+
 
   const handleDecideAction = async (
     post,
@@ -113,15 +164,14 @@ const App = () => {
     reactionChoice,
     reactionId
   ) => {
-    console.log("reactionChoice", reactionChoice);
-    if (post.reactions.some((reaction) => reaction.author === user.profile)) {
 
+    if (post.reactions.some((reaction) => reaction.author === user.profile)) {
       // deleteReaction
       let currentReaction = post.reactions.find(
         (reaction) => reaction.author === user.profile
       );
       if (reactionChoice === currentReaction.reaction) {
-        console.log("delete");
+
         const updatedPost = await emotionPostService.deleteReaction(
           postId,
           reactionId
@@ -130,9 +180,9 @@ const App = () => {
           posts.map((b) => (updatedPost._id === b._id ? updatedPost : b))
         );
         setFeed(feed.map((b) => (updatedPost._id === b._id ? updatedPost : b)));
-        console.log("deletedPost", updatedPost);
+
       } else {
-        console.log("update");
+        // updateReaction
         const reactionData = { reaction: reactionChoice };
         const updatedPost = await emotionPostService.updateReaction(
           postId,
@@ -154,13 +204,12 @@ const App = () => {
       );
       setPosts(posts.map((b) => (updatedPost._id === b._id ? updatedPost : b)));
       setFeed(feed.map((b) => (updatedPost._id === b._id ? updatedPost : b)));
-      console.log("addedPost", updatedPost);
     }
   };
 
   return (
     <>
-      <NavBar user={user} handleLogout={handleLogout} />
+      <NavBar user={user}  handleLogout={handleLogout} />
       <Routes>
         <Route path="/" element={<Landing user={user} />} />
         <Route
@@ -191,7 +240,7 @@ const App = () => {
           path="/posts/new"
           element={
             <ProtectedRoute user={user}>
-              <NewPost posts={posts} handleAddPost={handleAddPost} />
+              <NewPost posts={posts} handleAddPost={handleAddPost} user={user}/>
             </ProtectedRoute>
           }
         />
@@ -199,7 +248,33 @@ const App = () => {
           path="/profile/:id"
           element={
             <ProtectedRoute user={user}>
-              <Profile user={user} allPosts={allPosts} />
+              <Profile user={user} allPosts={allPosts} handleCreateConversation={handleCreateConversation} allConversations={allConversations} setAllConversations={setAllConversations} newConversationId={newConversationId}
+              allNotifications={allNotifications} newNotificationId={newNotificationId} handleCreateNotification={handleCreateNotification} handleDeleteNotification={handleDeleteNotification} setAllNotifications={setAllNotifications}
+              />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/chat/:conversationId"
+          element={
+            <ProtectedRoute user={user}>
+              <Chat handleCreateNotification={handleCreateNotification} newNotificationId={newNotificationId} user={user}/>
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/profile/user"
+          element={
+            <ProtectedRoute user={user}>
+              <ProfileBar user={user} allPosts={allPosts} />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/stats"
+          element={
+            <ProtectedRoute user={user}>
+              <Stats user={user} allPosts={allPosts} />
             </ProtectedRoute>
           }
         />
@@ -226,20 +301,19 @@ const App = () => {
               posts={posts}
               user={user}
               feed={feed}
+              allPosts={allPosts}
               handleDecideAction={handleDecideAction}
             />
           }
         />
-        <Route 
-          path="/profile/edit" 
-          element={
-            <EditProfile user={user}/>
-          } 
-        />
         <Route
           path="/emotionPosts/:id"
           element={
-            <PostDetails user={user} handleDeletePost={handleDeletePost} />
+            <PostDetails
+              posts={posts}
+              user={user}
+              handleDeletePost={handleDeletePost}
+            />
           }
         />
         <Route

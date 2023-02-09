@@ -3,6 +3,7 @@
   justify-content: center;
   padding: 3em;
   gap: 4em;
+  background-color: #495867;
 }
 
 .global-btn,
@@ -33,10 +34,10 @@
   display: flex;
   flex-direction: column;
   margin-top: 4em;
-  padding: 3em 1em 1em 1em;
+  padding: 25px 25px 25px 18px;
   background-color: rgb(255, 255, 255);
   height: 100vh;
-  width: 20em;
+  width: 320px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   transition: 
   width ease 400ms, 
@@ -53,6 +54,17 @@
   rgba(17, 17, 26, 0.1) 0px 0px 8px;
   clip-path: inset(0px -5px 0px 0px);
 }
+
+.component-container.active{
+  
+}
+.component-container.inactive{
+  /* display: none; */
+}
+
+
+
+
 
 .ls-icon-wrapper {
   display: flex;
@@ -71,6 +83,7 @@
   /* left: -270px; */
   justify-content: flex-start;
   gap: 1em;
+  justify-content: center;
 }
 
 .left-sidebar.friendsActive{

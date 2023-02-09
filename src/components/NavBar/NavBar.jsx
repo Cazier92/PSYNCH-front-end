@@ -1,7 +1,9 @@
 import { Link } from "react-router-dom";
 import "./NavBar.css";
 
-import { useState } from "react";
+import * as profileService from "../../services/profileService";
+
+import { useEffect, useState } from "react";
 
 const linkStyle = {
   textDecoration: "none",
@@ -10,25 +12,30 @@ const linkStyle = {
 
 const NavBar = ({ user, handleLogout }) => {
   const [open, setOpen] = useState(false);
+  const [userProfile, setUserProfile] = useState({});
+
+  useEffect(() => {
+    const fetchProfile = async () => {
+      const data = await profileService.getAllProfiles();
+      setUserProfile(data.filter((profile) => profile._id === user.profile)[0]);
+    };
+    fetchProfile();
+  }, []);
 
   return (
     <nav>
       {user ? (
         <>
-          <div className="left-nav">
-            <p className="psynch-logo">PSYNCH</p>
-          </div>
+          <Link to="/main-feed" className="psynch-logo" style={linkStyle}>
+            PSYNCH
+          </Link>
           <div className="right-nav">
-            <button>
-              <Link to="/main-feed" style={linkStyle}>
-                Home
-              </Link>
-            </button>
-            <button>
-              <Link to="/posts/new" style={linkStyle}>
-                Create Post
-              </Link>
-            </button>
+            <p>{user.name}</p>
+            <img
+              className="post-avatar"
+              src={userProfile.photo}
+              alt="profile img"
+            />
             <button>
               <Link to="" style={linkStyle} onClick={handleLogout}>
                 Log Out
@@ -39,7 +46,7 @@ const NavBar = ({ user, handleLogout }) => {
       ) : (
         <>
           <div className="left-nav">
-            <Link to="/" style={linkStyle}>
+            <Link to="/" className="psynch-logo" style={linkStyle}>
               PSYNCH
             </Link>
           </div>
