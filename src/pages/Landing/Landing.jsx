@@ -1,5 +1,7 @@
 import "./Landing.css";
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const linkStyle = {
   textDecoration: "none",
@@ -7,6 +9,12 @@ const linkStyle = {
 };
 
 const Landing = ({ user }) => {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    navigate(user ? "/main-feed" : "/");
+  }, [user, navigate]);
+
   return (
     <main>
       <section className="hero">
