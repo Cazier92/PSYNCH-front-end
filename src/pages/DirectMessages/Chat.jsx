@@ -29,9 +29,8 @@ const Chat = (props) => {
 
   const handleSendMessage = async (id, messageData) => {
     const newMessage = await directMessagesService.sendMessage(conversationId, messageData)
-    setMessages(...messages, newMessage)
+    setConversation({...conversation, messages: [...conversation.messages, newMessage]})
   }
-
 
   return ( 
     <>
@@ -42,7 +41,7 @@ const Chat = (props) => {
       )
     })}
     <h3>Messages:</h3>
-    {conversation.messages?.map(message => {
+    {messages?.map(message => {
       return (
         <>
         <p>{message.content}</p>
