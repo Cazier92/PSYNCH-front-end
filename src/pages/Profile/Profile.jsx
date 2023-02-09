@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 
 import SendFriendRequest from '../../components/FriendRequests/SendFriendRequest/SendFriendRequest';
 import PostList from '../../components/PostList/PostList';
+import StartConversation from '../../components/DirectMessages/StartConversation';
 
 const Profile = ({user, allPosts}) => {
   const {id} = useParams()
@@ -11,13 +12,18 @@ const Profile = ({user, allPosts}) => {
 
 
 
+
   useEffect(() => {
     const fetchProfile = async () => {
       const profileData = await profileService.show(id)
       setProfile(profileData)
+      console.log(profileData.friendRequests)
     }
     fetchProfile()
   }, [id])
+  
+
+  
 
   
 
