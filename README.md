@@ -1,73 +1,54 @@
-# Decoupled MERN Stack with JWT Auth Template - Front End
+# PSYNCH
 
-This is the front end of a decoupled MERN Stack app that includes JWT Authentication.
+PSYNCH is an app focused on altering the scene of social media, ultimately changing how we connect as a society.
+Track emotions through posts to your friends and/or the world. Let your friends know exactly how you feel at any time with no shame or worry. Keep tabs on how you feel throughout your life’s journey. Get support when you need it.
+With PSYNCH, you will finally experience meaningful connections and emotionally enriching conversations through social networking. Share your feelings and get to know those around you on a deeper level.
 
-When combined with the back end found [here](https://github.com/SEI-Remote/decoupled-mern-jwt-auth-template-back-end), you'll have all you need to build a full stack MERN app!
+#
 
-Use this to go build things! 🚀
+## Getting Started
 
-## To Use This Template
+🖱️ [Click Here](https://psynch.netlify.app/) to have access to our application.
+📒 [Trello](https://trello.com/b/fDThRFou/emotion-tracker) has been used as the planning material.
+🔙 [Backend](https://github.com/Cazier92/PSYNCH-back-end) link.
 
-**Replace `<name-of-your-app-here>` in the commands below with the name of your app!**
+#
 
-```bash
-git clone https://github.com/SEI-Remote/decoupled-mern-jwt-auth-template-front-end <name-of-your-app-here>-front-end
-cd <name-of-your-app-here>-front-end
-code .
-```
+## Contributors
 
-With the project open in VS Code, open a terminal and run:
+[Bryce Cazier](https://github.com/Cazier92)
+[Kiana Vernon](https://github.com/k-vernon)
+[Yong Park](https://github.com/pyongho1)
 
-```bash
-rm -rf .git
-```
+#
 
-Here's what your command line output should like after this step (note that the indicator that we are in a git repository is gone!)
+## Screenshots
 
-<img src="https://i.imgur.com/L47kNOZ.png" alt="The command line before and after running the rm -rf .git command. Before git:(main) is visible indiating that the directory contains a git repository, after the command it is not.">
+<img src="/public/readme/readme1.png" alt="Picture">
+<img src="/public/readme/readme2.png" alt="Picture">
 
-Re-initialize a git repository:
+#
 
-```bash
-git init
-```
+## Technologies Used
 
-Create a repo for this project on GitHub and add that remote to your project with:
+![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
+![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
+![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
+![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white)
+![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
 
-```bash
-git remote add origin your-repo-URL-here
-```
+#
 
-Run `npm i` to fetch the template's dependencies:
+## Next Steps [Ice Box] 🧊
 
-```bash
-npm i
-```
+- [ ] Direct Messaging
+- [ ] Dynamic Login/Signup functionality
 
-touch a `.env` file:
+#
 
-```bash
-touch .env
-```
-
-Fill it with the following:
-
-```
-REACT_APP_BACK_END_SERVER_URL=http://localhost:3001
-```
-
-> 🚨 DO NOT place secrets in this `.env` file. The contents of this file WILL be exposed to site visitors. We are only using the front-end .env to create variables specific to the environment the application is running in.
-
-Delete this README.md, then make an initial commit:
-
-```bash
-git add .
-git commit -m "initial commit"
-git push origin main
-```
-
-You're done!
-
-<!-- Will need to clean up the readme! -Yong -->
+## Credit
 
 Photo by <a href="https://unsplash.com/@tengyart?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Tengyart</a> on <a href="https://unsplash.com/photos/gG-Or-Atw6w?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+
+Photo by <a href="https://unsplash.com/@brandi1?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Brandi Redd</a> on <a href="https://unsplash.com/photos/aJTiW00qqtI?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>

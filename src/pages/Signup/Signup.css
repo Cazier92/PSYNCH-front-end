@@ -1,0 +1,103 @@
+*{
+  margin: 0;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  min-height: 100vh;
+  min-width: 100vw;
+
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  
+}
+
+
+
+.leftContainer {
+  min-height: 100vh;
+  width: 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  object-fit: cover;
+  
+}
+
+
+.overlay {
+  position: absolute;
+  background: linear-gradient(-65deg, #4A707A,#4A707A, #7697A0, #94B0B7, #C2C8C5, #DDDDDA) transparent;
+  background-size: 400% 400%;
+  z-index: 2;
+  opacity: 0.5;
+  max-width: 50%;
+  min-width: 50%;
+  max-height: 50%;
+  min-height: 100%;
+  animation: Animation 15s ease infinite;
+  
+}
+
+@keyframes Animation {
+  0%{background-position:10% 0%}
+  50%{background-position:91% 100%}
+  100%{background-position:10% 0%}
+}
+
+
+.sign-up-img{
+  max-width: 100%;
+  min-width: 100%;
+  max-height: 100%;
+  min-height: 100%;
+  object-fit: cover;
+  object-fit: cover;
+
+
+}
+
+
+.rightContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  height: 100vh;
+  box-shadow: rgba(0, 0, 0, 0.268) 0px 22px 70px 4px;
+  z-index: 50;
+}
+
+
+
+
+@media screen and (max-width: 900px) {
+  .container {
+    display: flex;
+    justify-content: center;
+    max-width: 100%;
+    min-height: 10em;
+    margin-right: 150px;
+  }
+
+
+
+
+  .leftContainer {
+    display: none;
+  }
+
+  .rightContainer h1 {
+    text-align: center;
+  }
+}

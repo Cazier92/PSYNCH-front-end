@@ -9,11 +9,14 @@ nav {
   min-height: 4rem;
   max-width: 100%;
   top: 0;
-  box-shadow: 
-  rgba(17, 17, 26, 0.05) 0px 1px 0px, 
-  rgba(17, 17, 26, 0.1) 0px 0px 8px;
+  box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px,
+    rgba(17, 17, 26, 0.1) 0px 0px 8px;
   padding: 0rem 1.5rem;
   z-index: 9999;
+}
+
+.psynch-logo {
+  font-weight: 800;
 }
 
 .left-nav,
@@ -23,7 +26,6 @@ nav {
   align-items: center;
   align-content: center;
   gap: 1rem;
- 
 }
 
 .menu-btn.active {
@@ -32,7 +34,6 @@ nav {
 .menu-btn.inactive {
   background-color: white;
 }
-
 
 .dropdown-menu {
   display: flex;
@@ -43,12 +44,14 @@ nav {
   background-color: white;
   list-style: none;
   box-shadow: 
-  rgba(17, 17, 26, 0.05) 0px 1px 0px, 
+  rgba(17, 17, 26, 0.05) 0px 1px 0px,
   rgba(17, 17, 26, 0.1) 0px 0px 8px;
-  top: 65px;
+  clip-path: inset(0px -5px -5px -5px);
+  top: 64.1px;
   right: 0;
-  border-radius: .5rem;
+  border-radius: 0.5rem;
   border-top-left-radius: 0;
+  border-top-right-radius: 0;
   padding: 1rem 1.5rem 1rem 1.5rem;
   width: 8rem;
 }
@@ -68,11 +71,9 @@ nav {
   transition: 500ms ease;
 }
 
-
-
 .dropdown-menu div:hover {
   background-color: rgb(246, 246, 246);
-  border-radius: .5rem;
+  border-radius: 0.5rem;
   transition: ease 500ms;
 }
 
@@ -85,24 +86,19 @@ nav {
 button {
   background-color: white;
   border: 0;
-  border-radius: .5rem;
+  border-radius: 0.5rem;
   box-sizing: border-box;
   color: #111827;
-  font-size: .875rem;
+  font-size: 0.875rem;
   font-weight: 600;
   line-height: 1.2rem;
-  padding: .5rem 1rem;
+  padding: 0.5rem 1rem;
   text-align: center;
-  box-shadow: 
-  rgba(0, 0, 0, 0.1) 0 1px 3px 0, 
-  rgba(0, 0, 0, 0.06) 0 1px 2px 0;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 1px 3px 0, rgba(0, 0, 0, 0.06) 0 1px 2px 0;
   cursor: pointer;
 }
 
 button:hover,
 .menu-btn:hover {
-  background-color: rgb(249,250,251);
+  background-color: rgb(249, 250, 251);
 }
-
-
-

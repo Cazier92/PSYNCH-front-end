@@ -20,7 +20,7 @@ const LoginForm = (props) => {
     try {
       await authService.login(formData);
       props.handleSignupOrLogin();
-      navigate("/");
+      navigate("/main-feed");
     } catch (err) {
       props.updateMessage(err.message);
     }
@@ -33,41 +33,42 @@ const LoginForm = (props) => {
         onSubmit={handleSubmit}
         className={styles.container}
       >
-        <div className={styles.inputContainer}>
-          <label htmlFor="email" className={styles.label}>
-            Email
-          </label>
-          <input
-            type="text"
-            autoComplete="off"
-            id="email"
-            value={formData.email}
-            name="email"
-            onChange={handleChange}
-          />
+        <div className={styles.formContainer}>
+          <div className={styles.inputContainer}>
+            <label htmlFor="email" className={styles.label}>
+              Email
+            </label>
+            <input
+              className={styles.inputField}
+              type="text"
+              autoComplete="off"
+              id="email"
+              value={formData.email}
+              name="email"
+              onChange={handleChange}
+            />
+          </div>
+          <div className={styles.inputContainer}>
+            <label htmlFor="password" className={styles.label}>
+              Password
+            </label>
+            <input
+              className={styles.inputField}
+              type="password"
+              autoComplete="off"
+              id="password"
+              value={formData.pw}
+              name="pw"
+              onChange={handleChange}
+            />
+          </div>
         </div>
         <div className={styles.inputContainer}>
-          <label htmlFor="password" className={styles.label}>
-            Password
-          </label>
-          <input
-            type="password"
-            autoComplete="off"
-            id="password"
-            value={formData.pw}
-            name="pw"
-            onChange={handleChange}
-          />
+          <button className={styles.button}>
+            Login
+          </button>
         </div>
-        <div>
-          <button className={styles.button}>Log In</button>
-          <Link className={styles.btnMargin} to="/signup">
-            <button>Sign Up</button>
-          </Link>
-          <Link to="/">
-            <button>Cancel</button>
-          </Link>
-        </div>
+        <p className={styles.redirect}>New to PSYNCH? <a href="/signup">Sign Up</a></p> 
       </form>
     </>
   );

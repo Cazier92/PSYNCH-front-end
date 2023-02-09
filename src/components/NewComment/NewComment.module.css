@@ -1,0 +1,21 @@
+form {
+  margin: 30px 350px;
+}
+
+.commentSubmit {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+textarea:focus {
+  outline: none;
+}
+
+@media screen and (max-width: 900px) {
+  form {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+}

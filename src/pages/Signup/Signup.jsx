@@ -1,6 +1,6 @@
 import { useState } from "react";
 import SignupForm from "../../components/SignupForm/SignupForm";
-import styles from "./Signup.module.css";
+import "./Signup.css";
 
 const Signup = (props) => {
   const [message, setMessage] = useState([""]);
@@ -10,21 +10,24 @@ const Signup = (props) => {
   };
 
   return (
-    <main className={styles.container}>
-      <div className={styles.leftContainer}>
-        <div className={styles.leftInfo}>
-          <h1>Create your login</h1>
-          <p>
-            We'll need your name, email address, and a unique password. You'll
-            use this login to access Psynch next time.
-          </p>
+    <main className="container">
+      <div className="rightContainer">
+        <div className="form-container">
+          
         </div>
-      </div>
-      <div className={styles.rightContainer}>
-        <h1>Sign Up</h1>
-        <p>{message}</p>
+        <div className="header">
+          <h1>Welcome</h1>
+          <p>Please enter your details.</p>
+          <p className="err-message">{message}</p>
+        </div>
         <SignupForm {...props} updateMessage={updateMessage} />
       </div>
+      
+      <div className="leftContainer">
+        <div className="overlay"></div>
+        <img className="sign-up-img" src="./landingImages/img4.jpg" alt="" />
+      </div>
+      
     </main>
   );
 };
