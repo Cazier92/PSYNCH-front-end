@@ -11,17 +11,17 @@
 
 .title-container{
   display: flex;
-  /* background-color: bisque; */
   width: 100%;
   margin-bottom: 1em;
+  justify-content: center;
   
 }
 
 .page-title {
   display: flex;
   text-align: center;
-  font-size: 2em;
-  font-weight: 700;
+  font-size: 1.6em;
+  font-weight: 600;
 }
 
 .subtitle{
@@ -31,9 +31,13 @@
 .requests-section {
   display: flex;
   flex-direction: column;
-  padding: 0em 1em 1em 1em;
-  border-bottom: 2px solid rgba(0, 0, 0, 0.065); 
-  margin-bottom: 1em;
+  padding: 1em;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.065);
+  border-top: 2px solid rgba(0, 0, 0, 0.065);
+  margin: 1em 0em 1em 0;
   text-align: center;
+  max-height: 11em;
+  min-height: 11em;
+  overflow-y: scroll;
 }
 

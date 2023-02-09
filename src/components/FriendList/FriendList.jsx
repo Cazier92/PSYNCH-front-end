@@ -89,7 +89,7 @@ const FriendList = ({user}) => {
         )
       })
       :
-      <p>Loading...</p>
+      <p>No friends</p>
       }
     </>
   );
