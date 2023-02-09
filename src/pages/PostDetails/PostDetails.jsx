@@ -11,6 +11,38 @@ const PostDetails = ({ user, handleDeletePost, posts }) => {
   const { id } = useParams();
   const [post, setPost] = useState(null);
 
+  const down = ["Bored", "Stressed", "Tired"];
+  const fearful = ["Anxious", "Rejected", "Scared"];
+  const angry = ["Mad", "Jealous", "Betrayed"];
+  const disgusted = ["Embarrassed", "Disgusted"];
+  const sad = ["Lonely", "Guilty", "Hurt"];
+  const happy = ["Optimistic", "Peaceful", "Powerful", "Accepted", "Joyful"];
+  const surprised = ["Startled", "Confused", "Excited", "Amazed"];
+
+  const decideColor = () => {
+    if (down.includes(post.emotion)) {
+      return "#5851919F";
+    }
+    if (fearful.includes(post.emotion)) {
+      return "#DA41679F";
+    }
+    if (angry.includes(post.emotion)) {
+      return "#E66536AF";
+    }
+    if (disgusted.includes(post.emotion)) {
+      return "#3E89149F";
+    }
+    if (sad.includes(post.emotion)) {
+      return "#53B3CB9F";
+    }
+    if (happy.includes(post.emotion)) {
+      return "#FDE74C7F";
+    }
+    if (surprised.includes(post.emotion)) {
+      return "#F188058F";
+    }
+  };
+
   const handleAddComment = async (commentData) => {
     const newComment = await postService.createComment(id, commentData);
     setPost({ ...post, comments: [newComment, ...post.comments] });
@@ -32,13 +64,15 @@ const PostDetails = ({ user, handleDeletePost, posts }) => {
     fetchPost();
   }, [id]);
 
-  console.log("Post State", post);
 
   return post ? (
     <div className={styles.mainContainer}>
       <main className={styles.container}>
         <div className={styles.postDetailCard}>
-          <div className={styles.postHeaders}>
+          <div
+            className={styles.postHeaders}
+            style={{ backgroundColor: decideColor() }}
+          >
             <div className="post-avatar">{post.author.avatar}</div>
             <h2>{post.author.name}</h2>
           </div>
