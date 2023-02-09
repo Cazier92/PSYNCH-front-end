@@ -57,7 +57,7 @@ const Profile = ({user, allPosts, handleCreateConversation, allConversations, se
         <>
           {profile.notifications.map(notification => {
             return (
-              <Notification key={notification._id} notification={notification} allNotifications={allNotifications} setAllNotifications={setAllNotifications}/>
+              <Notification key={notification._id} notification={notification} allNotifications={allNotifications} setAllNotifications={setAllNotifications} setProfile={setProfile} profile={profile}/>
             )
           })}
         </>
