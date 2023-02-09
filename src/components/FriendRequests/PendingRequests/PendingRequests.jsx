@@ -33,7 +33,7 @@ const PendingRequests = (props) => {
             </Link>
             <div className='action-btns'>
               <div>
-                <AcceptRequest id={request._id} setRequests={setRequests} requests={requests}/>
+                <AcceptRequest id={request._id} setRequests={setRequests} requests={requests} friends={props.friends} setFriends={props.setFriends}/>
               </div>
               <div>
                 <DenyRequest id={request._id} setRequests={setRequests} requests={requests}/>

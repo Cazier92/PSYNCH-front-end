@@ -14,6 +14,8 @@ import './FriendList.css'
 
 const FriendList = ({user}) => {
   const [userProfile, setUserProfile] = useState([])
+  const [friends, setFriends] = useState([])
+  const [feed, setFeed] = useState([])
 
 
   useEffect(() => {
@@ -24,7 +26,6 @@ const FriendList = ({user}) => {
     fetchProfile()
   }, [user.profile])
 
-  const [friends, setFriends] = useState([])
 
   useEffect(() => {
     const fetchFriends = async () => {
@@ -32,11 +33,10 @@ const FriendList = ({user}) => {
       setFriends(friendsData);
     };
     fetchFriends();
-  }, []);
+  }, [user]);
 
   // console.log(friends)
 
-  const [feed, setFeed] = useState([])
 
   useEffect(() => {
     const fetchFeed = async () => {
@@ -75,7 +75,7 @@ const FriendList = ({user}) => {
       </div>
       <div className='requests-section'>
         <p className='subtitle'>Requests</p>
-        <PendingRequests/>
+        <PendingRequests friends={friends} setFriends={setFriends}/>
       </div>
       <div className='friends-container'>
         {friends.length !== 0 ?
