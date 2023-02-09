@@ -80,7 +80,7 @@ const MainFeedBars = ({ user, allPosts}) => {
           <div id="rs-icon-container" className={`stats-icon ${ 
             selectedStats ? "active" : "inactive"
           }`}
-          onClick={() => setSelectedStats(!selectedStats)}
+            onClick={() => setSelectedStats(!selectedStats)}
           >
             <i id="rs-icon" class="fa-solid fa-chart-simple"></i>
           </div>
@@ -90,7 +90,7 @@ const MainFeedBars = ({ user, allPosts}) => {
           <div className={`loaded-component ${
               selectedStats ? "active" : "inactive"
             }`}>
-            {/* <Stats user={user} allPosts={allPosts} /> */}
+            <Stats user={user} allPosts={allPosts} />
           </div>
         </div>
         
