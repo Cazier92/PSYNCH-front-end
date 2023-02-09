@@ -39,7 +39,10 @@ const App = () => {
   const [privatePosts, setPrivatePosts] = useState([]);
   const [feed, setFeed] = useState([]);
   const [allPosts, setAllPosts] = useState([]);
-  const [allMessages, setAllMessages] = useState([])
+  const [allConversations, setAllConversations] = useState([])
+  // const [conversation, setConversation] = useState([])
+  // const [directMessage, setDirectMessage] = useState([])
+
 
   function handleLogout() {
     authService.logout();
@@ -73,6 +76,11 @@ const App = () => {
     navigate("/main-feed");
   };
 
+  const handleCreateConversation = async (conversationData) => {
+    const newConversation = await directMessagesService.create(conversationData)
+    setAllConversations([newConversation, ...allConversations])
+  }
+
   useEffect(() => {
     const fetchPosts = async () => {
       const postData = await emotionPostService.index();
@@ -98,13 +106,21 @@ const App = () => {
   }, []);
 
   useEffect(() => {
-    const fetchAllMessages = async () => {
-      const allMessagesData = await directMessagesService.index()
-      setAllMessages(allMessagesData)
-      console.log('ALLMESSAGES', allMessagesData)
+    const fetchAllConversations = async () => {
+      const allConversationsData = await directMessagesService.index()
+      setAllConversations(allConversationsData)
+      // console.log('ALLMESSAGES', allConversationsData)
     }
-    fetchAllMessages()
+    fetchAllConversations()
   }, [])
+
+  // useEffect(() => {
+  //   const fetchConversation = async (id) => {
+  //     const conversationData = await directMessagesService.show(id)
+  //     setConversation(conversationData)
+  //   }
+  //   fetchConversation(id)
+  // }, [id])
 
   
 
@@ -200,7 +216,7 @@ const App = () => {
           path="/profile/:id"
           element={
             <ProtectedRoute user={user}>
-              <Profile user={user} allPosts={allPosts} />
+              <Profile user={user} allPosts={allPosts} handleCreateConversation={handleCreateConversation} allConversations={allConversations}/>
             </ProtectedRoute>
           }
         />
