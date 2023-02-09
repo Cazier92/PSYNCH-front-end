@@ -2,6 +2,8 @@ import * as directMessagesService from '../../services/directMessagesService'
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
+import './SendMessage.css'
+
 const SendMessage = ({conversationId, handleSendMessage, handleCreateNotification, profile, user, setProfile, messages, conversation}) => {
   const [form, setForm] = useState({ content: "" }); // If something doesn't work, look at this first!
   const [notificationData, setNotificationData] = useState({})
@@ -17,29 +19,24 @@ const SendMessage = ({conversationId, handleSendMessage, handleCreateNotificatio
     setForm({ content: "" });
   };
 
-  // useEffect(() => {
-  //   setProfile(conversation.members.filter(member => member._id !== user.profile))
-  // }, [conversation, conversationId, messages, user])
 
-  // useEffect(() => {
-  //   setProfile(profileArr)
-  // }, [profileArr])
 
   useEffect(() => {
     setNotificationData({profile: profile, link: conversationId})
   }, [conversationId, profile])
 
-  // console.log('PROFILE:', profile[0]._id)
-  // console.log('ProfileArr:', profile)
 
 
 
   return ( 
     <>
-    <form onSubmit={handleSubmit}>
-      <textarea name="content" id="content-input" cols="35" rows="2" placeholder='Write Message Here' onChange={handleChange}></textarea>
-      <button type='submit'>Send Message</button>
-    </form>
+    <div className='send-messages-div'>
+      <form onSubmit={handleSubmit}>
+        <textarea name="content" id="content-input" cols="35" rows="2" placeholder='Write Message Here' onChange={handleChange} className='send-message-content'></textarea>
+        <button type='submit' className='send-message-btn'>Send Message</button>
+      </form>
+
+    </div>
 
       
     </>

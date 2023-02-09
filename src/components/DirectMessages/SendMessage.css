@@ -1,0 +1,19 @@
+.send-messages-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+.send-message-content {
+  font-size: 16px;
+  border-radius: 8px;
+}
+
+.send-message-btn {
+  width: 25%;
+  font-size: 12px;
+  align-self: center;
+  padding: 5px;
+  margin-top: 2vmin;
+}
