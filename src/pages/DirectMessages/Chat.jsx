@@ -51,7 +51,7 @@ const Chat = ({handleCreateNotification, newNotificationId, user}) => {
 
   return ( 
     <>
-    <MainFeedBars/>
+    <MainFeedBars user={user}/>
     <h3>Chat Members:</h3>
     {conversation.members?.map(member => {
       return (
