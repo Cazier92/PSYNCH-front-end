@@ -12,7 +12,7 @@ import Notification from '../../components/NotificationComponents/Notification';
 
 import './Profile.css'
 
-const Profile = ({user, allPosts, handleCreateConversation, allConversations, setAllConversations, newConversationId, allNotifications, handleCreateNotification, handleDeleteNotification, newNotificationId, setAllNotifications}) => {
+const Profile = ({user, allPosts, handleCreateConversation, allConversations, setAllConversations, newConversationId, allNotifications, handleCreateNotification, handleDeleteNotification, newNotificationId, setAllNotifications, userProfile}) => {
   const {id} = useParams()
   const [profile, setProfile] = useState(null)
 
@@ -88,7 +88,7 @@ const Profile = ({user, allPosts, handleCreateConversation, allConversations, se
   if (!profile) return <h1>Loading</h1>
   return ( 
     <>
-      <MainFeedBars user={user}/>
+      <MainFeedBars user={user} userProfile={userProfile}/>
       <div className='profile-head'>
         <h1 className='profile-name'>{profile.name}</h1>
         <img src={profile.photo} alt="" className='profile-img'/>

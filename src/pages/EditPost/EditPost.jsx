@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useLocation } from "react-router-dom";
 import styles from "./EditPost.module.css";
 
-const EditPost = ({ handleUpdatePost }) => {
+const EditPost = ({ handleUpdatePost, userProfile }) => {
   const { state } = useLocation();
   const [form, setForm] = useState(state);
 

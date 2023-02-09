@@ -16,7 +16,7 @@ const linkStyle = {
   color: "black",
 };
 
-const MainFeed = ({ posts, user, feed, handleDecideAction }) => {
+const MainFeed = ({ posts, user, feed, handleDecideAction, userProfile }) => {
   //STATES
   let [selectedGlobal, setSelectedGlobal] = useState(true);
   let [selectedFriendsFeed, setSelectedFriendsFeed] = useState(false);
@@ -36,7 +36,7 @@ const MainFeed = ({ posts, user, feed, handleDecideAction }) => {
 
   return (
     <>
-      <MainFeedBars user={user}/>
+      <MainFeedBars user={user} userProfile={userProfile}/>
       <div className="btns-container">
         <button
           className={`global-btn ${selectedGlobal ? "active" : "inactive"}`}

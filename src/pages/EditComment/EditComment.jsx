@@ -5,7 +5,7 @@ import styles from "./EditComment.module.css";
 // Services
 import * as postService from "../../services/emotionPostService";
 
-const EditComment = () => {
+const EditComment = ({userProfile}) => {
   const navigate = useNavigate();
   const { state } = useLocation();
   const { postId, commentId } = useParams();

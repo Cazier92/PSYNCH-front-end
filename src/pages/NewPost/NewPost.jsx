@@ -2,7 +2,7 @@ import { useState } from "react";
 import styles from "./NewPost.module.css";
 import MainFeedBars from "../../components/MainFeedBars/MainFeedBars";
 
-const NewPost = (props) => {
+const NewPost = ({user, userProfile, handleAddPost}) => {
   const [form, setForm] = useState({
     emotion: "Bored",
     content: "",
@@ -19,14 +19,14 @@ const NewPost = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    props.handleAddPost(form);
+    handleAddPost(form);
   };
 
 
 
   return (
     <>
-    <MainFeedBars user={props.user}/>
+    <MainFeedBars user={user} userProfile={userProfile}/>
       <div className={styles.container}>
         <h1>What's on your mind today?</h1>
         <form className={styles.formContainer} onSubmit={handleSubmit}>

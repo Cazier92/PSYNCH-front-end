@@ -9,7 +9,7 @@ import SendMessage from "../../components/DirectMessages/SendMessage";
 import './Chat.css'
 
 
-const Chat = ({handleCreateNotification, newNotificationId, user}) => {
+const Chat = ({handleCreateNotification, newNotificationId, user, userProfile}) => {
   const {conversationId} = useParams()
   const [conversation, setConversation] = useState([])
   const [messages, setMessages] = useState([])
@@ -53,7 +53,7 @@ const Chat = ({handleCreateNotification, newNotificationId, user}) => {
 
   return ( 
     <>
-    <MainFeedBars user={user}/>
+    <MainFeedBars user={user} userProfile={userProfile}/>
 
       <div className="messages-div">
         <div className="header-div">
