@@ -13,6 +13,7 @@
 .friend-avatar-container{
  display: flex;
  background-color: blue;
+ width: 2em
 }
 
 
