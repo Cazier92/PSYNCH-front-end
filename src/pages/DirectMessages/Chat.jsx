@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
+import MainFeedBars from "../../components/MainFeedBars/MainFeedBars";
 
 import * as directMessagesService from '../../services/directMessagesService'
 
@@ -34,6 +35,7 @@ const Chat = ({}) => {
 
   return ( 
     <>
+    <MainFeedBars/>
     <h3>Chat Members:</h3>
     {conversation.members?.map(member => {
       return (
