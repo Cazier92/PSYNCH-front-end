@@ -9,7 +9,7 @@ import StartConversation from '../../components/DirectMessages/StartConversation
 import ChatButton from '../../components/DirectMessages/ChatButton';
 import MainFeedBars from '../../components/MainFeedBars/MainFeedBars';
 
-const Profile = ({user, allPosts, handleCreateConversation, allConversations, setAllConversations, newConversationId}) => {
+const Profile = ({user, allPosts, handleCreateConversation, allConversations, setAllConversations, newConversationId, allNotifications, handleCreateNotification, handleDeleteNotification, newNotificationId}) => {
   const {id} = useParams()
   const [profile, setProfile] = useState(null)
 
