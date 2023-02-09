@@ -10,7 +10,7 @@ import ChatButton from '../../components/DirectMessages/ChatButton';
 import MainFeedBars from '../../components/MainFeedBars/MainFeedBars';
 import Notification from '../../components/NotificationComponents/Notification';
 
-const Profile = ({user, allPosts, handleCreateConversation, allConversations, setAllConversations, newConversationId, allNotifications, handleCreateNotification, handleDeleteNotification, newNotificationId}) => {
+const Profile = ({user, allPosts, handleCreateConversation, allConversations, setAllConversations, newConversationId, allNotifications, handleCreateNotification, handleDeleteNotification, newNotificationId, setAllNotifications}) => {
   const {id} = useParams()
   const [profile, setProfile] = useState(null)
 
@@ -57,7 +57,7 @@ const Profile = ({user, allPosts, handleCreateConversation, allConversations, se
         <>
           {profile.notifications.map(notification => {
             return (
-              <Notification key={notification._id} notification={notification}/>
+              <Notification key={notification._id} notification={notification} allNotifications={allNotifications} setAllNotifications={setAllNotifications}/>
             )
           })}
         </>
