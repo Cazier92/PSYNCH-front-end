@@ -213,7 +213,9 @@ const App = () => {
           path="/profile/:id"
           element={
             <ProtectedRoute user={user}>
-              <Profile user={user} allPosts={allPosts} handleCreateConversation={handleCreateConversation} allConversations={allConversations} setAllConversations={setAllConversations} newConversationId={newConversationId}/>
+              <Profile user={user} allPosts={allPosts} handleCreateConversation={handleCreateConversation} allConversations={allConversations} setAllConversations={setAllConversations} newConversationId={newConversationId}
+            
+              />
             </ProtectedRoute>
           }
         />

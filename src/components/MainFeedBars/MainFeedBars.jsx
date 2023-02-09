@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import "./MainFeed.css";
+import "./MainFeedBars.css";
 
 import { useState, useEffect } from "react";
 
@@ -14,7 +14,7 @@ const linkStyle = {
   color: "black",
 };
 
-const MainFeedBars = ({ posts, user, feed, handleDecideAction }) => {
+const MainFeedBars = ({ user}) => {
   //STATES
   let [selectedFriendsList, setSelectedFriendsList] = useState(false);
   let [selectedHome, setSelectedHome] = useState(true);
