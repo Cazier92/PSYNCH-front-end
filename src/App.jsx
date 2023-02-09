@@ -26,6 +26,7 @@ import ProfileBar from "./components/ProfileBar/ProfileBar";
 // services
 import * as authService from "./services/authService";
 import * as emotionPostService from "./services/emotionPostService";
+import * as directMessagesService from './services/directMessagesService'
 
 // styles
 import "./App.css";
@@ -38,6 +39,7 @@ const App = () => {
   const [privatePosts, setPrivatePosts] = useState([]);
   const [feed, setFeed] = useState([]);
   const [allPosts, setAllPosts] = useState([]);
+  const [allMessages, setAllMessages] = useState([])
 
   function handleLogout() {
     authService.logout();
@@ -94,6 +96,17 @@ const App = () => {
     };
     fetchAll();
   }, []);
+
+  useEffect(() => {
+    const fetchAllMessages = async () => {
+      const allMessagesData = await directMessagesService.index()
+      setAllMessages(allMessagesData)
+      console.log('ALLMESSAGES', allMessagesData)
+    }
+    fetchAllMessages()
+  }, [])
+
+  
 
 
 

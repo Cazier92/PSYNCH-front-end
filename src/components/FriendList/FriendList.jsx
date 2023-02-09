@@ -34,7 +34,7 @@ const FriendList = ({user}) => {
     fetchFriends();
   }, []);
 
-  console.log(friends)
+  // console.log(friends)
 
   const [feed, setFeed] = useState([])
 

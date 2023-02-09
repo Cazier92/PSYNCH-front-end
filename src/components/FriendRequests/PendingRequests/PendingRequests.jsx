@@ -11,13 +11,11 @@ const PendingRequests = (props) => {
     const fetchRequests = async () => {
       const requestsData = await profileService.friendRequests()
       setRequests(requestsData)
-      // console.log('requests data:', requestsData)
-      // console.log('requests:', requests)
     }
     fetchRequests()
   }, [])
 
-console.log(requests)
+
 
   return ( 
     <>
