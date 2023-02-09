@@ -4,7 +4,7 @@
 
 .friend-card {
   display: flex;
-
+  margin: 1em;
   background-color: rgb(209, 208, 208);
   width: 15em;
   height: 5em;
