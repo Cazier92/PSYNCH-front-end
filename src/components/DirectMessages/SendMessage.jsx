@@ -32,8 +32,8 @@ const SendMessage = ({conversationId, handleSendMessage, handleCreateNotificatio
     <>
     <div className='send-messages-div'>
       <form onSubmit={handleSubmit}>
-        <textarea name="content" id="content-input" cols="35" rows="2" placeholder='Write Message Here' onChange={handleChange}></textarea>
-        <button type='submit'>Send Message</button>
+        <textarea name="content" id="content-input" cols="35" rows="2" placeholder='Write Message Here' onChange={handleChange} className='send-message-content'></textarea>
+        <button type='submit' className='send-message-btn'>Send Message</button>
       </form>
 
     </div>

@@ -12,13 +12,14 @@
 }
 
 .header-div {
-  background-color: white;
+  /* background-color: white; */
   margin-top: 1vmin;
   border-radius: 8px;
+  padding: 5px;
 }
 
 .messages-head {
-  color: black;
+  color: white;
 }
 
 .user-message {
