@@ -15,7 +15,7 @@ const linkStyle = {
   color: "black",
 };
 
-const MainFeedBars = ({ user, allPosts}) => {
+const MainFeedBars = ({ user, allPosts, userProfile}) => {
   //STATES
   let [selectedFriendsList, setSelectedFriendsList] = useState(false);
   let [selectedHome, setSelectedHome] = useState(true);
@@ -90,7 +90,7 @@ const MainFeedBars = ({ user, allPosts}) => {
           <div className={`loaded-component ${
               selectedStats ? "active" : "inactive"
             }`}>
-            <Stats user={user} allPosts={allPosts} />
+            <Stats user={user} allPosts={allPosts} userProfile={userProfile}/>
           </div>
         </div>
         
