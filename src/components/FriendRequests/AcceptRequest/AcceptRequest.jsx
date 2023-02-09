@@ -8,7 +8,7 @@ const AcceptRequest = ({id, requests, setRequests, friends, setFriends}) => {
     setRequests(requests.filter((request) => 
       request._id !== id
     ))
-    setFriends({...friends, newFriend})
+    setFriends([...friends, newFriend])
   }
 
   return ( 
