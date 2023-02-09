@@ -7,7 +7,11 @@ const Friend = ({friend}) => {
   return ( 
     <>
     <div className='friend-card'>
-      {/* <div className='friend-avatar'>{friend.photo}</div> */}
+    <img
+            className="post-avatar"
+            src={friend.photo}
+            alt="profile img"
+          />
       <p>{friend.name}</p>
       <p className='friend-status'>{friend.currentStatus}</p>
     </div>
