@@ -1,11 +1,18 @@
+import * as directMessagesService from '../../services/directMessagesService'
+import { useState, useEffect } from 'react';
 
+const StartConversation = ({profile, user, handleCreateConversation, allConversations, setAllConversations}) => {
+  const [conversationData, setConversationData] = useState({})
 
-const StartConversation = (props) => {
+  useEffect(() => {
+    setConversationData({profile: profile})
+  })
+
   return ( 
     <>
-      <button>Start Chat</button>
+      <button onClick={() => handleCreateConversation(conversationData)}>Start Chat</button>
     </>
-   );
+  );
 }
- 
+
 export default StartConversation;
