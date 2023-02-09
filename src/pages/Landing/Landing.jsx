@@ -21,27 +21,35 @@ const Landing = ({ user }) => {
               emotions with people from around the world!
             </p>
             <button className="sign-up-btn">
-              <Link to="/signup" style={linkStyle}>
-                SIGN UP
+              <Link to={user ? "/main-feed" : "/signup"} style={linkStyle}>
+                {user ? "MAIN FEED" : "SIGNUP"}
               </Link>
             </button>
           </div>
         </div>
-        <div className="hero-image">
-
-        </div>
+        <div className="hero-image"></div>
       </section>
       <section className="main-content">
         <div className="main-content-header">
           <p className="firstChild-main">How are you feeling?</p>
-          <p className="subtitle-main">Choose an emotion below to find your stats.</p>
+          <p className="subtitle-main">
+            Choose an emotion below to find your stats.
+          </p>
         </div>
-        
+
         <div className="main-moods">
-          <div><i class="fa-solid fa-face-smile-beam fa-4x"></i></div>
-          <div><i class="fa-solid fa-face-sad-tear fa-4x"></i></div>
-          <div><i class="fa-solid fa-face-angry fa-4x"></i></div>
-          <div><i class="fa-solid fa-face-frown-open fa-4x"></i></div>
+          <div>
+            <i class="fa-solid fa-face-smile-beam fa-4x"></i>
+          </div>
+          <div>
+            <i class="fa-solid fa-face-sad-tear fa-4x"></i>
+          </div>
+          <div>
+            <i class="fa-solid fa-face-angry fa-4x"></i>
+          </div>
+          <div>
+            <i class="fa-solid fa-face-frown-open fa-4x"></i>
+          </div>
         </div>
       </section>
     </main>
