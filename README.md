@@ -9,7 +9,9 @@ With PSYNCH, you will finally experience meaningful connections and emotionally 
 ## Getting Started
 
 🖱️ [Click Here](https://psynch.netlify.app/) to have access to our application.
+
 📒 [Trello](https://trello.com/b/fDThRFou/emotion-tracker) has been used as the planning material.
+
 🔙 [Backend](https://github.com/Cazier92/PSYNCH-back-end) link.
 
 #
@@ -17,7 +19,9 @@ With PSYNCH, you will finally experience meaningful connections and emotionally 
 ## Contributors
 
 [Bryce Cazier](https://github.com/Cazier92)
+
 [Kiana Vernon](https://github.com/k-vernon)
+
 [Yong Park](https://github.com/pyongho1)
 
 #
@@ -42,13 +46,9 @@ With PSYNCH, you will finally experience meaningful connections and emotionally 
 
 ## Next Steps [Ice Box] 🧊
 
-- [ ] Direct Messaging
+- [x] Direct Messaging
 - [ ] Dynamic Login/Signup functionality
 
 #
 
 ## Credit
-
-Photo by <a href="https://unsplash.com/@tengyart?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Tengyart</a> on <a href="https://unsplash.com/photos/gG-Or-Atw6w?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
-
-Photo by <a href="https://unsplash.com/@brandi1?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Brandi Redd</a> on <a href="https://unsplash.com/photos/aJTiW00qqtI?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
