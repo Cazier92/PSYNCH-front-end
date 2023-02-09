@@ -54,6 +54,17 @@
   clip-path: inset(0px -5px 0px 0px);
 }
 
+.component-container.active{
+  
+}
+.component-container.inactive{
+  /* display: none; */
+}
+
+
+
+
+
 .ls-icon-wrapper {
   display: flex;
   flex-direction: column;
