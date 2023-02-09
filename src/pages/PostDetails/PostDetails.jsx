@@ -198,7 +198,10 @@ const PostDetails = ({ user, handleDeletePost, posts }) => {
               )}
             </div>
           </div>
-          <div className={styles.reactionContainer}>
+          <div
+            className={styles.reactionContainer}
+            style={{ backgroundColor: decideColor() }}
+          >
             {post.reactions.length
               ? (() => {
                   const reactionCount = post.reactions.reduce(

@@ -11,10 +11,6 @@ const CommentCard = ({ comment, post, user, postId, handleDeleteComment }) => {
 
   return (
     <article className={styles.container}>
-      {/* <div className={styles.cardContainer}>
-        <h3>{comment.content}</h3>
-        <p>{comment.author.name}</p>
-      </div> */}
       <blockquote class={styles.speechBubble}>
         <div className={styles.avatarImg}>{post.author.avatar}</div>
         <p className={styles.commentContent}>{comment.content}</p>
