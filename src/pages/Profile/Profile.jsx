@@ -6,7 +6,7 @@ import { useParams } from 'react-router-dom';
 import SendFriendRequest from '../../components/FriendRequests/SendFriendRequest/SendFriendRequest';
 import PostList from '../../components/PostList/PostList';
 import StartConversation from '../../components/DirectMessages/StartConversation';
-import Chat from '../../components/DirectMessages/Chat';
+import ChatButton from '../../components/DirectMessages/ChatButton';
 
 const Profile = ({user, allPosts, handleCreateConversation, allConversations, setAllConversations}) => {
   const {id} = useParams()
@@ -20,25 +20,16 @@ const Profile = ({user, allPosts, handleCreateConversation, allConversations, se
     const fetchProfile = async () => {
       const profileData = await profileService.show(id)
       setProfile(profileData)
-      // console.log(profileData)
     }
     fetchProfile()
   }, [id])
   
-  const profileConversations = allConversations.filter(conversation => conversation.members.includes(profile._id))
+  const profileConversations = allConversations.filter(conversation => conversation.members.includes(profile?._id))
   console.log(profileConversations)
   const neededConvo = profileConversations.find(conversation => conversation.members.includes(user.profile))
   useEffect(() => {
-    // setConversationId(profileConversations.find(conversation => conversation.members.includes(user.profile))._id)
-    // console.log(conversationId)
     console.log(neededConvo)
   }, [profile, user, id, allConversations, neededConvo, profileConversations])
-
-
-
-
-
-
 
 
   const privatePosts = () => {
@@ -53,32 +44,19 @@ const Profile = ({user, allPosts, handleCreateConversation, allConversations, se
     }
   }
 
-  // console.log(profile?.messages)
-  // console.log(allConversations[0])
-
-  // console.log('allConversations', allConversations[0].members.includes(profile._id))
-
-  // if (profile?.messages) {
-  //   const profileConversations = allConversations.filter(conversation => conversation.members.includes(profile._id))
-  //   console.log('PROFILE CONVERSATIONS', profileConversations)
-  //   console.log('CONVERSATIONS', allConversations.find(conversation => conversation.members.includes(profile._id)))
-  //   allConversations.find(conversation => conversation.members.includes(user.profile))
-  // }
-
   const conversationButton = () => {
     if (user.profile === profile._id) {
       return 
     }
     else if (profile.friends.some(friend => friend._id === user.profile)) {
-      // if (profile.messages.some(conversation => conversation.members.includes(user.profile))) {
         if (neededConvo) {
         
         return (
-          <Chat profile={profile} user={user} neededConvo={neededConvo}/>
+          <ChatButton profile={profile} user={user} neededConvo={neededConvo}/>
         )
       } else {
         return (
-          <StartConversation profile={profile} user={user} handleCreateConversation={handleCreateConversation} allConversations={allConversations} setAllConversations={setAllConversations}/>
+          <StartConversation profile={profile} user={user} handleCreateConversation={handleCreateConversation} allConversations={allConversations} setAllConversations={setAllConversations} neededConvo={neededConvo}/>
         )
       }
     }

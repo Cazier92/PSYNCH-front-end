@@ -6,7 +6,7 @@ const StartConversation = ({profile, user, handleCreateConversation, allConversa
 
   useEffect(() => {
     setConversationData({profile: profile})
-  })
+  }, [profile, user, allConversations])
 
   return ( 
     <>
