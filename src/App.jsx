@@ -28,6 +28,7 @@ import ProfileBar from "./components/ProfileBar/ProfileBar";
 import * as authService from "./services/authService";
 import * as emotionPostService from "./services/emotionPostService";
 import * as directMessagesService from './services/directMessagesService'
+import * as notificationService from './services/notificationService'
 
 // styles
 import "./App.css";
@@ -42,6 +43,8 @@ const App = () => {
   const [allPosts, setAllPosts] = useState([]);
   const [allConversations, setAllConversations] = useState([])
   const [newConversationId, setNewConversationId] = useState(null)
+  const [allNotifications, setAllNotifications] = useState([])
+  const [newNotificationId, setNewNotificationId] = useState(null)
 
 
 
@@ -83,6 +86,17 @@ const App = () => {
     setNewConversationId(newConversation._id)
   }
 
+  const handleCreateNotification = async (notificationData) => {
+    const newNotification = await notificationService.create(notificationData)
+    setAllNotifications([newNotification, ...allNotifications])
+    setNewNotificationId(newNotification._id)
+  }
+
+  const handleDeleteNotification = async (id) => {
+    const deletedNotification = await notificationService.deleteNotification(id)
+    setAllNotifications(allNotifications.filter((b) => b._id !== deletedNotification._id))
+  }
+
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -116,6 +130,17 @@ const App = () => {
     }
     fetchAllConversations()
   }, [])
+
+  useEffect(() => {
+    const fetchAll = async () => {
+      const allNotificationsData = await notificationService.index()
+      setAllNotifications(allNotificationsData)
+    }
+    fetchAll()
+  }, [])
+
+  console.log(allNotifications)
+
 
 
 
@@ -214,7 +239,7 @@ const App = () => {
           element={
             <ProtectedRoute user={user}>
               <Profile user={user} allPosts={allPosts} handleCreateConversation={handleCreateConversation} allConversations={allConversations} setAllConversations={setAllConversations} newConversationId={newConversationId}
-            
+              allNotifications={allNotifications} newNotificationId={newNotificationId} handleCreateNotification={handleCreateNotification} handleDeleteNotification={handleDeleteNotification}
               />
             </ProtectedRoute>
           }
@@ -223,7 +248,7 @@ const App = () => {
           path="/chat/:conversationId"
           element={
             <ProtectedRoute user={user}>
-              <Chat />
+              <Chat handleCreateNotification={handleCreateNotification} newNotificationId={newNotificationId}/>
             </ProtectedRoute>
           }
         />
