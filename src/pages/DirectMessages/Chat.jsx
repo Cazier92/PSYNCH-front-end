@@ -3,10 +3,13 @@ import { useEffect, useState } from "react";
 
 import * as directMessagesService from '../../services/directMessagesService'
 
+import SendMessage from "../../components/DirectMessages/SendMessage";
+
 
 const Chat = (props) => {
   const {conversationId} = useParams()
   const [conversation, setConversation] = useState([])
+  const [messages, setMessages] = useState([])
 
     
   useEffect(() => {
@@ -18,8 +21,16 @@ const Chat = (props) => {
     fetchConversation()
   }, [conversationId])
 
-  // console.log(conversationId)
-  // console.log(conversation.members[0].name)
+  useEffect(() => {
+    setMessages(conversation.messages)
+  }, [conversation, conversationId])
+
+  console.log(messages)
+
+  const handleSendMessage = async (id, messageData) => {
+    const newMessage = await directMessagesService.sendMessage(conversationId, messageData)
+    setMessages(...messages, newMessage)
+  }
 
 
   return ( 
@@ -35,10 +46,14 @@ const Chat = (props) => {
       return (
         <>
         <p>{message.content}</p>
-        <h6>{message.author}</h6>
+        <h6>{message.author.name}</h6>
         </>
       )
     })}
+    <div>
+      <SendMessage conversationId={conversationId} handleSendMessage={handleSendMessage}/>
+
+    </div>
     </>
   );
 }
