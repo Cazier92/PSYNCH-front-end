@@ -12,13 +12,18 @@ const Profile = ({user, allPosts}) => {
 
 
 
+
   useEffect(() => {
     const fetchProfile = async () => {
       const profileData = await profileService.show(id)
       setProfile(profileData)
+      console.log(profileData.friendRequests)
     }
     fetchProfile()
   }, [id])
+  
+
+  
 
   
 
