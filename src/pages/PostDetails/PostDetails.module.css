@@ -46,8 +46,10 @@
   padding: 10px 0;
   display: flex;
   justify-content: center;
-  width: 90%;
+  width: 100%;
   margin-top: 30px;
+  /* border: 1px solid; */
+  background-color: white;
 }
 
 .reactCount {
@@ -56,8 +58,7 @@
 }
 
 .countContainer {
-  border: 1px solid;
-  border-radius: 5px;
+  font-size: 15px;
   width: 20px;
   height: 20px;
   display: flex;
@@ -72,6 +73,7 @@
 
 .publicPrivate {
   margin-right: 30px;
+  margin-top: 10px;
   display: flex;
   width: 100%;
   justify-content: flex-end;
