@@ -1,13 +1,13 @@
 
 import './Friend.css'
-import PendingRequests from '../FriendRequests/PendingRequests/PendingRequests';
+
 
 
 const Friend = ({friend}) => {
   return ( 
     <>
     <div className='friend-card'>
-      <div className='friend-avatar'>{friend.avatar}</div>
+      {/* <div className='friend-avatar'>{friend.photo}</div> */}
       <p>{friend.name}</p>
       <p className='friend-status'>{friend.currentStatus}</p>
     </div>
