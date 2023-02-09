@@ -78,6 +78,10 @@ const FriendList = ({user}) => {
         <PendingRequests friends={friends} setFriends={setFriends}/>
       </div>
       <div className='friends-section'>
+      <div className='friend-section-header'>
+          <p>Friend</p>
+          <p>Current Status</p>
+      </div>
         {friends.length !== 0 ?
         friends.map((friend) => {
           return (

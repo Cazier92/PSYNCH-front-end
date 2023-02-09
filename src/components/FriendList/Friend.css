@@ -5,11 +5,14 @@
 .friend-card {
   display: flex;
   flex-direction: row;
+  justify-content: center;
+  align-items: center;
   background-color: rgb(209, 208, 208);
   margin-bottom: 0.5em;
   margin: 0.5em 0;
-  padding: 0.5em 0.8em;
+  padding: 0.8em 0.8em;
   max-width: 12em;
+  min-height: 3em;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
 }
 
@@ -18,8 +21,6 @@
  display: flex;
  justify-content: center;
  align-items: center;
- background-color: blue;
- /* margin-right: 10px; */
 }
 
 
@@ -37,13 +38,14 @@
 .friend-title-container{
   display: flex;
   flex-direction: column;
-  background-color: red;
+  /* background-color: red; */
   align-items: flex-start;
   justify-content: flex-start;
   padding-left: 1em;
   /* min-width: 50%;
   max-width: 50%; */
   height: 100%;
+  
 }
 
 
@@ -53,25 +55,29 @@
   align-items: center;
   min-width: 10em;
   max-width: 10em;
+  
 }
 
 .friend-name{
-  font-size: 1em;
+  font-size: 15px;
+  font-weight: 500;
   max-width: 5em;
   text-align: left;
+  margin-bottom: 2px;
+  
 }
 
 .friend-sub{
-  font-size: 15px;
+  font-size: 13px;
 }
 
 .friend-container3{
   display: flex;
   flex-direction: row;
   justify-content: center;
-  background-color: green;
-  /* min-width: 50%;
-  max-width: 50%; */
+  text-align: center;
+  align-items: center;
+  /* background-color: green; */
   min-width: 30%;
   height: 100%;
   font-size: 10px;
