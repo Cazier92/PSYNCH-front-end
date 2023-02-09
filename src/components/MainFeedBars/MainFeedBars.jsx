@@ -35,8 +35,8 @@ const MainFeedBars = ({ user}) => {
         >
         <div className='component-container' >
           <div className={`loaded-component ${
-          selectedFriendsList ? "active" : "inactive"
-        }`}>
+              selectedFriendsList ? "active" : "inactive"
+            }`}>
             <FriendList user={user} />
           </div>
         </div>
@@ -75,12 +75,22 @@ const MainFeedBars = ({ user}) => {
           selectedStats ? "statsActive" : "statsInactive"
         }`}>
           
-        <div id="ls-icon-container" className={`stats-icon ${ 
+        <div className="rs-icon-wrapper">
+          <div id="rs-icon-container" className={`stats-icon ${ 
             selectedStats ? "active" : "inactive"
           }`}
-            onClick={() => setSelectedStats(!selectedStats)}
+          onClick={() => setSelectedStats(!selectedStats)}
           >
-          <i id="ls-icon" class="fa-solid fa-chart-simple"></i>
+            <i id="rs-icon" class="fa-solid fa-chart-simple"></i>
+          </div>
+        </div>
+
+        <div className='component-container' >
+          <div className={`loaded-component ${
+              selectedFriendsList ? "active" : "inactive"
+            }`}>
+            <FriendList user={user} />
+          </div>
         </div>
         
       </div>
