@@ -70,7 +70,9 @@ const FriendList = ({user}) => {
 
   return ( 
     <>
-      <p className='page-title'>Friends</p>
+      <div className='title-container'>
+        <p className='page-title'>Friends</p>
+      </div>
       <div className='requests-section'>
         <p className='subtitle'>Requests</p>
         <PendingRequests/>

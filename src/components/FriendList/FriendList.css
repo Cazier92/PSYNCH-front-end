@@ -9,14 +9,19 @@
   
 }
 
+.title-container{
+  display: flex;
+  /* background-color: bisque; */
+  width: 100%;
+  margin-bottom: 1em;
+  
+}
+
 .page-title {
   display: flex;
-  /* width: 5em; */
   text-align: center;
   font-size: 2em;
   font-weight: 700;
-  background-color: rgb(193, 193, 193);
-  margin-bottom: 0.5em;
 }
 
 .subtitle{
@@ -26,9 +31,9 @@
 .requests-section {
   display: flex;
   flex-direction: column;
-  /* background-color: grey; */
-  padding: 1em;
+  padding: 0em 1em 1em 1em;
   border-bottom: 2px solid rgba(0, 0, 0, 0.065); 
   margin-bottom: 1em;
+  text-align: center;
 }
 
