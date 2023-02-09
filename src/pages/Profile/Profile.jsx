@@ -91,7 +91,7 @@ const Profile = ({user, allPosts, handleCreateConversation, allConversations, se
       <MainFeedBars user={user}/>
       <div className='profile-head'>
         <h1 className='profile-name'>{profile.name}</h1>
-        {/* <img src={profile.photo} alt="" /> */}
+        <img src={profile.photo} alt="" className='profile-img'/>
         <SendFriendRequest profile={profile} user={user}/>
         {conversationButton()}
 

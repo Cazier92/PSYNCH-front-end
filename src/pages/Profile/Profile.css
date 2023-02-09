@@ -9,6 +9,19 @@
   color: white;
 }
 
+.profile-img {
+  /* max-width: 8vmin;
+  border-radius: 50px; */
+  background-color: rgb(229, 229, 229);
+  margin: 1em;
+  border-radius: 50%;
+  max-width: 7em;
+  min-width: 7em;
+  max-height: 7em;
+  min-height: 7em;
+  object-fit: cover;
+}
+
 .profile-name {
   align-self: center;
 }
