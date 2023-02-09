@@ -28,7 +28,7 @@ const ChatButton = ({profile, user, neededConvo}) => {
     <>
       <button>Chat</button>
     </>
-   );
+  );
 }
- 
+
 export default ChatButton;

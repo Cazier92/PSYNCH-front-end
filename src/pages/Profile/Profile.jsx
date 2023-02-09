@@ -24,7 +24,7 @@ const Profile = ({user, allPosts, handleCreateConversation, allConversations, se
     fetchProfile()
   }, [id])
   
-  const profileConversations = allConversations.filter(conversation => conversation.members.includes(profile._id))
+  const profileConversations = allConversations.filter(conversation => conversation.members.includes(profile?._id))
   console.log(profileConversations)
   const neededConvo = profileConversations.find(conversation => conversation.members.includes(user.profile))
   useEffect(() => {
@@ -56,7 +56,7 @@ const Profile = ({user, allPosts, handleCreateConversation, allConversations, se
         )
       } else {
         return (
-          <StartConversation profile={profile} user={user} handleCreateConversation={handleCreateConversation} allConversations={allConversations} setAllConversations={setAllConversations}/>
+          <StartConversation profile={profile} user={user} handleCreateConversation={handleCreateConversation} allConversations={allConversations} setAllConversations={setAllConversations} neededConvo={neededConvo}/>
         )
       }
     }
