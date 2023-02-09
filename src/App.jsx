@@ -40,8 +40,7 @@ const App = () => {
   const [feed, setFeed] = useState([]);
   const [allPosts, setAllPosts] = useState([]);
   const [allConversations, setAllConversations] = useState([])
-  const [conversation, setConversation] = useState([])
-  // const [directMessage, setDirectMessage] = useState([])
+
 
 
   function handleLogout() {
@@ -114,13 +113,7 @@ const App = () => {
     fetchAllConversations()
   }, [])
 
-  // useEffect(() => {
-  //   const fetchConversation = async (id) => {
-  //     const conversationData = await directMessagesService.show(id)
-  //     setConversation(conversationData)
-  //   }
-  //   fetchConversation(id)
-  // }, [id])
+
 
   
 

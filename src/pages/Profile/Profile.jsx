@@ -1,4 +1,5 @@
 import * as profileService from '../../services/profileService'
+import * as directMessagesService from '../../services/directMessagesService'
 import { useState,useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
@@ -10,6 +11,9 @@ import Chat from '../../components/DirectMessages/Chat';
 const Profile = ({user, allPosts}) => {
   const {id} = useParams()
   const [profile, setProfile] = useState(null)
+  const [conversation, setConversation] = useState([])
+  const [directMessage, setDirectMessage] = useState([])
+  const [conversationId, setConversationId] = useState(null)
 
 
   useEffect(() => {
@@ -20,6 +24,15 @@ const Profile = ({user, allPosts}) => {
     }
     fetchProfile()
   }, [id])
+
+  useEffect(() => {
+    const fetchConversation = async (conversationId) => {
+      const conversationData = await directMessagesService.show(conversationId)
+      setConversation(conversationData)
+    }
+    fetchConversation(conversationId)
+  }, [conversationId, id])
+
 
   
   console.log(profile?.friends.some(friend => friend._id === user?.profile))
@@ -41,9 +54,11 @@ const Profile = ({user, allPosts}) => {
       return 
     }
     else if (profile.friends.some(friend => friend._id === user.profile)) {
-      console.log('FRIENDS')
       if (profile.messages.some(conversation => conversation.members.includes(user.profile))) {
-        <Chat profile={profile} user={user}/>
+        setConversationId(profile.messages.find(conversation => conversation.members.includes(user.profile))._id)
+        return (
+          <Chat profile={profile} user={user} conversation={conversation}/>
+        )
       } else {
         return (
           <StartConversation profile={profile} user={user}/>
