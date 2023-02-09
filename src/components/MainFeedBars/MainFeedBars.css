@@ -20,14 +20,25 @@
   right ease 400ms;
 }
 
-.component-container{
-  background-color: red;
+.component-container-left{
+  /* background-color: red; */
   width: 100%;
   height: 100vh;
   box-shadow: 
   rgba(17, 17, 26, 0.05) 0px 1px 0px,
   rgba(17, 17, 26, 0.1) 0px 0px 8px;
   clip-path: inset(0px -5px 0px 0px);
+}
+
+.component-container-right{
+  /* background-color: red; */
+  width: 100%;
+  height: 100vh;
+  margin-left: -50px;
+  box-shadow: 
+  rgba(17, 17, 26, 0.05) 0px 1px 0px,
+  rgba(17, 17, 26, 0.1) 0px 0px 8px;
+  clip-path: inset(0px 0px 0px -5px);
 }
 
 .loaded-component{
@@ -48,7 +59,7 @@
 .ls-icon-wrapper {
   display: flex;
   flex-direction: column;
-  background-color: aquamarine;
+  /* background-color: aquamarine; */
   padding-top: 40px;
   gap: 2em;
   
@@ -122,8 +133,8 @@
 .rs-icon-wrapper {
   display: flex;
   flex-direction: column;
-  background-color: aquamarine;
-  margin-top: 40px;
+  /* background-color: aquamarine; */
+  padding-top: 40px;
   gap: 2em;
 }
 
@@ -147,6 +158,7 @@
   justify-content: flex-end;
   gap: 1em;
   flex-direction: row;
+  flex-wrap: wrap;
 
   background-color: rgb(203, 106, 27);
 }
@@ -162,7 +174,7 @@
  right: -270px;
 }
 
-.right-sidebar.stats:hover{
+.right-sidebar.statsInactive:hover{
  right: -265px;
 }
 

@@ -34,7 +34,7 @@ const MainFeedBars = ({ user, allPosts}) => {
           selectedFriendsList ? "friendsActive" : "friendsInactive"
         }`}
         >
-        <div className='component-container' >
+        <div className='component-container-left' >
           <div className={`loaded-component ${
               selectedFriendsList ? "active" : "inactive"
             }`}>
@@ -86,7 +86,7 @@ const MainFeedBars = ({ user, allPosts}) => {
           </div>
         </div>
 
-        <div className='component-container' >
+        <div className='component-container-right' >
           <div className={`loaded-component ${
               selectedStats ? "active" : "inactive"
             }`}>
