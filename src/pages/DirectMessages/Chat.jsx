@@ -6,7 +6,7 @@ import * as directMessagesService from '../../services/directMessagesService'
 import SendMessage from "../../components/DirectMessages/SendMessage";
 
 
-const Chat = (props) => {
+const Chat = ({}) => {
   const {conversationId} = useParams()
   const [conversation, setConversation] = useState([])
   const [messages, setMessages] = useState([])
@@ -25,7 +25,7 @@ const Chat = (props) => {
     setMessages(conversation.messages)
   }, [conversation, conversationId])
 
-  console.log(messages)
+  // console.log(messages)
 
   const handleSendMessage = async (id, messageData) => {
     const newMessage = await directMessagesService.sendMessage(conversationId, messageData)
