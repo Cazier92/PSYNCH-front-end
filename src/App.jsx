@@ -56,7 +56,7 @@ const App = () => {
 
   const handleAddPost = async (postData) => {
     const newPost = await emotionPostService.create(postData);
-    if (newPost.publc) {
+    if (newPost.public) {
       setPosts([newPost, ...posts]);
     } else {
       setPrivatePosts([newPost, ...privatePosts]);
