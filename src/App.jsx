@@ -16,6 +16,7 @@ import PendingRequests from "./components/FriendRequests/PendingRequests/Pending
 import PostDetails from "./pages/PostDetails/PostDetails";
 import FriendList from "./components/FriendList/FriendList";
 import EditComment from "./pages/EditComment/EditComment";
+import Chat from "./pages/DirectMessages/Chat";
 
 // components
 import NavBar from "./components/NavBar/NavBar";
@@ -214,10 +215,10 @@ const App = () => {
           }
         />
         <Route
-          path="/profile/:id/chat"
+          path="/chat/:conversationId"
           element={
             <ProtectedRoute user={user}>
-              <Profile user={user} allPosts={allPosts} handleCreateConversation={handleCreateConversation} allConversations={allConversations} setAllConversations={setAllConversations}/>
+              <Chat />
             </ProtectedRoute>
           }
         />

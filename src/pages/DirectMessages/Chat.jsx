@@ -1,31 +1,30 @@
+import { useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+
 import * as directMessagesService from '../../services/directMessagesService'
-import { useState, useEffect } from 'react';
 
 
-const Chat = ({profile, user, neededConvo}) => {
-  const [conversationId, setConversationId] = useState(null)
+const Chat = (props) => {
+  const {conversationId} = useParams()
   const [conversation, setConversation] = useState([])
-  
-  useEffect(() => {
-    setConversationId(neededConvo._id)
-  }, [neededConvo])
-  
-  console.log('CONVERSATION ID:', conversationId)
 
-    useEffect(() => {
+    
+  useEffect(() => {
     const fetchConversation = async () => {
       const conversationData = await directMessagesService.show(conversationId)
       setConversation(conversationData)
       // console.log(conversationData)
     }
     fetchConversation()
-  }, [profile, user, neededConvo, conversationId])
+  }, [])
 
-  console.log('CONVERSATION:', conversation)
+  console.log(conversationId)
+  console.log(conversation.members)
+
 
   return ( 
     <>
-      <button>Chat</button>
+
     </>
    );
 }
