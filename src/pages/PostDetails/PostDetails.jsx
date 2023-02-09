@@ -64,7 +64,6 @@ const PostDetails = ({ user, handleDeletePost, posts }) => {
     fetchPost();
   }, [id]);
 
-
   return post ? (
     <div className={styles.mainContainer}>
       <main className={styles.container}>
@@ -73,7 +72,9 @@ const PostDetails = ({ user, handleDeletePost, posts }) => {
             className={styles.postHeaders}
             style={{ backgroundColor: decideColor() }}
           >
-            <div className="post-avatar">{post.author.avatar}</div>
+            <div>
+              <img className="post-avatar" src={post.author.photo} alt="" />
+            </div>
             <h2>{post.author.name}</h2>
           </div>
           <h2>{post.content}</h2>
@@ -217,42 +218,54 @@ const PostDetails = ({ user, handleDeletePost, posts }) => {
                           return (
                             <div className={styles.reactCount}>
                               <i className="fa-solid fa-heart ex-reaction"></i>
-                              {count}
+                              <div className={styles.countContainer}>
+                                {count}
+                              </div>
                             </div>
                           );
                         case "Like":
                           return (
                             <div className={styles.reactCount}>
                               <i className="fa-solid fa-thumbs-up ex-reaction"></i>
-                              {count}
+                              <div className={styles.countContainer}>
+                                {count}
+                              </div>
                             </div>
                           );
                         case "Celebrate":
                           return (
                             <div className={styles.reactCount}>
                               <i className="fa-solid fa-champagne-glasses ex-reaction"></i>
-                              {count}
+                              <div className={styles.countContainer}>
+                                {count}
+                              </div>
                             </div>
                           );
                         case "Support":
                           return (
                             <div className={styles.reactCount}>
                               <i className="fa-solid fa-hand-holding-medical ex-reaction"></i>
-                              {count}
+                              <div className={styles.countContainer}>
+                                {count}
+                              </div>
                             </div>
                           );
                         case "Funny":
                           return (
                             <div className={styles.reactCount}>
                               <i className="fa-solid fa-face-grin-tears ex-reaction"></i>
-                              {count}
+                              <div className={styles.countContainer}>
+                                {count}
+                              </div>
                             </div>
                           );
                         case "Curious":
                           return (
                             <div className={styles.reactCount}>
                               <i className="fa-solid fa-lightbulb ex-reaction"></i>
-                              {count}
+                              <div className={styles.countContainer}>
+                                {count}
+                              </div>
                             </div>
                           );
                         default:
