@@ -8,11 +8,11 @@ const Friend = ({friend}) => {
     <>
     <div className='friend-card'>
       <img
-        className="post-avatar"
+        className="friend-avatar"
         src={friend.photo}
         alt="profile img"
       />
-      <p>{friend.name}</p>
+      <p className='friend-name'>{friend.name}</p>
       <p className='friend-status'>{friend.currentStatus}</p>
     </div>
     
