@@ -17,7 +17,6 @@ const PendingRequests = (props) => {
     fetchRequests()
   }, [])
 
-console.log(requests)
 
   return ( 
     <>
