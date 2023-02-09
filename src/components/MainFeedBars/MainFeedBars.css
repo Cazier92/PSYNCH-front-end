@@ -10,7 +10,7 @@
   display: flex;
   flex-direction: column;
   margin-top: 4em;
-  padding: 30px;
+  padding: 30px 30px;
   background-color: rgb(255, 255, 255);
   height: 100vh;
   width: 320px;
@@ -46,7 +46,7 @@
   display: flex;
   flex-direction: column;
   /* background-color: aquamarine; */
-  padding-left: 0.5em;
+  padding-top: 40px;
   gap: 2em;
   
 }
@@ -84,6 +84,7 @@
   text-align: center;
   align-items: center;
   justify-content: center;
+  padding-top: 2e;
   width: 3em;
   height: 3em;
   border-radius: 50px;
@@ -92,7 +93,8 @@
 }
 
 .friends-list-icon.active,
-.home-icon.active {
+.home-icon.active,
+.stats-icon.active {
   background-color: rgb(233, 233, 233);
   box-shadow: 
   rgba(67, 71, 85, 0.27) 0px 0px 0.25em inset, 
@@ -100,7 +102,8 @@
 }
 
 .friends-list-icon.inactive,
-.home-icon.inactive{
+.home-icon.inactive,
+.stats-icon.inactive{
   background-color: 0;
   box-shadow: 0;
 }
@@ -124,9 +127,18 @@
   gap: 5em;
 }
 
-/* .right-sidebar:hover{
-  right: -265px;
- } */
+
+ .right-sidebar.statsActive{
+  right: 0;
+}
+
+.right-sidebar.statsInactive{
+ right: -270px;
+}
+
+.right-sidebar.stats:hover{
+ right: -265px;
+}
 
 .bottom-sidebar {  
   position: fixed;

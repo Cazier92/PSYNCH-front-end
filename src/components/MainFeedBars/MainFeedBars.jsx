@@ -19,6 +19,9 @@ const MainFeedBars = ({ user}) => {
   let [selectedFriendsList, setSelectedFriendsList] = useState(false);
   let [selectedHome, setSelectedHome] = useState(true);
 
+
+  let [selectedStats, setSelectedStats] = useState(false)
+
   // console.log("Global:", selectedGlobal)
   // console.log("Friends:", selectedFriends)
 
@@ -66,8 +69,14 @@ const MainFeedBars = ({ user}) => {
         </div>
       </div>
 
-      <div className="right-sidebar">
-        <div id="ls-icon-container">
+      <div className={`right-sidebar ${
+          selectedStats ? "statsActive" : "statsInactive"
+        }`}>
+        <div id="ls-icon-container" className={`stats-icon ${ 
+            selectedStats ? "active" : "inactive"
+          }`}
+            onClick={() => setSelectedStats(!selectedStats)}
+          >
           <i id="ls-icon" class="fa-solid fa-chart-simple"></i>
         </div>
       </div>
