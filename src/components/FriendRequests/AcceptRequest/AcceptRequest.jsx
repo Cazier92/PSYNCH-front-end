@@ -1,13 +1,14 @@
 import * as profileService from '../../../services/profileService'
 
 
-const AcceptRequest = ({id, requests, setRequests}) => {
+const AcceptRequest = ({id, requests, setRequests, friends, setFriends}) => {
 
-  const handleAcceptRequest = () => {
-    profileService.acceptRequest(id)
+  const handleAcceptRequest = async () => {
+    const newFriend = await profileService.acceptRequest(id)
     setRequests(requests.filter((request) => 
       request._id !== id
     ))
+    setFriends({...friends, newFriend})
   }
 
   return ( 
