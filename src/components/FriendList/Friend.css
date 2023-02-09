@@ -6,13 +6,13 @@
   display: flex;
   flex-direction: row;
   background-color: rgb(209, 208, 208);
-  width: 100;
+  width: 100%;
   height: 5em;
   margin-bottom: 0.5em;
-  border-radius: 2em;
+ 
 }
 
-.friend-avatar-container{
+.friend-container1{
  display: flex;
  justify-content: center;
  align-items: center;
@@ -45,11 +45,11 @@
 }
 
 
-.friend-info-container{
+.friend-container2{
   display: flex;
   justify-content:space-between;
   align-items: center;
-  min-width: 10em;
+  min-width: 100%;
   max-width: 10em;
 }
 
@@ -57,7 +57,7 @@
   font-size: 1em;
 }
 
-.friend-status-container{
+.friend-container3{
   display: flex;
   flex-direction: row;
   background-color: green;
