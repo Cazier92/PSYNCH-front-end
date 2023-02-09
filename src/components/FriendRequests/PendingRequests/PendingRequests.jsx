@@ -24,16 +24,24 @@ const PendingRequests = (props) => {
         return(
           <>
           <div className='request-card'>
-            <p>{request.name}</p>
-            <AcceptRequest id={request._id} setRequests={setRequests} requests={requests}/>
-            <DenyRequest id={request._id} setRequests={setRequests} requests={requests}/>
+            <div className='request-name'>
+              <p>{request.name}</p>
+            </div>
+            <div className='action-btns'>
+              <div>
+                <AcceptRequest id={request._id} setRequests={setRequests} requests={requests}/>
+              </div>
+              <div>
+                <DenyRequest id={request._id} setRequests={setRequests} requests={requests}/>
+              </div>
+            </div>
           </div>
           
           </>
         )
       })
     :
-    <p>No requests.</p>
+    <p className='placeholder-text'>No Requests</p>
     }
     </>
   );
