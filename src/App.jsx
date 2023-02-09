@@ -248,7 +248,7 @@ const App = () => {
           path="/chat/:conversationId"
           element={
             <ProtectedRoute user={user}>
-              <Chat handleCreateNotification={handleCreateNotification} newNotificationId={newNotificationId}/>
+              <Chat handleCreateNotification={handleCreateNotification} newNotificationId={newNotificationId} user={user}/>
             </ProtectedRoute>
           }
         />
