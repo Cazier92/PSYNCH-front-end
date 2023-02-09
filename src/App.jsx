@@ -81,6 +81,7 @@ const App = () => {
     setAllConversations([newConversation, ...allConversations])
   }
 
+
   useEffect(() => {
     const fetchPosts = async () => {
       const postData = await emotionPostService.index();
