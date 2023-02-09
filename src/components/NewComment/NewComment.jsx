@@ -26,7 +26,7 @@ const NewComment = ({ handleAddComment }) => {
         placeholder="Add a comment"
         onChange={handleChange}
       ></textarea>
-      <button id="comment-submit" type="submit">Comment</button>
+      <button className={styles.commentSubmit} id="comment-submit" type="submit">Comment</button>
     </form>
   );
 };
