@@ -55,7 +55,7 @@ nav {
 }
 
 .menu-btn.active {
-  background-color: rgb(239, 239, 239);
+  background-color: var(--dark-color);
 
 }
 .menu-btn.inactive {
