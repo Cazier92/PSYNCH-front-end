@@ -54,6 +54,7 @@ nav {
 
 .menu-btn.active {
   background-color: var(--dark-color);
+
 }
 .menu-btn.inactive {
   background-color: var(--light-color);
