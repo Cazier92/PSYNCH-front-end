@@ -129,6 +129,7 @@
 
 #rs-icon {
   transform: scale(1.5);
+  color: var(--dark-color);
 }
 
 .rs-icon-wrapper {
