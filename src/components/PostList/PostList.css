@@ -16,3 +16,12 @@
   padding-top: 1em;
   margin-bottom: 0;
 }
+
+@media screen and (max-width: 900px) {
+  .layout {
+    max-width: 100vw;
+  }
+  .main-feed {
+    max-width: 100vw;
+  }
+}
