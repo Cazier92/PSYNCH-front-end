@@ -1,6 +1,8 @@
 
 import styles from './StatsPage.module.css'
 
+import MainFeedBars from '../../components/MainFeedBars/MainFeedBars'
+
 const StatsPage = ({ user, allPosts, userProfile }) => {
 
   const userPosts = allPosts?.filter(post => post.author._id === user.profile)
@@ -199,21 +201,26 @@ const StatsPage = ({ user, allPosts, userProfile }) => {
   
   return ( 
     <>
+    <MainFeedBars user={user} userProfile={userProfile}/>
     <main className={styles.statsMain}>
-      <div className={styles.statsList}>
-      <h1>Stats:</h1>
-        <h5>Down Posts: {downCount}</h5>
-        <h5>Fearful Posts: {fearfulCount}</h5>
-        <h5>Angry Posts: {angryCount}</h5>
-        <h5>Disgusted Posts: {disgustedCount}</h5>
-        <h5>Sad Posts: {sadCount}</h5>
-        <h5>Happy Posts:{happyCount}</h5>
-        <h5>Surprised Posts: {surprisedCount}</h5>
-      </div>
-      <div className={styles.topThreeStats}>
-        <h2>Breakdown:</h2>
-        <h5>Top Three:</h5>
-        {findTopThree()}
+      <div className={styles.allStats}>
+        <div className={styles.statsList}>
+        <h1>Stats:</h1>
+          <h4>Total Posts: {postCount}</h4>
+          <h5>Down Posts: {downCount}</h5>
+          <h5>Fearful Posts: {fearfulCount}</h5>
+          <h5>Angry Posts: {angryCount}</h5>
+          <h5>Disgusted Posts: {disgustedCount}</h5>
+          <h5>Sad Posts: {sadCount}</h5>
+          <h5>Happy Posts:{happyCount}</h5>
+          <h5>Surprised Posts: {surprisedCount}</h5>
+        </div>
+        <div className={styles.topThreeStats}>
+          <h2>Breakdown:</h2>
+          <h5>Top Three:</h5>
+          {findTopThree()}
+        </div>
+
       </div>
     </main>
     </>
