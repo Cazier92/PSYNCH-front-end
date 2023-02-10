@@ -2,7 +2,9 @@ import { useState } from "react";
 import { useLocation } from "react-router-dom";
 import styles from "./EditPost.module.css";
 
-const EditPost = ({ handleUpdatePost, userProfile }) => {
+import MainFeedBars from "../../components/MainFeedBars/MainFeedBars";
+
+const EditPost = ({ handleUpdatePost, userProfile, user, allPosts }) => {
   const { state } = useLocation();
   const [form, setForm] = useState(state);
 
@@ -17,6 +19,8 @@ const EditPost = ({ handleUpdatePost, userProfile }) => {
   };
 
   return (
+    <>
+    <MainFeedBars allPosts={allPosts} user={user} userProfile={userProfile}/>
     <div className={styles.mainContainer}>
       <div className={styles.container}>
         <h1>What's on your mind today?</h1>
@@ -182,6 +186,7 @@ const EditPost = ({ handleUpdatePost, userProfile }) => {
         </form>
       </div>
     </div>
+    </>
   );
 };
 

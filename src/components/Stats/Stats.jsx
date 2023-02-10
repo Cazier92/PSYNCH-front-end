@@ -1,7 +1,18 @@
+import { useEffect, useState } from "react";
+
 const Stats = ({ user, allPosts, userProfile }) => {
-  const userPosts = allPosts?.filter(
-    (post) => post.author._id === user.profile
-  );
+  const [userPosts, setUserPosts] = useState([])
+
+
+  useEffect(() => {
+    // const userPosts = allPosts?.filter(
+    //   (post) => post.author._id === user.profile
+    // );
+    setUserPosts(allPosts?.filter(
+      (post) => post.author._id === user.profile
+    ))
+    
+  }, [allPosts, user])
 
   let postCount = 0;
   let emotions = [];
@@ -24,6 +35,9 @@ const Stats = ({ user, allPosts, userProfile }) => {
     postCount++;
     emotions.push(post.emotion);
   });
+
+    console.log('allPosts:', allPosts)
+  // console.log('USERPOSTS:', userPosts)
 
   let emotionCount = emotions.reduce(function (prev, emotion) {
     if (prev[emotion]) {
@@ -130,6 +144,9 @@ const Stats = ({ user, allPosts, userProfile }) => {
     happyPercentage,
     surprisedPercentage,
   ];
+
+  console.log(postCount)
+  // console.log(emotionPercentagesArr)
 
   const emotionPercentagesObj = {
     Down: downPercentage,
