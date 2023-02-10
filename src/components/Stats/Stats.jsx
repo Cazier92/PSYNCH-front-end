@@ -221,6 +221,7 @@ const Stats = ({ user, allPosts, userProfile }) => {
           <h2>Breakdown:</h2>
           <h5>Top Three:</h5>
           {findTopThree()}
+          <h4>Current Status: {currentStatus}</h4>
         </div>
 
       </div>

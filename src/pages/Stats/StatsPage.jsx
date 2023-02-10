@@ -4,6 +4,7 @@ import styles from './StatsPage.module.css'
 import MainFeedBars from '../../components/MainFeedBars/MainFeedBars'
 
 const StatsPage = ({ user, allPosts, userProfile }) => {
+  const currentStatus = userProfile.currentStatus
 
   const userPosts = allPosts?.filter(post => post.author._id === user.profile)
 
@@ -219,6 +220,7 @@ const StatsPage = ({ user, allPosts, userProfile }) => {
           <h2>Breakdown:</h2>
           <h5>Top Three:</h5>
           {findTopThree()}
+          <h4>Current Status: {currentStatus}</h4>
         </div>
 
       </div>
