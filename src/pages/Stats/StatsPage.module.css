@@ -2,16 +2,21 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-self: flex-end;
   min-width: 100vw;
   min-height: 100vh;
+  margin: 0;
+  top: 0;
   background: rgb(0,0,0);
   background: linear-gradient(90deg, var(--light-color) 0%, rgba(239, 246, 255, 0.347) 50%, var(--light-color) 100%);
 }
 
 .statsList {
   margin: 0;
+  top: 0;
+  
 }
 
 .topThreeStats {
-
+  margin-top: 5vmin;
 }
