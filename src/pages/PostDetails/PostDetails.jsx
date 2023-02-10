@@ -67,262 +67,250 @@ const PostDetails = ({ user, handleDeletePost, posts, userProfile }) => {
 
   return post ? (
     <>
-    <MainFeedBars user={user} userProfile={userProfile}/>
-    <div className={styles.mainContainer}>
-      <main className={styles.container}>
-        <div className={styles.postDetailCard}>
-          <div
-            className={styles.postHeaders}
-            style={{ backgroundColor: decideColor() }}
-          >
-            <div>
-              <img className="post-avatar" src={post.author.photo} alt="" />
-            </div>
-            <h2>{post.author.name}</h2>
-          </div>
-          <h2>{post.content}</h2>
-          <p>{post.emotion}</p>
-          <div className={styles.emotions}>
-            <div className={styles.emotions}>
-              {post.emotion === "Bored" && (
-                <span role="img" aria-label="Bored">
-                  😒
-                </span>
-              )}
-              {post.emotion === "Stressed" && (
-                <span role="img" aria-label="Stressed">
-                  😫
-                </span>
-              )}
-              {post.emotion === "Tired" && (
-                <span role="img" aria-label="Tired">
-                  😴
-                </span>
-              )}
-              {post.emotion === "Anxious" && (
-                <span role="img" aria-label="Anxious">
-                  😰
-                </span>
-              )}
-              {post.emotion === "Rejected" && (
-                <span role="img" aria-label="Rejected">
-                  😔
-                </span>
-              )}
-              {post.emotion === "Scared" && (
-                <span role="img" aria-label="Scared">
-                  😱
-                </span>
-              )}
-              {post.emotion === "Mad" && (
-                <span role="img" aria-label="Mad">
-                  😠
-                </span>
-              )}
-              {post.emotion === "Jealous" && (
-                <span role="img" aria-label="Jealous">
-                  😒
-                </span>
-              )}
-              {post.emotion === "Betrayed" && (
-                <span role="img" aria-label="Betrayed">
-                  🤕
-                </span>
-              )}
-              {post.emotion === "Embarrassed" && (
-                <span role="img" aria-label="Embarrassed">
-                  😳
-                </span>
-              )}
-              {post.emotion === "Disgusted" && (
-                <span role="img" aria-label="Disgusted">
-                  🤢
-                </span>
-              )}
-              {post.emotion === "Lonely" && (
-                <span role="img" aria-label="Lonely">
-                  😞
-                </span>
-              )}
-              {post.emotion === "Guilty" && (
-                <span role="img" aria-label="Guilty">
-                  😔
-                </span>
-              )}
-              {post.emotion === "Hurt" && (
-                <span role="img" aria-label="Hurt">
-                  😢
-                </span>
-              )}
-              {post.emotion === "Optimistic" && (
-                <span role="img" aria-label="Optimistic">
-                  😃
-                </span>
-              )}
-              {post.emotion === "Peaceful" && (
-                <span role="img" aria-label="Peaceful">
-                  😌
-                </span>
-              )}
-              {post.emotion === "Powerful" && (
-                <span role="img" aria-label="Powerful">
-                  😎
-                </span>
-              )}
-              {post.emotion === "Accepted" && (
-                <span role="img" aria-label="Accepted">
-                  😊
-                </span>
-              )}
-              {post.emotion === "Joyful" && (
-                <span role="img" aria-label="Joyful">
-                  😊
-                </span>
-              )}
-              {post.emotion === "Startled" && (
-                <span role="img" aria-label="Joyful">
-                  😬
-                </span>
-              )}
-              {post.emotion === "Confused" && (
-                <span role="img" aria-label="Joyful">
-                  🤔
-                </span>
-              )}
-              {post.emotion === "Excited" && (
-                <span role="img" aria-label="Joyful">
-                  🤩
-                </span>
-              )}
-              {post.emotion === "Amazed" && (
-                <span role="img" aria-label="Joyful">
-                  😆
-                </span>
-              )}
-            </div>
-          </div>
-          <div
-            className={styles.reactionContainer}
-            style={{ backgroundColor: decideColor() }}
-          >
-            {post.reactions.length
-              ? (() => {
-                  const reactionCount = post.reactions.reduce(
-                    (count, reaction) => {
-                      count[reaction.reaction] = count[reaction.reaction]
-                        ? count[reaction.reaction] + 1
-                        : 1;
-                      return count;
-                    },
-                    {}
-                  );
-
-                  return Object.entries(reactionCount).map(
-                    ([reaction, count]) => {
-                      switch (reaction) {
-                        case "Love":
-                          return (
-                            <div className={styles.reactCount}>
-                              <i className="fa-solid fa-heart ex-reaction"></i>
-                              <div className={styles.countContainer}>
-                                {count}
-                              </div>
-                            </div>
-                          );
-                        case "Like":
-                          return (
-                            <div className={styles.reactCount}>
-                              <i className="fa-solid fa-thumbs-up ex-reaction"></i>
-                              <div className={styles.countContainer}>
-                                {count}
-                              </div>
-                            </div>
-                          );
-                        case "Celebrate":
-                          return (
-                            <div className={styles.reactCount}>
-                              <i className="fa-solid fa-champagne-glasses ex-reaction"></i>
-                              <div className={styles.countContainer}>
-                                {count}
-                              </div>
-                            </div>
-                          );
-                        case "Support":
-                          return (
-                            <div className={styles.reactCount}>
-                              <i className="fa-solid fa-hand-holding-medical ex-reaction"></i>
-                              <div className={styles.countContainer}>
-                                {count}
-                              </div>
-                            </div>
-                          );
-                        case "Funny":
-                          return (
-                            <div className={styles.reactCount}>
-                              <i className="fa-solid fa-face-grin-tears ex-reaction"></i>
-                              <div className={styles.countContainer}>
-                                {count}
-                              </div>
-                            </div>
-                          );
-                        case "Curious":
-                          return (
-                            <div className={styles.reactCount}>
-                              <i className="fa-solid fa-lightbulb ex-reaction"></i>
-                              <div className={styles.countContainer}>
-                                {count}
-                              </div>
-                            </div>
-                          );
-                        default:
-                          return null;
-                      }
-                    }
-                  );
-                })()
-              : "No reaction yet!"}
-          </div>
-
-          <div className={styles.publicPrivate}>
-            <p>
-              {post.public ? (
-                <i class="fa-solid fa-earth-americas"></i>
-              ) : (
-                <i class="fa-solid fa-lock"></i>
-              )}
-            </p>
-          </div>
-          {post.author._id === user.profile && (
-            <>
-              <div className={styles.buttonContainer}>
-                <Link to={`/emotionPosts/${id}/edit`} state={post}>
-                  <button>
-                    <i class="fa-solid fa-pen-to-square"></i>
-                  </button>
-                </Link>
-                <button onClick={() => handleDeletePost(id)}>
-                  <i class="fa-solid fa-trash"></i>
-                </button>
+      <MainFeedBars user={user} userProfile={userProfile} />
+      <div className={styles.mainContainer}>
+        <main className={styles.container}>
+          <div className={styles.postDetailCard}>
+            <div
+              className={styles.postHeaders}
+              style={{ backgroundColor: decideColor() }}
+            >
+              <div>
+                <img className="post-avatar" src={post.author.photo} alt="" />
               </div>
-            </>
-          )}
-        </div>
-      </main>
-      <section>
-        <NewComment handleAddComment={handleAddComment} />
-        <Comments
-          post={post}
-          comments={post.comments}
-          user={user}
-          postId={id}
-          handleDeleteComment={handleDeleteComment}
-        />
-      </section>
-    </div>
+              <h2>{post.author.name}</h2>
+            </div>
+            <h2>{post.content}</h2>
+            <p>{post.emotion}</p>
+            <div className={styles.emotions}>
+              <div className={styles.emotions}>
+                {post.emotion === "Bored" && (
+                  <span role="img" aria-label="Bored">
+                    😒
+                  </span>
+                )}
+                {post.emotion === "Stressed" && (
+                  <span role="img" aria-label="Stressed">
+                    😫
+                  </span>
+                )}
+                {post.emotion === "Tired" && (
+                  <span role="img" aria-label="Tired">
+                    😴
+                  </span>
+                )}
+                {post.emotion === "Anxious" && (
+                  <span role="img" aria-label="Anxious">
+                    😰
+                  </span>
+                )}
+                {post.emotion === "Rejected" && (
+                  <span role="img" aria-label="Rejected">
+                    😔
+                  </span>
+                )}
+                {post.emotion === "Scared" && (
+                  <span role="img" aria-label="Scared">
+                    😱
+                  </span>
+                )}
+                {post.emotion === "Mad" && (
+                  <span role="img" aria-label="Mad">
+                    😠
+                  </span>
+                )}
+                {post.emotion === "Jealous" && (
+                  <span role="img" aria-label="Jealous">
+                    😒
+                  </span>
+                )}
+                {post.emotion === "Betrayed" && (
+                  <span role="img" aria-label="Betrayed">
+                    🤕
+                  </span>
+                )}
+                {post.emotion === "Embarrassed" && (
+                  <span role="img" aria-label="Embarrassed">
+                    😳
+                  </span>
+                )}
+                {post.emotion === "Disgusted" && (
+                  <span role="img" aria-label="Disgusted">
+                    🤢
+                  </span>
+                )}
+                {post.emotion === "Lonely" && (
+                  <span role="img" aria-label="Lonely">
+                    😞
+                  </span>
+                )}
+                {post.emotion === "Guilty" && (
+                  <span role="img" aria-label="Guilty">
+                    😔
+                  </span>
+                )}
+                {post.emotion === "Hurt" && (
+                  <span role="img" aria-label="Hurt">
+                    😢
+                  </span>
+                )}
+                {post.emotion === "Optimistic" && (
+                  <span role="img" aria-label="Optimistic">
+                    😃
+                  </span>
+                )}
+                {post.emotion === "Peaceful" && (
+                  <span role="img" aria-label="Peaceful">
+                    😌
+                  </span>
+                )}
+                {post.emotion === "Powerful" && (
+                  <span role="img" aria-label="Powerful">
+                    😎
+                  </span>
+                )}
+                {post.emotion === "Accepted" && (
+                  <span role="img" aria-label="Accepted">
+                    😊
+                  </span>
+                )}
+                {post.emotion === "Joyful" && (
+                  <span role="img" aria-label="Joyful">
+                    😊
+                  </span>
+                )}
+                {post.emotion === "Startled" && (
+                  <span role="img" aria-label="Joyful">
+                    😬
+                  </span>
+                )}
+                {post.emotion === "Confused" && (
+                  <span role="img" aria-label="Joyful">
+                    🤔
+                  </span>
+                )}
+                {post.emotion === "Excited" && (
+                  <span role="img" aria-label="Joyful">
+                    🤩
+                  </span>
+                )}
+                {post.emotion === "Amazed" && (
+                  <span role="img" aria-label="Joyful">
+                    😆
+                  </span>
+                )}
+              </div>
+            </div>
+            <div
+              className={styles.reactionContainer}
+              style={{ backgroundColor: decideColor() }}
+            >
+              {post.reactions.length
+                ? (() => {
+                    const reactionCount = post.reactions.reduce(
+                      (count, reaction) => {
+                        count[reaction.reaction] = count[reaction.reaction]
+                          ? count[reaction.reaction] + 1
+                          : 1;
+                        return count;
+                      },
+                      {}
+                    );
+
+                    return Object.entries(reactionCount).map(
+                      ([reaction, count]) => {
+                        switch (reaction) {
+                          case "Love":
+                            return (
+                              <div className={styles.reactCount}>
+                                <i className="fa-solid fa-heart ex-reaction"></i>
+                                <div>{count}</div>
+                              </div>
+                            );
+                          case "Like":
+                            return (
+                              <div className={styles.reactCount}>
+                                <i className="fa-solid fa-thumbs-up ex-reaction"></i>
+                                <div>{count}</div>
+                              </div>
+                            );
+                          case "Celebrate":
+                            return (
+                              <div className={styles.reactCount}>
+                                <i className="fa-solid fa-champagne-glasses ex-reaction"></i>
+                                <div>{count}</div>
+                              </div>
+                            );
+                          case "Support":
+                            return (
+                              <div className={styles.reactCount}>
+                                <i className="fa-solid fa-hand-holding-medical ex-reaction"></i>
+                                <div>{count}</div>
+                              </div>
+                            );
+                          case "Funny":
+                            return (
+                              <div className={styles.reactCount}>
+                                <i className="fa-solid fa-face-grin-tears ex-reaction"></i>
+                                <div>{count}</div>
+                              </div>
+                            );
+                          case "Curious":
+                            return (
+                              <div className={styles.reactCount}>
+                                <i className="fa-solid fa-lightbulb ex-reaction"></i>
+                                <div>{count}</div>
+                              </div>
+                            );
+                          default:
+                            return null;
+                        }
+                      }
+                    );
+                  })()
+                : "No reaction yet!"}
+            </div>
+
+            <div className={styles.publicPrivate}>
+              <p>
+                {post.public ? (
+                  <i class="fa-solid fa-earth-americas"></i>
+                ) : (
+                  <i class="fa-solid fa-lock"></i>
+                )}
+              </p>
+            </div>
+            {post.author._id === user.profile && (
+              <>
+                <div className={styles.buttonContainer}>
+                  <Link to={`/emotionPosts/${id}/edit`} state={post}>
+                    <button>
+                      <i class="fa-solid fa-pen-to-square"></i>
+                    </button>
+                  </Link>
+                  <button onClick={() => handleDeletePost(id)}>
+                    <i class="fa-solid fa-trash"></i>
+                  </button>
+                </div>
+              </>
+            )}
+          </div>
+        </main>
+        <section>
+          <NewComment handleAddComment={handleAddComment} />
+          <Comments
+            post={post}
+            comments={post.comments}
+            user={user}
+            postId={id}
+            handleDeleteComment={handleDeleteComment}
+          />
+        </section>
+      </div>
     </>
   ) : (
     <main>
-      <MainFeedBars user={user} userProfile={userProfile}/>
+      <MainFeedBars user={user} userProfile={userProfile} />
       <p>Loading...</p>
     </main>
   );
