@@ -19,6 +19,7 @@ const MainFeedBars = ({ user, allPosts, userProfile}) => {
   //STATES
   let [selectedFriendsList, setSelectedFriendsList] = useState(false);
   let [selectedHome, setSelectedHome] = useState(true);
+  let [selectedProfile, setSelectedProfile] = useState(false)
 
 
   let [selectedStats, setSelectedStats] = useState(false)
@@ -26,12 +27,12 @@ const MainFeedBars = ({ user, allPosts, userProfile}) => {
 
 
 
+
   return (
     <>
       <div
-        className={`left-sidebar ${
-          selectedFriendsList ? "friendsActive" : "friendsInactive"
-        }`}
+        className={
+          `left-sidebar ${selectedFriendsList ? "friendsActive" : "friendsInactive"}`}
         >
         <div className='component-container-left' >
           <div className={`loaded-component ${
@@ -52,11 +53,15 @@ const MainFeedBars = ({ user, allPosts, userProfile}) => {
           </div>
 
           </Link>
-          <Link style={linkStyle} to={`/profile/${user.profile}`}>
-            <div id="ls-icon-container">
+          
+            <div id="ls-icon-container" 
+            className={`profile-icon ${
+              selectedProfile ? "active" : "inactive"
+            }`}
+            onClick={() => setSelectedProfile(!selectedProfile)}>
               <i id="ls-icon" class="fa-solid fa-user"></i>
             </div>
-          </Link>
+          
 
           <div
             id="ls-icon-container"
