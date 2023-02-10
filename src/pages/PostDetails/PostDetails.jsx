@@ -310,7 +310,7 @@ const PostDetails = ({ user, handleDeletePost, userProfile, allPosts }) => {
     </>
   ) : (
     <main>
-      <MainFeedBars user={user} userProfile={userProfile} />
+      <MainFeedBars user={user} userProfile={userProfile} allPosts={allPosts}/>
       <p>Loading...</p>
     </main>
   );
