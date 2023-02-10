@@ -202,7 +202,7 @@ const PostDetails = ({ user, handleDeletePost, userProfile, allPosts }) => {
             </div>
             
 
-            <div className={styles.publicPrivate}>
+            {/* <div className={styles.publicPrivate}>
               <p>
                 {post.public ? (
                   <i class="fa-solid fa-earth-americas"></i>
@@ -210,7 +210,7 @@ const PostDetails = ({ user, handleDeletePost, userProfile, allPosts }) => {
                   <i class="fa-solid fa-lock"></i>
                 )}
               </p>
-            </div>
+            </div> */}
             {post.author._id === user.profile && (
               <>
                 <div className={styles.buttonContainer}>
