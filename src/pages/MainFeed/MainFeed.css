@@ -3,7 +3,7 @@
   justify-content: center;
   padding: 3em;
   gap: 4em;
-  background-color: #495867;
+  background: linear-gradient(90deg, rgba(201, 214, 255, 0.59) 0%, rgba(239, 246, 255, 0.347) 50%, rgba(201, 214, 255, 0.623) 100%);
 }
 
 .global-btn,
