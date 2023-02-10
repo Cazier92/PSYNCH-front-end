@@ -1,3 +1,58 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: auto;
+
+  height: 100vh;
+  background: linear-gradient(90deg, rgba(107, 189, 237, 0.3) 0%, rgba(239, 246, 255, 0.3) 50%, rgba(107, 189, 237, 0.3) 100%);
+  color: black;
+  padding-top: 70px;
+}
+
+.container h1 {
+  text-align: center;
+}
+
+.checkboxContainer {
+  display: flex;
+  align-self: center;
+}
+
+.checkboxContainer label {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin: 10px 0;
+}
+
+select {
+  height: 50px;
+  font-size: 20px;
+  padding-left: 15px;
+  background: none;
+}
+
+textarea {
+  padding-left: 15px;
+  padding-top: 15px;
+  font-size: 20px;
+}
+
+span {
+  font-size: 60px;
+  display: flex;
+  justify-content: center;
+}
+
+
 @media screen and (max-width: 900px) {
   .container {
     display: flex;
