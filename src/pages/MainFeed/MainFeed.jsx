@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import "./MainFeed.css";
 
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 //COMPONENETS
 import PostList from "../../components/PostList/PostList";
@@ -10,19 +10,11 @@ import MainFeedBars from "../../components/MainFeedBars/MainFeedBars";
 
 //SERVICES
 
-
-const linkStyle = {
-  textDecoration: "none",
-  color: "black",
-};
-
 const MainFeed = ({ posts, user, feed, handleDecideAction, userProfile, allPosts }) => {
   //STATES
   let [selectedGlobal, setSelectedGlobal] = useState(true);
   let [selectedFriendsFeed, setSelectedFriendsFeed] = useState(false);
 
-  // console.log("Global:", selectedGlobal)
-  // console.log("Friends:", selectedFriends)
 
   function toggle() {
     if (selectedFriendsFeed === true) {
@@ -63,7 +55,6 @@ const MainFeed = ({ posts, user, feed, handleDecideAction, userProfile, allPosts
       
       {selectedFriendsFeed ? (
         <>
-          {/* <p className='empty-text'>Your friends haven't posted!</p> */}
           <PostList
             posts={feed}
             user={user}

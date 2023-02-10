@@ -1,30 +1,28 @@
 // npm modules
 import { useState } from "react";
-import { Routes, Route, useNavigate, Navigate } from "react-router-dom";
+import { Routes, Route, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 
 // page components
 import Signup from "./pages/Signup/Signup";
 import Login from "./pages/Login/Login";
 import Landing from "./pages/Landing/Landing";
-import Profiles from "./pages/Profiles/Profiles";
 import ChangePassword from "./components/ChangePassword/ChangePassword";
 import NewPost from "./pages/NewPost/NewPost";
 import Profile from "./pages/Profile/Profile";
 import MainFeed from "./pages/MainFeed/MainFeed";
-import PendingRequests from "./components/FriendRequests/PendingRequests/PendingRequests";
 import PostDetails from "./pages/PostDetails/PostDetails";
-import FriendList from "./components/FriendList/FriendList";
 import FriendsPage from "./pages/FriendsPage/FriendsPage";
 import EditComment from "./pages/EditComment/EditComment";
 import Chat from "./pages/DirectMessages/Chat";
+import EditPost from "./pages/EditPost/EditPost";
 
 // components
 import NavBar from "./components/NavBar/NavBar";
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
-import Stats from "./components/Stats/Stats";
 import StatsPage from "./pages/Stats/StatsPage";
 import ProfileBar from "./components/ProfileBar/ProfileBar";
+import PendingRequests from "./components/FriendRequests/PendingRequests/PendingRequests";
 
 // services
 import * as authService from "./services/authService";
@@ -35,7 +33,6 @@ import * as profileService from './services/profileService'
 
 // styles
 import "./App.css";
-import EditPost from "./pages/EditPost/EditPost";
 
 const App = () => {
   const [user, setUser] = useState(authService.getUser());
@@ -130,7 +127,6 @@ const App = () => {
     const fetchAllConversations = async () => {
       const allConversationsData = await directMessagesService.index()
       setAllConversations(allConversationsData)
-      // console.log('ALLMESSAGES', allConversationsData)
     }
     fetchAllConversations()
   }, [])
@@ -150,14 +146,6 @@ const App = () => {
     };
     fetchProfile();
   }, [user]);
-
-
-
-
-
-
-  
-
 
 
   const handleDecideAction = async (
@@ -222,14 +210,6 @@ const App = () => {
           path="/login"
           element={<Login handleSignupOrLogin={handleSignupOrLogin} />}
         />
-        {/* <Route
-          path="/profiles"
-          element={
-            <ProtectedRoute user={user}>
-              <Profiles />
-            </ProtectedRoute>
-          }
-        /> */}
         <Route
           path="/change-password"
           element={

@@ -6,7 +6,7 @@ const FriendsPage = ({user}) => {
     <>
     <FriendList user={user} />
     </>
-   );
+  );
 }
- 
+
 export default FriendsPage;

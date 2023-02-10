@@ -23,8 +23,7 @@ const MainFeedBars = ({ user, allPosts, userProfile}) => {
 
   let [selectedStats, setSelectedStats] = useState(false)
 
-  // console.log("Global:", selectedGlobal)
-  // console.log("Friends:", selectedFriends)
+
 
 
   return (

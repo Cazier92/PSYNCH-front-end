@@ -1,10 +1,10 @@
-import * as directMessagesService from '../../services/directMessagesService'
+
 import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+
 
 import './SendMessage.css'
 
-const SendMessage = ({conversationId, handleSendMessage, handleCreateNotification, profile, user, setProfile, messages, conversation}) => {
+const SendMessage = ({conversationId, handleSendMessage, handleCreateNotification, profile}) => {
   const [form, setForm] = useState({ content: "" }); // If something doesn't work, look at this first!
   const [notificationData, setNotificationData] = useState({})
 

@@ -1,5 +1,5 @@
 import * as profileService from '../../services/profileService'
-import * as directMessagesService from '../../services/directMessagesService'
+
 import { useState,useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
@@ -12,17 +12,9 @@ import Notification from '../../components/NotificationComponents/Notification';
 
 import './Profile.css'
 
-const Profile = ({user, allPosts, handleCreateConversation, allConversations, setAllConversations, newConversationId, allNotifications, handleCreateNotification, handleDeleteNotification, newNotificationId, setAllNotifications, userProfile}) => {
+const Profile = ({user, allPosts, handleCreateConversation, allConversations, setAllConversations, newConversationId, allNotifications, setAllNotifications, userProfile}) => {
   const {id} = useParams()
   const [profile, setProfile] = useState(null)
-
-  // const [conversationId, setConversationId] = useState(null)
-  // const [directMessage, setDirectMessage] = useState([])
-
-
-
-
-
 
   useEffect(() => {
     const fetchProfile = async () => {
@@ -33,10 +25,10 @@ const Profile = ({user, allPosts, handleCreateConversation, allConversations, se
   }, [id])
   
   const profileConversations = allConversations.filter(conversation => conversation.members.includes(profile?._id))
-  // console.log(profileConversations)
+
   const neededConvo = profileConversations.find(conversation => conversation.members.includes(user.profile))
+
   useEffect(() => {
-    // console.log(neededConvo)
 
   }, [profile, user, id, allConversations, neededConvo, profileConversations])
 

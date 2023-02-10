@@ -35,7 +35,7 @@ const FriendList = ({user}) => {
     fetchFriends();
   }, [user]);
 
-  // console.log(friends)
+
 
 
   useEffect(() => {
@@ -46,27 +46,7 @@ const FriendList = ({user}) => {
     fetchFeed()
   }, [friends])
 
-  // console.log('Feed:', feed)
-  // console.log('Friends:', friends)
-  // console.log(feed.find((post) => post.author._id = '63dff7e2ae6630b0ec58ba71').emotion)
-  // const recentEmotion = async (friend) => {
-  //   try {
-  //     return (
-  //       feed.find((post) => post.author._id === friend._id)
 
-  //     )
-  //   } catch (error) {
-  //     console.log(error)
-  //   }
-  // }
-
-  // console.log('recentEmotion0:', recentEmotion(friends[0]))
-  // async function findPost(friend) {
-  //   feed.find((post) => post.author._id === friend._id)
-  //   .then(post => {
-  //     return post.emotion
-  //   })
-  // }
 
   return ( 
     <>
