@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 const linkStyle = {
   textDecoration: "none",
-  color: "black",
+  color: "white",
 };
 
 const Landing = ({ user }) => {
