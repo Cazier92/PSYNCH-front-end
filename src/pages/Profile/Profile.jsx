@@ -51,7 +51,10 @@ const Profile = ({user, allPosts, handleCreateConversation, allConversations, se
         <>
           {profile.notifications.map(notification => {
             return (
-              <Notification key={notification._id} notification={notification} allNotifications={allNotifications} setAllNotifications={setAllNotifications} setProfile={setProfile} profile={profile}/>
+              <>
+                <Notification key={notification._id} notification={notification} allNotifications={allNotifications} setAllNotifications={setAllNotifications} setProfile={setProfile} profile={profile}/>
+                
+              </>
             )
           })}
         </>
@@ -84,8 +87,10 @@ const Profile = ({user, allPosts, handleCreateConversation, allConversations, se
       <div className='profile-head'>
         <h1 className='profile-name'>{profile.name}</h1>
         <img src={profile.photo} alt="" className='profile-img'/>
+        <br />
         <SendFriendRequest profile={profile} user={user}/>
         {conversationButton()}
+        <br />
 
       </div>
       

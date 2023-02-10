@@ -17,7 +17,7 @@ const Notification = ({notification, allNotifications, setAllNotifications, prof
     <>
     <div className="notification-div">
         <Link to={`/chat/${notification.link}`} onClick={() => handleDeleteNotification(notification._id)} style={{textDecoration: 'none', color: 'black'}}>
-          <h6>{notification.content}</h6>
+          <h5>{notification.content}</h5>
         </Link>
         <i class="fa-solid fa-xmark" onClick={() => {
         return (
