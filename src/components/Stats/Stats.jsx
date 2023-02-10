@@ -1,3 +1,5 @@
+import './Stats.css'
+
 const Stats = ({ user, allPosts, userProfile }) => {
   const userPosts = allPosts?.filter(
     (post) => post.author._id === user.profile
@@ -183,7 +185,7 @@ const Stats = ({ user, allPosts, userProfile }) => {
 
   return (
     <>
-      <h1>Stats:</h1>
+      <h1 className="stats-tilte">Stats:</h1>
       <div>
         <h4>Total Posts: {postCount}</h4>
         <h5>Down Posts: {downCount}</h5>
