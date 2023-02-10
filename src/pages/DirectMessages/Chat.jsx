@@ -100,6 +100,11 @@ const Chat = ({handleCreateNotification, newNotificationId, user, userProfile, a
   }
   newMessageRender()
 
+  const endEl = document.getElementById('end')
+  // console.log(endEl)
+  endEl?.scrollIntoView({behavior: 'smooth', block: 'end', inline: 'nearest'})
+  // const reverseMessages = messages?.reverse()
+
   return ( 
     <>
     <MainFeedBars user={user} userProfile={userProfile} allPosts={allPosts}/>
@@ -152,12 +157,16 @@ const Chat = ({handleCreateNotification, newNotificationId, user, userProfile, a
           )
         })}
           {/* {newMessageRender()} */}
+          <div className="empty-div">
+
+          </div>
         <div className="send-messages">
           <SendMessage conversationId={conversationId} handleSendMessage={handleSendMessage} handleCreateNotification={handleCreateNotification} newNotificationId={newNotificationId} profile={profile} user={user} setProfile={setProfile} conversation={conversation} messages={messages}/>
 
         </div>
 
       </div>
+      <div id='end'></div>
 
 
     </>
