@@ -45,25 +45,25 @@ const PostCard = ({ post, user, handleDecideAction }) => {
 
   const decideColor = () => {
     if (down.includes(post.emotion)) {
-      return "#5851919F";
+      return "#585191FF 0px 0px 15px";
     }
     if (fearful.includes(post.emotion)) {
-      return "#DA41679F";
+      return "#DA4167FF 0px 0px 15px";
     }
     if (angry.includes(post.emotion)) {
-      return "#E66536AF";
+      return "#E66536FF 0px 0px 15px";
     }
     if (disgusted.includes(post.emotion)) {
-      return "#3E89149F";
+      return "#3E8914FF 0px 0px 15px";
     }
     if (sad.includes(post.emotion)) {
-      return "#53B3CB9F";
+      return "#53B3CBFF 0px 0px 15px";
     }
     if (happy.includes(post.emotion)) {
-      return "#FDE74C7F";
+      return "#FDE74CFF 0px 0px 15px";
     }
     if (surprised.includes(post.emotion)) {
-      return "#F188058F";
+      return  "#F18805FF 0px 0px 15px"
     }
   };
 
@@ -77,8 +77,8 @@ const PostCard = ({ post, user, handleDecideAction }) => {
   };
 
   return (
-    <div className="post-container">
-      <div className="post-header" style={{ backgroundColor: decideColor() }}>
+    <div className="post-container" style={{ boxShadow: decideColor() }} >
+      <div className="post-header" >
         <div className="left-header">
           <img
             className="post-avatar"

@@ -33,12 +33,15 @@ const NavBar = ({ user, handleLogout }) => {
             </Link>
           </div>
           <div className="right-nav">
-            <p className="nav-user-name">{user.name}</p>
-            <img
+            <div className="user-nav-title">
+              <p className="nav-user-name">{user.name}</p>
+              <img
               className="nav-post-avatar"
               src={userProfile.photo}
               alt="profile img"
-            />
+              />
+
+            </div>
             <button className="logout-button">
               <Link to="" style={linkStyle} onClick={handleLogout}>
                 Log Out
@@ -50,8 +53,8 @@ const NavBar = ({ user, handleLogout }) => {
         <>
           <div className="left-nav">
             <img className="cloud-logo" src="./Logo/logo1.png" alt="" />
-            <Link to="/" className="psynch-logo" style={linkStyle}>
-              PSYNCH
+            <Link to="/main-feed"  style={linkStyle}>
+              <p className="psynch-logo">PSYNCH</p>
             </Link>
           </div>
           <div className="right-nav">
