@@ -7,7 +7,8 @@
   text-align: center;
   /* width: 100%; */
   height: 100vh;
-  background-color: #495867;
+  background: rgb(0,0,0);
+  background: linear-gradient(90deg, #6bbded6e 0%, rgba(239, 246, 255, 0.3) 50%, rgba(107, 189, 237, 0.3) 100%);
   
 }
 
@@ -31,12 +32,13 @@
 
 .user-message-content {
   background-color: white;
+  color: black;
   padding: 1vmin;
   border-radius: 8px;
 }
 
 .user-name {
-  color: white;
+  color: black;
 }
 
 .friend-message {
@@ -47,16 +49,23 @@
 }
 
 .friend-message-content {
-  background-color: white;
+  background-color: darkslategray;
+  color: white;
   padding: 1vmin;
   border-radius: 8px;
 }
 
 .friend-name {
-  color: white;
+  color: black;
 }
 
 .send-messages {
   position: absolute;
   bottom: 0;
+}
+
+@media screen and (max-width: 900px){
+  .send-messages {
+    bottom: 5vmin;
+  }
 }

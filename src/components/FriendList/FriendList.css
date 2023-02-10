@@ -67,3 +67,15 @@
   overflow-y: scroll;
 }
 
+@media screen and (max-width: 900px){
+  .friend-section-header{
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    gap: 20vmin;
+    margin-bottom: 10px;
+    font-size: 14px;
+    font-weight: 700;
+  }
+}
+

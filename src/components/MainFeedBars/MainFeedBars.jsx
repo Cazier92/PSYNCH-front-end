@@ -105,9 +105,11 @@ const MainFeedBars = ({ user, allPosts, userProfile}) => {
               <i id="ls-icon" class="fa-solid fa-user"></i>
             </div>
           </Link>
-        <div>
-          <i class="fa-solid fa-user-group fa-2x"></i>
-        </div>
+        <Link style={linkStyle} to={`/friends`}>
+            <div id="ls-icon-container">
+              <i id="ls-icon" class="fa-solid fa-user-group"></i>
+            </div>
+          </Link>
         <Link style={linkStyle} to="/posts/new">
             <div id="ls-icon-container">
               <i id="ls-icon" class="fa-solid fa-pen-to-square"></i>
