@@ -70,4 +70,17 @@
     width: 300px;
     margin-top: 20px;
   }
+
+  .speechBubble {
+    margin-bottom: 80px;
+  }
+
+  .buttonBox > button {
+    color: white;
+    text-decoration: none;
+  }
+
+  .btnLink {
+    color: white;
+  }
 }
