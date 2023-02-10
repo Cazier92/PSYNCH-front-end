@@ -200,8 +200,8 @@ const StatsPage = ({ user, allPosts, userProfile }) => {
   return ( 
     <>
     <main className={styles.statsMain}>
-      <h1>Stats:</h1>
       <div className={styles.statsList}>
+      <h1>Stats:</h1>
         <h5>Down Posts: {downCount}</h5>
         <h5>Fearful Posts: {fearfulCount}</h5>
         <h5>Angry Posts: {angryCount}</h5>
