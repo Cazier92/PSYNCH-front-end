@@ -1,14 +1,20 @@
 form {
+  display: flex;
   margin: 30px 350px;
+  justify-content: center;
+  align-items: center;
 }
 
 .commentSubmit {
   margin-top: 20px;
   margin-bottom: 20px;
+  width: 100px;
+  text-align: center;
 }
 
 textarea {
   border: none;
+  width: 500px;
   border-bottom: 2px solid #016ba8;
   border-top: 2px solid #016ba8;
   background: none;
