@@ -30,14 +30,10 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 40px 30px 20px 30px;
+  padding: 30px 30px 5px 30px;
   border-radius: 3em;
-  border: 2px rgb(237, 237, 237) solid;
-  box-shadow: 
-  rgba(17, 17, 26, 0.05) 0px 1px 0px,
-    
-  rgba(17, 17, 26, 0.1) 0px 0px 8px;
-  background-color: rgb(251, 251, 251);
+  box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+  background-color: rgb(247, 247, 247)
 }
 
 .currentStatus{
@@ -49,11 +45,34 @@
   align-items: center;
   justify-content: center;
   border-bottom: 2px solid rgba(0, 0, 0, 0.065);
-  background-color: rgb(255, 255, 255);
 }
 
 .updateBtn{
-  margin: 50px 0 10px 0;
+  margin: 30px 0 10px 0;
+  transition: transform ease 400ms;
+}
+
+.updateBtn:hover{
+  transform: scale(1.1);
+}
+
+.breakdownTitle,
+.topThreeTitle{
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.breakdownTitle{
+  margin-bottom: 10px;
+}
+
+
+.totalPosts{
+  margin-bottom: 15px;
+  font-size: 15px;
+  text-decoration: underline;
+  color: black;
 }
 
 .topThreeStats {
@@ -61,14 +80,56 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  text-align: center;
   min-width: 270px;
   min-height: 100px;
+  margin-bottom: 30px;
+  padding: 30px 0 30px 0;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.065);
+}
+
+.topOne,
+.topTwo,
+.topThree{
+  padding: 5px 30px 5px 30px;
+  border-radius: 20px;
+  margin: 10px 0px;
+  box-shadow: 
+  rgba(0, 0, 0, 0.07) 0px 1px 1px, 
+  rgba(0, 0, 0, 0.07) 0px 2px 2px, 
+  rgba(0, 0, 0, 0.07) 0px 4px 4px, 
+  rgba(0, 0, 0, 0.07) 0px 8px 8px, 
+  rgba(0, 0, 0, 0.07) 0px 16px 16px;
+  background-color: rgb(244, 244, 244);
+  transition: transform ease 400ms;
+}
+
+.topOne:hover,
+.topTwo:hover,
+.topThree:hover{
+  transform: scale(1.1);
+}
+
+.topOne{
+  background-color: var(--dark-color);
+  color: white;
+}
+
+.topTwo{
+  background-color: var(--mid-color);
+  color: white;
+}
+
+.topThree{
+  background-color: var(--light-color);
+  color: white;
 }
 
 .allStats {
   display: flex;
   flex-direction: column ;
   align-items: center;
+  text-align: center;
   min-width: 270px;
   min-height: 100px;
 

@@ -141,7 +141,7 @@
   justify-content: space-around;
   align-items: center;
   padding: 1px;
-  background-color: rgba(223, 223, 223, 0.875);
+  background-color: rgba(238, 238, 238, 0.875);
   width: 13em;
   height: 2em;
   margin-bottom: 4em;
@@ -150,10 +150,14 @@
   box-shadow: 
   rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, 
   rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
-  transition: all ease 200ms;
+  transition: 
+    opacity ease 200ms,
+    scale ease 200ms
+  ;
 }
 .reaction-expand.inactive{
   opacity: 0;
+  cursor: default;
 }
 
 .reaction-expand.active{
@@ -161,7 +165,7 @@
 }
 
 
-.ex-reaction:hover {
+.reaction-expand.active > .ex-reaction:hover {
   transition: all ease 300ms;
   transform: scale(1.5);
   cursor: pointer;

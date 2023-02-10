@@ -3,16 +3,11 @@
   flex-direction: column;
   align-items: center;
   width: auto;
-  /* margin: 0 200px; */
+
   height: 100vh;
-  background: linear-gradient(
-    90deg,
-    rgba(201, 214, 255, 0.59) 0%,
-    rgba(239, 246, 255, 0.347) 50%,
-    rgba(201, 214, 255, 0.623) 100%
-  );
+  background: linear-gradient(90deg, rgba(107, 189, 237, 0.3) 0%, rgba(239, 246, 255, 0.3) 50%, rgba(107, 189, 237, 0.3) 100%);
   color: black;
-  padding-top: 20px;
+  padding-top: 70px;
 }
 
 .container h1 {

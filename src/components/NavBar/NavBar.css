@@ -136,9 +136,14 @@ button {
   white-space: nowrap;
 }
 
+.logout-button{
+  background-color: var(--dark-color);
+}
+
 button:hover,
 .menu-btn:hover {
-  background-color: var(--dark-color);
+  background-color: #0071b2;
+  ;
 }
 
 @media screen and (max-width: 900px) {

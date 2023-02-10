@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 
 import styles from './StatsPage.module.css'
 
@@ -183,41 +185,67 @@ const StatsPage = ({ user, allPosts, userProfile }) => {
   const findTopThree = () => {
     return (
       <>
-        <p>{sortedEmotions[0].percent}% {sortedEmotions[0].emotion}</p>
-        <p>{sortedEmotions[1].percent}% {sortedEmotions[1].emotion}</p>
-        <p>{sortedEmotions[2].percent}% {sortedEmotions[2].emotion}</p>
+        <p className={styles.topOne}> 
+          {sortedEmotions[0].emotion}<br></br>{sortedEmotions[0].percent}% 
+        </p>
+        <p className={styles.topTwo}>
+          {sortedEmotions[1].emotion}<br></br> {sortedEmotions[1].percent}% 
+        </p>
+        <p className={styles.topThree}>
+          {sortedEmotions[2].emotion}<br></br> {sortedEmotions[2].percent}% 
+        </p>
       </>
-    )
-  }
+    );
+  };
 
-
-
-
-  
-  return ( 
+  return (
     <>
     <MainFeedBars user={user} userProfile={userProfile} allPosts={allPosts}/>
-    <main className={styles.statsMain}>
-      <div className={styles.allStats}>
-        <div className={styles.statsList}>
-        <h1>Stats:</h1>
-          <h4>Total Posts: {postCount}</h4>
-          <h5>Down Posts: {downCount}</h5>
-          <h5>Fearful Posts: {fearfulCount}</h5>
-          <h5>Angry Posts: {angryCount}</h5>
-          <h5>Disgusted Posts: {disgustedCount}</h5>
-          <h5>Sad Posts: {sadCount}</h5>
-          <h5>Happy Posts:{happyCount}</h5>
-          <h5>Surprised Posts: {surprisedCount}</h5>
-        </div>
-        <div className={styles.topThreeStats}>
-          <h2>Breakdown:</h2>
-          <h5>Top Three:</h5>
-          {findTopThree()}
-          <h4>Current Status: {currentStatus}</h4>
-        </div>
+    <div className={styles.statsMain}>
+      <div className={styles.statsTitle} >
+        
+       <p >Stats</p>
       </div>
-    </main>
+      
+      
+        <div className={styles.currentStatus}>
+            <div className={styles.statusSquare}>
+            <p> <strong>Current Status: </strong></p><br></br>
+            <p>{currentStatus}</p>
+            <Link to="/posts/new">
+              <button className={styles.updateBtn}>Update</button>
+            </Link>
+          </div>
+        
+      </div>
+      <div className={styles.topThreeStats}>
+        <p className={styles.topThreeTitle}>Top Three</p>
+        <Link to={`/profile/${user.profile}`}>
+          <p className={styles.totalPosts}>Total Posts: {postCount}</p>
+        
+        </Link>
+
+        <div className={styles.topThreeContainer}>{findTopThree()}</div>
+          
+      </div>
+      <div className={styles.allStats}>
+
+         
+
+        <div className={styles.statsList}>
+       
+        <p className={styles.breakdownTitle}>Breakdown</p>
+
+          <p>Down Posts: {downCount}</p>
+          <p>Fearful Posts: {fearfulCount}</p>
+          <p>Angry Posts: {angryCount}</p>
+          <p>Sad Posts: {sadCount}</p>
+          <p>Happy Posts:{happyCount}</p>
+          <p>Surprised Posts: {surprisedCount}</p>
+        </div>
+       
+      </div>
+    </div>
     </>
   );
 }

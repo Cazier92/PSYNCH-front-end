@@ -159,14 +159,14 @@ const Stats = ({ user, allPosts, userProfile }) => {
   const findTopThree = () => {
     return (
       <>
-        <p>
-          {sortedEmotions[0].emotion} {sortedEmotions[0].percent}% 
+        <p className={styles.topOne}> 
+          {sortedEmotions[0].emotion}<br></br>{sortedEmotions[0].percent}% 
         </p>
-        <p>
-          {sortedEmotions[1].emotion} {sortedEmotions[1].percent}% 
+        <p className={styles.topTwo}>
+          {sortedEmotions[1].emotion}<br></br> {sortedEmotions[1].percent}% 
         </p>
-        <p>
-          {sortedEmotions[2].emotion} {sortedEmotions[2].percent}% 
+        <p className={styles.topThree}>
+          {sortedEmotions[2].emotion}<br></br> {sortedEmotions[2].percent}% 
         </p>
       </>
     );
@@ -192,9 +192,13 @@ const Stats = ({ user, allPosts, userProfile }) => {
         
       </div>
       <div className={styles.topThreeStats}>
-        <h2>Breakdown:</h2>
-        <h5>Top Three:</h5>
-        {findTopThree()}
+        <p className={styles.topThreeTitle}>Top Three</p>
+        <Link to={`/profile/${user.profile}`}>
+          <p className={styles.totalPosts}>Total Posts: {postCount}</p>
+        
+        </Link>
+
+        <div className={styles.topThreeContainer}>{findTopThree()}</div>
           
       </div>
       <div className={styles.allStats}>
@@ -203,14 +207,14 @@ const Stats = ({ user, allPosts, userProfile }) => {
 
         <div className={styles.statsList}>
        
-          <p >Total Posts: {postCount}</p>
-          <h5>Down Posts: {downCount}</h5>
-          <h5>Fearful Posts: {fearfulCount}</h5>
-          <h5>Angry Posts: {angryCount}</h5>
-          <h5>Disgusted Posts: {disgustedCount}</h5>
-          <h5>Sad Posts: {sadCount}</h5>
-          <h5>Happy Posts:{happyCount}</h5>
-          <h5>Surprised Posts: {surprisedCount}</h5>
+        <p className={styles.breakdownTitle}>Breakdown</p>
+
+          <p>Down Posts: {downCount}</p>
+          <p>Fearful Posts: {fearfulCount}</p>
+          <p>Angry Posts: {angryCount}</p>
+          <p>Sad Posts: {sadCount}</p>
+          <p>Happy Posts:{happyCount}</p>
+          <p>Surprised Posts: {surprisedCount}</p>
         </div>
        
       </div>

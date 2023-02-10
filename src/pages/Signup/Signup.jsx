@@ -16,6 +16,7 @@ const Signup = (props) => {
           
         </div>
         <div className="header">
+          <img className='logo-cloud' src="./Logo/logo1.png" alt="" />
           <h1>Welcome</h1>
           <p>Please enter your details.</p>
           <p className="err-message">{message}</p>

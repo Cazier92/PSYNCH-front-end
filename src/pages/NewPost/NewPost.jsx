@@ -111,43 +111,9 @@ const NewPost = ({user, userProfile, handleAddPost, allPosts}) => {
                 😌
               </span>
             )}
-            {form.emotion === "Powerful" && (
-              <span role="img" aria-label="Powerful">
-                😎
-              </span>
-            )}
-            {form.emotion === "Accepted" && (
-              <span role="img" aria-label="Accepted">
-                😊
-              </span>
-            )}
-            {form.emotion === "Joyful" && (
-              <span role="img" aria-label="Joyful">
-                😊
-              </span>
-            )}
-            {form.emotion === "Startled" && (
-              <span role="img" aria-label="Joyful">
-                😬
-              </span>
-            )}
-            {form.emotion === "Confused" && (
-              <span role="img" aria-label="Joyful">
-                🤔
-              </span>
-            )}
-            {form.emotion === "Excited" && (
-              <span role="img" aria-label="Joyful">
-                🤩
-              </span>
-            )}
-            {form.emotion === "Amazed" && (
-              <span role="img" aria-label="Joyful">
-                😆
-              </span>
-            )}
+            
           </div>
-          <label htmlFor="emotion-input">How are you feeling today?</label>
+          <label htmlFor="emotion-input">What emotion are you feeling?</label>
           <select
             required
             name="emotion"
