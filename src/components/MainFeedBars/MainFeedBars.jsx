@@ -54,6 +54,7 @@ const MainFeedBars = ({ user, allPosts, userProfile}) => {
 
           </Link>
           
+          <Link to={`/profile/${user.profile}`}>
             <div id="ls-icon-container" 
             className={`profile-icon ${
               selectedProfile ? "active" : "inactive"
@@ -61,7 +62,7 @@ const MainFeedBars = ({ user, allPosts, userProfile}) => {
             onClick={() => setSelectedProfile(!selectedProfile)}>
               <i id="ls-icon" class="fa-solid fa-user"></i>
             </div>
-          
+          </Link>
 
           <div
             id="ls-icon-container"
