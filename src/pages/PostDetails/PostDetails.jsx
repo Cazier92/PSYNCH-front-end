@@ -70,10 +70,9 @@ const PostDetails = ({ user, handleDeletePost, userProfile, allPosts }) => {
       <MainFeedBars user={user} userProfile={userProfile} allPosts={allPosts}/>
       <div className={styles.mainContainer}>
         <main className={styles.container}>
-          <div className={styles.postDetailCard}>
+          <div className={styles.postDetailCard} >
             <div
               className={styles.postHeaders}
-              style={{ backgroundColor: decideColor() }}
             >
               <div>
                 <img className="post-avatar" src={post.author.photo} alt="" />
@@ -201,9 +200,34 @@ const PostDetails = ({ user, handleDeletePost, userProfile, allPosts }) => {
                 )}
               </div>
             </div>
-            <div
+            
+
+            <div className={styles.publicPrivate}>
+              <p>
+                {post.public ? (
+                  <i class="fa-solid fa-earth-americas"></i>
+                ) : (
+                  <i class="fa-solid fa-lock"></i>
+                )}
+              </p>
+            </div>
+            {post.author._id === user.profile && (
+              <>
+                <div className={styles.buttonContainer}>
+                  <Link to={`/emotionPosts/${id}/edit`} state={post}>
+                    <button>
+                      <i class="fa-solid fa-pen-to-square"></i>
+                    </button>
+                  </Link>
+                  <button onClick={() => handleDeletePost(id)}>
+                    <i class="fa-solid fa-trash"></i>
+                  </button>
+                </div>
+              </>
+            )}
+          </div>
+          <div
               className={styles.reactionContainer}
-              style={{ backgroundColor: decideColor() }}
             >
               {post.reactions.length
                 ? (() => {
@@ -268,33 +292,8 @@ const PostDetails = ({ user, handleDeletePost, userProfile, allPosts }) => {
                       }
                     );
                   })()
-                : "No reaction yet!"}
+                : "No reactions yet!"}
             </div>
-
-            <div className={styles.publicPrivate}>
-              <p>
-                {post.public ? (
-                  <i class="fa-solid fa-earth-americas"></i>
-                ) : (
-                  <i class="fa-solid fa-lock"></i>
-                )}
-              </p>
-            </div>
-            {post.author._id === user.profile && (
-              <>
-                <div className={styles.buttonContainer}>
-                  <Link to={`/emotionPosts/${id}/edit`} state={post}>
-                    <button>
-                      <i class="fa-solid fa-pen-to-square"></i>
-                    </button>
-                  </Link>
-                  <button onClick={() => handleDeletePost(id)}>
-                    <i class="fa-solid fa-trash"></i>
-                  </button>
-                </div>
-              </>
-            )}
-          </div>
         </main>
         <section>
           <NewComment handleAddComment={handleAddComment} />
