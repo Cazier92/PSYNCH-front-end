@@ -1,17 +1,29 @@
 .statsMain {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
+  align-self: flex-start;
+  align-items: flex-start;
   min-width: 100vw;
   min-height: 100vh;
+  height: 100%;
+  margin: 0;
+  top: 0;
   background: rgb(0,0,0);
   background: linear-gradient(90deg, var(--light-color) 0%, rgba(239, 246, 255, 0.347) 50%, var(--light-color) 100%);
 }
 
+.allStats {
+  margin: 10vmin 5vmin;
+}
+
 .statsList {
+  /* height: 40vh; */
   margin: 0;
+  top: 0;
+  height: 100%;
 }
 
 .topThreeStats {
-
+  margin-top: 5vmin;
 }

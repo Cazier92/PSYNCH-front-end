@@ -39,7 +39,7 @@ const NavBar = ({ user, handleLogout }) => {
               src={userProfile.photo}
               alt="profile img"
             />
-            <button>
+            <button className="logout-button">
               <Link to="" style={linkStyle} onClick={handleLogout}>
                 Log Out
               </Link>
