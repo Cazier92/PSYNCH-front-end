@@ -54,7 +54,8 @@ const MainFeedBars = ({ user, allPosts, userProfile}) => {
 
           </Link>
           
-          <Link to={`/profile/${user.profile}`}>
+          <Link to={`/profile/${user.profile}`}
+          >
             <div id="ls-icon-container" 
             className={`profile-icon ${
               selectedProfile ? "active" : "inactive"
@@ -110,23 +111,23 @@ const MainFeedBars = ({ user, allPosts, userProfile}) => {
           <i class="fa-solid fa-house-2x"></i>
         </div>
         <Link style={linkStyle} to={`/profile/${user.profile}`}>
-            <div id="ls-icon-container">
-              <i id="ls-icon" class="fa-solid fa-user"></i>
+            <div id="bt-icon-container">
+              <i id="bt-icon" class="fa-solid fa-user "></i>
             </div>
           </Link>
         <Link style={linkStyle} to={`/friends`}>
-            <div id="ls-icon-container">
-              <i id="ls-icon" class="fa-solid fa-user-group"></i>
+            <div id="bt-icon-container">
+              <i id="bt-icon" class="fa-solid fa-user-group"></i>
             </div>
           </Link>
         <Link style={linkStyle} to="/posts/new">
-            <div id="ls-icon-container">
-              <i id="ls-icon" class="fa-solid fa-pen-to-square"></i>
+            <div id="bt-icon-container">
+              <i id="bt-icon" class="fa-solid fa-pen-to-square"></i>
             </div>
           </Link>
         <Link style={linkStyle} to="/stats">
-            <div id="ls-icon-container">
-            <i id="ls-icon-container" class="fa-solid fa-chart-simple fa-2x"></i>
+            <div id="bt-icon-container">
+              <i id="bt-icon" class="fa-solid fa-chart-simple"></i>
             </div>
           </Link>
         {/* <div>

@@ -1,20 +1,140 @@
 .statsMain {
   display: flex;
   flex-direction: column;
+
   justify-content: flex-start;
-  align-self: flex-start;
-  align-items: flex-start;
+  align-self: center;
+  align-items: center;
   min-width: 100vw;
   min-height: 100vh;
   height: 100%;
   margin: 0;
   top: 0;
-  background: rgb(0,0,0);
-  background: linear-gradient(90deg, var(--light-color) 0%, rgba(239, 246, 255, 0.347) 50%, var(--light-color) 100%);
+  /* background: rgb(0,0,0);
+  background: linear-gradient(90deg, var(--light-color) 0%, rgba(239, 246, 255, 0.347) 50%, var(--light-color) 100%); */
+}
+
+.statsTitle{
+  display: flex;
+  min-width: 270px;
+  min-height: 30px;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 14px;
+  font-size: 1.6em;
+  font-weight: 600;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.065);
+  color: black;
+}
+
+.statusSquare{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px 30px 5px 30px;
+  border-radius: 3em;
+  box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+  background-color: rgb(247, 247, 247)
+}
+
+.currentStatus{
+  display: flex;
+  flex-direction: column;
+  min-width: 270px;
+  min-height: 250px;
+  font-size: 20px;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.065);
+  background-color: rgb(255, 255, 255);
+}
+
+.updateBtn{
+  margin: 30px 0 10px 0;
+  transition: transform ease 400ms;
+}
+
+.updateBtn:hover{
+  transform: scale(1.1);
+}
+
+.breakdownTitle,
+.topThreeTitle{
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.breakdownTitle{
+  margin-bottom: 10px;
+}
+
+
+.totalPosts{
+  margin-bottom: 15px;
+  font-size: 15px;
+  text-decoration: underline;
+  color: black;
+}
+
+.topThreeStats {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-width: 270px;
+  min-height: 100px;
+  margin-bottom: 30px;
+  padding: 30px 0 30px 0;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.065);
+}
+
+.topOne,
+.topTwo,
+.topThree{
+  padding: 5px 30px 5px 30px;
+  border-radius: 20px;
+  margin: 10px 0px;
+  box-shadow: 
+  rgba(0, 0, 0, 0.07) 0px 1px 1px, 
+  rgba(0, 0, 0, 0.07) 0px 2px 2px, 
+  rgba(0, 0, 0, 0.07) 0px 4px 4px, 
+  rgba(0, 0, 0, 0.07) 0px 8px 8px, 
+  rgba(0, 0, 0, 0.07) 0px 16px 16px;
+  background-color: rgb(244, 244, 244);
+  transition: transform ease 400ms;
+}
+
+.topOne:hover,
+.topTwo:hover,
+.topThree:hover{
+  transform: scale(1.1);
+}
+
+.topOne{
+  background-color: var(--dark-color);
+  color: white;
+}
+
+.topTwo{
+  background-color: var(--mid-color);
+  color: white;
+}
+
+.topThree{
+  background-color: var(--light-color);
+  color: white;
 }
 
 .allStats {
-  margin: 10vmin 5vmin;
+  display: flex;
+  flex-direction: column ;
+  align-items: center;
+  text-align: center;
+  min-width: 270px;
+  min-height: 100px;
+
 }
 
 .statsList {
@@ -24,6 +144,3 @@
   height: 100%;
 }
 
-.topThreeStats {
-  margin-top: 5vmin;
-}
