@@ -4,7 +4,7 @@
   flex-direction: row;
   justify-content: center;
   background: rgb(0,0,0);
-  background: linear-gradient(90deg, #6bbded6e 0%, rgba(239, 246, 255, 0.3) 50%, rgba(107, 189, 237, 0.3) 100%);
+  background: linear-gradient(90deg, rgba(107, 189, 237, 0.3) 0%, rgba(239, 246, 255, 0.3) 50%, rgba(107, 189, 237, 0.3) 100%);
   
 }
 
