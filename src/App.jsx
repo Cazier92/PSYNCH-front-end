@@ -22,6 +22,7 @@ import Chat from "./pages/DirectMessages/Chat";
 import NavBar from "./components/NavBar/NavBar";
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 import Stats from "./components/Stats/Stats";
+import StatsPage from "./pages/Stats/StatsPage";
 import ProfileBar from "./components/ProfileBar/ProfileBar";
 
 // services
@@ -274,7 +275,7 @@ const App = () => {
           path="/stats"
           element={
             <ProtectedRoute user={user}>
-              <Stats user={user} allPosts={allPosts} userProfile={userProfile}/>
+              <StatsPage user={user} allPosts={allPosts} userProfile={userProfile}/>
             </ProtectedRoute>
           }
         />
