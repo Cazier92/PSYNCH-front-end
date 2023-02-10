@@ -172,7 +172,7 @@
   padding: 0.5em 0 0.5em 0;
   background-color: rgb(255, 255, 255);
   height: 4em;
-  width: 100vw;
+  width: 100%;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   transition: height ease 200ms;
   bottom:0;

@@ -6,7 +6,7 @@
   min-height: fit-content;
   box-sizing: border-box;
   margin-bottom: 1.5em;
-  background-color: rgb(244, 244, 244);
+  background-color: rgb(255, 255, 255);
   border-radius: 0.5em;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
@@ -180,4 +180,13 @@
     max-width: 80vmin;
     max-height: 70vmin;
   }
+  .private-post{
+    position: relative;
+    margin-right: -50px;
+    
+  }
+
+.post-footer{
+
+}
 }
