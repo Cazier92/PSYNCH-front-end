@@ -12,7 +12,7 @@ import Notification from '../../components/NotificationComponents/Notification';
 
 import './Profile.css'
 
-const Profile = ({user, allPosts, handleCreateConversation, allConversations, setAllConversations, newConversationId, allNotifications, setAllNotifications, userProfile}) => {
+const Profile = ({user, allPosts, handleCreateConversation, allConversations, setAllConversations, newConversationId, allNotifications, setAllNotifications, userProfile, handleDecideAction}) => {
   const {id} = useParams()
   const [profile, setProfile] = useState(null)
 
@@ -94,7 +94,7 @@ const Profile = ({user, allPosts, handleCreateConversation, allConversations, se
 
       </div>
       
-      <PostList posts={privatePosts()} user={user}/>
+      <PostList posts={privatePosts()} user={user} handleDecideAction={handleDecideAction}/>
     </>
   );
 }

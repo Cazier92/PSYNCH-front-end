@@ -232,6 +232,7 @@ const App = () => {
             <ProtectedRoute user={user}>
               <Profile user={user} allPosts={allPosts} handleCreateConversation={handleCreateConversation} allConversations={allConversations} setAllConversations={setAllConversations} newConversationId={newConversationId}
               allNotifications={allNotifications} newNotificationId={newNotificationId} handleCreateNotification={handleCreateNotification} handleDeleteNotification={handleDeleteNotification} setAllNotifications={setAllNotifications} userProfile={userProfile}
+              handleDecideAction={handleDecideAction}
               />
             </ProtectedRoute>
           }

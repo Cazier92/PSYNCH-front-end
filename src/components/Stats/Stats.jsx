@@ -59,6 +59,7 @@ const Stats = ({ user, allPosts, userProfile }) => {
     downCount += emotionCount.Tired;
   }
 
+
   if (emotionCount.Anxious) {
     fearfulCount += emotionCount.Anxious;
   }
@@ -68,6 +69,7 @@ const Stats = ({ user, allPosts, userProfile }) => {
   if (emotionCount.Scared) {
     fearfulCount += emotionCount.Scared;
   }
+
 
   if (emotionCount.Mad) {
     angryCount += emotionCount.Mad;
@@ -79,12 +81,14 @@ const Stats = ({ user, allPosts, userProfile }) => {
     angryCount += emotionCount.Betrayed;
   }
 
+
   if (emotionCount.Embarrassed) {
     disgustedCount += emotionCount.Embarrassed;
   }
   if (emotionCount.Disgusted) {
     disgustedCount += emotionCount.Disgusted;
   }
+
 
   if (emotionCount.Lonely) {
     sadCount += emotionCount.Lonely;
@@ -95,6 +99,7 @@ const Stats = ({ user, allPosts, userProfile }) => {
   if (emotionCount.Hurt) {
     sadCount += emotionCount.Hurt;
   }
+
 
   if (emotionCount.Optimistic) {
     happyCount += emotionCount.Optimistic;
@@ -111,6 +116,8 @@ const Stats = ({ user, allPosts, userProfile }) => {
   if (emotionCount.Joyful) {
     happyCount += emotionCount.Joyful;
   }
+
+
   if (emotionCount.Startled) {
     surprisedCount += emotionCount.Startled;
   }
@@ -177,7 +184,7 @@ const Stats = ({ user, allPosts, userProfile }) => {
     <div className={styles.statsMain}>
       <div className={styles.statsTitle} >
         
-       <p >Stats</p>
+      <p >Stats</p>
       </div>
       
       
