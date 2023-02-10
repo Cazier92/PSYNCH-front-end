@@ -154,6 +154,7 @@
 }
 .reaction-expand.inactive{
   opacity: 0;
+  cursor: default;
 }
 
 .reaction-expand.active{
@@ -161,7 +162,7 @@
 }
 
 
-.ex-reaction:hover {
+.reaction-expand.active > .ex-reaction:hover {
   transition: all ease 300ms;
   transform: scale(1.5);
   cursor: pointer;
