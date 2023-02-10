@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 import styles from './Stats.module.css'
 
@@ -159,13 +160,13 @@ const Stats = ({ user, allPosts, userProfile }) => {
     return (
       <>
         <p>
-          {sortedEmotions[0].percent}% {sortedEmotions[0].emotion}
+          {sortedEmotions[0].emotion} {sortedEmotions[0].percent}% 
         </p>
         <p>
-          {sortedEmotions[1].percent}% {sortedEmotions[1].emotion}
+          {sortedEmotions[1].emotion} {sortedEmotions[1].percent}% 
         </p>
         <p>
-          {sortedEmotions[2].percent}% {sortedEmotions[2].emotion}
+          {sortedEmotions[2].emotion} {sortedEmotions[2].percent}% 
         </p>
       </>
     );
@@ -176,12 +177,19 @@ const Stats = ({ user, allPosts, userProfile }) => {
     <div className={styles.statsMain}>
       <div className={styles.statsTitle} >
         
-       <p >Stats:</p>
+       <p >Stats</p>
       </div>
-      <div className={styles.currentStatus}>
-        <p >Current Status: </p>
-        <p>{currentStatus}</p>
-
+      
+      
+        <div className={styles.currentStatus}>
+            <div className={styles.statusSquare}>
+            <p> <strong>Current Status: </strong></p><br></br>
+            <p>{currentStatus}</p>
+            <Link to="/posts/new">
+              <button className={styles.updateBtn}>Update</button>
+            </Link>
+          </div>
+        
       </div>
       <div className={styles.topThreeStats}>
         <h2>Breakdown:</h2>
@@ -195,7 +203,7 @@ const Stats = ({ user, allPosts, userProfile }) => {
 
         <div className={styles.statsList}>
        
-          <h4 >Total Posts: {postCount}</h4>
+          <p >Total Posts: {postCount}</p>
           <h5>Down Posts: {downCount}</h5>
           <h5>Fearful Posts: {fearfulCount}</h5>
           <h5>Angry Posts: {angryCount}</h5>
