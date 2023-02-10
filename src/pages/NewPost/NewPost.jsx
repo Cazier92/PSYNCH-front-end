@@ -28,7 +28,7 @@ const NewPost = ({user, userProfile, handleAddPost, allPosts}) => {
     <>
     <MainFeedBars user={user} userProfile={userProfile} allPosts={allPosts}/>
       <div className={styles.container}>
-        <h1>What's on your mind today?</h1>
+        <h1>Post a Feel</h1>
         <form className={styles.formContainer} onSubmit={handleSubmit}>
           <div className={styles.emotions}>
             {form.emotion === "Bored" && (
@@ -194,8 +194,8 @@ const NewPost = ({user, userProfile, handleAddPost, allPosts}) => {
           <div className={styles.checkboxContainer}>
             <label>
               {form.public
-                ? "Public 🌐"
-                : "Private 🥷🏻"}
+                ? <p>Public <i className="fa-solid fa-earth-americas"></i></p>
+                : <p>Public <i className="fa-solid fa-earth-americas"></i></p>}
             </label>
             <input
               checked={form.public}

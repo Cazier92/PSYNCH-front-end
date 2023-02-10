@@ -19,22 +19,41 @@
   min-height: 30px;
   justify-content: center;
   align-items: center;
-  margin-bottom: 10px;
-  font-size: 14px;
-  font-weight: 700;
+  padding-bottom: 14px;
+  font-size: 1.6em;
+  font-weight: 600;
   border-bottom: 2px solid rgba(0, 0, 0, 0.065);
   color: black;
+}
+
+.statusSquare{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 30px 20px 30px;
+  border-radius: 3em;
+  border: 2px rgb(237, 237, 237) solid;
+  box-shadow: 
+  rgba(17, 17, 26, 0.05) 0px 1px 0px,
+    
+  rgba(17, 17, 26, 0.1) 0px 0px 8px;
+  background-color: rgb(251, 251, 251);
 }
 
 .currentStatus{
   display: flex;
   flex-direction: column;
   min-width: 270px;
-  min-height: 100px;
+  min-height: 250px;
   font-size: 20px;
   align-items: center;
   justify-content: center;
   border-bottom: 2px solid rgba(0, 0, 0, 0.065);
+  background-color: rgb(255, 255, 255);
+}
+
+.updateBtn{
+  margin: 50px 0 10px 0;
 }
 
 .topThreeStats {
