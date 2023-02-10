@@ -5,7 +5,7 @@
   min-width: 100vw;
   min-height: 100vh;
   background: rgb(0,0,0);
-  background: linear-gradient(90deg, rgba(201, 214, 255, 0.59) 0%, rgba(239, 246, 255, 0.347) 50%, rgba(201, 214, 255, 0.623) 100%);
+  background: linear-gradient(90deg, var(--light-color) 0%, rgba(239, 246, 255, 0.347) 50%, var(--light-color) 100%);
 }
 
 .statsList {
