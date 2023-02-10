@@ -6,18 +6,20 @@
 
 .speechBubble {
   display: flex;
+  padding: 100px;
   flex-direction: column;
   align-items: center;
   width: 400px;
   overflow-wrap: break-word;
   padding: 0 10px 10px 10px;
-  background-color: rgb(244, 244, 244);
+  background-color: var(--dark-color);
   border-radius: 0.5em;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   transition: 0.1s all ease-in;
   position: relative;
-  background: #2bc7d5;
+  color: white;
   border-radius: 0.4em;
+  margin-bottom: 30px;
 }
 
 .speechBubble:after {
@@ -28,7 +30,7 @@
   width: 0;
   height: 0;
   border: 17px solid transparent;
-  border-bottom-color: #2bc7d5;
+  border-bottom-color: var(--dark-color);
   border-top: 0;
   margin-left: -17px;
   margin-top: -17px;
@@ -39,9 +41,9 @@
   font-size: 13px;
 }
 
-.avatarImg {
+/* .avatarImg {
   height: 50px;
-}
+} */
 
 .commentContent {
   font-weight: 600;
@@ -50,17 +52,20 @@
 .buttonBox {
   display: flex;
   justify-content: center;
-  margin-top: 20px;
+   
 }
 
 .buttonBox > button {
+  text-align: center;
+  align-items: center;
   margin: 0 10px;
   font-size: 10px;
-  padding: 3px 7px;
+  padding: 7px 12px;
+  color: white
 }
 
 .btnLink {
-  color: black;
+  color: white;
   text-decoration: none;
 }
 
