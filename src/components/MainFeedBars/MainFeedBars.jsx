@@ -107,9 +107,11 @@ const MainFeedBars = ({ user, allPosts, userProfile}) => {
       </div>
 
       <div className="bottom-sidebar">
-        <div>
-          <i class="fa-solid fa-house-2x"></i>
-        </div>
+        <Link style={linkStyle} to='/main-feed'>
+            <div id="bt-icon-container">
+              <i id="bt-icon" class="fa-solid fa-house "></i>
+            </div>
+        </Link>
         <Link style={linkStyle} to={`/profile/${user.profile}`}>
             <div id="bt-icon-container">
               <i id="bt-icon" class="fa-solid fa-user "></i>

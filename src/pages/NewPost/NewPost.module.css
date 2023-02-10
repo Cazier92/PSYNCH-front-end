@@ -3,7 +3,7 @@
   flex-direction: column;
   align-items: center;
   width: auto;
-  /* margin: 0 200px; */
+
   height: 100vh;
   background: linear-gradient(
     90deg,
@@ -12,7 +12,7 @@
     rgba(201, 214, 255, 0.623) 100%
   );
   color: black;
-  padding-top: 20px;
+  padding-top: 70px;
 }
 
 .container h1 {
