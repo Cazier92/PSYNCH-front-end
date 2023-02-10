@@ -103,7 +103,7 @@ const SignupForm = props => {
         </div>
         <div className={styles.photoInputContainer}>
           <label htmlFor="photo-upload" className={styles.photoLabel} >
-            Upload Profile Picture<i class="fa-solid fa-upload "></i>
+              <i class="fa-solid fa-upload "></i> Upload Profile Picture 
           </label>
           <input
             className={styles.photoInputField}
