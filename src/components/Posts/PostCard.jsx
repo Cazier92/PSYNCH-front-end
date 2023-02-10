@@ -80,11 +80,13 @@ const PostCard = ({ post, user, handleDecideAction }) => {
     <div className="post-container" style={{ boxShadow: decideColor() }} >
       <div className="post-header" >
         <div className="left-header">
-          <img
-            className="post-avatar"
-            src={post.author.photo}
-            alt="profile img"
-          />
+          <Link to={`/profile/${post.author._id}`}>
+            <img
+              className="post-avatar"
+              src={post.author.photo}
+              alt="profile img"
+            />
+          </Link>
           <Link className="profile-link" to={`/profile/${post.author._id}`}>
             <p className="author-name">{post.author.name}</p>
           </Link>
@@ -93,15 +95,17 @@ const PostCard = ({ post, user, handleDecideAction }) => {
           <p>{formatted}</p>
         </div>
       </div>
-      <div className="post-main">
-        <div className="post-text">
-          <p>{post.content}</p>
+      <Link to={`/emotionPosts/${post._id}`} style={linkStyle} >
+      
+        <div className="post-main">
+          <div className="post-text">
+            <p>{post.content}</p>
+          </div>
+          <div className="emotion-section">
+            <p>{post.emotion}</p>
+          </div>
         </div>
-        <div className="emotion-section">
-          <p>{post.emotion}</p>
-        </div>
-      </div>
-
+      </Link>
       <div className="post-footer">
         <div className="post-reaction">
           <div className="interactions">
