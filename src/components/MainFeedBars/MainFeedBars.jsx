@@ -100,9 +100,11 @@ const MainFeedBars = ({ user, allPosts, userProfile}) => {
         <div>
           <i class="fa-solid fa-house-2x"></i>
         </div>
-        <div>
-          <i class="fa-solid fa-user fa-2x"></i>
-        </div>
+        <Link style={linkStyle} to={`/profile/${user.profile}`}>
+            <div id="ls-icon-container">
+              <i id="ls-icon" class="fa-solid fa-user"></i>
+            </div>
+          </Link>
         <div>
           <i class="fa-solid fa-user-group fa-2x"></i>
         </div>
@@ -111,9 +113,14 @@ const MainFeedBars = ({ user, allPosts, userProfile}) => {
               <i id="ls-icon" class="fa-solid fa-pen-to-square"></i>
             </div>
           </Link>
-        <div>
+        <Link style={linkStyle} to="/stats">
+            <div id="ls-icon-container">
+            <i id="ls-icon-container" class="fa-solid fa-chart-simple fa-2x"></i>
+            </div>
+          </Link>
+        {/* <div>
           <i class="fa-solid fa-chart-simple fa-2x"></i>
-        </div>
+        </div> */}
       </div>
 
     </>
