@@ -26,6 +26,7 @@
 
 .checkboxContainer label {
   margin-left: 20px;
+  margin-right: 20px;
 }
 
 form {
@@ -41,6 +42,7 @@ select {
   height: 50px;
   font-size: 20px;
   padding-left: 15px;
+  background: none;
 }
 
 textarea {
@@ -61,8 +63,8 @@ span {
     max-width: 100%;
     min-height: 10em;
     margin: 0;
-    height: 600px;
-    margin-top: 30px;
+    height: 100vh;
+    padding-top: 30px;
   }
 
   .formContainer {
@@ -77,6 +79,11 @@ span {
   .checkboxContainer {
     display: flex;
     width: 70%;
+    margin-top: 10px;
+  }
+
+  select {
+    background: none;
   }
 
   textarea {
