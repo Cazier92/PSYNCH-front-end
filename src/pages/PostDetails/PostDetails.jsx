@@ -6,6 +6,7 @@ import * as postService from "../../services/emotionPostService";
 
 import NewComment from "../../components/NewComment/NewComment";
 import Comments from "../../components/Comments/Comments";
+import MainFeedBars from "../../components/MainFeedBars/MainFeedBars";
 
 const PostDetails = ({ user, handleDeletePost, posts, userProfile }) => {
   const { id } = useParams();
@@ -65,6 +66,8 @@ const PostDetails = ({ user, handleDeletePost, posts, userProfile }) => {
   }, [id]);
 
   return post ? (
+    <>
+    <MainFeedBars user={user} userProfile={userProfile}/>
     <div className={styles.mainContainer}>
       <main className={styles.container}>
         <div className={styles.postDetailCard}>
@@ -316,8 +319,10 @@ const PostDetails = ({ user, handleDeletePost, posts, userProfile }) => {
         />
       </section>
     </div>
+    </>
   ) : (
     <main>
+      <MainFeedBars user={user} userProfile={userProfile}/>
       <p>Loading...</p>
     </main>
   );

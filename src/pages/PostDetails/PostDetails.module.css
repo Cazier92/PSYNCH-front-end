@@ -1,3 +1,11 @@
+
+
+  .mainContainer {
+    background-color: #495867;
+    height: 100vh;
+    padding-top: 2vmin;
+  }
+
 .container {
   display: flex;
   justify-content: center;
@@ -5,8 +13,9 @@
   border-radius: 0.5em;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   margin: 0 350px;
-  margin-top: 100px;
+  /* margin-top: 100px; */
 }
+
 
 .postDetailCard {
   display: flex;

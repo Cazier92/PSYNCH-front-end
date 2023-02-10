@@ -220,14 +220,14 @@ const App = () => {
           path="/login"
           element={<Login handleSignupOrLogin={handleSignupOrLogin} />}
         />
-        <Route
+        {/* <Route
           path="/profiles"
           element={
             <ProtectedRoute user={user}>
               <Profiles />
             </ProtectedRoute>
           }
-        />
+        /> */}
         <Route
           path="/change-password"
           element={
@@ -330,7 +330,7 @@ const App = () => {
           path="/emotionPosts/:postId/comments/:commentId"
           element={
             // <ProtectedRoute>
-            <EditComment userProfile={userProfile}/>
+            <EditComment userProfile={userProfile} user={user}/>
             // </ProtectedRoute>
           }
         />
