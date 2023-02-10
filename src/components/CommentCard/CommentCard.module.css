@@ -45,6 +45,7 @@
 
 .commentContent {
   font-weight: 600;
+  margin-bottom: 20px;
 }
 
 .buttonBox {
@@ -60,7 +61,7 @@
 }
 
 .btnLink {
-  color: black;
+  color: white;
   text-decoration: none;
 }
 
