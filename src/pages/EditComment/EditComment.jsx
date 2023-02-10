@@ -6,7 +6,7 @@ import styles from "./EditComment.module.css";
 import * as postService from "../../services/emotionPostService";
 import MainFeedBars from "../../components/MainFeedBars/MainFeedBars";
 
-const EditComment = ({userProfile, user}) => {
+const EditComment = ({userProfile, user, allPosts}) => {
   const navigate = useNavigate();
   const { state } = useLocation();
   const { postId, commentId } = useParams();
@@ -24,7 +24,7 @@ const EditComment = ({userProfile, user}) => {
 
   return (
     <div>
-      <MainFeedBars user={user} userProfile={userProfile}/>
+      <MainFeedBars user={user} userProfile={userProfile} allPosts={allPosts}/>
       <main>
         <form onSubmit={handleSubmit}>
           <h1>Edit Comment</h1>

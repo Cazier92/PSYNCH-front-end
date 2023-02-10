@@ -88,7 +88,7 @@ const Profile = ({user, allPosts, handleCreateConversation, allConversations, se
   if (!profile) return <h1>Loading</h1>
   return ( 
     <>
-      <MainFeedBars user={user} userProfile={userProfile}/>
+      <MainFeedBars user={user} userProfile={userProfile} allPosts={allPosts}/>
       <div className='profile-head'>
         <h1 className='profile-name'>{profile.name}</h1>
         <img src={profile.photo} alt="" className='profile-img'/>

@@ -8,7 +8,7 @@ import NewComment from "../../components/NewComment/NewComment";
 import Comments from "../../components/Comments/Comments";
 import MainFeedBars from "../../components/MainFeedBars/MainFeedBars";
 
-const PostDetails = ({ user, handleDeletePost, posts, userProfile }) => {
+const PostDetails = ({ user, handleDeletePost, posts, userProfile, allPosts }) => {
   const { id } = useParams();
   const [post, setPost] = useState(null);
 
@@ -67,7 +67,7 @@ const PostDetails = ({ user, handleDeletePost, posts, userProfile }) => {
 
   return post ? (
     <>
-      <MainFeedBars user={user} userProfile={userProfile} />
+      <MainFeedBars user={user} userProfile={userProfile} allPosts={allPosts}/>
       <div className={styles.mainContainer}>
         <main className={styles.container}>
           <div className={styles.postDetailCard}>

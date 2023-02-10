@@ -182,7 +182,7 @@ const StatsPage = ({ user, allPosts, userProfile }) => {
     }
   })
   
-  console.log('SORTED EMOTIONS:', sortedEmotions)
+  // console.log('SORTED EMOTIONS:', sortedEmotions)
 
 
   const findTopThree = () => {
@@ -201,7 +201,7 @@ const StatsPage = ({ user, allPosts, userProfile }) => {
   
   return ( 
     <>
-    <MainFeedBars user={user} userProfile={userProfile}/>
+    <MainFeedBars user={user} userProfile={userProfile} allPosts={allPosts}/>
     <main className={styles.statsMain}>
       <div className={styles.allStats}>
         <div className={styles.statsList}>
