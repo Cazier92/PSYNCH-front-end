@@ -15,6 +15,7 @@ import MainFeed from "./pages/MainFeed/MainFeed";
 import PendingRequests from "./components/FriendRequests/PendingRequests/PendingRequests";
 import PostDetails from "./pages/PostDetails/PostDetails";
 import FriendList from "./components/FriendList/FriendList";
+import FriendsPage from "./pages/FriendsPage/FriendsPage";
 import EditComment from "./pages/EditComment/EditComment";
 import Chat from "./pages/DirectMessages/Chat";
 
@@ -288,10 +289,10 @@ const App = () => {
           }
         />
         <Route
-          path="/profile/friends"
+          path="/friends"
           element={
             <ProtectedRoute user={user}>
-              <FriendList user={user} userProfile={userProfile}/>
+              <FriendsPage user={user} userProfile={userProfile}/>
             </ProtectedRoute>
           }
         />
