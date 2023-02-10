@@ -1,7 +1,3 @@
-
-
-
-
 .friend-card {
   display: flex;
   flex-direction: row;
@@ -16,15 +12,13 @@
   box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
 }
 
-
-.friend-container1{
- display: flex;
- justify-content: center;
- align-items: center;
+.friend-container1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-
-.friend-avatar{
+.friend-avatar {
   background-color: rgb(229, 229, 229);
   border-radius: 50%;
   max-width: 2em;
@@ -34,8 +28,7 @@
   object-fit: cover;
 }
 
-
-.friend-title-container{
+.friend-title-container {
   display: flex;
   flex-direction: column;
   /* background-color: red; */
@@ -45,33 +38,29 @@
   /* min-width: 50%;
   max-width: 50%; */
   height: 100%;
-  
 }
 
-
-.friend-container2{
+.friend-container2 {
   display: flex;
-  justify-content:space-between;
+  justify-content: space-between;
   align-items: center;
   min-width: 10em;
   max-width: 10em;
-  
 }
 
-.friend-name{
+.friendName {
   font-size: 15px;
   font-weight: 500;
   max-width: 5em;
   text-align: left;
   margin-bottom: 2px;
-  
 }
 
-.friend-sub{
+.friend-sub {
   font-size: 13px;
 }
 
-.friend-container3{
+.friend-container3 {
   display: flex;
   flex-direction: row;
   justify-content: center;

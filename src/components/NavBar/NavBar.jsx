@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 
 const linkStyle = {
   textDecoration: "none",
-  color: "black",
+  color: "white",
 };
 
 const NavBar = ({ user, handleLogout }) => {
@@ -26,13 +26,16 @@ const NavBar = ({ user, handleLogout }) => {
     <nav>
       {user ? (
         <>
-          <Link to="/main-feed" className="psynch-logo" style={linkStyle}>
-            PSYNCH
-          </Link>
+          <div className="left-nav">
+            <img className="cloud-logo" src="./Logo/logo1.png" alt="" />
+            <Link to="/main-feed"  style={linkStyle}>
+              <p className="psynch-logo">PSYNCH</p>
+            </Link>
+          </div>
           <div className="right-nav">
-            <p>{user.name}</p>
+            <p className="nav-user-name">{user.name}</p>
             <img
-              className="post-avatar"
+              className="nav-post-avatar"
               src={userProfile.photo}
               alt="profile img"
             />
@@ -46,6 +49,7 @@ const NavBar = ({ user, handleLogout }) => {
       ) : (
         <>
           <div className="left-nav">
+            <img className="cloud-logo" src="./Logo/logo1.png" alt="" />
             <Link to="/" className="psynch-logo" style={linkStyle}>
               PSYNCH
             </Link>

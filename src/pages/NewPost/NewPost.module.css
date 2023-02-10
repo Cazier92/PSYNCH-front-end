@@ -5,8 +5,14 @@
   width: auto;
   /* margin: 0 200px; */
   height: 100vh;
-  background-color: #495867;
-  color: white;
+  background: linear-gradient(
+    90deg,
+    rgba(201, 214, 255, 0.59) 0%,
+    rgba(239, 246, 255, 0.347) 50%,
+    rgba(201, 214, 255, 0.623) 100%
+  );
+  color: black;
+  padding-top: 20px;
 }
 
 .container h1 {
