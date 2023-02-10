@@ -8,7 +8,7 @@ import NewComment from "../../components/NewComment/NewComment";
 import Comments from "../../components/Comments/Comments";
 import MainFeedBars from "../../components/MainFeedBars/MainFeedBars";
 
-const PostDetails = ({ user, handleDeletePost, posts, userProfile, allPosts }) => {
+const PostDetails = ({ user, handleDeletePost, userProfile, allPosts }) => {
   const { id } = useParams();
   const [post, setPost] = useState(null);
 

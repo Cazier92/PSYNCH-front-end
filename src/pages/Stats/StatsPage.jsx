@@ -171,19 +171,13 @@ const StatsPage = ({ user, allPosts, userProfile }) => {
     },
   ]
 
-  // console.log(emotionsWithPercentages.sort((a, b) => {
-  //   if (a.percent >= b.percent) {
-  //     return -1
-  //   }
-  // }))
+
 
   let sortedEmotions = emotionsWithPercentages.sort((a, b) => {
     if (a.percent >= b.percent) {
       return -1
     }
   })
-  
-  // console.log('SORTED EMOTIONS:', sortedEmotions)
 
 
   const findTopThree = () => {
@@ -222,7 +216,6 @@ const StatsPage = ({ user, allPosts, userProfile }) => {
           {findTopThree()}
           <h4>Current Status: {currentStatus}</h4>
         </div>
-
       </div>
     </main>
     </>

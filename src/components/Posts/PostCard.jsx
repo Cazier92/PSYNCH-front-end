@@ -1,7 +1,7 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
-import * as emotionPostService from "../../services/emotionPostService";
+
 import ReactionButton from "./ReactionButton";
 import moment from "moment";
 
@@ -33,7 +33,7 @@ const PostCard = ({ post, user, handleDecideAction }) => {
     .startOf("seconds")
     .fromNow();
 
-  // console.log("formatted", formatted);
+
 
   const down = ["Bored", "Stressed", "Tired"];
   const fearful = ["Anxious", "Rejected", "Scared"];

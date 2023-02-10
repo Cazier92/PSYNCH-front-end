@@ -1,8 +1,8 @@
-import * as directMessagesService from '../../services/directMessagesService'
+
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
-const StartConversation = ({profile, user, handleCreateConversation, allConversations, setAllConversations, newConversationId}) => {
+const StartConversation = ({profile, user, handleCreateConversation, allConversations, newConversationId}) => {
   const [conversationData, setConversationData] = useState({})
 
 

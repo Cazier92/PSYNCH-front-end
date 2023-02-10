@@ -9,9 +9,6 @@ const Stats = ({ user, allPosts, userProfile }) => {
 
 
   useEffect(() => {
-    // const userPosts = allPosts?.filter(
-    //   (post) => post.author._id === user.profile
-    // );
     setUserPosts(allPosts?.filter(
       (post) => post.author._id === user.profile
     ))
@@ -40,8 +37,7 @@ const Stats = ({ user, allPosts, userProfile }) => {
     emotions.push(post.emotion);
   });
 
-    // console.log('allPosts:', allPosts)
-  // console.log('USERPOSTS:', userPosts)
+
 
   let emotionCount = emotions.reduce(function (prev, emotion) {
     if (prev[emotion]) {
@@ -139,28 +135,6 @@ const Stats = ({ user, allPosts, userProfile }) => {
   happyPercentage = findPercent(happyCount);
   surprisedPercentage = findPercent(surprisedCount);
 
-  const emotionPercentagesArr = [
-    downPercentage,
-    fearfulPercentage,
-    angryPercentage,
-    disgustedPercentage,
-    sadPercentage,
-    happyPercentage,
-    surprisedPercentage,
-  ];
-
-  console.log(postCount)
-  // console.log(emotionPercentagesArr)
-
-  const emotionPercentagesObj = {
-    Down: downPercentage,
-    Fearful: fearfulPercentage,
-    Angry: angryPercentage,
-    Disgusted: disgustedPercentage,
-    Sad: sadPercentage,
-    Happy: happyPercentage,
-    Surprised: surprisedPercentage,
-  };
 
   const emotionsWithPercentages = [
     { emotion: "Down", percent: downPercentage },
@@ -172,11 +146,7 @@ const Stats = ({ user, allPosts, userProfile }) => {
     { emotion: "Surprised", percent: surprisedPercentage },
   ];
 
-  // console.log(emotionsWithPercentages.sort((a, b) => {
-  //   if (a.percent >= b.percent) {
-  //     return -1
-  //   }
-  // }))
+
 
   let sortedEmotions = emotionsWithPercentages.sort((a, b) => {
     if (a.percent >= b.percent) {
@@ -184,7 +154,6 @@ const Stats = ({ user, allPosts, userProfile }) => {
     }
   });
 
-  console.log("SORTED EMOTIONS:", sortedEmotions);
 
   const findTopThree = () => {
     return (

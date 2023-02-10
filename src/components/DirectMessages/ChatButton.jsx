@@ -1,11 +1,11 @@
-import * as directMessagesService from '../../services/directMessagesService'
+
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
-import Chat from '../../pages/DirectMessages/Chat';
 
 
-const ChatButton = ({profile, user, neededConvo}) => {
+
+const ChatButton = ({neededConvo}) => {
   const [conversationId, setConversationId] = useState(null)
   
   
