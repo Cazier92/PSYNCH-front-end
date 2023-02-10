@@ -1,7 +1,22 @@
+import { useEffect, useState } from "react";
+
+import styles from './Stats.module.css'
+
 const Stats = ({ user, allPosts, userProfile }) => {
-  const userPosts = allPosts?.filter(
-    (post) => post.author._id === user.profile
-  );
+  const [userPosts, setUserPosts] = useState([])
+
+  const currentStatus = userProfile.currentStatus
+
+
+  useEffect(() => {
+    // const userPosts = allPosts?.filter(
+    //   (post) => post.author._id === user.profile
+    // );
+    setUserPosts(allPosts?.filter(
+      (post) => post.author._id === user.profile
+    ))
+    
+  }, [allPosts, user])
 
   let postCount = 0;
   let emotions = [];
@@ -24,6 +39,9 @@ const Stats = ({ user, allPosts, userProfile }) => {
     postCount++;
     emotions.push(post.emotion);
   });
+
+    // console.log('allPosts:', allPosts)
+  // console.log('USERPOSTS:', userPosts)
 
   let emotionCount = emotions.reduce(function (prev, emotion) {
     if (prev[emotion]) {
@@ -131,6 +149,9 @@ const Stats = ({ user, allPosts, userProfile }) => {
     surprisedPercentage,
   ];
 
+  console.log(postCount)
+  // console.log(emotionPercentagesArr)
+
   const emotionPercentagesObj = {
     Down: downPercentage,
     Fearful: fearfulPercentage,
@@ -183,22 +204,28 @@ const Stats = ({ user, allPosts, userProfile }) => {
 
   return (
     <>
-      <h1>Stats:</h1>
-      <div>
-        <h4>Total Posts: {postCount}</h4>
-        <h5>Down Posts: {downCount}</h5>
-        <h5>Fearful Posts: {fearfulCount}</h5>
-        <h5>Angry Posts: {angryCount}</h5>
-        <h5>Disgusted Posts: {disgustedCount}</h5>
-        <h5>Sad Posts: {sadCount}</h5>
-        <h5>Happy Posts:{happyCount}</h5>
-        <h5>Surprised Posts: {surprisedCount}</h5>
+    <div className={styles.statsMain}>
+      <div className={styles.allStats}>
+        <div className={styles.statsList}>
+        <h1>Stats:</h1>
+          <h4>Total Posts: {postCount}</h4>
+          <h5>Down Posts: {downCount}</h5>
+          <h5>Fearful Posts: {fearfulCount}</h5>
+          <h5>Angry Posts: {angryCount}</h5>
+          <h5>Disgusted Posts: {disgustedCount}</h5>
+          <h5>Sad Posts: {sadCount}</h5>
+          <h5>Happy Posts:{happyCount}</h5>
+          <h5>Surprised Posts: {surprisedCount}</h5>
+        </div>
+        <div className={styles.topThreeStats}>
+          <h2>Breakdown:</h2>
+          <h5>Top Three:</h5>
+          {findTopThree()}
+          <h4>Current Status: {currentStatus}</h4>
+        </div>
+
       </div>
-      <div>
-        <h2>Breakdown:</h2>
-        <h5>Top Three:</h5>
-        {findTopThree()}
-      </div>
+    </div>
     </>
   );
 };

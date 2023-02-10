@@ -42,13 +42,17 @@ const MainFeedBars = ({ user, allPosts, userProfile}) => {
           </div>
         </div>
         <div className="ls-icon-wrapper">
+        <Link style={linkStyle} to={`/main-feed`}>
           <div
+          
             id="ls-icon-container"
             className={`home-icon ${selectedHome ? "active" : "inactive"}`}
             onClick={() => setSelectedHome(!selectedHome)}
           >
             <i id="ls-icon" class="fa-solid fa-house"></i>
           </div>
+
+          </Link>
           <Link style={linkStyle} to={`/profile/${user.profile}`}>
             <div id="ls-icon-container">
               <i id="ls-icon" class="fa-solid fa-user"></i>
