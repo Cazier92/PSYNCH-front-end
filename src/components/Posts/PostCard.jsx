@@ -78,9 +78,7 @@ const PostCard = ({ post, user, handleDecideAction }) => {
 
   return (
     <div className="post-container">
-
       <div className="post-header" style={{ backgroundColor: decideColor() }}>
-
         <div className="left-header">
           <img
             className="post-avatar"
