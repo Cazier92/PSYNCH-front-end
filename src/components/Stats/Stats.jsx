@@ -174,10 +174,28 @@ const Stats = ({ user, allPosts, userProfile }) => {
   return (
     <>
     <div className={styles.statsMain}>
+      <div className={styles.statsTitle} >
+        
+       <p >Stats:</p>
+      </div>
+      <div className={styles.currentStatus}>
+        <p >Current Status: </p>
+        <p>{currentStatus}</p>
+
+      </div>
+      <div className={styles.topThreeStats}>
+        <h2>Breakdown:</h2>
+        <h5>Top Three:</h5>
+        {findTopThree()}
+          
+      </div>
       <div className={styles.allStats}>
+
+         
+
         <div className={styles.statsList}>
-        <h1>Stats:</h1>
-          <h4>Total Posts: {postCount}</h4>
+       
+          <h4 >Total Posts: {postCount}</h4>
           <h5>Down Posts: {downCount}</h5>
           <h5>Fearful Posts: {fearfulCount}</h5>
           <h5>Angry Posts: {angryCount}</h5>
@@ -186,13 +204,7 @@ const Stats = ({ user, allPosts, userProfile }) => {
           <h5>Happy Posts:{happyCount}</h5>
           <h5>Surprised Posts: {surprisedCount}</h5>
         </div>
-        <div className={styles.topThreeStats}>
-          <h2>Breakdown:</h2>
-          <h5>Top Three:</h5>
-          {findTopThree()}
-          <h4>Current Status: {currentStatus}</h4>
-        </div>
-
+       
       </div>
     </div>
     </>

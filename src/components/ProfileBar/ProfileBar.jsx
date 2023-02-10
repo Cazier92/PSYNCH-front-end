@@ -24,8 +24,9 @@ const ProfileBar = ({user, allPosts}) => {
   if (!profile) return <h1>Loading</h1>
   return ( 
     <>
+      <img src={profile.photo} alt="" className='profile-img'/>
       <h1>{profile.name}</h1>
-      <PostList posts={userPosts} user={user}/>
+      {/* <PostList posts={userPosts} user={user}/> */}
     </>
   );
 }
