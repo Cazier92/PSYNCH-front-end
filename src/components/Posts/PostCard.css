@@ -173,3 +173,11 @@
   transform: scale(1.2);
   cursor: pointer;
 }
+
+@media screen and (max-width: 900px) {
+  .post-container {
+    min-width: 80vmin;
+    max-width: 80vmin;
+    max-height: 70vmin;
+  }
+}
