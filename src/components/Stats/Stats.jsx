@@ -185,6 +185,7 @@ const Stats = ({ user, allPosts, userProfile }) => {
     <>
       <h1>Stats:</h1>
       <div>
+        <h4>Total Posts: {postCount}</h4>
         <h5>Down Posts: {downCount}</h5>
         <h5>Fearful Posts: {fearfulCount}</h5>
         <h5>Angry Posts: {angryCount}</h5>

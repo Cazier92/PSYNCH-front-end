@@ -6,12 +6,7 @@
   width: 100%;
   align-items: center;
   /* background-color: #495867; */
-  background: linear-gradient(
-    90deg,
-    rgba(201, 214, 255, 0.59) 0%,
-    rgba(239, 246, 255, 0.347) 50%,
-    rgba(201, 214, 255, 0.623) 100%
-  );
+  background: linear-gradient(90deg, #6bbded6e 0%, rgba(239, 246, 255, 0.3) 50%, rgba(107, 189, 237, 0.3) 100%);
   color: black;
   padding-top: 20px;
 }
