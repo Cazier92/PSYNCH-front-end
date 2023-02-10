@@ -305,7 +305,7 @@ const App = () => {
           path="/emotionPosts/:id/edit"
           element={
             <ProtectedRoute user={user}>
-              <EditPost handleUpdatePost={handleUpdatePost} userProfile={userProfile} allPosts={allPosts} />
+              <EditPost handleUpdatePost={handleUpdatePost} userProfile={userProfile} allPosts={allPosts} user={user}/>
             </ProtectedRoute>
           }
         />
