@@ -33,7 +33,8 @@ nav {
 
 .psynch-logo {
   font-weight: 800;
-  color: var(--dark-color)
+  color: var(--dark-color);
+  padding-right: 10px;
 }
 
 
@@ -129,4 +130,18 @@ button {
 button:hover,
 .menu-btn:hover {
   background-color: var(--dark-color)
+}
+
+
+@media screen and (max-width: 900px){
+
+  .nav-post-avatar{
+    display: none;
+  }
+
+  .nav-user-name{
+    margin-right: 5px;
+  }
+
+
 }

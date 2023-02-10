@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 
 const linkStyle = {
   textDecoration: "none",
-  color: "black",
+  color: "white",
 };
 
 const NavBar = ({ user, handleLogout }) => {
