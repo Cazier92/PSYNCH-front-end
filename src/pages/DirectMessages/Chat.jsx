@@ -13,8 +13,7 @@ const Chat = ({handleCreateNotification, newNotificationId, user, userProfile}) 
   const {conversationId} = useParams()
   const [conversation, setConversation] = useState([])
   const [messages, setMessages] = useState([])
-  // const [members, setMembers] = useState([])
-  // const [profileArr, setProfileArr] = useState([])
+
   const [profile, setProfile] = useState({})
 
     
@@ -22,7 +21,7 @@ const Chat = ({handleCreateNotification, newNotificationId, user, userProfile}) 
     const fetchConversation = async () => {
       const conversationData = await directMessagesService.show(conversationId)
       setConversation(conversationData)
-      // console.log(conversationData)
+
     }
     fetchConversation()
   }, [conversationId])
@@ -31,20 +30,13 @@ const Chat = ({handleCreateNotification, newNotificationId, user, userProfile}) 
     setMessages(conversation.messages)
   }, [conversation, conversationId])
 
-  // useEffect(() => {
-  //   setMembers(conversation.members)
-  // }, [conversation.members])
 
-  // console.log('MEMBERS:', members)
 
   useEffect(() => {
     setProfile(conversation.members?.filter(member => member._id !== user.profile))
   }, [conversation, conversationId, messages, user])
 
-  // console.log('CONVERSATION MEMBERS:', conversation.members.filter(member => member._id !== user.profile))
 
-  // console.log(messages)
-  // console.log('PROFILE:', profile)
 
   const handleSendMessage = async (id, messageData) => {
     const newMessage = await directMessagesService.sendMessage(conversationId, messageData)
