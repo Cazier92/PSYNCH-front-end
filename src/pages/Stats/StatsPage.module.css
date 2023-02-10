@@ -10,8 +10,7 @@
   height: 100%;
   margin: 0;
   top: 0;
-  /* background: rgb(0,0,0);
-  background: linear-gradient(90deg, var(--light-color) 0%, rgba(239, 246, 255, 0.347) 50%, var(--light-color) 100%); */
+  background: linear-gradient(90deg, rgba(107, 189, 237, 0.3) 0%, rgba(239, 246, 255, 0.3) 50%, rgba(107, 189, 237, 0.3) 100%);
 }
 
 .statsTitle{
@@ -34,7 +33,7 @@
   padding: 30px 30px 5px 30px;
   border-radius: 3em;
   box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
-  background-color: rgb(247, 247, 247)
+  background-color: white;
 }
 
 .currentStatus{
@@ -46,7 +45,7 @@
   align-items: center;
   justify-content: center;
   border-bottom: 2px solid rgba(0, 0, 0, 0.065);
-  background-color: rgb(255, 255, 255);
+  
 }
 
 .updateBtn{
