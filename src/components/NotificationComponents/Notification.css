@@ -1,5 +1,33 @@
 .notification-div {
   display: flex;
-  gap: 2vmin;
-  align-self: center;
+  gap: 20px;
+  align-self: left;
+  margin: 2vmin 0;
+  /* flex-wrap: wrap; */
+  /* max-width: 90px; */
+}
+
+.notification-link {
+  background-color: rgb(244, 244, 244);
+  padding: 1vmin;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+  width: 200px;
+  margin-left: 5px;
+  /* flex-wrap: wrap; */
+  /* overflow: visible; */
+}
+
+.notification-delete {
+  margin: 0;
+  padding: 0;
+}
+
+@media screen and (max-width: 700px) {
+  .notification-div {
+    margin: 2vmin 0;
+  }
+  /* .notification-link {
+    min-width: 30px;
+  } */
 }

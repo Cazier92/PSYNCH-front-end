@@ -4,6 +4,7 @@ import Notification from "./Notification";
 const NotificationList = ({userProfile, setUserProfile, allNotifications, setAllNotifications}) => {
   return ( 
     <>
+    <h3>Notifications:</h3>
       {userProfile.notifications?.map(notification => {
             return (
               <>
