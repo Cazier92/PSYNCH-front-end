@@ -7,10 +7,11 @@ import { useState } from "react";
 //COMPONENETS
 import PostList from "../../components/PostList/PostList";
 import MainFeedBars from "../../components/MainFeedBars/MainFeedBars";
+import NotificationList from "../../components/NotificationComponents/NotificationList";
 
 //SERVICES
 
-const MainFeed = ({ posts, user, feed, handleDecideAction, userProfile, allPosts }) => {
+const MainFeed = ({ posts, user, feed, handleDecideAction, userProfile, setUserProfile, allNotifications, setAllNotifications, allPosts }) => {
   //STATES
   let [selectedGlobal, setSelectedGlobal] = useState(true);
   let [selectedFriendsFeed, setSelectedFriendsFeed] = useState(false);
@@ -28,7 +29,12 @@ const MainFeed = ({ posts, user, feed, handleDecideAction, userProfile, allPosts
 
   return (
     <>
-      <MainFeedBars user={user} userProfile={userProfile} allPosts={allPosts}/>
+      <MainFeedBars user={user} 
+      allNotifications={allNotifications} 
+      setAllNotifications={setAllNotifications} 
+      userProfile={userProfile} 
+      setUserProfile={setUserProfile}
+      allPosts={allPosts}/>
       <div className="btns-container">
         <button
           className={`global-btn ${selectedGlobal ? "active" : "inactive"}`}

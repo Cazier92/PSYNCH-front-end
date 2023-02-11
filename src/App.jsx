@@ -141,8 +141,8 @@ const App = () => {
 
   useEffect(() => {
     const fetchProfile = async () => {
-      const data = await profileService.getAllProfiles();
-      setUserProfile(data.filter((profile) => profile._id === user.profile)[0]);
+      const profileData = await profileService.show(user.profile)
+      setUserProfile(profileData)
     };
     fetchProfile();
   }, [user]);
@@ -231,7 +231,7 @@ const App = () => {
           element={
             <ProtectedRoute user={user}>
               <Profile user={user} allPosts={allPosts} handleCreateConversation={handleCreateConversation} allConversations={allConversations} setAllConversations={setAllConversations} newConversationId={newConversationId}
-              allNotifications={allNotifications} newNotificationId={newNotificationId} handleCreateNotification={handleCreateNotification} handleDeleteNotification={handleDeleteNotification} setAllNotifications={setAllNotifications} userProfile={userProfile}
+              allNotifications={allNotifications} newNotificationId={newNotificationId} handleCreateNotification={handleCreateNotification} handleDeleteNotification={handleDeleteNotification} setAllNotifications={setAllNotifications} userProfile={userProfile} setUserProfile={setUserProfile}
               handleDecideAction={handleDecideAction}
               />
             </ProtectedRoute>
@@ -286,7 +286,10 @@ const App = () => {
               feed={feed}
               allPosts={allPosts}
               handleDecideAction={handleDecideAction}
-              userProfile={userProfile}
+              allNotifications={allNotifications} 
+              setAllNotifications={setAllNotifications} 
+              userProfile={userProfile} 
+              setUserProfile={setUserProfile}
             />
           }
         />

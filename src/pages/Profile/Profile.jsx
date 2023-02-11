@@ -9,10 +9,11 @@ import StartConversation from '../../components/DirectMessages/StartConversation
 import ChatButton from '../../components/DirectMessages/ChatButton';
 import MainFeedBars from '../../components/MainFeedBars/MainFeedBars';
 import Notification from '../../components/NotificationComponents/Notification';
+import NotificationList from '../../components/NotificationComponents/NotificationList';
 
 import './Profile.css'
 
-const Profile = ({user, allPosts, handleCreateConversation, allConversations, setAllConversations, newConversationId, allNotifications, setAllNotifications, userProfile, handleDecideAction}) => {
+const Profile = ({user, allPosts, handleCreateConversation, allConversations, setAllConversations, newConversationId, allNotifications, setAllNotifications, userProfile, setUserProfile, handleDecideAction}) => {
   const {id} = useParams()
   const [profile, setProfile] = useState(null)
 
@@ -45,20 +46,23 @@ const Profile = ({user, allPosts, handleCreateConversation, allConversations, se
     }
   }
 
+  console.log('User Notifications:', userProfile.notifications)
+
   const conversationButton = () => {
     if (user.profile === profile._id) {
-      return (
-        <>
-          {profile.notifications.map(notification => {
-            return (
-              <>
-                <Notification key={notification._id} notification={notification} allNotifications={allNotifications} setAllNotifications={setAllNotifications} setProfile={setProfile} profile={profile}/>
+      // return (
+      //   <>
+      //     {/* {userProfile.notifications.map(notification => {
+      //       return (
+      //         <>
+      //           <Notification key={notification._id} notification={notification} allNotifications={allNotifications} setAllNotifications={setAllNotifications} setUserProfile={setUserProfile} userProfile={userProfile}/>
                 
-              </>
-            )
-          })}
-        </>
-      )
+      //         </>
+      //       )
+      //     })} */}
+      //     <NotificationList allNotifications={allNotifications} setAllNotifications={setAllNotifications} userProfile={userProfile} setUserProfile={setUserProfile}/>
+      //   </>
+      // )
     }
     else if (profile.friends.some(friend => friend._id === user.profile)) {
         if (neededConvo) {

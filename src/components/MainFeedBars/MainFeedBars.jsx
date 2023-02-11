@@ -6,6 +6,8 @@ import { useState, useEffect } from "react";
 //COMPONENETS
 import FriendList from "../../components/FriendList/FriendList";
 import Stats from "../../components/Stats/Stats"
+import Notification from "../NotificationComponents/Notification";
+import NotificationList from "../NotificationComponents/NotificationList";
 
 //SERVICES
 
@@ -15,7 +17,7 @@ const linkStyle = {
   color: "black",
 };
 
-const MainFeedBars = ({ user, allPosts, userProfile}) => {
+const MainFeedBars = ({ user, allPosts, userProfile, setUserProfile, allNotifications, setAllNotifications}) => {
   //STATES
   let [selectedFriendsList, setSelectedFriendsList] = useState(false);
   let [selectedHome, setSelectedHome] = useState(true);
@@ -38,7 +40,16 @@ const MainFeedBars = ({ user, allPosts, userProfile}) => {
           <div className={`loaded-component ${
               selectedFriendsList ? "active" : "inactive"
             }`}>
+            <>
             <FriendList user={user} />
+            <NotificationList 
+                  allNotifications={allNotifications} 
+                  setAllNotifications={setAllNotifications} 
+                  userProfile={userProfile} 
+                  setUserProfile={setUserProfile}
+                  allPosts={allPosts}/>
+            </>
+            
           </div>
         </div>
         <div className="ls-icon-wrapper">
