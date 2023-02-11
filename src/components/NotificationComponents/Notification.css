@@ -2,4 +2,12 @@
   display: flex;
   gap: 2vmin;
   align-self: center;
+  margin: 2vmin;
+}
+
+.notification-link {
+  background-color: rgb(244, 244, 244);
+  padding: 1vmin;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
 }
