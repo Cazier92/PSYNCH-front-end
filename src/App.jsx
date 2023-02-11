@@ -273,7 +273,7 @@ const App = () => {
           path="/friends"
           element={
             <ProtectedRoute user={user}>
-              <FriendsPage user={user} userProfile={userProfile}/>
+              <FriendsPage user={user} userProfile={userProfile} setUserProfile={setUserProfile} allNotifications={allNotifications} setAllNotifications={setAllNotifications}/>
             </ProtectedRoute>
           }
         />
