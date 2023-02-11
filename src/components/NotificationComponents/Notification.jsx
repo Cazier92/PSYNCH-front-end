@@ -4,12 +4,12 @@ import * as notificationService from '../../services/notificationService'
 import './Notification.css'
 
 
-const Notification = ({notification, allNotifications, setAllNotifications, profile, setProfile}) => {
+const Notification = ({notification, allNotifications, setAllNotifications, userProfile, setUserProfile}) => {
   
   const handleDeleteNotification = async (id) => {
     const deletedNotification = await notificationService.deleteNotification(id)
     setAllNotifications(allNotifications.filter((b) => b._id !== deletedNotification._id))
-    setProfile({...profile, notifications: profile.notifications.filter((n) => n._id !== notification._id)})
+    setUserProfile({...userProfile, notifications: userProfile.notifications.filter((n) => n._id !== notification._id)})
   }
 
 
