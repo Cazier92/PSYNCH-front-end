@@ -11,14 +11,6 @@ const index = async () => {
   }
 };
 
-// const show = async (id) => {
-//   try {
-//     const res = await fetch(`${BASE_URL}/${id}`);
-//     return res.json();
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
 
 const create = async (notificationData) => {
   try {
@@ -36,21 +28,6 @@ const create = async (notificationData) => {
   }
 };
 
-// const sendMessage = async (id, messageData) => {
-//   try {
-//     const res = await fetch(`${BASE_URL}/${id}/sendMessage`, {
-//       method: "POST",
-//       headers: {
-//         Authorization: `Bearer ${tokenService.getToken()}`,
-//         "Content-Type": "application/json",
-//       },
-//       body: JSON.stringify(messageData),
-//     });
-//     return res.json();
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
 
 const deleteNotification = async (id) => {
   try {

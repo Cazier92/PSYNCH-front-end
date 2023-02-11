@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import MainFeedBars from "../../components/MainFeedBars/MainFeedBars";
 
 import * as directMessagesService from '../../services/directMessagesService'
-import * as profileService from '../../services/profileService'
 
 import SendMessage from "../../components/DirectMessages/SendMessage";
 
@@ -15,9 +14,7 @@ const Chat = ({handleCreateNotification, newNotificationId, user, userProfile, a
   const [conversation, setConversation] = useState([])
   const [messages, setMessages] = useState([])
   const [newMessage, setNewMessage] = useState()
-  // const [newNewMessage, setNewNewMessage] = useState({})
-  // const [newMessageAuthor, setNewMessageAuthor] = useState({})
-
+  const [newMessagesArr, setNewMessagesArr] = useState([])
   const [profile, setProfile] = useState({})
 
     
@@ -34,8 +31,6 @@ const Chat = ({handleCreateNotification, newNotificationId, user, userProfile, a
     setMessages(conversation.messages)
   }, [conversation, conversationId])
 
-
-
   useEffect(() => {
     setProfile(conversation.members?.filter(member => member._id !== user.profile))
   }, [conversation, conversationId, messages, user])
@@ -45,65 +40,27 @@ const Chat = ({handleCreateNotification, newNotificationId, user, userProfile, a
   const handleSendMessage = async (id, messageData) => {
     const newMessage = await directMessagesService.sendMessage(conversationId, messageData)
     setNewMessage(newMessage)
-    // setConversation({...conversation, messages: [...conversation.messages, newMessage,]})
-    // console.log('NEW MESSAGE:', newMessage)
   }
-  
-  // useEffect( () => {
-  //   const fetchProfile = async () => {
-  //     const data = await profileService.getAllProfiles();
-  //     setNewMessageAuthor(data.filter((profile) => profile._id === newMessage.author)[0]);
-  //   };
-  //   fetchProfile();
-  //   const newMessageFunc = async () => {
-  //     await fetchProfile()
-  //     .then(profile => {
-  //       setNewNewMessage({...newMessage, author: newMessageAuthor})
-  //       console.log(newMessage)
-  //     })
-  //   }
-  //   newMessageFunc()
-  //   const newConversationFunc = async () => {
-  //     await fetchProfile()
-  //     await newMessageFunc()
-  //     .then(message => {
-  //       if (newNewMessage) {
 
-  //         setConversation({...conversation, messages: [...conversation.messages, newNewMessage,]})
-  //       }
-
-  //     })
-  //   }
-  //   newConversationFunc()
-  // }, [conversation, messages, newMessage]);
-  
-
-
-  // console.log('NEWNEW MESSAGE', newNewMessage)
-  let newMessagesArr = []
-
-  const newMessageRender = () => {
-    if (newMessage) {
-      // return (
-      //   <>
-      //     <div className="user-message">
-      //       <p className="user-message-content">{newMessage.content}</p>
-      //       <h6 className="user-name">{user.name}</h6>
-      //     </div>
-      //   </>
-      // )
-      newMessagesArr.push({
-        content: newMessage.content,
-        author: user.name
-      })
+  useEffect(() => {
+    const messageToInclude = {
+      content: newMessage?.content,
+      author: user.name,
+      _id: newMessage?._id
     }
-  }
-  newMessageRender()
+    if (newMessagesArr.some(message => message._id === messageToInclude._id)) {
+
+    } 
+    else if (newMessage?.content !== undefined) {
+      setNewMessagesArr([...newMessagesArr, messageToInclude])
+    }
+  }, [newMessage, user.name])
+
 
   const endEl = document.getElementById('end')
-  // console.log(endEl)
+
   endEl?.scrollIntoView({behavior: 'smooth', block: 'end', inline: 'nearest'})
-  // const reverseMessages = messages?.reverse()
+
 
   return ( 
     <>
