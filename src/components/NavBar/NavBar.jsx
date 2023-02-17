@@ -20,7 +20,7 @@ const NavBar = ({ user, handleLogout }) => {
       setUserProfile(data.filter((profile) => profile._id === user.profile)[0]);
     };
     fetchProfile();
-  }, []);
+  }, [user]);
 
   return (
     <nav>
