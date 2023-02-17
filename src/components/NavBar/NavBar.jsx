@@ -52,8 +52,10 @@ const NavBar = ({ user, handleLogout }) => {
       ) : (
         <>
           <div className="left-nav">
-            <img className="cloud-logo" src="./Logo/logo1.png" alt="" />
-            <Link to="/"  style={linkStyle}>
+
+            <img className="cloud-logo" src="./koi.PNG" alt="" />
+            <Link to="/main-feed"  style={linkStyle}>
+
               <p className="psynch-logo">PSYNCH</p>
             </Link>
           </div>
