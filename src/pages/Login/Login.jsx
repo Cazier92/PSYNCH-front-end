@@ -16,7 +16,7 @@ const LoginPage = (props) => {
       </div>
       <div className="rightContainer">
         <div className="header">
-        <img className='logo-cloud' src="./Logo/logo1.png" alt="" />
+        <img className='logo-cloud' src="./koi.PNG" alt="" />
           <h1>Welcome back</h1>
           <p>Please enter your login details.</p>
           <p className="err-message">{message}</p>
