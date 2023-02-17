@@ -9,12 +9,18 @@ const Stats = ({ user, allPosts, userProfile }) => {
   const currentStatus = userProfile.currentStatus
 
 
+
+
   useEffect(() => {
-    setUserPosts(allPosts?.filter(
-      (post) => post.author._id === user.profile
-    ))
+    console.log('ALL POSTS', typeof allPosts)
+    if (typeof allPosts !== 'object') {
+      setUserPosts(allPosts?.filter(
+        (post) => post.author._id === user.profile
+      ))
+
+    }
     
-  }, [allPosts, user])
+  }, [allPosts, user, user.profile])
 
   let postCount = 0;
   let emotions = [];

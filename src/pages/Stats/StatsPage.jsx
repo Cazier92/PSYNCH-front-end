@@ -204,7 +204,7 @@ const StatsPage = ({ user, allPosts, userProfile }) => {
     <div className={styles.statsMain}>
       <div className={styles.statsTitle} >
         
-       <p >Stats</p>
+        <p >Stats</p>
       </div>
       
       
