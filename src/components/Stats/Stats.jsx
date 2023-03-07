@@ -9,18 +9,35 @@ const Stats = ({ user, allPosts, userProfile }) => {
   const currentStatus = userProfile.currentStatus
 
 
-
-
   useEffect(() => {
-    console.log('ALL POSTS', typeof allPosts)
-    if (typeof allPosts !== 'object') {
-      setUserPosts(allPosts?.filter(
-        (post) => post.author._id === user.profile
+    console.log('ALL POSTS', allPosts)
+    if (allPosts.length) {
+      setUserPosts(allPosts.filter(
+        (post) => post.author._id === userProfile._id
       ))
 
     }
     
-  }, [allPosts, user, user.profile])
+  }, [allPosts, user, user.profile, userProfile])
+
+  // if (allPosts.length && typeof allPosts !== 'object') {
+  //   setUserPosts(allPosts.filter(
+  //     (post) => post.author._id === user.profile
+  //   ))
+
+  // }
+
+  // setUserPosts(allPosts.filter(
+  //   (post) => post.author._id === user.profile
+  // ))
+
+  // console.log('userPosts', allPosts.filter((post) => post.author._id === userProfile._id
+  // ))
+
+  // console.log('USER POSTS', userPosts)
+
+  console.log(allPosts)
+
 
   let postCount = 0;
   let emotions = [];
@@ -185,6 +202,8 @@ const Stats = ({ user, allPosts, userProfile }) => {
     );
   };
 
+
+
   return (
     <>
     <div className={styles.statsMain}>
@@ -216,10 +235,10 @@ const Stats = ({ user, allPosts, userProfile }) => {
       </div>
       <div className={styles.allStats}>
 
-         
+
 
         <div className={styles.statsList}>
-       
+
         <p className={styles.breakdownTitle}>Breakdown</p>
 
           <p>Down Posts: {downCount}</p>
@@ -229,7 +248,7 @@ const Stats = ({ user, allPosts, userProfile }) => {
           <p>Happy Posts:{happyCount}</p>
           <p>Surprised Posts: {surprisedCount}</p>
         </div>
-       
+
       </div>
     </div>
     </>

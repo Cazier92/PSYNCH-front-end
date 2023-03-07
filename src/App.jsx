@@ -123,6 +123,8 @@ const App = () => {
     fetchAll();
   }, []);
 
+  
+
   useEffect(() => {
     const fetchAllConversations = async () => {
       const allConversationsData = await directMessagesService.index()

@@ -27,6 +27,7 @@ const MainFeed = ({ posts, user, feed, handleDecideAction, userProfile, setUserP
   }
   toggle();
 
+
   return (
     <>
       <MainFeedBars user={user} 
@@ -34,7 +35,7 @@ const MainFeed = ({ posts, user, feed, handleDecideAction, userProfile, setUserP
       setAllNotifications={setAllNotifications} 
       userProfile={userProfile} 
       setUserProfile={setUserProfile}
-      allPosts={allPosts}/>
+      allPosts={posts}/>
       <div className="btns-container">
         <button
           className={`global-btn ${selectedGlobal ? "active" : "inactive"}`}
