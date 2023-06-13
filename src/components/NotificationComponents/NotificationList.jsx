@@ -14,7 +14,7 @@ const NotificationList = ({userProfile, setUserProfile, allNotifications, setAll
             )
           })}
     </>
-   );
+  );
 }
- 
+
 export default NotificationList;

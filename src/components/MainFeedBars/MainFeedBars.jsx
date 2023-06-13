@@ -120,7 +120,7 @@ const MainFeedBars = ({ user, allPosts, userProfile, setUserProfile, allNotifica
       <div className="bottom-sidebar">
         <Link style={linkStyle} to='/main-feed'>
             <div id="bt-icon-container">
-              <i id="bt-icon" class="fa-solid fa-house "></i>
+              <i id="bt-icon" class="fa-solid fa-house"></i>
             </div>
         </Link>
         <Link style={linkStyle} to={`/profile/${user.profile}`}>
