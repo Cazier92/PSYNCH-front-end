@@ -18,7 +18,7 @@ const Signup = (props) => {
         <div className="header">
           <img className='logo-cloud' src="./koi.PNG" alt="" />
           <h1>Welcome</h1>
-          <p>Please enter your details.</p>
+          <p>Please enter your details to sign up.</p>
           <p className="err-message">{message}</p>
         </div>
         <SignupForm {...props} updateMessage={updateMessage} />
