@@ -10,8 +10,7 @@ const Stats = ({ user, allPosts, userProfile }) => {
 
 
   useEffect(() => {
-    console.log('ALL POSTS', allPosts)
-    if (allPosts.length) {
+    if (allPosts && allPosts.length) {
       setUserPosts(allPosts.filter(
         (post) => post.author._id === userProfile._id
       ))
@@ -19,24 +18,6 @@ const Stats = ({ user, allPosts, userProfile }) => {
     }
     
   }, [allPosts, user, user.profile, userProfile])
-
-  // if (allPosts.length && typeof allPosts !== 'object') {
-  //   setUserPosts(allPosts.filter(
-  //     (post) => post.author._id === user.profile
-  //   ))
-
-  // }
-
-  // setUserPosts(allPosts.filter(
-  //   (post) => post.author._id === user.profile
-  // ))
-
-  // console.log('userPosts', allPosts.filter((post) => post.author._id === userProfile._id
-  // ))
-
-  // console.log('USER POSTS', userPosts)
-
-  console.log(allPosts)
 
 
   let postCount = 0;
